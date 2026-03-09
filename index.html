@@ -1,115 +1,699 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Narae International Foundation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naræ International Foundation</title>
+  <meta name="description" content="Naræ International Foundation is a purpose-driven nonprofit building spaces for healing, culture, volunteerism, and community care." />
+  <style>
+    :root {
+      --bg: #fcfafb;
+      --surface: #ffffff;
+      --surface-soft: #f7f2f4;
+      --text: #2d2430;
+      --muted: #6d6168;
+      --line: #eadfe5;
+      --primary: #c85d7b;
+      --primary-deep: #a84563;
+      --accent: #4fa4a1;
+      --gold: #d7b06a;
+      --shadow: 0 18px 50px rgba(55, 31, 43, 0.08);
+      --radius: 22px;
+      --max: 1160px;
+    }
 
-<style>
+    * { box-sizing: border-box; }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f9f6f7;
-    text-align:center;
-    padding:80px;
-    color:#333;
-}
+    html { scroll-behavior: smooth; }
 
-.container{
-    max-width:720px;
-    margin:auto;
-}
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(200, 93, 123, 0.07), transparent 28%),
+        radial-gradient(circle at top right, rgba(79, 164, 161, 0.08), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
 
-.logo{
-    width:140px;
-    margin-bottom:20px;
-}
+    a { color: inherit; text-decoration: none; }
 
-h1{
-    font-size:36px;
-    margin-bottom:5px;
-    font-weight:700;
-}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-.subtitle{
-    font-size:18px;
-    color:#777;
-    margin-bottom:30px;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(252, 250, 251, 0.85);
+      border-bottom: 1px solid rgba(234, 223, 229, 0.8);
+    }
 
-p{
-    font-size:18px;
-    line-height:1.7;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
 
-.highlight{
-    font-weight:700;
-    color:#c2416c;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
 
-.email{
-    margin-top:30px;
-    font-weight:700;
-    font-size:18px;
-}
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(200,93,123,0.15), rgba(79,164,161,0.15));
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(200,93,123,0.15);
+      font-size: 20px;
+    }
 
-.email a{
-    color:#0f766e;
-    text-decoration:none;
-}
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
 
-.email a:hover{
-    text-decoration:underline;
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
 
-footer{
-    margin-top:50px;
-    font-size:14px;
-    color:#888;
-}
+    .nav-links a:hover { color: var(--primary-deep); }
 
-</style>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
 
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      color: white;
+      box-shadow: 0 14px 28px rgba(168, 69, 99, 0.18);
+    }
+
+    .btn-primary:hover { transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(200, 93, 123, 0.3);
+      color: var(--primary-deep);
+    }
+
+    .hero {
+      padding: 76px 0 54px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      color: var(--primary-deep);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy p {
+      margin: 22px 0 0;
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .hero-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,242,244,0.96));
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(200,93,123,0.18), transparent 68%);
+      border-radius: 50%;
+    }
+
+    .logo-box {
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      border: 1px dashed rgba(200,93,123,0.35);
+      background: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card-kicker {
+      margin-top: 18px;
+      color: var(--primary-deep);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      margin: 8px 0 10px;
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .card-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .mission-grid,
+    .pillar-grid,
+    .impact-grid,
+    .footer-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mission-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: stretch;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 26px rgba(55, 31, 43, 0.04);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .quote {
+      background: linear-gradient(135deg, rgba(200,93,123,0.08), rgba(79,164,161,0.08));
+    }
+
+    .quote blockquote {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.45;
+      letter-spacing: -0.02em;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 16px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .pillar-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .pillar-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(200,93,123,0.12), rgba(79,164,161,0.12));
+      margin-bottom: 16px;
+      font-size: 22px;
+    }
+
+    .impact-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .impact-card strong {
+      display: block;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
+    .impact-card span {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .cta {
+      padding: 42px 0 70px;
+    }
+
+    .cta-wrap {
+      background: linear-gradient(135deg, #2f2732, #473341);
+      color: white;
+      border-radius: 30px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-wrap::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      top: -60px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(215,176,106,0.24), transparent 65%);
+    }
+
+    .cta-wrap h2 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-wrap p {
+      margin: 0;
+      color: rgba(255,255,255,0.82);
+      max-width: 720px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-light {
+      background: white;
+      color: #2f2732;
+    }
+
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+      background: transparent;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 50px;
+      color: var(--muted);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .mission-grid,
+      .pillar-grid,
+      .impact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 22px), var(--max)); }
+      .card, .hero-card, .cta-wrap { padding: 22px; }
+      .nav-links { font-size: 14px; }
+      .hero-copy p, .section-head p { font-size: 16px; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <div class="brand-mark">✦</div>
+        <div class="brand-text">
+          Naræ International Foundation
+          <span>Naræ+</span>
+        </div>
+      </a>
 
-<div class="container">
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#pillars">Our Work</a>
+        <a href="#impact">Vision</a>
+        <a href="#connect">Connect</a>
+      </div>
+    </div>
+  </div>
 
-<!-- LOGO -->
-<img src="./crane.jpg" class="logo" alt="Narae Origami Crane Logo">
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Purpose-driven nonprofit • Healing • Culture • Community</div>
+          <h1>Building spaces where care, culture, and community can take flight.</h1>
+          <p>
+            Naræ International Foundation is a developing nonprofit rooted in compassion, volunteerism, and cultural connection.
+            We exist to create thoughtful spaces for healing, encouragement, and meaningful community support.
+          </p>
 
-<h1>Narae International Foundation</h1>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#connect">Get Involved</a>
+            <a class="btn btn-secondary" href="#mission">Learn More</a>
+          </div>
 
-<div class="subtitle">Naræ+</div>
+          <div class="hero-notes">
+            <div class="chip">Micro-retreats</div>
+            <div class="chip">Cultural storytelling</div>
+            <div class="chip">Volunteer-centered care</div>
+          </div>
+        </div>
 
-<p>
-Narae International Foundation is a nonprofit organization dedicated to fostering healing,
-cultural connection, and community for women impacted by
-<span class="highlight">breast and gynecologic cancers</span>,
-especially those whose cultural voices are often underrepresented.
-</p>
+        <aside class="hero-card">
+          <div class="logo-box">
+            Place your Naræ+ logo here<br />
+            PNG or SVG recommended
+          </div>
+          <div class="card-kicker">Our aspiration</div>
+          <div class="card-title">A gentle, global network of support.</div>
+          <p class="card-text">
+            Inspired by the meaning of “naræ,” or wings, the foundation represents movement, uplift, and the quiet strength it takes to begin again.
+          </p>
 
-<p>
-Through small-scale retreats and volunteer engagement, Naræ+ seeks to create spaces for
-restoration, storytelling, and global connection.
-</p>
+          <div class="stats">
+            <div class="stat">
+              <strong>Healing</strong>
+              <span>Thoughtful support for rest, reflection, and renewal.</span>
+            </div>
+            <div class="stat">
+              <strong>Culture</strong>
+              <span>Honoring stories, heritage, and shared humanity.</span>
+            </div>
+            <div class="stat">
+              <strong>Service</strong>
+              <span>Creating practical pathways to care for others.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<p>
-Our website is currently under development.
-</p>
+    <section id="mission">
+      <div class="container">
+        <div class="section-head">
+          <h2>Our mission</h2>
+          <p>
+            Naræ International Foundation seeks to uplift individuals and communities through restorative experiences,
+            cultural education, and compassionate acts of service.
+          </p>
+        </div>
 
-<div class="email">
-Contact: 
-<a href="mailto:hello@naraefoundation.org">
-hello@naraefoundation.org
-</a>
-</div>
+        <div class="mission-grid">
+          <div class="card">
+            <h3>Why Naræ+</h3>
+            <p>
+              The name reflects wings, lift, and possibility. We believe healing is not only personal, but communal.
+              Through intentional programming and human-centered partnerships, we hope to create spaces that feel dignified,
+              welcoming, and quietly transformative.
+            </p>
+          </div>
 
-<footer>
-© 2026 Narae International Foundation
-</footer>
+          <div class="card quote">
+            <blockquote>
+              “To offer rest, dignity, and connection is not a small thing. Sometimes it is the bridge that helps someone keep going.”
+            </blockquote>
+            <cite>Naræ+ guiding spirit</cite>
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="pillars">
+      <div class="container">
+        <div class="section-head">
+          <h2>What we hope to do</h2>
+          <p>
+            Our work is envisioned around three connected pillars that support healing, belonging, and practical care.
+          </p>
+        </div>
 
+        <div class="pillar-grid">
+          <div class="card">
+            <div class="pillar-icon">✿</div>
+            <h3>Restorative experiences</h3>
+            <p>
+              Curated micro-retreats and wellness-centered experiences designed to create room for rest, reflection, and renewal.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="pillar-icon">⟡</div>
+            <h3>Cultural connection</h3>
+            <p>
+              Storytelling, heritage education, and creative expression that honor identity, memory, and intergenerational meaning.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="pillar-icon">♡</div>
+            <h3>Community service</h3>
+            <p>
+              Volunteer-centered support that channels compassion into tangible acts of care for individuals and communities in need.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="container">
+        <div class="section-head">
+          <h2>The future we are building</h2>
+          <p>
+            We are beginning with intention: small, thoughtful, and sustainable. The dream is to grow a lasting ecosystem of care.
+          </p>
+        </div>
+
+        <div class="impact-grid">
+          <div class="card impact-card">
+            <strong>Human</strong>
+            <span>Centered around dignity, emotional safety, and real-life needs.</span>
+          </div>
+          <div class="card impact-card">
+            <strong>Rooted</strong>
+            <span>Grounded in culture, heritage, and meaningful community ties.</span>
+          </div>
+          <div class="card impact-card">
+            <strong>Intentional</strong>
+            <span>Designed to start small, stay thoughtful, and grow with care.</span>
+          </div>
+          <div class="card impact-card">
+            <strong>Hopeful</strong>
+            <span>Built on the belief that gentleness can still create real change.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="connect">
+      <div class="container">
+        <div class="cta-wrap">
+          <h2>We are laying the foundation now, with hope for what this can become.</h2>
+          <p>
+            Follow the journey, connect with the mission, and be part of a future shaped by compassion, culture, and service.
+          </p>
+          <div class="cta-actions">
+            <a class="btn btn-light" href="mailto:hello@naraefoundation.org">Contact Us</a>
+            <a class="btn btn-outline-light" href="#top">Back to Top</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Naræ International Foundation</strong>
+        <div class="small">A developing nonprofit initiative centered on healing, culture, and community care.</div>
+      </div>
+      <div class="small" style="text-align:right;">
+        © 2026 Naræ International Foundation. All rights reserved.
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
