@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership | naræ International Foundation</title>
+  <meta name="description" content="Join the naræ+ community through free participant membership and stay connected to future programs, support, and community updates." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --line: #e6e6e6;
+      --primary: #c62828;
+      --primary-deep: #8e1b1b;
+      --shadow: 0 18px 50px rgba(0,0,0,0.08);
+      --radius: 22px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(200, 93, 123, 0.07), transparent 28%),
+        radial-gradient(circle at top right, rgba(79, 164, 161, 0.08), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(252, 250, 251, 0.85);
+      border-bottom: 1px solid rgba(234, 223, 229, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(198,40,40,0.18);
+      flex-shrink: 0;
+    }
+
+    .crown-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 500;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-deep);
+    }
+
+    .page-hero {
+      padding: 76px 0 26px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      border: 1px solid var(--line);
+      color: var(--primary-deep);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
+
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .section {
+      padding: 18px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 10px 26px rgba(55, 31, 43, 0.04);
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .wide-card {
+      margin-top: 18px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(198,40,40,0.05);
+      border: 1px solid rgba(198,40,40,0.14);
+      color: #6a3232;
+      font-size: 15px;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .benefit {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .benefit strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 50px;
+      color: var(--muted);
+      margin-top: 36px;
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid,
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark"><span class="crown-dot"></span></div>
+        <div class="brand-text">
+          naræ International Foundation
+          <span>naræ+</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="learn-more.html">Learn More</a>
+        <a href="membership.html" class="active">Membership</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:hello@naraefoundation.org">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Community membership</div>
+        <h1>Join the naræ+ community.</h1>
+        <p class="intro">
+          naræ+ hopes to offer free community membership for participants who want to stay connected, receive updates, hear about future opportunities, and grow with a mission rooted in healing, cultural belonging, and meaningful support.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>What membership means</h2>
+            <p>
+              Community membership is intended to be a free and welcoming way for participants to stay connected to naræ+.
+            </p>
+            <p>
+              It reflects belonging, encouragement, and connection, rather than fees, pressure, or formal obligations.
+            </p>
+          </div>
+
+          <div class="card">
+            <h2>Who it is for</h2>
+            <p>
+              This membership is meant for participants and community members who feel connected to the heart of naræ+ and want to stay informed as the foundation grows.
+            </p>
+            <p>
+              It is especially intended for those drawn to healing, cultural connection, encouragement, and supportive community.
+            </p>
+          </div>
+        </div>
+
+        <div class="card wide-card">
+          <h2>What members may receive</h2>
+          <p>
+            As naræ+ develops, community membership may include opportunities such as:
+          </p>
+
+          <div class="benefits">
+            <div class="benefit">
+              <strong>Foundation updates</strong>
+              News and thoughtful updates about the journey and growth of naræ+.
+            </div>
+            <div class="benefit">
+              <strong>Future program announcements</strong>
+              Early notice about future retreats, gatherings, or supportive opportunities.
+            </div>
+            <div class="benefit">
+              <strong>Community connection</strong>
+              A gentle way to stay connected to a mission centered on healing and belonging.
+            </div>
+            <div class="benefit">
+              <strong>Volunteer opportunities</strong>
+              Invitations to future ways of serving, supporting, and participating.
+            </div>
+          </div>
+
+          <div class="note">
+            Community membership is free and intended for participant connection and engagement. It does not refer to legal governance or voting membership within the nonprofit.
+          </div>
+
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:hello@naraefoundation.org?subject=I%20would%20like%20to%20join%20the%20nar%C3%A6%2B%20community">Join Our Community</a>
+            <a class="btn btn-secondary" href="learn-more.html">Learn More</a>
+            <a class="btn btn-secondary" href="support.html">Support Naræ+</a>
+          </div>
+        </div>
+
+        <div class="card wide-card">
+          <h2>Growing with intention</h2>
+          <p>
+            naræ+ is still in its early stages. We want membership to feel genuine, warm, and sustainable, not rushed.
+          </p>
+          <p>
+            As the foundation grows, we hope to shape this community carefully so that people feel truly welcomed, respected, and seen.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="small">
+        © 2026 naræ International Foundation. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
