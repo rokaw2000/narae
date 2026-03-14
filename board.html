@@ -1,390 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leadership & Governance | naræ International Foundation</title>
+  <meta
+    name="description"
+    content="Leadership of naræ International Foundation including the Board of Directors and Advisory Board."
+  />
+  <style>
+    :root {
+      --bg: #fcfbf8;
+      --surface: rgba(255,255,255,0.92);
+      --text: #111111;
+      --muted: #555555;
+      --line: #e8e1d7;
+      --primary: #c62828;
+      --primary-deep: #8e1b1b;
+      --shadow: 0 18px 50px rgba(0,0,0,0.06);
+      --radius: 24px;
+      --max: 1040px;
+    }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    * {
+      box-sizing: border-box;
+    }
 
-<title>Leadership & Governance | naræ International Foundation</title>
+    html {
+      scroll-behavior: smooth;
+    }
 
-<meta name="description" content="Leadership of naræ International Foundation including the Board of Directors and Advisory Board."/>
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.92), transparent 34%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.72), transparent 28%),
+        linear-gradient(rgba(255,255,255,0.88), rgba(252,251,248,0.96)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(196,182,160,0.035) 0px,
+          rgba(196,182,160,0.035) 1px,
+          transparent 1px,
+          transparent 6px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(196,182,160,0.025) 0px,
+          rgba(196,182,160,0.025) 1px,
+          transparent 1px,
+          transparent 8px
+        );
+      background-attachment: fixed;
+    }
 
-<style>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-:root{
---bg:#ffffff;
---surface:rgba(255,255,255,0.92);
---text:#111111;
---muted:#555555;
---line:#ececec;
---primary:#c62828;
---primary-deep:#8e1b1b;
---shadow:0 18px 50px rgba(0,0,0,0.06);
---radius:24px;
---max:1040px;
-}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-*{box-sizing:border-box;}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(232,225,215,0.95);
+    }
 
-body{
-margin:0;
-font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-color:var(--text);
-line-height:1.7;
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
 
-background-color:var(--bg);
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-background-image:
-linear-gradient(rgba(255,255,255,0.96),rgba(255,255,255,0.96)),
-radial-gradient(circle at top left,rgba(198,40,40,0.035),transparent 28%),
-radial-gradient(circle at top right,rgba(79,164,161,0.04),transparent 26%),
-repeating-linear-gradient(0deg,rgba(0,0,0,0.018) 0px,rgba(0,0,0,0.018) 1px,transparent 1px,transparent 8px),
-repeating-linear-gradient(90deg,rgba(0,0,0,0.012) 0px,rgba(0,0,0,0.012) 1px,transparent 1px,transparent 9px);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(198,40,40,0.18);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      flex-shrink: 0;
+    }
 
-background-attachment:fixed;
-}
+    .crown-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
+    }
 
-a{color:inherit;text-decoration:none;}
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.08;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-.container{
-width:min(calc(100% - 32px),var(--max));
-margin:0 auto;
-}
+    .brand-text .sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
 
-/* NAVBAR */
+    .mark {
+      display: inline-block;
+      font-size: 0.72em;
+      vertical-align: super;
+      margin-left: 1px;
+      line-height: 1;
+    }
 
-.topbar{
-position:sticky;
-top:0;
-z-index:20;
-backdrop-filter:blur(14px);
-background:rgba(255,255,255,0.82);
-border-bottom:1px solid rgba(230,230,230,0.9);
-}
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 500;
+    }
 
-.nav{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:18px;
-padding:16px 0;
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-deep);
+    }
 
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-}
+    .page-hero {
+      padding: 72px 0 28px;
+    }
 
-.brand-mark{
-width:42px;
-height:42px;
-border-radius:14px;
-border:1px solid rgba(198,40,40,0.18);
-background:#fff;
-display:grid;
-place-items:center;
-}
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.86);
+      color: var(--primary-deep);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
 
-.crown-dot{
-width:12px;
-height:12px;
-border-radius:50%;
-background:linear-gradient(135deg,var(--primary),var(--primary-deep));
-box-shadow:0 0 0 6px rgba(198,40,40,0.08);
-}
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+    }
 
-.brand-text{
-display:flex;
-flex-direction:column;
-line-height:1.08;
-font-size:20px;
-font-weight:800;
-letter-spacing:-0.02em;
-}
+    .intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0;
+    }
 
-.brand-text span{
-font-size:13px;
-font-weight:600;
-color:var(--muted);
-letter-spacing:0.08em;
-}
+    .section {
+      padding: 22px 0;
+    }
 
-.nav-links{
-display:flex;
-flex-wrap:wrap;
-justify-content:flex-end;
-gap:18px;
-font-size:15px;
-color:var(--muted);
-font-weight:500;
-}
+    .section-title {
+      font-size: 26px;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
 
-.nav-links a:hover,
-.nav-links a.active{
-color:var(--primary-deep);
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-/* HERO */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      transition: all 0.2s ease;
+    }
 
-.page-hero{
-padding:72px 0 28px;
-}
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 58px rgba(0,0,0,0.08);
+    }
 
-.eyebrow{
-display:inline-flex;
-padding:8px 14px;
-border-radius:999px;
-border:1px solid var(--line);
-background:rgba(255,255,255,0.86);
-color:var(--primary-deep);
-font-size:13px;
-font-weight:700;
-margin-bottom:18px;
-}
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
 
-h1{
-margin:0 0 14px;
-font-size:clamp(2.5rem,5vw,4rem);
-line-height:1.06;
-letter-spacing:-0.04em;
-}
+    .role {
+      color: var(--primary-deep);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-.intro{
-max-width:760px;
-color:var(--muted);
-font-size:18px;
-}
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
 
-/* SECTION */
+    .note-card {
+      margin-top: 18px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px 24px;
+      color: var(--muted);
+    }
 
-.section{
-padding:22px 0;
-}
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0 50px;
+      color: var(--muted);
+      margin-top: 40px;
+      font-size: 14px;
+    }
 
-.section-title{
-font-size:26px;
-margin-bottom:18px;
-letter-spacing:-0.02em;
-}
+    @media (max-width: 980px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
 
-/* GRID */
+      .nav {
+        flex-wrap: wrap;
+      }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-}
-
-.card{
-background:var(--surface);
-border:1px solid var(--line);
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-padding:26px;
-transition:all .2s ease;
-}
-
-.card:hover{
-transform:translateY(-3px);
-box-shadow:0 22px 58px rgba(0,0,0,0.08);
-}
-
-.card h3{
-margin:0 0 8px;
-font-size:22px;
-letter-spacing:-0.03em;
-}
-
-.role{
-color:var(--primary-deep);
-font-size:14px;
-font-weight:700;
-}
-
-/* DONATION BOX */
-
-.donation-box{
-margin-top:32px;
-padding:24px;
-border-radius:20px;
-border:1px solid var(--line);
-background:rgba(255,255,255,0.9);
-text-align:center;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:14px 22px;
-border-radius:999px;
-font-weight:700;
-margin-top:14px;
-}
-
-.btn-primary{
-background:linear-gradient(135deg,var(--primary),var(--primary-deep));
-color:#fff;
-}
-
-footer{
-border-top:1px solid var(--line);
-padding:30px 0 50px;
-color:var(--muted);
-margin-top:40px;
-font-size:14px;
-}
-
-/* MOBILE */
-
-@media (max-width:980px){
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.nav{
-flex-wrap:wrap;
-}
-
-.nav-links{
-width:100%;
-gap:12px;
-}
-
-}
-
-</style>
+      .nav-links {
+        width: 100%;
+        gap: 12px;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark"><span class="crown-dot"></span></div>
+        <div class="brand-text">
+          naræ International Foundation
+          <span class="sub">naræ<span class="mark">&#39;</span></span>
+        </div>
+      </a>
 
-<div class="topbar">
-<div class="container nav">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="founder.html">Founder</a>
+        <a href="about.html">About Naræ&#39;</a>
+        <a href="community.html">Ways to Be Part</a>
+        <a href="crane-project.html">1000 Crane Project</a>
+        <a href="leadership.html" class="active">Leadership</a>
+      </div>
+    </div>
+  </div>
 
-<a class="brand" href="index.html">
-<div class="brand-mark"><span class="crown-dot"></span></div>
-<div class="brand-text">
-naræ International Foundation
-<span>naræ+</span>
-</div>
-</a>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Leadership</div>
+        <h1>Leadership & Governance</h1>
+        <p class="intro">
+          naræ International Foundation is guided by leaders committed to compassion, cultural dignity, responsible stewardship, and thoughtful growth.
+        </p>
+      </div>
+    </section>
 
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="about.html">About Naræ+</a>
-<a href="membership.html">Membership</a>
-<a href="crane-project.html">1000 Crane Project</a>
-<a href="support.html">Support</a>
-<a href="board.html" class="active">Board</a>
-</div>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Board of Directors</h2>
 
-</div>
-</div>
+        <div class="grid">
+          <div class="card">
+            <h3>Jihwan Baek</h3>
+            <div class="role">Founder · Executive Director · Board Chair</div>
+            <p>Provides overall vision, leadership, and stewardship for the foundation’s mission and development.</p>
+          </div>
 
-<main>
+          <div class="card">
+            <h3>Genene Tesfaye</h3>
+            <div class="role">Treasurer · Board Member</div>
+            <p>Supports the financial integrity and governance responsibilities of the organization.</p>
+          </div>
 
-<section class="page-hero">
-<div class="container">
+          <div class="card">
+            <h3>Susan E. Dreyer</h3>
+            <div class="role">Secretary · Board Member</div>
+            <p>Supports governance, organizational records, and board administration.</p>
+          </div>
 
-<div class="eyebrow">Leadership</div>
+          <div class="card">
+            <h3>Daphney N. Cornelius</h3>
+            <div class="role">Board Member</div>
+            <p>Contributes to the strategic guidance and growth of the foundation.</p>
+          </div>
 
-<h1>Leadership & Governance</h1>
+          <div class="card">
+            <h3>Additional Board Seat</h3>
+            <div class="role">To Be Announced</div>
+            <p>An additional board position may be filled as the foundation continues to grow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p class="intro">
-naræ International Foundation is guided by a growing group of leaders committed to compassion, cultural dignity, and responsible stewardship.
-</p>
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Advisory Board</h2>
 
-</div>
-</section>
+        <div class="grid">
+          <div class="card">
+            <h3>Philip Tyler</h3>
+            <div class="role">Advisory Board Member</div>
+            <p>Offers guidance, perspective, and support to strengthen the foundation’s direction.</p>
+          </div>
 
-<section class="section">
-<div class="container">
+          <div class="card">
+            <h3>Stephen Muturi</h3>
+            <div class="role">Advisory Board Member</div>
+            <p>Provides insight and advisory support as the organization develops.</p>
+          </div>
 
-<h2 class="section-title">Board of Directors</h2>
+          <div class="card">
+            <h3>Bernie Nojadera</h3>
+            <div class="role">Advisory Board Member</div>
+            <p>Contributes experience and perspective in support of the foundation’s mission.</p>
+          </div>
+        </div>
 
-<div class="grid">
+        <div class="note-card">
+          The leadership structure of naræ International Foundation will continue to develop thoughtfully as the organization grows.
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div class="card">
-<h3>Jihwan Baek</h3>
-<div class="role">Founder · Executive Director · Board Chair</div>
-</div>
-
-<div class="card">
-<h3>Genene Tesfaye</h3>
-<div class="role">Treasurer · Board Member</div>
-</div>
-
-<div class="card">
-<h3>Susan E. Dreyer</h3>
-<div class="role">Secretary · Board Member</div>
-</div>
-
-<div class="card">
-<h3>Daphney N. Cornelius</h3>
-<div class="role">Board Member</div>
-</div>
-
-<div class="card">
-<h3>Additional Board Member</h3>
-<div class="role">Board Member (future)</div>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section class="section">
-<div class="container">
-
-<h2 class="section-title">Advisory Board</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Philip Tyler</h3>
-<div class="role">Advisory Board Member</div>
-</div>
-
-<div class="card">
-<h3>Stephen Muturi</h3>
-<div class="role">Advisory Board Member</div>
-</div>
-
-<div class="card">
-<h3>Bernie Nojadera</h3>
-<div class="role">Advisory Board Member</div>
-</div>
-
-</div>
-
-<div class="donation-box">
-
-<strong>Support naræ+</strong>
-
-<p>
-Our donation system is currently being prepared.  
-Support opportunities will open soon.
-</p>
-
-<a class="btn btn-primary" href="#">
-Donate (Coming Soon)
-</a>
-
-</div>
-
-</div>
-</section>
-
-</main>
-
-<footer>
-<div class="container">
-© 2026 naræ International Foundation. All rights reserved.
-</div>
-</footer>
-
+  <footer>
+    <div class="container">
+      © 2026 naræ International Foundation. All rights reserved.<br />
+      A Maryland nonprofit organization. 501(c)(3) status pending.
+    </div>
+  </footer>
 </body>
 </html>
