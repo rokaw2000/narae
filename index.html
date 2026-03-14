@@ -89,7 +89,14 @@
       display: grid;
       place-items: center;
       flex-shrink: 0;
-    }
+animation: floatLogo 6s ease-in-out infinite;
+}
+      
+      @keyframes floatLogo{
+  0%{ transform: translateY(0px); }
+  50%{ transform: translateY(-4px); }
+  100%{ transform: translateY(0px); }
+}
 
     .crown-dot {
       width: 12px;
