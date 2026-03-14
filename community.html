@@ -1,523 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ways to Be Part of Naræ’ | naræ International Foundation</title>
-  <meta
-    name="description"
-    content="Learn the different ways to be part of Naræ’, including Naræ Fellows, community members, and the foundation’s thoughtful approach to participation and support."
-  />
-  <style>
-    :root {
-      --bg: #fcfbf8;
-      --surface: rgba(255,255,255,0.90);
-      --surface-strong: rgba(255,255,255,0.94);
-      --text: #111111;
-      --muted: #5f5a55;
-      --line: #e8e1d7;
-      --primary: #c62828;
-      --primary-deep: #8e1b1b;
-      --teal: #4fa4a1;
-      --gold: #b89a63;
-      --shadow: 0 18px 50px rgba(0,0,0,0.06);
-      --radius: 24px;
-      --max: 1120px;
-    }
 
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<title>Leadership & Governance | naræ International Foundation</title>
 
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      line-height: 1.7;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.92), transparent 34%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.72), transparent 28%),
-        linear-gradient(rgba(255,255,255,0.88), rgba(252,251,248,0.96)),
-        repeating-linear-gradient(
-          0deg,
-          rgba(196,182,160,0.035) 0px,
-          rgba(196,182,160,0.035) 1px,
-          transparent 1px,
-          transparent 6px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(196,182,160,0.025) 0px,
-          rgba(196,182,160,0.025) 1px,
-          transparent 1px,
-          transparent 8px
-        );
-      background-attachment: fixed;
-    }
+<meta name="description" content="Leadership of naræ International Foundation including the Board of Directors and Advisory Board."/>
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+<style>
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
+:root{
+--bg:#ffffff;
+--surface:rgba(255,255,255,0.92);
+--text:#111111;
+--muted:#555555;
+--line:#ececec;
+--primary:#c62828;
+--primary-deep:#8e1b1b;
+--shadow:0 18px 50px rgba(0,0,0,0.06);
+--radius:24px;
+--max:1040px;
+}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.80);
-      border-bottom: 1px solid rgba(232,225,215,0.95);
-    }
+*{box-sizing:border-box;}
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
-    }
+body{
+margin:0;
+font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+color:var(--text);
+line-height:1.7;
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
+background-color:var(--bg);
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid rgba(198,40,40,0.16);
-      background: #fff;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      flex-shrink: 0;
-    }
+background-image:
+linear-gradient(rgba(255,255,255,0.96),rgba(255,255,255,0.96)),
+radial-gradient(circle at top left,rgba(198,40,40,0.035),transparent 28%),
+radial-gradient(circle at top right,rgba(79,164,161,0.04),transparent 26%),
+repeating-linear-gradient(0deg,rgba(0,0,0,0.018) 0px,rgba(0,0,0,0.018) 1px,transparent 1px,transparent 8px),
+repeating-linear-gradient(90deg,rgba(0,0,0,0.012) 0px,rgba(0,0,0,0.012) 1px,transparent 1px,transparent 9px);
 
-    .crown-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
-    }
+background-attachment:fixed;
+}
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.08;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
+a{color:inherit;text-decoration:none;}
 
-    .brand-text .sub {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
+.container{
+width:min(calc(100% - 32px),var(--max));
+margin:0 auto;
+}
 
-    .mark {
-      display: inline-block;
-      font-size: 0.72em;
-      vertical-align: super;
-      margin-left: 1px;
-      line-height: 1;
-    }
+/* NAVBAR */
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 18px;
-      font-size: 15px;
-      color: var(--muted);
-      font-weight: 500;
-    }
+.topbar{
+position:sticky;
+top:0;
+z-index:20;
+backdrop-filter:blur(14px);
+background:rgba(255,255,255,0.82);
+border-bottom:1px solid rgba(230,230,230,0.9);
+}
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary-deep);
-    }
+.nav{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:18px;
+padding:16px 0;
+}
 
-    .page-hero {
-      padding: 88px 0 34px;
-    }
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.84);
-      color: var(--primary-deep);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
+.brand-mark{
+width:42px;
+height:42px;
+border-radius:14px;
+border:1px solid rgba(198,40,40,0.18);
+background:#fff;
+display:grid;
+place-items:center;
+}
 
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.8rem, 5vw, 4.4rem);
-      line-height: 1.04;
-      letter-spacing: -0.045em;
-      max-width: 920px;
-    }
+.crown-dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:linear-gradient(135deg,var(--primary),var(--primary-deep));
+box-shadow:0 0 0 6px rgba(198,40,40,0.08);
+}
 
-    .intro {
-      max-width: 860px;
-      color: var(--muted);
-      font-size: 19px;
-      margin: 0;
-    }
+.brand-text{
+display:flex;
+flex-direction:column;
+line-height:1.08;
+font-size:20px;
+font-weight:800;
+letter-spacing:-0.02em;
+}
 
-    .section {
-      padding: 24px 0;
-    }
+.brand-text span{
+font-size:13px;
+font-weight:600;
+color:var(--muted);
+letter-spacing:0.08em;
+}
 
-    .card,
-    .mini-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+.nav-links{
+display:flex;
+flex-wrap:wrap;
+justify-content:flex-end;
+gap:18px;
+font-size:15px;
+color:var(--muted);
+font-weight:500;
+}
 
-    .card {
-      padding: 30px;
-      margin-bottom: 18px;
-    }
+.nav-links a:hover,
+.nav-links a.active{
+color:var(--primary-deep);
+}
 
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
+/* HERO */
 
-    .three-col {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
-    }
+.page-hero{
+padding:72px 0 28px;
+}
 
-    .mini-card {
-      padding: 28px;
-      height: 100%;
-    }
+.eyebrow{
+display:inline-flex;
+padding:8px 14px;
+border-radius:999px;
+border:1px solid var(--line);
+background:rgba(255,255,255,0.86);
+color:var(--primary-deep);
+font-size:13px;
+font-weight:700;
+margin-bottom:18px;
+}
 
-    .card h2,
-    .mini-card h3 {
-      margin: 0 0 12px;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-    }
+h1{
+margin:0 0 14px;
+font-size:clamp(2.5rem,5vw,4rem);
+line-height:1.06;
+letter-spacing:-0.04em;
+}
 
-    .card h2 {
-      font-size: clamp(1.6rem, 3vw, 2rem);
-    }
+.intro{
+max-width:760px;
+color:var(--muted);
+font-size:18px;
+}
 
-    .mini-card h3 {
-      font-size: 22px;
-    }
+/* SECTION */
 
-    .card p,
-    .mini-card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-    }
+.section{
+padding:22px 0;
+}
 
-    .card p:last-child,
-    .mini-card p:last-child {
-      margin-bottom: 0;
-    }
+.section-title{
+font-size:26px;
+margin-bottom:18px;
+letter-spacing:-0.02em;
+}
 
-    .kicker {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--primary-deep);
-    }
+/* GRID */
 
-    .program-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 8px;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
 
-    .program-item {
-      padding: 18px 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.72);
-    }
+.card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+padding:26px;
+transition:all .2s ease;
+}
 
-    .program-item strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--text);
-    }
+.card:hover{
+transform:translateY(-3px);
+box-shadow:0 22px 58px rgba(0,0,0,0.08);
+}
 
-    .quote-card {
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.97), rgba(250,250,250,0.95)),
-        repeating-linear-gradient(0deg, rgba(0,0,0,0.014) 0px, rgba(0,0,0,0.014) 1px, transparent 1px, transparent 8px),
-        repeating-linear-gradient(90deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 9px);
-      text-align: center;
-    }
+.card h3{
+margin:0 0 8px;
+font-size:22px;
+letter-spacing:-0.03em;
+}
 
-    blockquote {
-      margin: 0;
-      font-size: clamp(1.3rem, 2.3vw, 1.9rem);
-      line-height: 1.5;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
+.role{
+color:var(--primary-deep);
+font-size:14px;
+font-weight:700;
+}
 
-    cite {
-      display: block;
-      margin-top: 14px;
-      color: var(--muted);
-      font-style: normal;
-      font-size: 14px;
-      font-weight: 700;
-    }
+/* DONATION BOX */
 
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 22px;
-    }
+.donation-box{
+margin-top:32px;
+padding:24px;
+border-radius:20px;
+border:1px solid var(--line);
+background:rgba(255,255,255,0.9);
+text-align:center;
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      text-align: center;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:14px 22px;
+border-radius:999px;
+font-weight:700;
+margin-top:14px;
+}
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+.btn-primary{
+background:linear-gradient(135deg,var(--primary),var(--primary-deep));
+color:#fff;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      color: white;
-    }
+footer{
+border-top:1px solid var(--line);
+padding:30px 0 50px;
+color:var(--muted);
+margin-top:40px;
+font-size:14px;
+}
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.92);
-      border-color: var(--line);
-      color: var(--text);
-    }
+/* MOBILE */
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 50px;
-      color: var(--muted);
-      margin-top: 40px;
-    }
+@media (max-width:980px){
 
-    .small {
-      font-size: 14px;
-    }
+.grid{
+grid-template-columns:1fr;
+}
 
-    @media (max-width: 980px) {
-      .two-col,
-      .three-col {
-        grid-template-columns: 1fr;
-      }
-    }
+.nav{
+flex-wrap:wrap;
+}
 
-    @media (max-width: 820px) {
-      .nav {
-        flex-wrap: wrap;
-      }
+.nav-links{
+width:100%;
+gap:12px;
+}
 
-      .nav-links {
-        width: 100%;
-        gap: 12px;
-      }
+}
 
-      .btn-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <div class="brand-mark"><span class="crown-dot"></span></div>
-        <div class="brand-text">
-          naræ International Foundation
-          <span class="sub">naræ<span class="mark">&#39;</span></span>
-        </div>
-      </a>
 
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="founder.html">Founder</a>
-        <a href="about.html">About Naræ&#39;</a>
-        <a href="community.html" class="active">Ways to Be Part</a>
-        <a href="crane-project.html">1000 Crane Project</a>
-        <a href="leadership.html">Leadership</a>
-      </div>
-    </div>
-  </div>
+<div class="topbar">
+<div class="container nav">
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <div class="eyebrow">Community & Participation</div>
-        <h1>Ways to Be Part of Naræ<span class="mark">&#39;</span></h1>
-        <p class="intro">
-          People may connect with naræ<span class="mark">&#39;</span> in different ways. Some participate directly as Naræ Fellows. Others remain part of the wider community through encouragement, service, partnership, or support.
-        </p>
-      </div>
-    </section>
+<a class="brand" href="index.html">
+<div class="brand-mark"><span class="crown-dot"></span></div>
+<div class="brand-text">
+naræ International Foundation
+<span>naræ+</span>
+</div>
+</a>
 
-    <section class="section">
-      <div class="container">
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About Naræ+</a>
+<a href="membership.html">Membership</a>
+<a href="crane-project.html">1000 Crane Project</a>
+<a href="support.html">Support</a>
+<a href="board.html" class="active">Board</a>
+</div>
 
-        <div class="card">
-          <span class="kicker">Participation</span>
-          <h2>Naræ Fellows come first</h2>
-          <p>
-            Naræ Fellows are the individuals who participate directly in the foundation’s programs and experiences.
-          </p>
-          <p>
-            The term reflects dignity, partnership, and respect. It is meant to honor people not as passive recipients, but as individuals moving through survivorship, recovery, rebuilding, or renewal with strength and worth.
-          </p>
-        </div>
+</div>
+</div>
 
-        <div class="three-col">
-          <div class="mini-card">
-            <h3>Naræ Fellows</h3>
-            <p>
-              Fellows take part directly in the foundation’s offerings, including future retreats, circles, and restorative experiences.
-            </p>
-            <p>
-              Their place in the foundation is central. The work exists to serve people with care, dignity, and meaningful support.
-            </p>
-          </div>
+<main>
 
-          <div class="mini-card">
-            <h3>Community Members</h3>
-            <p>
-              Community Members stay connected to the mission and growth of naræ<span class="mark">&#39;</span>.
-            </p>
-            <p>
-              This may include supporters, volunteers, donors, advocates, collaborators, and others who want to remain part of a thoughtful and encouraging community.
-            </p>
-          </div>
+<section class="page-hero">
+<div class="container">
 
-          <div class="mini-card">
-            <h3>Partners & Supporters</h3>
-            <p>
-              Some community members may support the mission through professional skills, cultural insight, partnership, service, or financial generosity.
-            </p>
-            <p>
-              These contributions help strengthen the foundation as it grows with care and intention.
-            </p>
-          </div>
-        </div>
+<div class="eyebrow">Leadership</div>
 
-        <div class="two-col">
-          <div class="card">
-            <span class="kicker">Approach</span>
-            <h2>Thoughtful by design</h2>
-            <p>
-              naræ<span class="mark">&#39;</span> is not being built for scale first. It is being built for depth, quality, and humanity.
-            </p>
-            <p>
-              The foundation’s offerings are intended to remain thoughtful, personal, and carefully shaped rather than rushed or overly broad.
-            </p>
-          </div>
+<h1>Leadership & Governance</h1>
 
-          <div class="card">
-            <span class="kicker">Growth</span>
-            <h2>Built gradually</h2>
-            <p>
-              Opportunities to participate will unfold over time as the foundation develops its structure, partnerships, and capacity.
-            </p>
-            <p>
-              This pace is intentional. Like the folded crane and embroidered mark, the work is meant to be shaped carefully.
-            </p>
-          </div>
-        </div>
+<p class="intro">
+naræ International Foundation is guided by a growing group of leaders committed to compassion, cultural dignity, and responsible stewardship.
+</p>
 
-        <div class="card">
-          <span class="kicker">Future offerings</span>
-          <h2>What participation may include</h2>
+</div>
+</section>
 
-          <div class="program-list">
-            <div class="program-item">
-              <strong>Micro Retreats</strong>
-              Small, carefully designed experiences for rest, reflection, and renewal.
-            </div>
+<section class="section">
+<div class="container">
 
-            <div class="program-item">
-              <strong>Virtual Circles</strong>
-              Online spaces for listening, encouragement, and shared connection.
-            </div>
+<h2 class="section-title">Board of Directors</h2>
 
-            <div class="program-item">
-              <strong>Cultural & Creative Experiences</strong>
-              Future offerings that may draw on culture, creativity, reflection, and mindful restoration.
-            </div>
-          </div>
-        </div>
+<div class="grid">
 
-        <div class="card quote-card">
-          <blockquote>
-            “Whether someone joins as a Naræ Fellow or as part of the wider community, each role helps build a space rooted in dignity, hope, and meaningful connection.”
-          </blockquote>
-          <cite>naræ<span class="mark">&#39;</span> community spirit</cite>
-        </div>
+<div class="card">
+<h3>Jihwan Baek</h3>
+<div class="role">Founder · Executive Director · Board Chair</div>
+</div>
 
-        <div class="btn-row">
-          <a class="btn btn-secondary" href="index.html">Back Home</a>
-          <a class="btn btn-primary" href="crane-project.html">Explore the 1000 Crane Project</a>
-          <a class="btn btn-secondary" href="leadership.html">Meet the Leadership</a>
-        </div>
+<div class="card">
+<h3>Genene Tesfaye</h3>
+<div class="role">Treasurer · Board Member</div>
+</div>
 
-      </div>
-    </section>
-  </main>
+<div class="card">
+<h3>Susan E. Dreyer</h3>
+<div class="role">Secretary · Board Member</div>
+</div>
 
-  <footer>
-    <div class="container">
-      <div class="small">
-        © 2026 naræ International Foundation. All rights reserved.<br>
-        A Maryland nonprofit organization. 501(c)(3) status pending.
-      </div>
-    </div>
-  </footer>
+<div class="card">
+<h3>Daphney N. Cornelius</h3>
+<div class="role">Board Member</div>
+</div>
+
+<div class="card">
+<h3>Additional Board Member</h3>
+<div class="role">Board Member (future)</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+
+<h2 class="section-title">Advisory Board</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Philip Tyler</h3>
+<div class="role">Advisory Board Member</div>
+</div>
+
+<div class="card">
+<h3>Stephen Muturi</h3>
+<div class="role">Advisory Board Member</div>
+</div>
+
+<div class="card">
+<h3>Bernie Nojadera</h3>
+<div class="role">Advisory Board Member</div>
+</div>
+
+</div>
+
+<div class="donation-box">
+
+<strong>Support naræ+</strong>
+
+<p>
+Our donation system is currently being prepared.  
+Support opportunities will open soon.
+</p>
+
+<a class="btn btn-primary" href="#">
+Donate (Coming Soon)
+</a>
+
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+© 2026 naræ International Foundation. All rights reserved.
+</div>
+</footer>
+
 </body>
 </html>
