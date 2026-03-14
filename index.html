@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>naræ International Foundation</title>
-  <meta name="description" content="naræ International Foundation is a purpose-driven nonprofit creating spaces for healing, culture, volunteerism, and community support." />
+  <meta name="description" content="naræ International Foundation is a developing nonprofit rooted in healing, culture, and community support." />
   <style>
     :root {
       --bg: #ffffff;
@@ -89,21 +89,21 @@
     }
 
     .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.01em;
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:-0.01em;
     }
 
     .brand-text span {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: none;
+      display:block;
+      font-size:13px;
+      font-weight:600;
+      color:var(--muted);
+      letter-spacing:0.08em;
+      text-transform:none;
     }
 
     .nav-links {
@@ -192,7 +192,7 @@
       margin: 22px 0 0;
       font-size: 18px;
       color: var(--muted);
-      max-width: 680px;
+      max-width: 700px;
     }
 
     .pronunciation {
@@ -325,7 +325,7 @@
     }
 
     .section-head {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 22px;
     }
 
@@ -379,22 +379,32 @@
       color: #c62828;
     }
 
-    .highlight-grid {
+    .membership-preview-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 10px;
+      margin-top: 18px;
     }
 
-    .highlight-card strong {
+    .mini-card strong {
       display: block;
-      font-size: 24px;
-      letter-spacing: -0.03em;
+      font-size: 20px;
       margin-bottom: 8px;
+      letter-spacing: -0.02em;
     }
 
-    .highlight-card span {
+    .mini-card span {
       color: var(--muted);
+      font-size: 15px;
+    }
+
+    .clarity-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(198,40,40,0.05);
+      border: 1px solid rgba(198,40,40,0.14);
+      color: #6a3232;
       font-size: 15px;
     }
 
@@ -480,7 +490,7 @@
     @media (max-width: 980px) {
       .hero-grid,
       .pillar-grid,
-      .highlight-grid,
+      .membership-preview-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
@@ -509,8 +519,11 @@
       .card, .hero-card, .cta-wrap { padding: 22px; }
       .nav-links { font-size: 14px; }
       .hero-copy p, .section-head p { font-size: 16px; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-      .cta-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
     }
   </style>
 </head>
@@ -528,7 +541,7 @@
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
         <a href="learn-more.html">Learn More</a>
-        <a href="membership.html">Membership</a>
+        <a href="membership.html">Community</a>
         <a href="support.html">Support</a>
         <a href="#connect">Connect</a>
       </div>
@@ -550,7 +563,7 @@
           </p>
 
           <p>
-            naræ International Foundation is a developing nonprofit rooted in support for immigrant and culturally diverse communities, with a special focus on those impacted by <strong>breast &amp; gynecologic cancers</strong>. Through restorative experiences, cultural connection, and volunteer-centered support, we hope to create spaces where people feel seen, supported, and less alone.
+            naræ International Foundation is a developing nonprofit supporting immigrant and culturally diverse communities, with special care for those impacted by <strong>breast &amp; gynecologic cancers</strong>. Through restorative experiences, cultural connection, and community support, we hope to create spaces where people feel seen, supported, and deeply understood.
           </p>
 
           <div class="hero-actions">
@@ -561,8 +574,8 @@
           </div>
 
           <div class="hero-notes">
-            <div class="chip">Breast &amp; GYN cancer support</div>
-            <div class="chip">Cultural storytelling</div>
+            <div class="chip">Restorative experiences</div>
+            <div class="chip">Cultural connection</div>
             <div class="chip">Volunteer-centered support</div>
           </div>
         </div>
@@ -575,7 +588,7 @@
           <div class="card-kicker">Our foundation</div>
           <div class="card-title">A warm, culturally grounded network of support.</div>
           <p class="card-text">
-            naræ+ reflects uplift, grace, protection, and the quiet courage it takes to begin again. It is rooted in the belief that healing, culture, and service can help people feel seen, supported, and less alone.
+            naræ+ reflects uplift, grace, and the courage to begin again. It is rooted in the belief that healing can be strengthened by culture, connection, and compassionate community.
           </p>
 
           <div class="stats">
@@ -644,32 +657,32 @@
       </div>
     </section>
 
-    <section id="membership-preview">
+    <section id="community-preview">
       <div class="container">
         <div class="section-head">
-          <h2>Free community membership</h2>
+          <h2>Join our community</h2>
           <p>
-            naræ+ hopes to offer free community membership for participants who want to stay connected, receive updates, hear about future opportunities, and grow with a mission rooted in healing, cultural belonging, and meaningful support.
+            People can join the naræ+ community to stay connected to the mission, receive updates, and hear about future opportunities as the foundation grows.
           </p>
         </div>
 
-        <div class="highlight-grid">
-          <div class="card highlight-card">
-            <strong>Free</strong>
-            <span>A welcoming way to stay connected without dues or pressure.</span>
+        <div class="membership-preview-grid">
+          <div class="card mini-card">
+            <strong>Stay connected</strong>
+            <span>Receive thoughtful updates and follow the journey of naræ+.</span>
           </div>
-          <div class="card highlight-card">
-            <strong>Connected</strong>
-            <span>Thoughtful updates and future opportunities as naræ+ grows.</span>
+          <div class="card mini-card">
+            <strong>Hear about opportunities</strong>
+            <span>Learn about future programs, gatherings, and ways to participate.</span>
           </div>
-          <div class="card highlight-card">
-            <strong>Participant-centered</strong>
-            <span>Built around encouragement, belonging, and care.</span>
+          <div class="card mini-card">
+            <strong>Grow with the mission</strong>
+            <span>Be part of a supportive community rooted in healing, culture, and care.</span>
           </div>
-          <div class="card highlight-card">
-            <strong>Intentional</strong>
-            <span>Shaped slowly and honestly as the foundation develops.</span>
-          </div>
+        </div>
+
+        <div class="clarity-note">
+          Joining the community is a way to stay connected to the mission and future opportunities. It does not guarantee access to retreats, services, or programs.
         </div>
       </div>
     </section>
@@ -679,7 +692,7 @@
         <div class="section-head">
           <h2>Founder’s vision</h2>
           <p>
-            naræ+ was inspired by the founder’s personal journey as an immigrant and a survivor of breast cancer. It grows from a simple belief: healing is not only medical, but also emotional, cultural, and deeply human.
+            naræ+ was inspired by the founder’s journey as an immigrant and breast cancer survivor. That experience revealed how isolating illness, language, culture, and identity can feel when someone is already carrying so much. naræ+ grows from a simple belief: healing is not only medical. It is also emotional, cultural, and deeply human.
           </p>
           <p style="margin-top:16px;">
             <a class="btn btn-secondary" href="learn-more.html">Read the fuller story</a>
@@ -693,7 +706,7 @@
         <div class="cta-wrap">
           <h2>We are building naræ+ with intention, one thoughtful step, one crane at a time.</h2>
           <p>
-            Follow the journey, connect with the mission, and help us build a future where healing, cultural belonging, purpose, and meaningful support reach people who too often feel unseen.
+            Follow the journey, connect with the mission, and help us build a future where healing, cultural belonging, and meaningful support reach people who too often feel unseen.
           </p>
           <div class="cta-actions">
             <a class="btn btn-light" href="mailto:hello@naraefoundation.org">Contact Us</a>
