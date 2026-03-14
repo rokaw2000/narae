@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Community | naræ International Foundation</title>
-  <meta name="description" content="Join the naræ+ community and stay connected to future opportunities, updates, and the mission of healing, culture, and community support." />
+  <title>Membership | naræ International Foundation</title>
+  <meta name="description" content="Become a member of naræ+ and stay connected to future opportunities, updates, and the mission of healing, culture, and community support." />
   <style>
     :root {
       --bg: #ffffff;
-      --surface: #ffffff;
+      --surface: rgba(255,255,255,0.92);
       --text: #111111;
       --muted: #555555;
-      --line: #e6e6e6;
+      --line: #ececec;
       --primary: #c62828;
       --primary-deep: #8e1b1b;
-      --shadow: 0 18px 50px rgba(0,0,0,0.08);
-      --radius: 22px;
+      --shadow: 0 18px 50px rgba(0,0,0,0.06);
+      --radius: 24px;
       --max: 980px;
     }
 
@@ -24,112 +24,58 @@
     body {
       margin: 0;
       font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(200, 93, 123, 0.07), transparent 28%),
-        radial-gradient(circle at top right, rgba(79, 164, 161, 0.08), transparent 26%),
-        var(--bg);
       color: var(--text);
       line-height: 1.7;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.96), rgba(255,255,255,0.96)),
+        radial-gradient(circle at top left, rgba(198,40,40,0.035), transparent 28%),
+        radial-gradient(circle at top right, rgba(79,164,161,0.04), transparent 26%),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.018) 0px, rgba(0,0,0,0.018) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.012) 0px, rgba(0,0,0,0.012) 1px, transparent 1px, transparent 9px);
+      background-attachment: fixed;
     }
 
     a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: sticky; top: 0; z-index: 20;
       backdrop-filter: blur(14px);
-      background: rgba(252, 250, 251, 0.85);
-      border-bottom: 1px solid rgba(234, 223, 229, 0.8);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(230,230,230,0.9);
     }
 
     .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 18px; padding: 16px 0;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
+    .brand { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      background: #ffffff;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(198,40,40,0.18);
-      flex-shrink: 0;
+      width: 42px; height: 42px; border-radius: 14px; border: 1px solid rgba(198,40,40,0.18);
+      background: #fff; display: grid; place-items: center;
     }
-
     .crown-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
+      width: 12px; height: 12px; border-radius: 50%;
       background: linear-gradient(135deg, var(--primary), var(--primary-deep));
       box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
-      display: block;
     }
-
-    .brand-text {
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-      font-size:20px;
-      font-weight:800;
-      letter-spacing:-0.01em;
-    }
-
-    .brand-text span {
-      display:block;
-      font-size:13px;
-      font-weight:600;
-      color:var(--muted);
-      letter-spacing:0.08em;
-    }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.08; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-text span { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; }
 
     .nav-links {
-      display: flex;
-      gap: 22px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 500;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 18px;
+      font-size: 15px; color: var(--muted); font-weight: 500;
     }
+    .nav-links a:hover, .nav-links a.active { color: var(--primary-deep); }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary-deep);
-    }
-
-    .page-hero {
-      padding: 76px 0 26px;
-    }
+    .page-hero { padding: 76px 0 26px; }
 
     .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
-      color: var(--primary-deep);
-      font-weight: 700;
-      font-size: 13px;
-      margin-bottom: 18px;
+      display: inline-flex; padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.86);
+      color: var(--primary-deep); font-size: 13px; font-weight: 700; margin-bottom: 18px;
     }
 
     h1 {
@@ -139,15 +85,9 @@
       letter-spacing: -0.04em;
     }
 
-    .intro {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 18px;
-    }
+    .intro { max-width: 760px; color: var(--muted); font-size: 18px; }
 
-    .section {
-      padding: 18px 0;
-    }
+    .section { padding: 18px 0; }
 
     .grid {
       display: grid;
@@ -159,8 +99,8 @@
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: var(--radius);
+      box-shadow: var(--shadow);
       padding: 28px;
-      box-shadow: 0 10px 26px rgba(55, 31, 43, 0.04);
     }
 
     .card h2 {
@@ -169,17 +109,31 @@
       letter-spacing: -0.03em;
     }
 
-    .card p {
-      margin: 0 0 14px;
+    .card p { margin: 0 0 14px; color: var(--muted); }
+    .card p:last-child { margin-bottom: 0; }
+
+    .wide-card { margin-top: 18px; }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .benefit {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.9);
+      padding: 16px;
       color: var(--muted);
     }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .wide-card {
-      margin-top: 18px;
+    .benefit strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 16px;
     }
 
     .note {
@@ -192,57 +146,18 @@
       font-size: 15px;
     }
 
-    .benefits {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .benefit {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-      background: #fff;
-      color: var(--muted);
-    }
-
-    .benefit strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 6px;
-      font-size: 16px;
-    }
-
     .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 24px;
+      display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      transition: 0.25s ease;
-      text-align: center;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 20px; border-radius: 999px; font-weight: 700;
+      border: 1px solid transparent; text-align: center;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      color: white;
-    }
-
-    .btn-secondary {
-      background: white;
-      color: var(--text);
-      border-color: var(--line);
-    }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-deep)); color: #fff; }
+    .btn-secondary { background: rgba(255,255,255,0.92); border-color: var(--line); }
 
     footer {
       border-top: 1px solid var(--line);
@@ -251,29 +166,13 @@
       margin-top: 36px;
     }
 
-    .small {
-      font-size: 14px;
-    }
+    .small { font-size: 14px; }
 
     @media (max-width: 900px) {
-      .grid,
-      .benefits {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-wrap: wrap;
-      }
-
-      .nav-links {
-        width: 100%;
-        gap: 12px;
-      }
-
-      .btn-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
+      .grid, .benefits { grid-template-columns: 1fr; }
+      .nav { flex-wrap: wrap; }
+      .nav-links { width: 100%; gap: 12px; }
+      .btn-row { flex-direction: column; align-items: stretch; }
     }
   </style>
 </head>
@@ -282,18 +181,16 @@
     <div class="container nav">
       <a class="brand" href="index.html">
         <div class="brand-mark"><span class="crown-dot"></span></div>
-        <div class="brand-text">
-          naræ International Foundation
-          <span>naræ+</span>
-        </div>
+        <div class="brand-text">naræ International Foundation<span>naræ+</span></div>
       </a>
 
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="learn-more.html">Learn More</a>
-        <a href="membership.html" class="active">Community</a>
+        <a href="about.html">About Naræ+</a>
+        <a href="membership.html" class="active">Membership</a>
+        <a href="crane-project.html">1000 Crane Project</a>
         <a href="support.html">Support</a>
-        <a href="mailto:hello@naraefoundation.org">Contact</a>
+        <a href="board.html">Board</a>
       </div>
     </div>
   </div>
@@ -301,10 +198,10 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">Community connection</div>
-        <h1>Join the naræ+ community.</h1>
+        <div class="eyebrow">Membership</div>
+        <h1>Become a member of naræ+</h1>
         <p class="intro">
-          People can join the naræ+ community to stay connected to the mission, receive updates, and hear about future opportunities as the foundation grows.
+          Membership is for people who want to stay connected to naræ+, receive updates, and hear about future opportunities as the foundation grows.
         </p>
       </div>
     </section>
@@ -313,30 +210,30 @@
       <div class="container">
         <div class="grid">
           <div class="card">
-            <h2>What this means</h2>
+            <h2>What membership means</h2>
             <p>
-              Joining the naræ+ community is a way to stay connected to a mission rooted in healing, cultural belonging, and meaningful support.
+              Membership helps people stay connected to the mission and ongoing growth of naræ+.
             </p>
             <p>
-              It reflects encouragement, connection, and shared purpose, rather than fees, pressure, or formal obligations.
+              It reflects belonging, encouragement, and connection to the foundation, while allowing people to follow future developments with clarity.
             </p>
           </div>
 
           <div class="card">
-            <h2>Who it is for</h2>
+            <h2>Who membership is for</h2>
             <p>
-              This community is for participants and supporters who feel connected to the heart of naræ+ and want to stay informed as the foundation grows.
+              Membership is intended for participants and community members who feel aligned with the heart of naræ+ and want to remain connected over time.
             </p>
             <p>
-              It is especially meant for people drawn to healing, cultural connection, encouragement, and supportive community life.
+              Volunteers, supporters, and donors may also engage with the mission in other ways through the Support page.
             </p>
           </div>
         </div>
 
         <div class="card wide-card">
-          <h2>What community members may receive</h2>
+          <h2>What members may receive</h2>
           <p>
-            As naræ+ develops, joining the community may include opportunities such as:
+            As naræ+ develops, membership may include:
           </p>
 
           <div class="benefits">
@@ -345,38 +242,28 @@
               Thoughtful updates about the journey and growth of naræ+.
             </div>
             <div class="benefit">
-              <strong>Future program announcements</strong>
-              Notice about future retreats, gatherings, or supportive opportunities.
+              <strong>Future announcements</strong>
+              Notice about future programs, gatherings, and opportunities.
             </div>
             <div class="benefit">
               <strong>Community connection</strong>
-              A gentle way to stay connected to a mission centered on healing and belonging.
+              An ongoing link to a mission rooted in healing, culture, and care.
             </div>
             <div class="benefit">
-              <strong>Volunteer opportunities</strong>
-              Invitations to future ways of serving, supporting, and participating.
+              <strong>Mailing list connection</strong>
+              A way to stay informed as the foundation continues to take shape.
             </div>
           </div>
 
           <div class="note">
-            Joining the community does not guarantee access to retreats, services, or programs. Opportunities will be shared as they become available.
+            Membership does not guarantee access to retreats, services, or programs. Opportunities will be shared as they become available.
           </div>
 
           <div class="btn-row">
-            <a class="btn btn-primary" href="mailto:hello@naraefoundation.org?subject=I%20would%20like%20to%20join%20the%20nar%C3%A6%2B%20community">Join Our Community</a>
-            <a class="btn btn-secondary" href="learn-more.html">Learn More</a>
+            <a class="btn btn-primary" href="mailto:hello@naraefoundation.org?subject=I%20would%20like%20to%20become%20a%20member%20of%20nar%C3%A6%2B">Become a Member</a>
             <a class="btn btn-secondary" href="support.html">Support Naræ+</a>
+            <a class="btn btn-secondary" href="about.html">About Naræ+</a>
           </div>
-        </div>
-
-        <div class="card wide-card">
-          <h2>Growing with intention</h2>
-          <p>
-            naræ+ is still in its early stages. We want community connection to feel genuine, warm, and sustainable, not rushed.
-          </p>
-          <p>
-            As the foundation grows, we hope to shape this community carefully so that people feel truly welcomed, respected, and seen.
-          </p>
         </div>
       </div>
     </section>
@@ -384,9 +271,7 @@
 
   <footer>
     <div class="container">
-      <div class="small">
-        © 2026 naræ International Foundation. All rights reserved.
-      </div>
+      <div class="small">© 2026 naræ International Foundation. All rights reserved.</div>
     </div>
   </footer>
 </body>
