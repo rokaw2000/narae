@@ -4,376 +4,996 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>naræ International Foundation</title>
-  <meta
-    name="description"
-    content="naræ International Foundation is a Maryland-based nonprofit rooted in dignity, cultural care, and the belief that purpose can help people rise again."
-  />
+  <meta name="description" content="naræ International Foundation is a Maryland nonprofit creating thoughtful spaces for healing, cultural connection, community support, and meaningful participation." />
   <style>
     :root {
       --bg: #fcfbf8;
-      --surface: rgba(255,255,255,0.90);
-      --surface-strong: rgba(255,255,255,0.94);
-      --text: #111111;
-      --muted: #5f5a55;
-      --line: #e8e1d7;
-      --primary: #c62828;
-      --primary-deep: #8e1b1b;
-      --shadow: 0 18px 50px rgba(0,0,0,0.06);
-      --radius: 24px;
-      --max: 1160px;
+      --surface: rgba(255,255,255,0.88);
+      --surface-strong: rgba(255,255,255,0.95);
+      --surface-soft: rgba(248,245,239,0.92);
+      --text: #171717;
+      --muted: #5e5a55;
+      --line: rgba(23,23,23,0.10);
+      --line-soft: rgba(23,23,23,0.06);
+      --primary: #b91c1c;
+      --primary-deep: #8f1717;
+      --gold: #b78d47;
+      --shadow: 0 22px 60px rgba(20, 20, 20, 0.08);
+      --shadow-soft: 0 10px 26px rgba(20, 20, 20, 0.05);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+      --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+      --sans: Inter, "Helvetica Neue", Arial, sans-serif;
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--sans);
       color: var(--text);
+      background:
+        linear-gradient(rgba(252,251,248,0.94), rgba(252,251,248,0.96)),
+        radial-gradient(circle at top left, rgba(183,141,71,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(185,28,28,0.06), transparent 28%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.38) 0px, rgba(255,255,255,0.38) 1px, rgba(252,251,248,0.00) 2px, rgba(252,251,248,0.00) 6px);
       line-height: 1.7;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.92), transparent 34%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.72), transparent 28%),
-        linear-gradient(rgba(255,255,255,0.88), rgba(252,251,248,0.96)),
-        repeating-linear-gradient(0deg, rgba(196,182,160,0.035) 0px, rgba(196,182,160,0.035) 1px, transparent 1px, transparent 6px),
-        repeating-linear-gradient(90deg, rgba(196,182,160,0.025) 0px, rgba(196,182,160,0.025) 1px, transparent 1px, transparent 8px);
-      background-attachment: fixed;
+      letter-spacing: 0.01em;
     }
 
-    a { color: inherit; text-decoration: none; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(100% - 32px, var(--max));
       margin: 0 auto;
-    }
-
-    .mark {
-      display: inline-block;
-      font-size: 0.72em;
-      vertical-align: super;
-      margin-left: 1px;
-      line-height: 1;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 30;
+      z-index: 50;
       backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.80);
-      border-bottom: 1px solid rgba(232,225,215,0.95);
+      background: rgba(252, 251, 248, 0.82);
+      border-bottom: 1px solid var(--line-soft);
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
+      gap: 20px;
+      min-height: 84px;
     }
 
-    .brand {
+    .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       min-width: 0;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid rgba(198,40,40,0.16);
-      background: #fff;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      flex-shrink: 0;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: var(--surface-strong);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255,255,255,0.8);
+      flex: 0 0 auto;
     }
 
-    .crown-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.08;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
+      min-width: 0;
     }
 
-    .brand-text .sub {
-      font-size: 13px;
-      font-weight: 600;
+    .brand-legal {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       color: var(--muted);
-      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    .brand-name {
+      font-family: var(--serif);
+      font-size: 1.42rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .brand-name .plus {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.95em;
+      vertical-align: 0.02em;
+      margin-left: 1px;
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
+      gap: 22px;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 18px;
-      font-size: 15px;
+    }
+
+    .nav-links a {
       color: var(--muted);
-      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary-deep);
+    .nav-links a:hover {
+      color: var(--text);
     }
 
-    .hero {
-      padding: 90px 0 44px;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 26px;
+    .nav-actions {
+      display: flex;
+      gap: 12px;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.84);
-      color: var(--primary-deep);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.8rem, 5vw, 4.8rem);
-      line-height: 1.03;
-      letter-spacing: -0.05em;
-      max-width: 780px;
-    }
-
-    .intro {
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 19px;
-      margin: 0 0 24px;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 8px;
+    .btn,
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 20px;
+      gap: 8px;
+      padding: 14px 22px;
       border-radius: 999px;
-      font-weight: 700;
       border: 1px solid transparent;
-      text-align: center;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: 0.25s ease;
+      cursor: pointer;
+      font-weight: 600;
+      line-height: 1;
+      min-height: 48px;
     }
-
-    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--primary-deep));
       color: #fff;
+      box-shadow: 0 14px 30px rgba(185, 28, 28, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(185, 28, 28, 0.24);
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,0.92);
-      border-color: var(--line);
+      background: var(--surface-strong);
       color: var(--text);
+      border-color: var(--line);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .hero-card,
+    .panel,
+    .stat-card,
+    .engage-card,
+    .support-card,
+    .contact-card,
+    .founder-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
     }
 
     .hero-card {
-      background: var(--surface-strong);
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      padding: 28px;
+      padding: 46px;
       position: relative;
       overflow: hidden;
-      min-height: 430px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .hero-card::before {
       content: "";
       position: absolute;
-      inset: 18px;
-      border-radius: 24px;
-      border: 1px solid rgba(184,154,99,0.18);
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(183,141,71,0.08), transparent 40%),
+        radial-gradient(circle at top right, rgba(185,28,28,0.07), transparent 32%);
       pointer-events: none;
     }
 
-    .hero-bird {
-      width: min(100%, 430px);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+      font-size: 0.84rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 14px;
+      line-height: 1.15;
+      font-family: var(--serif);
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 5vw, 4.7rem);
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.3vw, 3rem);
+    }
+
+    h3 {
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      max-width: 62ch;
+    }
+
+    .hero-actions,
+    .mini-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .stat-card {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.72);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stat-card strong {
       display: block;
-      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08));
-      position: relative;
-      z-index: 1;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+      color: var(--text);
     }
 
-    .section { padding: 22px 0; }
-
-    .split {
+    .hero-side {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 18px;
+      align-content: stretch;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .panel {
       padding: 28px;
     }
 
-    .card h2, .card h3 {
-      margin: 0 0 10px;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+    .panel h3 {
+      margin-bottom: 10px;
     }
 
-    .card h2 { font-size: clamp(1.8rem, 3vw, 2.3rem); }
-    .card h3 { font-size: 23px; }
+    .symbol-note {
+      border-left: 3px solid var(--gold);
+      padding-left: 16px;
+    }
 
-    .card p {
-      margin: 0;
+    .section {
+      padding: 26px 0 82px;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .grid-3,
+    .grid-4,
+    .support-grid,
+    .contact-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .support-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1.05fr 0.95fr; }
+
+    .engage-card,
+    .support-card,
+    .contact-card,
+    .founder-card {
+      padding: 28px;
+    }
+
+    .engage-card p,
+    .support-card p,
+    .contact-card p {
+      margin-bottom: 0;
+    }
+
+    .engage-card .icon,
+    .support-card .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(185,28,28,0.10), rgba(183,141,71,0.12));
+    }
+
+    .quote-block {
+      padding: 34px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(248,245,239,0.92));
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .quote-block p {
+      font-size: 1.2rem;
+      color: var(--text);
+      font-family: var(--serif);
+      max-width: 38ch;
+    }
+
+    .soft-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .soft-list div {
+      padding: 16px 18px;
+      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.65);
+      border-radius: 18px;
       color: var(--muted);
     }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 50px;
+    .soft-list strong {
+      color: var(--text);
+    }
+
+    .support-card ul,
+    .contact-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0;
+      display: grid;
+      gap: 10px;
       color: var(--muted);
-      margin-top: 40px;
     }
 
-    .small { font-size: 14px; }
-
-    @media (max-width: 980px) {
-      .hero-wrap, .split, .grid-3 { grid-template-columns: 1fr; }
-      .hero-card { min-height: 340px; }
+    .support-card li,
+    .contact-card li {
+      position: relative;
+      padding-left: 18px;
     }
 
-    @media (max-width: 820px) {
-      .nav { flex-wrap: wrap; }
-      .nav-links { width: 100%; gap: 12px; }
-      .btn-row { flex-direction: column; align-items: stretch; }
+    .support-card li::before,
+    .contact-card li::before {
+      content: "•";
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.9);
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(185,28,28,0.45);
+      box-shadow: 0 0 0 4px rgba(185,28,28,0.08);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .fine-print {
+      font-size: 0.87rem;
+      color: var(--muted);
+    }
+
+    .feature-band {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .project-card {
+      padding: 34px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,245,239,0.95)),
+        radial-gradient(circle at top right, rgba(185,28,28,0.08), transparent 28%);
+      border: 1px solid rgba(255,255,255,0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .project-steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .project-steps div {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line-soft);
+      color: var(--muted);
+    }
+
+    .project-steps strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .founder-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(249,246,240,0.94));
+    }
+
+    .footer {
+      padding: 28px 0 38px;
+      border-top: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.5);
+      margin-top: 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 18px;
+      color: var(--muted);
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 16px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .feature-band,
+      .contact-grid,
+      .footer-grid,
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-3,
+      .hero-highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 0;
+      }
+
+      .nav-links,
+      .nav-actions {
+        justify-content: flex-start;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero-card,
+      .panel,
+      .engage-card,
+      .support-card,
+      .contact-card,
+      .founder-card,
+      .project-card,
+      .quote-block {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-4,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .brand-name {
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .hero-actions,
+      .mini-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="topbar">
+  <header class="topbar">
     <div class="container nav">
-      <a class="brand" href="index.html">
-        <div class="brand-mark"><span class="crown-dot"></span></div>
+      <a href="#top" class="brand-wrap" aria-label="naræ International Foundation Home">
+        <div class="brand-mark">
+          <!-- Replace src with your logo PNG path -->
+          <img src="images/narae-logo.png" alt="naræ International Foundation logo" />
+        </div>
         <div class="brand-text">
-          naræ International Foundation
-          <span class="sub">naræ<span class="mark">+</span></span>
+          <div class="brand-legal">naræ International Foundation</div>
+          <div class="brand-name">naræ<span class="plus">+</span></div>
         </div>
       </a>
 
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="founder.html">Founder</a>
-        <a href="about.html">About naræ<span class="mark">+</span></a>
-        <a href="community.html">Ways to Be Part</a>
-        <a href="crane-project.html">1000 Crane Project</a>
-        <a href="leadership.html">Leadership</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#engage">Ways to Engage</a>
+        <a href="#crane-project">1000 Crane Project</a>
+        <a href="#support">Support</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-secondary" href="#subscribe">Subscribe</a>
+        <a class="btn btn-primary" href="mailto:hello@naraefoundation.org">Contact</a>
       </div>
     </div>
-  </div>
+  </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <div class="container hero-wrap">
-        <div>
-          <div class="eyebrow">Maryland-based nonprofit</div>
-          <h1>Rooted in dignity, cultural care, and the belief that purpose can help people rise again.</h1>
-          <p class="intro">
-            naræ International Foundation is a Maryland-based nonprofit shaped by lived experience, cultural heritage, and the conviction that giving back can be part of healing.
+      <div class="container hero-grid">
+        <div class="hero-card">
+          <div class="eyebrow">Maryland nonprofit • healing • culture • community</div>
+          <h1>Where dignity, care, and community continue.</h1>
+          <p class="lead">
+            naræ International Foundation is creating thoughtful spaces for healing, cultural connection, community support, and meaningful participation. We believe healing can take many forms, and that encouragement, beauty, shared purpose, and genuine human connection can help light return.
           </p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="founder.html">Read the Founder’s Message</a>
-            <a class="btn btn-secondary" href="community.html">Ways to Be Part</a>
-            <a class="btn btn-secondary" href="community.html#support">Financial Support</a>
+          <p class="lead">
+            Through circles, writing, music, cultural sharing, volunteer service, and future community experiences, naræ<span class="plus">+</span> is being shaped as a place of hope, presence, and ongoing connection.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#engage">Participate or Inquire</a>
+            <a class="btn btn-secondary" href="#support">Support the Mission</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="stat-card">
+              <strong>Healing with dignity</strong>
+              <span>Not denial of pain, but a place oriented toward encouragement, hope, and care.</span>
+            </div>
+            <div class="stat-card">
+              <strong>Community in motion</strong>
+              <span>Writing, music, language support, cultural sharing, listening, and real participation.</span>
+            </div>
+            <div class="stat-card">
+              <strong>Purposeful growth</strong>
+              <span>Small, thoughtful beginnings with room to deepen, expand, and serve more over time.</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <img src="narae-logo.png" alt="naræ logo" class="hero-bird" />
+        <div class="hero-side">
+          <div class="panel">
+            <h3>Who this is for</h3>
+            <div class="soft-list">
+              <div><strong>People navigating hardship, illness, or transition</strong><br />Those seeking encouragement, dignity, and a gentler place to reconnect.</div>
+              <div><strong>Community members who wish to share</strong><br />Writing, music, culture, conversation, listening, creativity, or presence.</div>
+              <div><strong>Volunteers, bilingual supporters, and collaborators</strong><br />Those who want to offer language support, practical help, partnership, or care.</div>
+            </div>
+          </div>
+
+          <div class="panel symbol-note">
+            <h3>The meaning of naræ<span class="plus">+</span></h3>
+            <p>
+              Inspired by the Korean word for wing, naræ<span class="plus">+</span> reflects lift, tenderness, and motion. The red-crowned crane symbolizes grace, longevity, hope, and devoted connection. The plus mark represents something added: support, possibility, and one more hand extended toward another.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split">
-        <div class="card">
-          <h2>Why this foundation exists</h2>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">About</span>
+          <h2>A community shaped by care, beauty, and meaningful presence.</h2>
           <p>
-            It was born from hardship, gratitude, and the belief that care can restore dignity, connection, and purpose.
+            naræ International Foundation is not built around urgency or noise. It is being built with intention. The vision is to create a refined, welcoming community where people can encounter encouragement, participate with sincerity, and contribute in ways that feel human, grounded, and real.
           </p>
         </div>
 
-        <div class="card">
-          <h2>How to explore the story</h2>
-          <p>
-            The pages that follow share the founder’s message, the meaning behind naræ<span class="mark">+</span>, the 1000 Crane Project, and ways to be part of the community as the foundation grows.
-          </p>
+        <div class="feature-band">
+          <div class="quote-block">
+            <p>
+              Illness and hardship can leave people isolated in fear, exhaustion, and darkness. naræ<span class="plus">+</span> seeks to hold space for another direction: one marked by dignity, hope, cultural care, creativity, and connection.
+            </p>
+          </div>
+
+          <div class="founder-card">
+            <span class="kicker">Community rhythm</span>
+            <h3>What ongoing connection can look like</h3>
+            <p>
+              naræ<span class="plus">+</span> is envisioned as more than a single program. It can include writing circles, music sharing, cultural exchange, volunteer-led gatherings, gentle conversation spaces, language support, care-centered projects, and other opportunities that help people remain connected over time.
+            </p>
+            <div class="mini-actions">
+              <a class="btn btn-secondary" href="#subscribe">Join the mailing list</a>
+              <a class="btn btn-secondary" href="#contact">Ask about participation</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container grid-3">
-        <a class="card" href="founder.html">
-          <h3>Founder</h3>
-          <p>A personal message about survival, service, and the vision behind the foundation.</p>
-        </a>
+    <section class="section" id="engage">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Ways to engage</span>
+          <h2>Clear pathways for people who want to be part of naræ<span class="plus">+</span>.</h2>
+          <p>
+            Visitors should not have to guess what they can do here. naræ<span class="plus">+</span> welcomes participation through community, creativity, support, and service.
+          </p>
+        </div>
 
-        <a class="card" href="about.html">
-          <h3>About naræ<span class="mark">+</span></h3>
-          <p>Explore the meaning, symbolism, and inspiration behind the name and identity.</p>
-        </a>
+        <div class="grid-4">
+          <article class="engage-card">
+            <div class="icon">✦</div>
+            <h3>Join the mailing list</h3>
+            <p>Receive updates, reflections, future opportunities, and ways to stay connected as the foundation grows.</p>
+          </article>
 
-        <a class="card" href="crane-project.html">
-          <h3>1000 Crane Project</h3>
-          <p>Learn about a symbolic initiative rooted in hope, remembrance, and collective care.</p>
-        </a>
+          <article class="engage-card">
+            <div class="icon">✦</div>
+            <h3>Participate</h3>
+            <p>Express interest in future circles, gatherings, creative offerings, and community experiences shaped with care.</p>
+          </article>
+
+          <article class="engage-card">
+            <div class="icon">✦</div>
+            <h3>Share a skill</h3>
+            <p>Contribute through writing, music, listening, cultural sharing, language support, gentle facilitation, or thoughtful service.</p>
+          </article>
+
+          <article class="engage-card">
+            <div class="icon">✦</div>
+            <h3>Collaborate</h3>
+            <p>Partner as an artist, educator, advocate, nonprofit, bilingual supporter, ESL volunteer, or aligned community builder.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="crane-project">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">1000 Crane Project</span>
+          <h2>A living ritual of remembrance, hope, and community care.</h2>
+          <p>
+            The 1000 Crane Project is envisioned as an evolving naræ<span class="plus">+</span> ritual. Over time, it will symbolize 1000 women helped, seen, encouraged, or held in community through the foundation’s work.
+          </p>
+        </div>
+
+        <div class="feature-band">
+          <div class="project-card">
+            <h3>How it can grow</h3>
+            <p>
+              Each crane is more than a symbol. It can represent one life touched with dignity and care. As the community grows, naræ Fellows and future participants may each create a crane as part of a shared act of reflection, encouragement, and belonging.
+            </p>
+            <div class="project-steps">
+              <div>
+                <strong>One crane, one woman remembered</strong>
+                Each crane can symbolize a woman supported, honored, or uplifted through the naræ<span class="plus">+</span> community.
+              </div>
+              <div>
+                <strong>A ritual created by naræ Fellows</strong>
+                Fellows may fold and dedicate a crane as a visible gesture of care, witness, and connection.
+              </div>
+              <div>
+                <strong>A growing installation of hope</strong>
+                Over time, the cranes can become a collective visual story of healing, resilience, and lives touched.
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="kicker">Why it matters</span>
+            <h3>From symbol to embodied community practice</h3>
+            <p>
+              This project helps translate the mission into something people can feel and participate in. It carries beauty, memory, and movement. It also gives the community a meaningful way to mark growth without reducing women to numbers alone.
+            </p>
+            <p>
+              The goal is not performance. It is reverence. The cranes can quietly testify that care reached someone, that support mattered, and that no one should have to disappear into suffering unseen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="support">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Support</span>
+          <h2>People can support naræ<span class="plus">+</span> in more than one way.</h2>
+          <p>
+            Financial giving matters, but support can also come through language, creativity, time, partnership, encouragement, and thoughtful presence.
+          </p>
+        </div>
+
+        <div class="support-grid">
+          <article class="support-card">
+            <div class="icon">✦</div>
+            <h3>Ways to support</h3>
+            <ul>
+              <li>Financial gifts and future sponsorship</li>
+              <li>Bilingual or multilingual communication support</li>
+              <li>ESL or language assistance</li>
+              <li>Writing, music, and cultural sharing</li>
+              <li>Volunteer presence and community care</li>
+              <li>Partnerships, referrals, and aligned collaboration</li>
+            </ul>
+          </article>
+
+          <article class="support-card">
+            <div class="icon">✦</div>
+            <h3>Support the mission with clarity</h3>
+            <p>
+              If you want to support naræ<span class="plus">+</span>, you do not need to fit one narrow role. People can contribute with what they genuinely carry: skill, language, empathy, organization, artistry, resources, encouragement, or lived wisdom.
+            </p>
+            <div class="mini-actions">
+              <a class="btn btn-primary" href="mailto:hello@naraefoundation.org?subject=Support%20for%20nar%C3%A6%20International%20Foundation">Contact to Support</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="subscribe">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Subscribe</span>
+          <h2>Invite people into the circle without friction.</h2>
+          <p>
+            Best practice: connect this form to MailerLite, Mailchimp, or Kit so subscribers are stored properly and can receive future updates. For now, the form below is structured for easy replacement with your email platform’s embed code.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Mailing list</h3>
+            <!-- Replace the action URL below with your MailerLite, Mailchimp, Kit, Formspree, or other service endpoint. -->
+            <form action="#" method="post">
+              <label>
+                <span class="sr-only">First name</span>
+                <input type="text" name="first_name" placeholder="First name" />
+              </label>
+              <label>
+                <span class="sr-only">Email address</span>
+                <input type="email" name="email" placeholder="Email address" required />
+              </label>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <p class="fine-print">
+              Suggested integration: MailerLite or Mailchimp embedded form. This gives you subscriber management, confirmation emails, and a proper mailing list backend.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>What subscribers can receive</h3>
+            <ul>
+              <li>Foundation updates and milestones</li>
+              <li>Future circles, gatherings, and invitations</li>
+              <li>Opportunities to volunteer or collaborate</li>
+              <li>Reflections, stories, and community news</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Contact</span>
+          <h2>Make inquiry simple, warm, and clear.</h2>
+          <p>
+            Give visitors an easy way to reach you for participation, volunteer interest, collaboration, support, media, or general questions.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Contact naræ International Foundation</h3>
+            <!-- Replace action="#" with Formspree or your backend endpoint if you want a working form without custom server code. -->
+            <form action="#" method="post">
+              <input type="text" name="name" placeholder="Name" required />
+              <input type="email" name="email" placeholder="Email address" required />
+              <select name="reason" required>
+                <option value="">Reason for inquiry</option>
+                <option>General inquiry</option>
+                <option>Participation interest</option>
+                <option>Volunteer or share a skill</option>
+                <option>Language or ESL support</option>
+                <option>Partnership or collaboration</option>
+                <option>Support the mission</option>
+                <option>Media or speaking</option>
+              </select>
+              <textarea name="message" placeholder="Your message"></textarea>
+              <button type="submit" class="btn btn-primary">Send inquiry</button>
+            </form>
+          </div>
+
+          <div class="contact-card">
+            <h3>Direct contact</h3>
+            <p>
+              Email: <a href="mailto:hello@naraefoundation.org"><strong>hello@naraefoundation.org</strong></a>
+            </p>
+            <ul>
+              <li>Use this for participation, partnership, support, or general inquiries.</li>
+              <li>Consider adding a response note such as: “We appreciate your message and will respond as thoughtfully as possible.”</li>
+              <li>If you prefer a simple setup, connect this page to Formspree. It is much easier than building your own backend first.</li>
+            </ul>
+            <div class="mini-actions">
+              <a class="btn btn-secondary" href="mailto:hello@naraefoundation.org">Email now</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="small">© 2026 naræ International Foundation. All rights reserved.<br />A Maryland nonprofit organization. 501(c)(3) status pending.</div>
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-name">naræ<span class="plus">+</span></div>
+        <p class="footer-note">
+          naræ International Foundation is a Maryland nonprofit building thoughtful spaces for healing, cultural connection, community support, and meaningful participation.
+        </p>
+        <p class="footer-note">
+          <a href="mailto:hello@naraefoundation.org">hello@naraefoundation.org</a><br />
+          501(c)(3) status pending.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#engage">Ways to Engage</a>
+          <a href="#crane-project">1000 Crane Project</a>
+          <a href="#support">Support</a>
+          <a href="#subscribe">Subscribe</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p class="footer-note">© 2026 naræ International Foundation. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 </body>
