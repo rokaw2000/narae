@@ -167,7 +167,7 @@
     }
 
     .intro {
-      max-width: 860px;
+      max-width: 760px;
       color: var(--muted);
       font-size: 19px;
       margin: 0;
@@ -177,35 +177,7 @@
       padding: 24px 0;
     }
 
-    .story-panel {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .meaning-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .board-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .advisory-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
     .card,
-    .mini-card,
     .person-card {
       background: var(--surface);
       border: 1px solid var(--line);
@@ -218,13 +190,28 @@
       padding: 30px;
     }
 
-    .mini-card {
-      padding: 28px;
-      height: 100%;
+    .story-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .board-grid,
+    .advisory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .section-heading {
+      margin: 0 0 18px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
     }
 
     .card h2,
-    .mini-card h3,
     .person-card h3 {
       margin: 0 0 12px;
       letter-spacing: -0.03em;
@@ -235,20 +222,17 @@
       font-size: clamp(1.6rem, 3vw, 2rem);
     }
 
-    .mini-card h3,
     .person-card h3 {
       font-size: 22px;
     }
 
     .card p,
-    .mini-card p,
     .person-card p {
       margin: 0 0 14px;
       color: var(--muted);
     }
 
     .card p:last-child,
-    .mini-card p:last-child,
     .person-card p:last-child {
       margin-bottom: 0;
     }
@@ -270,25 +254,18 @@
       margin-bottom: 12px;
     }
 
-    .section-heading {
-      margin: 0 0 18px;
-      font-size: 28px;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
     .note-card {
       margin-top: 18px;
+      padding: 24px 28px;
       background:
         linear-gradient(135deg, rgba(255,255,255,0.97), rgba(250,250,250,0.95)),
         repeating-linear-gradient(0deg, rgba(0,0,0,0.014) 0px, rgba(0,0,0,0.014) 1px, transparent 1px, transparent 8px),
         repeating-linear-gradient(90deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 9px);
-      text-align: center;
-      padding: 26px 28px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       color: var(--muted);
+      text-align: center;
     }
 
     footer {
@@ -304,7 +281,6 @@
 
     @media (max-width: 980px) {
       .story-panel,
-      .meaning-grid,
       .board-grid,
       .advisory-grid {
         grid-template-columns: 1fr;
@@ -351,7 +327,7 @@
         <div class="eyebrow">Leadership & Governance</div>
         <h1>Leadership & Governance</h1>
         <p class="intro">
-          naræ International Foundation is guided by leaders committed to thoughtful stewardship, sound governance, and the careful growth of a mission centered on immigrant and culturally diverse women facing breast cancer and gynecologic cancers.
+          naræ International Foundation is guided by a Board of Directors and an Advisory Board that support the mission, governance, and continued development of the organization.
         </p>
       </div>
     </section>
@@ -360,24 +336,18 @@
       <div class="container">
         <div class="story-panel">
           <div class="card">
-            <span class="kicker">Governance</span>
-            <h2>How the foundation is guided</h2>
+            <span class="kicker">Board of Directors</span>
+            <h2>Oversight and direction</h2>
             <p>
-              naræ International Foundation is led through a governance structure designed to support responsible decision-making, organizational integrity, and long-term mission alignment.
-            </p>
-            <p>
-              The Board of Directors provides oversight, accountability, and strategic direction, while the Advisory Board offers perspective, experience, and encouragement as the organization continues to take shape.
+              The Board of Directors provides governance, accountability, and overall direction for the foundation.
             </p>
           </div>
 
           <div class="card">
-            <span class="kicker">Leadership approach</span>
-            <h2>Built with intention</h2>
+            <span class="kicker">Advisory Board</span>
+            <h2>Guidance and perspective</h2>
             <p>
-              Leadership at naræ<span class="mark">+</span> is meant to remain thoughtful, grounded, and service-oriented.
-            </p>
-            <p>
-              As the foundation grows, its leadership structure can expand carefully while staying aligned with the values, purpose, and people at the center of the mission.
+              The Advisory Board offers insight, encouragement, and professional perspective as the organization continues to grow.
             </p>
           </div>
         </div>
@@ -388,7 +358,7 @@
             <h3>Jihwan Baek</h3>
             <div class="role">Founder · Executive Director · Board Chair</div>
             <p>
-              Provides overall vision, leadership, and stewardship for the foundation’s mission, direction, and development.
+              Provides overall leadership and direction for the foundation.
             </p>
           </div>
 
@@ -396,7 +366,7 @@
             <h3>Genene Tesfaye</h3>
             <div class="role">Treasurer · Board Member</div>
             <p>
-              Supports the financial oversight, accountability, and governance responsibilities of the organization.
+              Supports financial oversight and governance responsibilities.
             </p>
           </div>
 
@@ -404,7 +374,7 @@
             <h3>Susan E. Dreyer</h3>
             <div class="role">Secretary · Board Member</div>
             <p>
-              Supports governance, organizational records, and board administration.
+              Supports governance, records, and board administration.
             </p>
           </div>
 
@@ -412,7 +382,7 @@
             <h3>Daphney N. Cornelius</h3>
             <div class="role">Board Member</div>
             <p>
-              Contributes to the strategic guidance and continued growth of the foundation.
+              Contributes to the strategic guidance of the foundation.
             </p>
           </div>
 
@@ -420,7 +390,7 @@
             <h3>Additional Board Seat</h3>
             <div class="role">To Be Announced</div>
             <p>
-              An additional board position may be filled as the foundation continues to grow with care and intention.
+              An additional board position may be filled as the foundation grows.
             </p>
           </div>
         </div>
@@ -436,7 +406,7 @@
             <h3>Philip Tyler</h3>
             <div class="role">Advisory Board Member</div>
             <p>
-              Offers guidance, perspective, and support to strengthen the foundation’s direction.
+              Offers guidance and perspective in support of the foundation.
             </p>
           </div>
 
@@ -444,7 +414,7 @@
             <h3>Stephen Muturi</h3>
             <div class="role">Advisory Board Member</div>
             <p>
-              Provides insight and advisory support as the organization develops.
+              Provides advisory support as the organization develops.
             </p>
           </div>
 
@@ -452,13 +422,13 @@
             <h3>Bernie Nojadera</h3>
             <div class="role">Advisory Board Member</div>
             <p>
-              Contributes experience and perspective in support of the foundation’s mission.
+              Contributes experience and insight in support of the mission.
             </p>
           </div>
         </div>
 
         <div class="note-card">
-          The leadership structure of naræ International Foundation will continue to develop thoughtfully as the organization grows.
+          The leadership structure of naræ International Foundation will continue to develop as the organization grows.
         </div>
       </div>
     </section>
