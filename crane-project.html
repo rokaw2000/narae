@@ -1,452 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1000 Crane Project | naræ International Foundation</title>
+  <meta
+    name="description"
+    content="Learn about the 1000 Crane Project, a symbolic initiative of naræ International Foundation rooted in origami, remembrance, resilience, healing, and hope."
+  />
+  <style>
+    :root {
+      --bg: #fcfbf8;
+      --surface: rgba(255,255,255,0.90);
+      --text: #111111;
+      --muted: #5f5a55;
+      --line: #e8e1d7;
+      --primary: #c62828;
+      --primary-deep: #8e1b1b;
+      --pink: #df8aa3;
+      --teal: #4fa4a1;
+      --shadow: 0 18px 50px rgba(0,0,0,0.06);
+      --radius: 24px;
+      --max: 1120px;
+    }
 
-<title>1000 Crane Project | naræ International Foundation</title>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-<meta
-  name="description"
-  content="The 1000 Crane Project is a symbolic initiative of naræ International Foundation rooted in origami, healing, remembrance, resilience, and the hope of supporting 1,000 women."
-/>
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.92), transparent 34%),
+        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.72), transparent 28%),
+        linear-gradient(rgba(255,255,255,0.88), rgba(252,251,248,0.96)),
+        repeating-linear-gradient(
+          0deg,
+          rgba(196,182,160,0.035) 0px,
+          rgba(196,182,160,0.035) 1px,
+          transparent 1px,
+          transparent 6px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(196,182,160,0.025) 0px,
+          rgba(196,182,160,0.025) 1px,
+          transparent 1px,
+          transparent 8px
+        );
+      background-attachment: fixed;
+    }
 
-<style>
-:root{
-  --bg:#fcfbf8;
-  --surface:rgba(255,255,255,0.90);
-  --surface-strong:rgba(255,255,255,0.94);
-  --text:#111111;
-  --muted:#5f5a55;
-  --line:#e8e1d7;
-  --primary:#c62828;
-  --primary-deep:#8e1b1b;
-  --shadow:0 18px 50px rgba(0,0,0,0.06);
-  --radius:24px;
-  --max:1160px;
-}
+    a { color: inherit; text-decoration: none; }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
 
-body{
-  margin:0;
-  font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  color:var(--text);
-  line-height:1.7;
-  background-color:var(--bg);
-  background-image:
-    radial-gradient(circle at 20% 18%,rgba(255,255,255,0.92),transparent 34%),
-    radial-gradient(circle at 80% 0%,rgba(255,255,255,0.72),transparent 28%),
-    linear-gradient(rgba(255,255,255,0.88),rgba(252,251,248,0.96)),
-    repeating-linear-gradient(0deg,rgba(196,182,160,0.035) 0px,rgba(196,182,160,0.035) 1px,transparent 1px,transparent 6px),
-    repeating-linear-gradient(90deg,rgba(196,182,160,0.025) 0px,rgba(196,182,160,0.025) 1px,transparent 1px,transparent 8px);
-  background-attachment:fixed;
-}
+    .mark {
+      display: inline-block;
+      font-size: 0.72em;
+      vertical-align: super;
+      margin-left: 1px;
+      line-height: 1;
+    }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(255,255,255,0.80);
+      border-bottom: 1px solid rgba(232,225,215,0.95);
+    }
 
-.container{
-  width:min(calc(100% - 32px),var(--max));
-  margin:0 auto;
-}
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
 
-.mark{
-  display:inline-block;
-  font-size:.72em;
-  vertical-align:super;
-  margin-left:1px;
-  line-height:1;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
 
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:30;
-  backdrop-filter:blur(14px);
-  background:rgba(255,255,255,0.80);
-  border-bottom:1px solid rgba(232,225,215,0.95);
-}
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(198,40,40,0.16);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      flex-shrink: 0;
+    }
 
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:16px 0;
-}
+    .crown-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
+    }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-}
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.08;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
 
-.brand-mark{
-  width:42px;
-  height:42px;
-  border-radius:14px;
-  border:1px solid rgba(198,40,40,0.16);
-  background:#fff;
-  display:grid;
-  place-items:center;
-  box-shadow:0 6px 18px rgba(0,0,0,0.04);
-  flex-shrink:0;
-}
+    .brand-text .sub {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
 
-.crown-dot{
-  width:12px;
-  height:12px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--primary),var(--primary-deep));
-  box-shadow:0 0 0 6px rgba(198,40,40,0.08);
-}
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 500;
+    }
 
-.brand-text{
-  display:flex;
-  flex-direction:column;
-  line-height:1.08;
-  font-size:20px;
-  font-weight:800;
-  letter-spacing:-0.02em;
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-deep);
+    }
 
-.brand-text .sub{
-  font-size:13px;
-  font-weight:600;
-  color:var(--muted);
-  letter-spacing:.08em;
-}
+    .page-hero {
+      padding: 88px 0 34px;
+    }
 
-.nav-links{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-  gap:18px;
-  font-size:15px;
-  color:var(--muted);
-  font-weight:500;
-}
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.84);
+      color: var(--primary-deep);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
 
-.nav-links a:hover,
-.nav-links a.active{
-  color:var(--primary-deep);
-}
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      max-width: 900px;
+    }
 
-.hero{
-  padding:92px 0 40px;
-}
+    .intro {
+      max-width: 860px;
+      color: var(--muted);
+      font-size: 19px;
+      margin: 0;
+    }
 
-.hero-wrap{
-  display:grid;
-  grid-template-columns:1.08fr 0.92fr;
-  gap:26px;
-  align-items:stretch;
-}
+    .section {
+      padding: 24px 0;
+    }
 
-.eyebrow{
-  display:inline-flex;
-  padding:8px 14px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,0.84);
-  color:var(--primary-deep);
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:18px;
-}
+    .story-panel {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
 
-h1{
-  margin:0 0 16px;
-  font-size:clamp(2.5rem,4.1vw,3.9rem);
-  line-height:1.05;
-  letter-spacing:-0.045em;
-  max-width:780px;
-}
+    .meaning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
 
-.intro{
-  max-width:790px;
-  color:var(--muted);
-  font-size:18px;
-  margin:0 0 16px;
-}
+    .card,
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
 
-.hero-card{
-  background:var(--surface-strong);
-  border:1px solid var(--line);
-  border-radius:30px;
-  box-shadow:var(--shadow);
-  padding:30px;
-  min-height:330px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  position:relative;
-  overflow:hidden;
-}
+    .card {
+      padding: 30px;
+    }
 
-.hero-card::before{
-  content:"";
-  position:absolute;
-  inset:18px;
-  border-radius:24px;
-  border:1px solid rgba(184,154,99,0.18);
-  pointer-events:none;
-}
+    .mini-card {
+      padding: 28px;
+      height: 100%;
+    }
 
-.hero-card h2{
-  margin:0 0 12px;
-  font-size:1.65rem;
-  letter-spacing:-0.03em;
-  position:relative;
-  z-index:1;
-}
+    .card h2,
+    .mini-card h3 {
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
 
-.hero-card p{
-  margin:0;
-  color:var(--muted);
-  position:relative;
-  z-index:1;
-}
+    .card h2 {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+    }
 
-.section{
-  padding:22px 0;
-}
+    .mini-card h3 {
+      font-size: 22px;
+    }
 
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
+    .card p,
+    .mini-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
 
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:18px;
-}
+    .card p:last-child,
+    .mini-card p:last-child {
+      margin-bottom: 0;
+    }
 
-.card{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:30px;
-}
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-deep);
+    }
 
-.card h2,
-.card h3{
-  margin:0 0 12px;
-  letter-spacing:-0.03em;
-  line-height:1.15;
-}
+    .quote-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.97), rgba(250,250,250,0.95)),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.014) 0px, rgba(0,0,0,0.014) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 9px);
+      text-align: center;
+    }
 
-.card h2{
-  font-size:clamp(1.7rem,3vw,2.2rem);
-}
+    blockquote {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+      line-height: 1.5;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
 
-.card h3{
-  font-size:23px;
-}
+    cite {
+      display: block;
+      margin-top: 14px;
+      color: var(--muted);
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 700;
+    }
 
-.card p{
-  margin:0;
-  color:var(--muted);
-}
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 22px;
+    }
 
-.statement{
-  text-align:center;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      text-align: center;
+    }
 
-.statement p{
-  max-width:820px;
-  margin:0 auto;
-}
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      color: white;
+    }
 
-footer{
-  border-top:1px solid var(--line);
-  padding:28px 0 50px;
-  color:var(--muted);
-  margin-top:42px;
-}
+    .btn-secondary {
+      background: rgba(255,255,255,0.92);
+      border-color: var(--line);
+      color: var(--text);
+    }
 
-.small{
-  font-size:14px;
-}
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 50px;
+      color: var(--muted);
+      margin-top: 40px;
+    }
 
-@media (max-width:980px){
-  .hero-wrap,
-  .split,
-  .grid-3{
-    grid-template-columns:1fr;
-  }
-}
+    .small {
+      font-size: 14px;
+    }
 
-@media (max-width:820px){
-  .nav{
-    flex-wrap:wrap;
-  }
-  .nav-links{
-    width:100%;
-    gap:12px;
-  }
-}
-</style>
+    @media (max-width: 980px) {
+      .story-panel,
+      .meaning-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <div class="brand-mark"><span class="crown-dot"></span></div>
+        <div class="brand-text">
+          naræ International Foundation
+          <span class="sub">naræ<span class="mark">+</span></span>
+        </div>
+      </a>
 
-<div class="topbar">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <div class="brand-mark"><span class="crown-dot"></span></div>
-      <div class="brand-text">
-        naræ International Foundation
-        <span class="sub">naræ<span class="mark">+</span></span>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="founder.html">Founder</a>
+        <a href="about.html">About naræ<span class="mark">+</span></a>
+        <a href="community.html">Ways to Be Part</a>
+        <a href="crane-project.html" class="active">1000 Crane Project</a>
+        <a href="leadership.html">Leadership</a>
       </div>
-    </a>
-
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="founder.html">Founder</a>
-      <a href="about.html">About naræ<span class="mark">+</span></a>
-      <a href="community.html">Ways to Be Part</a>
-      <a href="crane-project.html" class="active">1000 Crane Project</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="contact.html">Contact</a>
     </div>
   </div>
-</div>
 
-<main>
-
-  <section class="hero">
-    <div class="container hero-wrap">
-      <div>
-        <div class="eyebrow">A symbol, a ritual, and a hope</div>
-
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">A Symbol of Hope & Remembrance</div>
         <h1>The 1000 Crane Project</h1>
-
         <p class="intro">
-          The 1000 Crane Project is a meaningful expression of the spirit of naræ<span class="mark">+</span>. Rooted in the symbolism of the red-crowned crane and the tradition of origami, it reflects hope, resilience, remembrance, and care carried forward fold by fold.
-        </p>
-
-        <p class="intro">
-          For naræ<span class="mark">+</span>, this project is more than a visual symbol. It is also a quiet ritual of intention, and a reflection of the hope that one day one thousand women may be supported through dignity, encouragement, and community.
+          The 1000 Crane Project is a symbolic expression of the spirit of naræ<span class="mark">+</span>. Rooted in the meaning of the crane and the tradition of origami, it reflects hope, remembrance, resilience, and the belief that care can be carried forward with intention, fold by fold.
         </p>
       </div>
+    </section>
 
-      <div class="hero-card">
-        <h2>Why the crane matters</h2>
-        <p>
-          In East Asian tradition, the red-crowned crane is associated with grace, endurance, dignity, and long life. At naræ<span class="mark">+</span>, the crane also carries the meaning of hope that remains present even through hardship.
-        </p>
+    <section class="section">
+      <div class="container">
+
+        <div class="story-panel">
+          <div class="card">
+            <span class="kicker">The symbol</span>
+            <h2>Why the crane matters</h2>
+            <p>
+              The red-crowned crane has long held deep meaning across East Asian cultures, where it is associated with grace, dignity, longevity, fidelity, and enduring strength.
+            </p>
+            <p>
+              For naræ<span class="mark">+</span>, the crane also represents a quieter form of resilience: strength that remains gentle, steady, and dignified even through hardship.
+            </p>
+            <p>
+              It is not simply a visual motif. It is part of the foundation’s deeper language of hope, memory, and care.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="kicker">The practice</span>
+            <h2>More than a visual idea</h2>
+            <p>
+              The 1000 Crane Project is more than symbolism. It is also a gesture of intention.
+            </p>
+            <p>
+              Each folded crane can represent remembrance, encouragement, prayer, solidarity, or hope carried on behalf of someone facing a difficult chapter.
+            </p>
+            <p>
+              What is made by hand becomes part of what is held with care.
+            </p>
+          </div>
+        </div>
+
+        <div class="meaning-grid">
+          <div class="mini-card">
+            <h3>Origami and transformation</h3>
+            <p>
+              Origami turns a single sheet into something shaped through patience, pressure, and precision.
+            </p>
+            <p>
+              That process reflects transformation itself. Healing and rebuilding are often not dramatic. They are formed through small, deliberate acts repeated over time.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h3>Why one thousand</h3>
+            <p>
+              The tradition of folding one thousand cranes has long symbolized perseverance, hope, and heartfelt intention.
+            </p>
+            <p>
+              At naræ<span class="mark">+</span>, that meaning carries an added hope: that one day one thousand women may be supported through dignity, encouragement, and community.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <h3>What it can hold</h3>
+            <p>
+              A crane may hold a wish for healing, a remembrance of someone loved, a quiet act of solidarity, or a visible expression of care.
+            </p>
+            <p>
+              Small in form, it can still carry deep meaning.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-panel">
+          <div class="card">
+            <span class="kicker">Shared meaning</span>
+            <h2>A project that can bring people together</h2>
+            <p>
+              Over time, the 1000 Crane Project may invite participation from individuals, families, schools, communities, and aligned partners who wish to contribute cranes as a shared expression of support.
+            </p>
+            <p>
+              In that way, the project can become both personal and collective, honoring individual stories while building a wider fabric of remembrance and encouragement.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="kicker">The larger hope</span>
+            <h2>Fold by fold, toward something enduring</h2>
+            <p>
+              The project reflects the deeper spirit of naræ<span class="mark">+</span> itself.
+            </p>
+            <p>
+              Healing, trust, and community are rarely built all at once. They are shaped gradually, with patience and care, until something once fragile becomes lasting.
+            </p>
+            <p>
+              That is the hope carried in every crane.
+            </p>
+          </div>
+        </div>
+
+        <div class="card quote-card">
+          <blockquote>
+            “What is folded by hand can also hold hope. What is repeated with care can become a form of remembrance, strength, and blessing.”
+          </blockquote>
+          <cite>naræ<span class="mark">+</span> guiding spirit</cite>
+        </div>
+
+        <div class="btn-row">
+          <a class="btn btn-secondary" href="about.html">About naræ<span class="mark">+</span></a>
+          <a class="btn btn-primary" href="community.html">Ways to Be Part</a>
+          <a class="btn btn-secondary" href="leadership.html">Leadership</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="section">
-    <div class="container split">
-
-      <div class="card">
-        <h2>A symbol with meaning</h2>
-        <p>
-          The crane has long been regarded as a symbol of peace, longevity, resilience, and transcendence. Its presence in naræ<span class="mark">+</span> reflects the belief that strength can remain gentle, and that dignity can endure even in life’s most difficult seasons.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>A ritual of hope</h2>
-        <p>
-          The act of folding cranes is more than a creative gesture. It can become a quiet ritual of reflection, remembrance, healing, and intention. Each fold is small, yet not small in meaning. It is an act of care made visible by hand.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container split">
-
-      <div class="card">
-        <h2>Origami and transformation</h2>
-        <p>
-          Origami reflects patience, craft, and thoughtful transformation. A flat sheet is shaped into something delicate and enduring through attention, pressure, and intention. In that way, origami mirrors healing itself, where small acts over time can become something strong and beautiful.
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>Why one thousand</h2>
-        <p>
-          The tradition of one thousand cranes has long symbolized hope, perseverance, and collective prayer. At naræ<span class="mark">+</span>, that meaning also carries another hope: that one day one thousand women may be supported through care, dignity, encouragement, and community.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container grid-3">
-
-      <div class="card">
-        <h3>Hope</h3>
-        <p>
-          Each crane can hold a wish for healing, peace, courage, or encouragement for a woman or family walking through a difficult chapter.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Remembrance</h3>
-        <p>
-          The project can also honor stories, lives, struggles, and victories that deserve to be remembered with tenderness and dignity.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Community</h3>
-        <p>
-          Families, schools, friends, partners, and communities may one day take part together, contributing cranes as a shared expression of solidarity and care.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section">
+  <footer>
     <div class="container">
-      <div class="card statement">
-        <h2>A spiritual practice for naræ<span class="mark">+</span></h2>
-        <p>
-          The 1000 Crane Project is also part of the spiritual rhythm of naræ<span class="mark">+</span>. Not tied to one doctrine, but rooted in reverence, reflection, and hope, it becomes a practice of holding women in care, fold by fold, with intention and love.
-        </p>
-      </div>
+      <div class="small">© 2026 naræ International Foundation. All rights reserved.<br />A Maryland nonprofit organization. 501(c)(3) status pending.</div>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="card statement">
-        <h2>Fold by fold</h2>
-        <p>
-          The 1000 Crane Project reflects the spirit of naræ<span class="mark">+</span> itself. Healing, trust, and community are not built all at once. They are built fold by fold, prayer by prayer, woman by woman, until something fragile becomes something enduring.
-        </p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <div class="small">
-      © 2026 naræ International Foundation. All rights reserved.<br>
-      A Maryland nonprofit organization. 501(c)(3) status pending.<br>
-      Contact: <a href="mailto:hello@naraefoundation.org">hello@naraefoundation.org</a>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
