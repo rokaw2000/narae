@@ -248,27 +248,28 @@
 
     .kicker.teal { color: var(--teal); }
 
-    /* ── Crane visual ── */
     .crane-visual {
       text-align: center;
       padding: 40px 20px 20px;
       margin-bottom: 18px;
     }
 
-    .crane-svg {
-      width: 280px;
+    .crane-img {
+      width: 100%;
+      max-width: 420px;
       height: auto;
-      filter: drop-shadow(0 16px 32px rgba(198,40,40,0.12));
+      display: block;
+      margin: 0 auto;
       animation: crane-float 6s ease-in-out infinite;
     }
 
     @keyframes crane-float {
-      0%, 100% { transform: translateY(0px) rotate(-1deg); }
-      50%       { transform: translateY(-14px) rotate(1deg); }
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
     }
 
     .crane-caption {
-      margin: 16px auto 0;
+      margin: 20px auto 0;
       max-width: 400px;
       font-size: 13px;
       color: var(--muted);
@@ -385,7 +386,7 @@
         <a href="index.html">Home</a>
         <a href="founder.html">Founder</a>
         <a href="about.html">About naræ<span class="mark">+</span></a>
-        <a href="programs.html">Program Approach</a>
+        <a href="program.html">Program Approach</a>
         <a href="community.html">Ways to Be Part</a>
         <a href="crane-project.html" class="active">1000 Crane Project</a>
         <a href="leadership.html">Leadership</a>
@@ -407,29 +408,10 @@
     <section class="section">
       <div class="container">
 
-        <!-- Origami crane SVG -->
+        <!-- Origami crane image -->
         <div class="crane-visual">
-          <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="crane-svg">
-            <!-- Body -->
-            <polygon points="200,60 320,180 200,150 80,180" fill="#df8aa3" opacity="0.85"/>
-            <!-- Left wing -->
-            <polygon points="200,150 80,180 60,240 160,200" fill="#c62828" opacity="0.75"/>
-            <!-- Right wing -->
-            <polygon points="200,150 320,180 340,240 240,200" fill="#c62828" opacity="0.75"/>
-            <!-- Tail -->
-            <polygon points="200,150 160,200 200,220 240,200" fill="#8e1b1b" opacity="0.8"/>
-            <!-- Head/neck -->
-            <polygon points="200,60 230,100 200,130 170,100" fill="#df8aa3" opacity="0.9"/>
-            <!-- Beak -->
-            <polygon points="200,130 215,145 200,155 185,145" fill="#c62828" opacity="0.9"/>
-            <!-- Wing fold lines -->
-            <line x1="200" y1="150" x2="80" y2="180" stroke="white" stroke-width="1" opacity="0.4"/>
-            <line x1="200" y1="150" x2="320" y2="180" stroke="white" stroke-width="1" opacity="0.4"/>
-            <line x1="200" y1="60" x2="200" y2="150" stroke="white" stroke-width="1" opacity="0.3"/>
-            <!-- Shadow -->
-            <ellipse cx="200" cy="270" rx="80" ry="10" fill="#e8e1d7" opacity="0.5"/>
-          </svg>
-          <p class="crane-caption">Each crane is folded by hand — fold by fold, with patience and intention.</p>
+          <img src="narae-logo.png" alt="naræ+ embroidered crane" class="crane-img" />
+          <p class="crane-caption">Each crane is folded by hand — one for herself, one for another, one for naræ<span style="font-size:0.72em;vertical-align:super;">+</span></p>
         </div>
 
         <!-- The ritual + keeper -->
@@ -525,7 +507,7 @@
 
         <div class="btn-row">
           <a class="btn btn-secondary" href="about.html">About naræ<span class="mark">+</span></a>
-          <a class="btn btn-secondary" href="programs.html">Program Approach</a>
+          <a class="btn btn-secondary" href="program.html">Program Approach</a>
           <a class="btn btn-primary" href="community.html">Ways to Be Part</a>
         </div>
 
