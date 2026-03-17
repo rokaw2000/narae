@@ -164,10 +164,11 @@
 
     h1 {
       margin: 0 0 20px;
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
-      line-height: 1.06;
-      letter-spacing: -0.045em;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
       max-width: 820px;
+      color: var(--primary-deep);
     }
 
     .intro {
@@ -195,12 +196,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,0.10));
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
     }
 
     .hero-logo {
-      width: 260px;
+      width: 340px;
       height: auto;
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     /* ── Hero buttons ── */
@@ -280,9 +288,16 @@
     }
 
     .nav-card-icon {
-      font-size: 1.6rem;
-      line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    .card-dot {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+      box-shadow: 0 0 0 5px rgba(198,40,40,0.10);
     }
 
     .nav-card h3 {
@@ -386,7 +401,7 @@
         <a href="index.html" class="active">Home</a>
         <a href="founder.html">Founder</a>
         <a href="about.html">About naræ<span class="mark">+</span></a>
-        <a href="programs.html">Program Approach</a>
+        <a href="program.html">Program Approach</a>
         <a href="community.html">Ways to Be Part</a>
         <a href="crane-project.html">1000 Crane Project</a>
         <a href="leadership.html">Leadership</a>
@@ -399,22 +414,15 @@
     <!-- Hero -->
     <section class="page-hero">
       <div class="container">
-        <div class="hero-inner">
-          <div class="hero-text">
-            <div class="eyebrow">Maryland-based nonprofit · 501(c)(3) pending</div>
-            <h1>Cancer is hard enough. naræ<span class="mark">+</span> is for the women carrying more.</h1>
-            <p class="intro">
-              naræ<span class="mark">+</span> supports immigrant and culturally diverse women navigating breast cancer or gynecologic cancer — through cultural understanding, meaningful connection, and the belief that healing moves in both directions.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href="programs.html">Our Programs</a>
-              <a class="btn btn-secondary" href="founder.html">Read the Founder's Message</a>
-              <a class="btn btn-secondary" href="community.html">Ways to Be Part</a>
-            </div>
-          </div>
-          <div class="hero-logo-wrap">
-            <img src="narae-logo.png" alt="naræ International Foundation" class="hero-logo" />
-          </div>
+        <div class="eyebrow">Maryland-based nonprofit · 501(c)(3) pending</div>
+        <h1>Cancer is hard enough. naræ<span class="mark">+</span> is for the women carrying more.</h1>
+        <p class="intro">
+          naræ<span class="mark">+</span> supports immigrant and culturally diverse women navigating breast cancer or gynecologic cancer — through cultural understanding, meaningful connection, and the belief that healing moves in both directions.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="program.html">Our Programs</a>
+          <a class="btn btn-secondary" href="founder.html">Read the Founder's Message</a>
+          <a class="btn btn-secondary" href="community.html">Ways to Be Part</a>
         </div>
       </div>
     </section>
@@ -429,21 +437,21 @@
         <div class="cards-grid">
 
           <a class="nav-card pink" href="founder.html">
-            <div class="nav-card-icon">🌸</div>
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>Founder</h3>
             <p>The story behind naræ<span class="mark">+</span> — lived experience, cancer, and the moment that changed everything.</p>
             <span class="arrow">Read the message →</span>
           </a>
 
           <a class="nav-card" href="about.html">
-            <div class="nav-card-icon">🪢</div>
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>About naræ<span class="mark">+</span></h3>
-            <p>The meaning behind the name, the crane, and an identity built around survival and renewal.</p>
+            <p>naræ means wings. The meaning behind the name, the crane, and an identity built around survival and renewal.</p>
             <span class="arrow">Learn more →</span>
           </a>
 
-          <a class="nav-card teal" href="programs.html">
-            <div class="nav-card-icon">🪷</div>
+          <a class="nav-card teal" href="program.html">
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>Program Approach</h3>
             <p>A retreat, small group circles, and community events — built with intention, not speed.</p>
             <span class="arrow">See our programs →</span>
@@ -455,14 +463,14 @@
         <div class="cards-grid-2">
 
           <a class="nav-card red" href="crane-project.html">
-            <div class="nav-card-icon">🕊️</div>
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>1000 Crane Project</h3>
             <p>A ritual of folding, remembrance, and prayer. Three cranes. One powerful intention. And then another thousand begins.</p>
             <span class="arrow">Discover the project →</span>
           </a>
 
           <a class="nav-card warm" href="community.html">
-            <div class="nav-card-icon">🤝</div>
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>Ways to Be Part</h3>
             <p>Whether you are a woman seeking community or someone who wants to support the mission — there is a place for you.</p>
             <span class="arrow">Get involved →</span>
@@ -471,13 +479,11 @@
         </div>
 
         <!-- Leadership — single full width -->
-        <a class="nav-card" href="leadership.html" style="margin-bottom: 18px; display: flex; flex-direction: row; align-items: center; gap: 20px;">
-          <div class="nav-card-icon" style="font-size: 2rem; flex-shrink:0;">👥</div>
-          <div>
-            <h3>Leadership</h3>
-            <p style="margin:4px 0 0;">The people who help carry naræ<span class="mark">+</span> forward.</p>
-          </div>
-          <span class="arrow" style="margin-left: auto; padding-top: 0; white-space: nowrap;">Meet the team →</span>
+        <a class="nav-card" href="leadership.html" style="margin-bottom: 18px;">
+          <div class="nav-card-icon"><span class="card-dot"></span></div>
+          <h3>Leadership</h3>
+          <p>The people who help carry naræ<span class="mark">+</span> forward.</p>
+          <span class="arrow">Meet the team →</span>
         </a>
 
         <!-- Quote -->
@@ -499,4 +505,11 @@
         © 2026 naræ International Foundation. All rights reserved.<br />
         Maryland nonprofit · 501(c)(3) pending<br />
         Giving opportunities coming soon — stay connected.<br />
-        <a href="/cdn-cgi/l/email-protection#5139343d3d3e113f30233034373e243f353025383e3f7f3e2336" style="color:var(--primary-deep);"><span class="__cf_email__" data-cfe
+
+        <a href="mailto:hello@naraefoundation.org" style="color:var(--primary-deep);">hello@naraefoundation.org</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
