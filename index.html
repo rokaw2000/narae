@@ -378,6 +378,41 @@
 
     .small { font-size: 14px; line-height: 2.1; }
 
+    /* ── Floating cranes ── */
+    .crane-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .crane-bg svg {
+      position: absolute;
+      opacity: 0;
+      animation: crane-drift linear infinite;
+    }
+
+    @keyframes crane-drift {
+      0%   { transform: translate(0, 0) rotate(0deg) scale(1);   opacity: 0; }
+      8%   { opacity: 1; }
+      92%  { opacity: 1; }
+      100% { transform: translate(var(--tx), var(--ty)) rotate(var(--tr)) scale(var(--ts)); opacity: 0; }
+    }
+
+    .c1  { left: 8%;   top: 12%; width: 38px; --tx: 60px;  --ty: -180px; --tr: 18deg;  --ts: 0.85; animation-duration: 28s; animation-delay: 0s;  }
+    .c2  { left: 78%;  top: 6%;  width: 28px; --tx: -50px; --ty: -140px; --tr: -12deg; --ts: 1.1;  animation-duration: 34s; animation-delay: 5s;  }
+    .c3  { left: 55%;  top: 70%; width: 44px; --tx: 80px;  --ty: -220px; --tr: 22deg;  --ts: 0.9;  animation-duration: 40s; animation-delay: 2s;  }
+    .c4  { left: 22%;  top: 55%; width: 24px; --tx: -40px; --ty: -160px; --tr: -8deg;  --ts: 1.05; animation-duration: 32s; animation-delay: 9s;  }
+    .c5  { left: 88%;  top: 40%; width: 36px; --tx: -70px; --ty: -200px; --tr: 15deg;  --ts: 0.8;  animation-duration: 38s; animation-delay: 14s; }
+    .c6  { left: 42%;  top: 88%; width: 20px; --tx: 55px;  --ty: -240px; --tr: -20deg; --ts: 1.15; animation-duration: 44s; animation-delay: 7s;  }
+    .c7  { left: 5%;   top: 78%; width: 32px; --tx: 65px;  --ty: -190px; --tr: 10deg;  --ts: 0.95; animation-duration: 30s; animation-delay: 18s; }
+    .c8  { left: 65%;  top: 30%; width: 26px; --tx: -45px; --ty: -170px; --tr: -14deg; --ts: 1.0;  animation-duration: 36s; animation-delay: 22s; }
+    .c9  { left: 33%;  top: 20%; width: 42px; --tx: 50px;  --ty: -210px; --tr: 25deg;  --ts: 0.88; animation-duration: 42s; animation-delay: 3s;  }
+    .c10 { left: 92%;  top: 82%; width: 22px; --tx: -60px; --ty: -250px; --tr: -18deg; --ts: 1.12; animation-duration: 46s; animation-delay: 11s; }
+
+    .topbar, main, footer { position: relative; z-index: 1; }
+
     @media (max-width: 980px) {
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -395,6 +430,21 @@
   </style>
 </head>
 <body>
+
+  <!-- Background floating cranes -->
+  <div class="crane-bg" aria-hidden="true">
+    <!-- Crane SVG path: simplified origami crane silhouette -->
+    <svg class="c1" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.2" stroke-linejoin="round" fill="rgba(198,40,40,0.06)"/></svg>
+    <svg class="c2" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.2" stroke-linejoin="round" fill="rgba(223,138,163,0.06)"/></svg>
+    <svg class="c3" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.2" stroke-linejoin="round" fill="rgba(79,164,161,0.06)"/></svg>
+    <svg class="c4" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.2" stroke-linejoin="round" fill="rgba(198,40,40,0.05)"/></svg>
+    <svg class="c5" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.2" stroke-linejoin="round" fill="rgba(223,138,163,0.05)"/></svg>
+    <svg class="c6" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.2" stroke-linejoin="round" fill="rgba(79,164,161,0.05)"/></svg>
+    <svg class="c7" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.2" stroke-linejoin="round" fill="rgba(198,40,40,0.06)"/></svg>
+    <svg class="c8" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.2" stroke-linejoin="round" fill="rgba(223,138,163,0.06)"/></svg>
+    <svg class="c9" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.2" stroke-linejoin="round" fill="rgba(79,164,161,0.06)"/></svg>
+    <svg class="c10" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.2" stroke-linejoin="round" fill="rgba(198,40,40,0.05)"/></svg>
+  </div>
 
   <div class="topbar">
     <div class="container nav">
