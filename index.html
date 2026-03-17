@@ -57,7 +57,7 @@
     a { color: inherit; text-decoration: none; }
 
     .container {
-      width: min(calc(100% - 32px), var(--max));
+      width: min(calc(100% - 48px), var(--max));
       margin: 0 auto;
     }
 
@@ -84,7 +84,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 16px 0;
+      padding: 18px 0;
     }
 
     .brand {
@@ -135,7 +135,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 18px;
+      gap: 20px;
       font-size: 15px;
       color: var(--muted);
       font-weight: 500;
@@ -148,23 +148,23 @@
 
     /* ── Hero ── */
     .page-hero {
-      padding: 100px 0 50px;
+      padding: 120px 0 80px;
     }
 
     .eyebrow {
       display: inline-flex;
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.84);
       color: var(--primary-deep);
       font-size: 13px;
       font-weight: 700;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
     }
 
     h1 {
-      margin: 0 0 20px;
+      margin: 0 0 24px;
       font-size: clamp(2.8rem, 5vw, 4.4rem);
       line-height: 1.1;
       letter-spacing: -0.035em;
@@ -176,8 +176,8 @@
       max-width: 680px;
       color: var(--muted);
       font-size: 19px;
-      margin: 0 0 32px;
-      line-height: 1.7;
+      margin: 0 0 40px;
+      line-height: 1.75;
     }
 
     .hero-inner {
@@ -223,7 +223,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 22px;
+      padding: 14px 24px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 15px;
@@ -244,7 +244,7 @@
 
     /* ── Section ── */
     .section {
-      padding: 24px 0 60px;
+      padding: 40px 0 80px;
     }
 
     .section-label {
@@ -252,22 +252,23 @@
       font-weight: 800;
       letter-spacing: 0.08em;
       color: var(--primary-deep);
-      margin-bottom: 20px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
     }
 
     /* ── Cards grid ── */
     .cards-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
     .cards-grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-bottom: 18px;
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
     .nav-card {
@@ -275,7 +276,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 28px;
+      padding: 32px;
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -289,7 +290,7 @@
     }
 
     .nav-card-icon {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .card-dot {
@@ -314,12 +315,12 @@
       margin: 0;
       font-size: 14px;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .nav-card .arrow {
       margin-top: auto;
-      padding-top: 14px;
+      padding-top: 18px;
       font-size: 13px;
       font-weight: 700;
       color: var(--primary-deep);
@@ -331,6 +332,11 @@
     .nav-card.red   { border-left: 4px solid var(--primary); }
     .nav-card.warm  { border-left: 4px solid #c8a882; }
 
+    /* ── Leadership full-width card ── */
+    .nav-card-full {
+      margin-bottom: 28px;
+    }
+
     /* ── Quote ── */
     .quote-card {
       background:
@@ -341,8 +347,8 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       text-align: center;
-      padding: 40px 32px;
-      margin-bottom: 18px;
+      padding: 56px 40px;
+      margin-bottom: 0;
     }
 
     blockquote {
@@ -355,7 +361,7 @@
 
     cite {
       display: block;
-      margin-top: 14px;
+      margin-top: 16px;
       color: var(--muted);
       font-style: normal;
       font-size: 14px;
@@ -365,12 +371,12 @@
     /* ── Footer ── */
     footer {
       border-top: 1px solid var(--line);
-      padding: 28px 0 50px;
+      padding: 40px 0 64px;
       color: var(--muted);
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
-    .small { font-size: 14px; line-height: 1.9; }
+    .small { font-size: 14px; line-height: 2.1; }
 
     @media (max-width: 980px) {
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
@@ -384,6 +390,7 @@
       .nav-links { width: 100%; gap: 12px; }
       .hero-inner { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
       .hero-logo { width: 100px; }
+      .page-hero { padding: 72px 0 56px; }
     }
   </style>
 </head>
@@ -463,13 +470,6 @@
         <!-- Row 2: two cards -->
         <div class="cards-grid-2">
 
-          <a class="nav-card red" href="crane-project.html">
-            <div class="nav-card-icon"><span class="card-dot"></span></div>
-            <h3>1000 Crane Project</h3>
-            <p>A ritual of folding, remembrance, and prayer. Three cranes. One powerful intention. And then another thousand begins.</p>
-            <span class="arrow">Discover the project →</span>
-          </a>
-
           <a class="nav-card warm" href="community.html">
             <div class="nav-card-icon"><span class="card-dot"></span></div>
             <h3>Ways to Be Part</h3>
@@ -477,10 +477,17 @@
             <span class="arrow">Get involved →</span>
           </a>
 
+          <a class="nav-card red" href="crane-project.html">
+            <div class="nav-card-icon"><span class="card-dot"></span></div>
+            <h3>1000 Crane Project</h3>
+            <p>A ritual of folding, remembrance, and prayer. Three cranes. One powerful intention. And then another thousand begins.</p>
+            <span class="arrow">Discover the project →</span>
+          </a>
+
         </div>
 
         <!-- Leadership — single full width -->
-        <a class="nav-card" href="leadership.html" style="margin-bottom: 18px;">
+        <a class="nav-card nav-card-full" href="leadership.html">
           <div class="nav-card-icon"><span class="card-dot"></span></div>
           <h3>Leadership</h3>
           <p>The people who help carry naræ<span class="mark">+</span> forward.</p>
@@ -505,6 +512,10 @@
       <div class="small">
         © 2026 naræ International Foundation. All rights reserved.<br />
         Maryland nonprofit · 501(c)(3) pending<br />
-        Giving opportunities coming soon — stay connected.<br />
+        Giving opportunities coming soon — stay connected.
+      </div>
+    </div>
+  </footer>
 
-        <a href="/cdn-cgi/l/email-protection#543c3138383b143a35263531323b213a3035203d3b3a7a3b2633" style="color:var(--primary-deep);"><span class="__cf_email__" data-cfe
+</body>
+</html>
