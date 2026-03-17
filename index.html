@@ -378,39 +378,6 @@
 
     .small { font-size: 14px; line-height: 2.1; }
 
-    /* ── Floating cranes ── */
-    .crane-bg {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .crane-bg svg {
-      position: absolute;
-      opacity: 0;
-      animation: crane-drift linear infinite;
-      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.06));
-    }
-
-    @keyframes crane-drift {
-      0%   { transform: translate(0, 0) rotate(0deg) scale(1);                              opacity: 0.7; }
-      50%  { opacity: 1; }
-      100% { transform: translate(var(--tx), var(--ty)) rotate(var(--tr)) scale(var(--ts)); opacity: 0; }
-    }
-
-    .c1  { left: 8%;   top: 12%; width: 48px; --tx: 60px;  --ty: -180px; --tr: 18deg;  --ts: 0.85; animation-duration: 18s; animation-delay: 0s;  }
-    .c2  { left: 78%;  top: 6%;  width: 36px; --tx: -50px; --ty: -140px; --tr: -12deg; --ts: 1.1;  animation-duration: 22s; animation-delay: 0s;  }
-    .c3  { left: 55%;  top: 70%; width: 52px; --tx: 80px;  --ty: -220px; --tr: 22deg;  --ts: 0.9;  animation-duration: 26s; animation-delay: 0s;  }
-    .c4  { left: 22%;  top: 55%; width: 32px; --tx: -40px; --ty: -160px; --tr: -8deg;  --ts: 1.05; animation-duration: 20s; animation-delay: 0s;  }
-    .c5  { left: 88%;  top: 40%; width: 44px; --tx: -70px; --ty: -200px; --tr: 15deg;  --ts: 0.8;  animation-duration: 24s; animation-delay: 0s;  }
-    .c6  { left: 42%;  top: 88%; width: 28px; --tx: 55px;  --ty: -240px; --tr: -20deg; --ts: 1.15; animation-duration: 28s; animation-delay: 0s;  }
-    .c7  { left: 5%;   top: 78%; width: 40px; --tx: 65px;  --ty: -190px; --tr: 10deg;  --ts: 0.95; animation-duration: 19s; animation-delay: 0s;  }
-    .c8  { left: 65%;  top: 30%; width: 34px; --tx: -45px; --ty: -170px; --tr: -14deg; --ts: 1.0;  animation-duration: 23s; animation-delay: 0s;  }
-    .c9  { left: 33%;  top: 20%; width: 50px; --tx: 50px;  --ty: -210px; --tr: 25deg;  --ts: 0.88; animation-duration: 27s; animation-delay: 0s;  }
-    .c10 { left: 92%;  top: 82%; width: 30px; --tx: -60px; --ty: -250px; --tr: -18deg; --ts: 1.12; animation-duration: 21s; animation-delay: 0s;  }
-
     .topbar, main, footer { position: relative; z-index: 1; }
 
     @media (max-width: 980px) {
@@ -430,21 +397,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Background floating cranes -->
-  <div class="crane-bg" aria-hidden="true">
-    <!-- Crane SVG path: simplified origami crane silhouette -->
-    <svg class="c1" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.8" stroke-linejoin="round" fill="rgba(198,40,40,0.12)"/></svg>
-    <svg class="c2" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.8" stroke-linejoin="round" fill="rgba(223,138,163,0.12)"/></svg>
-    <svg class="c3" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.8" stroke-linejoin="round" fill="rgba(79,164,161,0.12)"/></svg>
-    <svg class="c4" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.8" stroke-linejoin="round" fill="rgba(198,40,40,0.10)"/></svg>
-    <svg class="c5" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.8" stroke-linejoin="round" fill="rgba(223,138,163,0.10)"/></svg>
-    <svg class="c6" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.8" stroke-linejoin="round" fill="rgba(79,164,161,0.10)"/></svg>
-    <svg class="c7" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.8" stroke-linejoin="round" fill="rgba(198,40,40,0.12)"/></svg>
-    <svg class="c8" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#df8aa3" stroke-width="1.8" stroke-linejoin="round" fill="rgba(223,138,163,0.12)"/></svg>
-    <svg class="c9" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#4fa4a1" stroke-width="1.8" stroke-linejoin="round" fill="rgba(79,164,161,0.12)"/></svg>
-    <svg class="c10" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M32 4 L52 28 L40 26 L32 44 L24 26 L12 28 Z M32 4 L44 16 M32 4 L20 16 M24 26 L8 20 M40 26 L56 20" stroke="#c62828" stroke-width="1.8" stroke-linejoin="round" fill="rgba(198,40,40,0.10)"/></svg>
-  </div>
 
   <div class="topbar">
     <div class="container nav">
@@ -568,4 +520,126 @@
   </footer>
 
 </body>
-</html>
+<script>
+  // Draw origami crane silhouettes on a canvas layer
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+  document.body.prepend(canvas);
+
+  const ctx = canvas.getContext('2d');
+  const colors = [
+    'rgba(198,40,40,ALPHA)',
+    'rgba(223,138,163,ALPHA)',
+    'rgba(79,164,161,ALPHA)'
+  ];
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // Draw a simple origami crane at (x,y) with given size and rotation
+  function drawCrane(x, y, size, angle, alpha, colorTemplate) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(angle);
+    ctx.globalAlpha = alpha;
+
+    const color = colorTemplate.replace('ALPHA', alpha.toFixed(2));
+    const s = size;
+
+    ctx.beginPath();
+    // Body diamond
+    ctx.moveTo(0, -s * 0.9);       // top beak
+    ctx.lineTo(s * 0.9, 0);        // right wing tip
+    ctx.lineTo(0, s * 0.5);        // tail
+    ctx.lineTo(-s * 0.9, 0);       // left wing tip
+    ctx.closePath();
+    ctx.strokeStyle = colorTemplate.replace('ALPHA', (alpha * 1.8).toFixed(2));
+    ctx.lineWidth = 1.2;
+    ctx.fillStyle = colorTemplate.replace('ALPHA', (alpha * 0.4).toFixed(2));
+    ctx.fill();
+    ctx.stroke();
+
+    // Wing fold lines
+    ctx.beginPath();
+    ctx.moveTo(-s * 0.9, 0);
+    ctx.lineTo(0, -s * 0.2);
+    ctx.lineTo(s * 0.9, 0);
+    ctx.strokeStyle = colorTemplate.replace('ALPHA', (alpha * 1.4).toFixed(2));
+    ctx.lineWidth = 0.8;
+    ctx.stroke();
+
+    // Tail split
+    ctx.beginPath();
+    ctx.moveTo(0, s * 0.5);
+    ctx.lineTo(-s * 0.18, s * 0.9);
+    ctx.moveTo(0, s * 0.5);
+    ctx.lineTo(s * 0.18, s * 0.9);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // Spawn cranes
+  const cranes = [];
+  const count = 12;
+
+  for (let i = 0; i < count; i++) {
+    cranes.push(spawn(i / count));
+  }
+
+  function spawn(progress) {
+    const colorTemplate = colors[Math.floor(Math.random() * colors.length)];
+    return {
+      x:        Math.random() * canvas.width,
+      y:        canvas.height * (0.1 + Math.random() * 0.9),
+      size:     16 + Math.random() * 22,
+      angle:    (Math.random() - 0.5) * 0.6,
+      angleV:   (Math.random() - 0.5) * 0.003,
+      vx:       (Math.random() - 0.5) * 0.4,
+      vy:       -(0.3 + Math.random() * 0.5),
+      alpha:    0.12 + Math.random() * 0.13,
+      life:     0,
+      maxLife:  380 + Math.random() * 320,
+      progress: progress,
+      color:    colorTemplate
+    };
+  }
+
+  function easeInOut(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (let i = 0; i < cranes.length; i++) {
+      const c = cranes[i];
+      c.life++;
+      c.x += c.vx;
+      c.y += c.vy;
+      c.angle += c.angleV;
+
+      const t = c.life / c.maxLife;
+      let fadeAlpha;
+      if (t < 0.15)      fadeAlpha = t / 0.15;
+      else if (t > 0.80) fadeAlpha = (1 - t) / 0.20;
+      else               fadeAlpha = 1;
+
+      drawCrane(c.x, c.y, c.size, c.angle, c.alpha * fadeAlpha, c.color);
+
+      if (c.life >= c.maxLife || c.y < -60) {
+        cranes[i] = spawn(0);
+        cranes[i].x = Math.random() * canvas.width;
+        cranes[i].y = canvas.height + 20;
+      }
+    }
+
+    requestAnimationFrame(loop);
+  }
+
+  loop();
+</script>
