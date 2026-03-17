@@ -177,6 +177,90 @@
       margin: 0;
     }
 
+    /* ── Two-column layout ── */
+    .founder-layout {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .founder-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 100px;
+    }
+
+    /* ── Journey timeline ── */
+    .journey-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .journey-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .journey-step {
+      display: flex;
+      gap: 16px;
+      position: relative;
+    }
+
+    .journey-step:not(.last) { padding-bottom: 24px; }
+
+    .journey-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .journey-dot.red  { background: var(--primary); box-shadow: 0 0 0 4px rgba(198,40,40,0.12); }
+    .journey-dot.pink { background: var(--pink);    box-shadow: 0 0 0 4px rgba(223,138,163,0.15); }
+    .journey-dot.teal { background: var(--teal);    box-shadow: 0 0 0 4px rgba(79,164,161,0.15); }
+
+    .journey-line {
+      position: absolute;
+      left: 6px;
+      top: 18px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--line), transparent);
+    }
+
+    .journey-content { flex: 1; min-width: 0; }
+
+    .journey-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .journey-content p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     /* ── Letter body ── */
     .section {
       padding: 24px 0 40px;
@@ -330,6 +414,8 @@
       .nav-links { width: 100%; gap: 12px; }
       .btn-row { flex-direction: column; align-items: stretch; }
       .signature-block { flex-direction: column; align-items: flex-start; }
+      .founder-layout { grid-template-columns: 1fr; }
+      .founder-aside { position: static; }
     }
   </style>
 </head>
@@ -367,63 +453,72 @@
 
     <section class="section">
       <div class="container">
-        <div class="letter">
+        <div class="founder-layout">
 
-          <!-- Act 1: Cancer -->
-          <p>
-            Cancer. I grew up knowing what that word meant. I watched people I loved face it and not come back.
-          </p>
-          <p>
-            I never imagined it would come for me. There was no genetic warning, no reason to expect it. And then it did — not once, but twice. My very first mammogram was a diagnosis.
-          </p>
+          <!-- Left: letter -->
+          <div class="letter">
 
-          <div class="story-break">
-            <span class="red"></span><span></span><span></span>
+            <!-- Act 1: Cancer -->
+            <p>
+              Cancer. I grew up knowing what that word meant. I watched people I loved face it and not come back.
+            </p>
+            <p>
+              I never imagined it would come for me. There was no genetic warning, no reason to expect it. And then it did — not once, but twice. My very first mammogram was a diagnosis.
+            </p>
+
+            <div class="story-break">
+              <span class="red"></span><span></span><span></span>
+            </div>
+
+            <!-- Act 2: Volunteer turning point -->
+            <p>
+              During chemotherapy, someone reached out asking for my help. I almost said no — I was very sick, I was tired, and it didn't seem like the right time. But something inside told me to try.
+            </p>
+            <p>
+              I'm glad I did. It gave me a good distraction. It gave me renewed purpose. And somewhere in the giving, I found strength I didn't know I still had.
+            </p>
+
+            <div class="story-break">
+              <span></span><span class="pink"></span><span></span>
+            </div>
+
+            <!-- Act 3: Immigrant identity + the question -->
+            <p>
+              That realization opened my eyes to something else. As a Korean immigrant, I know what it feels like to navigate a world that wasn't built for you. I know the quiet habit of not asking for help — of figuring things out alone, of not wanting to be a burden to anyone. I still remember when speaking to a store cashier required great courage. That feeling stays with you, nearly forever.
+            </p>
+            <p>
+              And then I wondered — where were the women like me? In the waiting rooms, in the support groups, I didn't see them. Not because they didn't exist. But because immigrant women, culturally diverse women, often don't show up to these spaces. The language barriers, the cultural differences, the deeply ingrained habit of staying quiet — it all keeps them away.
+            </p>
+            <p>
+              naræ<span class="mark">+</span> was born from that question — and from connecting the dots of everything I had lived. It exists so that those women can feel understood, supported, and less alone. And when they are ready, so they too can pass that care forward — and find healing in the giving.
+            </p>
+
+            <div class="story-break">
+              <span></span><span></span><span class="teal"></span>
+            </div>
+
+            <!-- Signature -->
+            <div class="signature-block">
+              <div class="sig-avatar">JB</div>
+              <div class="sig-text">
+                <span class="sig-name">Jihwan M. Baek</span>
+                <span class="sig-title">Founder, naræ International Foundation</span>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Act 2: Volunteer turning point -->
-          <p>
-            During chemotherapy, someone reached out asking for my help. I almost said no — I was very sick, I was tired, and it didn't seem like the right time. But something inside told me to try.
-          </p>
-          <p>
-            I'm glad I did. It gave me a good distraction. It gave me renewed purpose. And somewhere in the giving, I found strength I didn't know I still had.
-          </p>
+          <!-- Right: pull quote only -->
+          <div class="founder-aside">
 
-          <!-- Pull quote -->
-          <div class="pull-quote">
-            <blockquote>
-              "That was the moment I understood that giving — volunteerism — was part of healing for me. Not a side effect of recovery. The thing itself."
-            </blockquote>
+            <div class="pull-quote">
+              <blockquote>
+                "That was the moment I understood that giving — volunteerism — was part of healing for me. Not a side effect of recovery. The thing itself."
+              </blockquote>
+            </div>
+
           </div>
 
-          <div class="story-break">
-            <span></span><span class="pink"></span><span></span>
-          </div>
-
-          <!-- Act 3: Immigrant identity + the question -->
-          <p>
-            That realization opened my eyes to something else. As a Korean immigrant, I know what it feels like to navigate a world that wasn't built for you. I know the quiet habit of not asking for help — of figuring things out alone, of not wanting to be a burden to anyone. I still remember when speaking to a store cashier required great courage. That feeling stays with you, nearly forever.
-          </p>
-          <p>
-            And then I wondered — where were the women like me? In the waiting rooms, in the support groups, I didn't see them. Not because they didn't exist. But because immigrant women, culturally diverse women, often don't show up to these spaces. The language barriers, the cultural differences, the deeply ingrained habit of staying quiet — it all keeps them away.
-          </p>
-          <p>
-            naræ<span class="mark">+</span> was born from that question — and from connecting the dots of everything I had lived. It exists so that those women can feel understood, supported, and less alone. And when they are ready, so they too can pass that care forward — and find healing in the giving.
-          </p>
-
-          <div class="story-break">
-            <span></span><span></span><span class="teal"></span>
-          </div>
-
-        </div>
-
-        <!-- Signature -->
-        <div class="signature-block">
-          <div class="sig-avatar">JB</div>
-          <div class="sig-text">
-            <span class="sig-name">Jihwan M. Baek</span>
-            <span class="sig-title">Founder, naræ International Foundation</span>
-          </div>
         </div>
 
         <!-- Bottom nav -->
