@@ -58,7 +58,7 @@
 
     .crown-dot { width: 12px; height: 12px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-deep)); box-shadow: 0 0 0 6px rgba(198,40,40,0.08); }
 
-    .brand-text { display: flex; flex-direction: column; line-height: 1.08; font-size: 20px; font-weight: 800; letter-spacing: -0.02em; }
+    .brand-text { display: flex; flex-direction: column; line-height: 1.08; font-size: 15px; font-weight: 800; letter-spacing: -0.02em; }
 
     .brand-text .sub { font-size: 13px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; }
 
@@ -104,6 +104,36 @@
     .card.accent-pink { border-left: 4px solid var(--pink); }
     .card.accent-teal { border-left: 4px solid var(--teal); }
     .card.accent-red  { border-left: 4px solid var(--primary); }
+
+    /* ── Wings visual ── */
+    .wings-visual {
+      text-align: center;
+      padding: 40px 20px 10px;
+      margin-bottom: 18px;
+    }
+
+    .wings-svg {
+      width: 420px;
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 8px 24px rgba(223,138,163,0.2));
+      animation: wings-float 7s ease-in-out infinite;
+    }
+
+    @keyframes wings-float {
+      0%, 100% { transform: translateY(0px) scaleX(1); }
+      50%       { transform: translateY(-8px) scaleX(1.03); }
+    }
+
+    .wings-caption {
+      margin: 12px auto 0;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      font-style: italic;
+    }
+
+    .symbol-svg-wrap { margin-bottom: 14px; }
 
     .symbol-icon { font-size: 2.2rem; line-height: 1; margin-bottom: 14px; display: block; }
 
@@ -157,7 +187,7 @@
         <a href="index.html">Home</a>
         <a href="founder.html">Founder</a>
         <a href="about.html" class="active">About naræ<span class="mark">+</span></a>
-        <a href="programs.html">Program Approach</a>
+        <a href="program.html">Program Approach</a>
         <a href="community.html">Ways to Be Part</a>
         <a href="crane-project.html">1000 Crane Project</a>
         <a href="leadership.html">Leadership</a>
@@ -198,27 +228,77 @@
           </div>
         </div>
 
+        <!-- narae means wings — SVG visual -->
+        <div class="wings-visual">
+          <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" class="wings-svg">
+            <!-- Left wing -->
+            <path d="M250,100 C220,80 160,60 80,40 C120,70 150,85 180,95 C140,75 90,65 30,55 C80,85 130,90 170,98 C120,85 70,82 20,80 C70,100 130,100 175,100 Z" fill="#df8aa3" opacity="0.7"/>
+            <!-- Left wing highlight -->
+            <path d="M250,100 C220,80 160,60 80,40 C110,65 140,80 170,92 Z" fill="#df8aa3" opacity="0.4"/>
+            <!-- Right wing -->
+            <path d="M250,100 C280,80 340,60 420,40 C380,70 350,85 320,95 C360,75 410,65 470,55 C420,85 370,90 330,98 C380,85 430,82 480,80 C430,100 370,100 325,100 Z" fill="#df8aa3" opacity="0.7"/>
+            <!-- Right wing highlight -->
+            <path d="M250,100 C280,80 340,60 420,40 C390,65 360,80 330,92 Z" fill="#df8aa3" opacity="0.4"/>
+            <!-- Center body -->
+            <ellipse cx="250" cy="100" rx="18" ry="12" fill="#c62828" opacity="0.8"/>
+            <!-- Glow -->
+            <ellipse cx="250" cy="160" rx="60" ry="8" fill="#e8e1d7" opacity="0.5"/>
+          </svg>
+          <p class="wings-caption">나래 · naræ · wings</p>
+        </div>
+
         <!-- Three symbols -->
         <div class="meaning-grid">
           <div class="mini-card">
-            <span class="symbol-icon">🕊️</span>
+            <div class="symbol-svg-wrap">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Crane silhouette -->
+                <polygon points="30,8 48,30 30,24 12,30" fill="#df8aa3" opacity="0.85"/>
+                <polygon points="30,24 12,30 8,44 22,36" fill="#c62828" opacity="0.75"/>
+                <polygon points="30,24 48,30 52,44 38,36" fill="#c62828" opacity="0.75"/>
+                <polygon points="30,24 22,36 30,40 38,36" fill="#8e1b1b" opacity="0.8"/>
+                <polygon points="30,8 36,18 30,22 24,18" fill="#df8aa3" opacity="0.9"/>
+              </svg>
+            </div>
             <h3>The red-crowned crane</h3>
             <p>One of the most respected birds in East Asian culture — associated with longevity, grace, integrity, and noble endurance.</p>
             <p>Tall, watchful, elegant. It carries strength without aggression. That is the kind of strength naræ<span class="mark">+</span> honors.</p>
           </div>
 
           <div class="mini-card">
-            <span class="symbol-icon">🫶</span>
+            <div class="symbol-svg-wrap">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Origami fold lines -->
+                <polygon points="30,5 55,50 30,38 5,50" fill="#df8aa3" opacity="0.3"/>
+                <polygon points="30,5 55,50 30,38" fill="#c62828" opacity="0.5"/>
+                <polygon points="30,5 5,50 30,38" fill="#df8aa3" opacity="0.7"/>
+                <line x1="30" y1="5" x2="30" y2="38" stroke="#8e1b1b" stroke-width="1" opacity="0.5"/>
+                <line x1="5" y1="50" x2="55" y2="50" stroke="#8e1b1b" stroke-width="1" opacity="0.3"/>
+              </svg>
+            </div>
             <h3>The meaning of origami</h3>
             <p>Origami cranes are folded across Asian cultures as gestures of hope, prayer, and heartfelt wishing.</p>
-            <p>A crane is made <strong>fold by fold</strong> — with patience and intention. That mirrors how people rebuild after hardship: gradually, one act of courage at a time.</p>
+            <p>A crane is made <strong>fold by fold</strong> — with patience and intention. That mirrors how people rebuild after hardship.</p>
           </div>
 
           <div class="mini-card">
-            <span class="symbol-icon">🪡</span>
+            <div class="symbol-svg-wrap">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+                <!-- Embroidery thread pattern -->
+                <line x1="10" y1="15" x2="50" y2="15" stroke="#df8aa3" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="23" x2="50" y2="23" stroke="#c62828" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="31" x2="50" y2="31" stroke="#df8aa3" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="39" x2="50" y2="39" stroke="#4fa4a1" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="10" y1="47" x2="50" y2="47" stroke="#df8aa3" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Cross stitches -->
+                <line x1="18" y1="11" x2="18" y2="51" stroke="#e8e1d7" stroke-width="1" opacity="0.6"/>
+                <line x1="30" y1="11" x2="30" y2="51" stroke="#e8e1d7" stroke-width="1" opacity="0.6"/>
+                <line x1="42" y1="11" x2="42" y2="51" stroke="#e8e1d7" stroke-width="1" opacity="0.6"/>
+              </svg>
+            </div>
             <h3>The embroidery texture</h3>
-            <p>The naræ<span class="mark">+</span> mark is presented in an embroidered style — a reflection of craftsmanship shaped <strong>thread by thread</strong>.</p>
-            <p>Something made by hand, not rushed. That texture symbolizes how we create and recreate our lives — carefully, with effort, beauty, and resilience.</p>
+            <p>The naræ<span class="mark">+</span> mark is presented in an embroidered style — shaped <strong>thread by thread</strong>, by hand, not rushed.</p>
+            <p>That texture symbolizes how we recreate our lives — carefully, with effort, beauty, and resilience.</p>
           </div>
         </div>
 
@@ -271,10 +351,5 @@
         © 2026 naræ International Foundation. All rights reserved.<br />
         Maryland nonprofit · 501(c)(3) pending<br />
         Giving opportunities coming soon — stay connected.<br />
-        <a href="mailto:hello@naraefoundation.org" style="color:var(--primary-deep);">hello@naraefoundation.org</a>
-      </div>
-    </div>
-  </footer>
 
-</body>
-</html>
+        <a href="/cdn-cgi/l/email-protection#127a777e7e7d527c73607377747d677c7673667b7d7c3c7d6075" style="color:var(--primary-deep);"><span class="__cf_email__" data-cfe
