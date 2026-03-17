@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founder | naræ International Foundation</title>
+  <title>1000 Crane Project | naræ International Foundation</title>
   <meta
     name="description"
-    content="A personal message from Jihwan M. Baek — founder of naræ International Foundation — about cancer, healing, cultural identity, and the question that started it all."
+    content="Each naræ Fellow folds three cranes — one for herself, one for another woman, one for naræ. Together, a thousand cranes become one powerful prayer. And then another thousand begins."
   />
   <style>
     :root {
@@ -69,7 +69,6 @@
       line-height: 1;
     }
 
-    /* ── Nav ── */
     .topbar {
       position: sticky;
       top: 0;
@@ -145,7 +144,6 @@
       color: var(--primary-deep);
     }
 
-    /* ── Hero ── */
     .page-hero {
       padding: 88px 0 34px;
     }
@@ -171,126 +169,133 @@
     }
 
     .intro {
-      max-width: 680px;
+      max-width: 860px;
       color: var(--muted);
       font-size: 19px;
       margin: 0;
     }
 
-    /* ── Letter body ── */
     .section {
-      padding: 24px 0 40px;
+      padding: 24px 0;
     }
 
-    .letter {
-      max-width: 680px;
+    .story-panel {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      margin-bottom: 18px;
     }
 
-    .letter p {
-      font-size: 17px;
+    .meaning-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .card,
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .card {
+      padding: 30px;
+    }
+
+    .mini-card {
+      padding: 28px;
+      height: 100%;
+    }
+
+    .card h2,
+    .mini-card h3 {
+      margin: 0 0 12px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .card h2 {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+    }
+
+    .mini-card h3 {
+      font-size: 22px;
+    }
+
+    .card p,
+    .mini-card p {
+      margin: 0 0 14px;
       color: var(--muted);
-      margin: 0 0 22px;
-      line-height: 1.8;
     }
 
-    .letter p:last-child {
+    .card p:last-child,
+    .mini-card p:last-child {
       margin-bottom: 0;
     }
 
-    /* ── Section divider — three dots ── */
-    .story-break {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 32px 0;
-    }
-
-    .story-break span {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--line);
-      display: block;
-    }
-
-    .story-break span.pink { background: var(--pink); }
-    .story-break span.teal { background: var(--teal); }
-    .story-break span.red  { background: var(--primary); }
-
-    /* ── Pull quote ── */
-    .pull-quote {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--pink);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 32px;
-      margin: 36px 0;
-      max-width: 680px;
-    }
-
-    .pull-quote blockquote {
-      margin: 0;
-      font-size: clamp(1.15rem, 2vw, 1.35rem);
-      line-height: 1.55;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      font-style: italic;
-    }
-
-    /* ── Signature block ── */
-    .signature-block {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 30px 32px;
-      max-width: 680px;
-      margin-top: 40px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .sig-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--pink), var(--primary));
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      font-size: 20px;
-      color: white;
+    .kicker {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-deep);
     }
 
-    .sig-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
+    .kicker.teal { color: var(--teal); }
 
-    .sig-name {
-      font-size: 17px;
+    /* Large CJK numerals as crane accents */
+    .crane-numeral {
+      display: block;
+      font-size: 2.8rem;
       font-weight: 700;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .crane-numeral.one   { color: var(--pink); }
+    .crane-numeral.two   { color: var(--teal); }
+    .crane-numeral.three { color: var(--primary); }
+
+    /* Left-border accent variants */
+    .card.accent-teal   { border-left: 4px solid var(--teal); }
+    .card.accent-pink   { border-left: 4px solid var(--pink); }
+    .card.accent-red    { border-left: 4px solid var(--primary); }
+
+    .quote-card {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.97), rgba(250,250,250,0.95)),
+        repeating-linear-gradient(0deg, rgba(0,0,0,0.014) 0px, rgba(0,0,0,0.014) 1px, transparent 1px, transparent 8px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,0.01) 0px, rgba(0,0,0,0.01) 1px, transparent 1px, transparent 9px);
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    blockquote {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.4vw, 1.95rem);
+      line-height: 1.5;
       letter-spacing: -0.02em;
       color: var(--text);
     }
 
-    .sig-title {
-      font-size: 13px;
+    cite {
+      display: block;
+      margin-top: 14px;
       color: var(--muted);
-      font-weight: 500;
+      font-style: normal;
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    /* ── Bottom nav ── */
     .btn-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: 40px;
+      margin-top: 22px;
     }
 
     .btn {
@@ -315,7 +320,6 @@
       color: var(--text);
     }
 
-    /* ── Footer ── */
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 0 50px;
@@ -325,16 +329,21 @@
 
     .small { font-size: 14px; }
 
+    @media (max-width: 980px) {
+      .story-panel,
+      .meaning-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 820px) {
       .nav { flex-wrap: wrap; }
       .nav-links { width: 100%; gap: 12px; }
       .btn-row { flex-direction: column; align-items: stretch; }
-      .signature-block { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
-
   <div class="topbar">
     <div class="container nav">
       <a class="brand" href="index.html">
@@ -346,11 +355,11 @@
       </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="founder.html" class="active">Founder</a>
+        <a href="founder.html">Founder</a>
         <a href="about.html">About naræ<span class="mark">+</span></a>
         <a href="programs.html">Program Approach</a>
         <a href="community.html">Ways to Be Part</a>
-        <a href="crane-project.html">1000 Crane Project</a>
+        <a href="crane-project.html" class="active">1000 Crane Project</a>
         <a href="leadership.html">Leadership</a>
       </div>
     </div>
@@ -359,74 +368,108 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">From the Founder</div>
-        <h1>Why I created naræ<span class="mark">+</span></h1>
-        <p class="intro">A personal message about cancer, healing, cultural identity, and the question that started it all.</p>
+        <div class="eyebrow">A Ritual of Prayer &amp; Remembrance</div>
+        <h1>The 1000 Crane Project</h1>
+        <p class="intro">
+          Each naræ Fellow folds three origami cranes — one for herself, one for another woman, one for naræ<span class="mark">+</span>. Together, a thousand cranes become one powerful prayer. And then another thousand begins.
+        </p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="letter">
 
-          <!-- Act 1: Cancer -->
-          <p>
-            Cancer. I grew up knowing what that word meant. I watched people I loved face it and not come back.
-          </p>
-          <p>
-            I never imagined it would come for me. There was no genetic warning, no reason to expect it. And then it did — not once, but twice. My very first mammogram was a diagnosis.
-          </p>
-
-          <div class="story-break">
-            <span class="red"></span><span></span><span></span>
+        <!-- The ritual + keeper -->
+        <div class="story-panel">
+          <div class="card">
+            <span class="kicker">A living ritual</span>
+            <h2>Three cranes, one act of care</h2>
+            <p>
+              When a woman becomes part of the naræ<span class="mark">+</span> community, she is invited to fold three origami cranes by hand. It is a small act — unhurried, requiring only patience and presence — the same qualities that shape healing itself.
+            </p>
+            <p>
+              Each crane is directed with intention: inward toward herself, outward toward another woman, and forward toward the mission. Together, the three form one complete gesture of care.
+            </p>
           </div>
 
-          <!-- Act 2: Volunteer turning point -->
-          <p>
-            During chemotherapy, someone reached out asking for my help. I almost said no — I was very sick, I was tired, and it didn't seem like the right time. But something inside told me to try.
-          </p>
-          <p>
-            I'm glad I did. It gave me a good distraction. It gave me renewed purpose. And somewhere in the giving, I found strength I didn't know I still had.
-          </p>
-
-          <!-- Pull quote -->
-          <div class="pull-quote">
-            <blockquote>
-              "That was the moment I understood that giving — volunteerism — was part of healing for me. Not a side effect of recovery. The thing itself."
-            </blockquote>
-          </div>
-
-          <div class="story-break">
-            <span></span><span class="pink"></span><span></span>
-          </div>
-
-          <!-- Act 3: Immigrant identity + the question -->
-          <p>
-            That realization opened my eyes to something else. As a Korean immigrant, I know what it feels like to navigate a world that wasn't built for you. I know the quiet habit of not asking for help — of figuring things out alone, of not wanting to be a burden to anyone. I still remember when speaking to a store cashier required great courage. That feeling stays with you, nearly forever.
-          </p>
-          <p>
-            And then I wondered — where were the women like me? In the waiting rooms, in the support groups, I didn't see them. Not because they didn't exist. But because immigrant women, culturally diverse women, often don't show up to these spaces. The language barriers, the cultural differences, the deeply ingrained habit of staying quiet — it all keeps them away.
-          </p>
-          <p>
-            naræ<span class="mark">+</span> was born from that question — and from connecting the dots of everything I had lived. It exists so that those women can feel understood, supported, and less alone. And when they are ready, so they too can pass that care forward — and find healing in the giving.
-          </p>
-
-          <div class="story-break">
-            <span></span><span></span><span class="teal"></span>
-          </div>
-
-        </div>
-
-        <!-- Signature -->
-        <div class="signature-block">
-          <div class="sig-avatar">JB</div>
-          <div class="sig-text">
-            <span class="sig-name">Jihwan M. Baek</span>
-            <span class="sig-title">Founder, naræ International Foundation</span>
+          <div class="card accent-teal">
+            <span class="kicker teal">Every crane is kept</span>
+            <h2>A record held with care</h2>
+            <p>
+              naræ<span class="mark">+</span> keeps every crane that is folded. They are not stored away — they are held as a visible, tangible record of each woman who has been part of this community: her journey, her care for others, her presence here.
+            </p>
+            <p>
+              When a thousand cranes have been gathered, they will be honored together as one complete prayer. And then the folding continues.
+            </p>
           </div>
         </div>
 
-        <!-- Bottom nav -->
+        <!-- Three crane meanings -->
+        <div class="meaning-grid">
+          <div class="mini-card">
+            <span class="crane-numeral one">一</span>
+            <h3>One for herself</h3>
+            <p>
+              A crane folded in acknowledgment of her own journey — her strength, her survival, and the life she continues to shape, fold by fold.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <span class="crane-numeral two">二</span>
+            <h3>One for another</h3>
+            <p>
+              A crane folded in the spirit of another woman — someone she knows, someone she hopes for, or someone she has never met but carries in her heart.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <span class="crane-numeral three">三</span>
+            <h3>One for naræ</h3>
+            <p>
+              A crane folded for the foundation and the community it holds — a small offering that becomes part of something larger and lasting.
+            </p>
+          </div>
+        </div>
+
+        <!-- 1000 as prayer + reflection -->
+        <div class="story-panel">
+          <div class="card accent-red">
+            <span class="kicker">Why one thousand</span>
+            <h2>1,000 is not a finish line. It is a prayer.</h2>
+            <p>
+              In Japanese tradition, folding one thousand origami cranes — <em>senbazuru</em> — is considered a powerful act of prayer, hope, and devotion. The number holds weight not as a destination, but as an expression of sustained intention.
+            </p>
+            <p>
+              At naræ<span class="mark">+</span>, one thousand cranes represent one complete, strong prayer — for the women who folded them, for those they thought of, and for the mission they joined.
+            </p>
+            <p>
+              <strong>When one thousand is reached, naræ does not stop. Another thousand begins.</strong> There is no ending number — only the continued act of folding, remembering, and sending care forward.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="kicker">How it reflects naræ<span class="mark">+</span></span>
+            <h2>Built gradually, with care</h2>
+            <p>
+              The 1000 Crane Project reflects the way naræ<span class="mark">+</span> itself is being built. Meaningful support is rarely created all at once. It grows through repeated acts of intention, presence, and human connection.
+            </p>
+            <p>
+              A crane is made fold by fold, with patience and care. That mirrors how many people rebuild after hardship — and how this foundation itself grows.
+            </p>
+            <p>
+              Small acts, gathered over time, become remembrance. They become community. They become something that lasts.
+            </p>
+          </div>
+        </div>
+
+        <!-- Quote -->
+        <div class="card quote-card">
+          <blockquote>
+            "Some acts are small enough to hold in the hand, yet large enough to carry memory, encouragement, and hope forward — fold by fold, without end."
+          </blockquote>
+          <cite>naræ<span class="mark">+</span> guiding spirit</cite>
+        </div>
+
         <div class="btn-row">
           <a class="btn btn-secondary" href="about.html">About naræ<span class="mark">+</span></a>
           <a class="btn btn-secondary" href="programs.html">Program Approach</a>
@@ -441,12 +484,6 @@
     <div class="container">
       <div class="small">
         © 2026 naræ International Foundation. All rights reserved.<br />
-        A Maryland nonprofit organization. 501(c)(3) status pending.<br />
-        Donations will be accepted once status is approved — stay connected.<br />
-        Contact: <a href="mailto:hello@naraefoundation.org" style="color:var(--primary-deep);">hello@naraefoundation.org</a>
-      </div>
-    </div>
-  </footer>
-
-</body>
-</html>
+        Maryland nonprofit · 501(c)(3) pending<br />
+        Giving opportunities coming soon — stay connected.<br />
+        <a href="mailto:hello@naraefoundation.org" style="color:var(--primary-deep);">hello@naraefoundation.org</a>
