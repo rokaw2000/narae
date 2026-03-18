@@ -7,155 +7,119 @@
 <title>naræ International Foundation</title>
 
 <meta name="description"
-content="naræ International Foundation is a Maryland-based nonprofit creating culturally grounded spaces of care, connection, and support for immigrant and diverse women." />
+content="naræ International Foundation is a Maryland-based nonprofit supporting immigrant women and culturally diverse women through dignity, cultural care, community, and meaningful connection." />
 
 <style>
 :root {
   --bg: #fcfbf8;
-  --surface: rgba(255,255,255,0.94);
-  --text: #111;
+  --surface: rgba(255,255,255,0.9);
+  --text: #111111;
   --muted: #5f5a55;
   --line: #e8e1d7;
-  --primary: #9c0c0c;
-  --shadow: 0 18px 50px rgba(0,0,0,0.08);
-  --radius: 24px;
-  --max: 1160px;
+  --primary: #c62828;
+  --pink: #df8aa3;
+  --teal: #4fa4a1;
+  --shadow: 0 18px 50px rgba(0,0,0,0.06);
+  --radius: 18px;
+  --max: 1100px;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Georgia, serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.65;
 }
-
-.container {
-  width: min(var(--max), calc(100% - 40px));
-  margin: 0 auto;
-}
-
-/* PLUS */
-
-.plus {
-  font-size: 0.7em;
-  vertical-align: super;
-  position: relative;
-  top: -0.2em;
-}
-
-/* HEADER */
 
 header {
   position: sticky;
   top: 0;
-  background: rgba(252,251,248,0.9);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
+  z-index: 10;
 }
 
 .nav {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;
 }
 
-.brand-top {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  color: var(--muted);
+.logo {
+  font-size: 20px;
+  letter-spacing: 0.5px;
 }
 
-.brand-mark {
-  font-size: 1.7rem;
-  font-weight: 700;
+.logo span {
+  position: relative;
+  top: -6px;
+  font-size: 14px;
+  color: var(--pink);
 }
 
-.nav-links {
-  display: flex;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: var(--muted);
+.nav a {
   text-decoration: none;
+  color: var(--muted);
+  margin-left: 18px;
+  font-size: 14px;
 }
-
-/* HERO */
 
 .hero {
-  padding: 80px 0 40px;
+  max-width: var(--max);
+  margin: 80px auto 60px;
+  padding: 0 20px;
 }
 
-.hero-box {
-  background: var(--surface);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 50px;
+.hero h1 {
+  font-size: 36px;
+  line-height: 1.3;
+  font-weight: normal;
 }
 
-h1 {
-  font-size: clamp(2.8rem, 6vw, 5rem);
-}
-
-.lead {
+.hero p {
+  margin-top: 20px;
   color: var(--muted);
+  font-size: 16px;
   max-width: 600px;
 }
 
-/* SECTION */
-
-section {
-  padding: 40px 0;
+.section {
+  max-width: var(--max);
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-/* CARDS */
-
-.grid-3 {
+.cards {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
   gap: 20px;
 }
 
 .card {
   background: var(--surface);
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-
-/* SIGNUP CONTAINER */
-
-.signup-wrapper {
-  background: var(--surface);
-  padding: 30px;
   border-radius: var(--radius);
+  padding: 24px;
   box-shadow: var(--shadow);
 }
 
-/* IMPORTANT: contain MailerLite */
-
-.ml-form-embedWrapper {
-  background: transparent !important;
-  box-shadow: none !important;
+.card h3 {
+  margin-top: 0;
+  font-weight: normal;
 }
 
-/* FOOTER */
-
-footer {
-  border-top: 1px solid var(--line);
-  padding: 30px 0;
+.footer {
+  text-align: center;
+  padding: 40px 20px;
   color: var(--muted);
-}
-
-/* MOBILE */
-
-@media(max-width: 900px){
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
+  font-size: 13px;
 }
 </style>
 </head>
@@ -163,49 +127,57 @@ footer {
 <body>
 
 <header>
-  <div class="container nav">
+  <div class="nav">
+    <div class="logo">naræ<span>+</span></div>
     <div>
-      <div class="brand-top">naræ International Foundation</div>
-      <div class="brand-mark">naræ<span class="plus">+</span></div>
-    </div>
-
-    <div class="nav-links">
       <a href="#">Home</a>
       <a href="#">Founder</a>
       <a href="#">About</a>
       <a href="#">Community</a>
-      <a href="#">Leadership</a>
+      <a href="#">Contact</a>
     </div>
   </div>
 </header>
 
-<main>
-
 <section class="hero">
-  <div class="container">
-    <div class="hero-box">
+  <h1>
+    Rooted in dignity.<br>
+    Carried through culture.<br>
+    Sustained by community.
+  </h1>
 
-      <h1>
-        Cancer is hard enough. naræ<span class="plus">+</span> is for the women carrying more.
-      </h1>
+  <p>
+    naræ International Foundation creates spaces of care, connection, and belonging for immigrant women and culturally diverse women, including those navigating breast and gynecologic cancers.
+  </p>
+</section>
 
-      <p class="lead">
-        We create culturally grounded spaces of care, connection, and support for immigrant and diverse women navigating breast and gynecologic cancers.
-      </p>
+<section class="section">
+  <div class="cards">
+    <div class="card">
+      <h3>Community</h3>
+      <p>Connection, support, and shared experiences that foster belonging.</p>
+    </div>
 
+    <div class="card">
+      <h3>Care</h3>
+      <p>Intentional spaces that support healing, rest, and dignity.</p>
+    </div>
+
+    <div class="card">
+      <h3>Culture</h3>
+      <p>Honoring identity, traditions, and stories across diverse backgrounds.</p>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
+<!-- MailerLite Embed (KEEP YOUR ORIGINAL CODE HERE) -->
+<section class="section">
+  <div class="card">
+    <h3>Stay Connected</h3>
+    <p>Join our community to receive updates, opportunities, and stories.</p>
 
-    <div class="signup-wrapper">
-
-      <!-- ✅ YOUR REAL MAILERLITE FORM START -->
-      
-      <!-- PASTE START -->
-      <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1773740");</style>
+    <!-- PASTE YOUR MAILERLITE CODE HERE -->
+<style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1773740");</style>
     <style type="text/css">
     /* LOADER */
     .ml-form-embedSubmitLoad {
@@ -1085,57 +1057,13 @@ footer {
       <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
         <script>
             fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel")
-        </script>
-              <!-- PASTE END -->
-
-    </div>
-
+        </script>    
   </div>
 </section>
 
-<section>
-  <div class="container">
-
-    <h2>Our approach</h2>
-
-    <div class="grid-3">
-
-      <div class="card">
-        <h3>Cultural Care</h3>
-        <p>Support grounded in identity, language, and lived experience.</p>
-      </div>
-
-      <div class="card">
-        <h3>Connection</h3>
-        <p>Small-scale, human-centered spaces for real connection.</p>
-      </div>
-
-      <div class="card">
-        <h3>Participation</h3>
-        <p>Women are not just supported—they shape and build the community.</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="card">
-      <p>
-        <strong>Founded by Jihwan Baek,</strong> naræ<span class="plus">+</span> exists to create spaces where care feels understood, dignified, and deeply human.
-      </p>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container">
-    © 2026 naræ International Foundation. All rights reserved.
-  </div>
+<footer class="footer">
+  © 2026 naræ International Foundation. All rights reserved.<br>
+  A Maryland nonprofit organization. 501(c)(3) status pending.
 </footer>
 
 </body>
