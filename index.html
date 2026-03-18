@@ -137,7 +137,7 @@
     }
 
     .page-hero {
-      padding: 88px 0 30px;
+      padding: 88px 0 28px;
     }
 
     .hero-wrap {
@@ -170,6 +170,10 @@
       line-height: 1.08;
       letter-spacing: -0.04em;
       max-width: 780px;
+    }
+
+    .hero-red {
+      color: var(--primary);
     }
 
     .intro {
@@ -238,10 +242,20 @@
       line-height: 1.08;
     }
 
-    .hero-visual p {
+    .accent-line {
+      width: 42px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 999px;
+      margin: 0 auto 16px;
+    }
+
+    .hero-side-text {
       margin: 0;
       color: var(--muted);
-      font-size: 14.5px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.65;
     }
 
     .hero-signup {
@@ -403,6 +417,29 @@
       color: var(--text);
     }
 
+    .nav-card {
+      text-align: center;
+      padding: 26px;
+    }
+
+    .nav-label {
+      margin: 0 0 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .nav-buttons .btn {
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+
     footer {
       border-top: 1px solid var(--line);
       padding: 28px 0 50px;
@@ -460,11 +497,11 @@
           <div class="hero-card">
             <div class="eyebrow">Dignity, culture, and care</div>
             <h1>
-              Cancer is hard enough.<br />
+              <span class="hero-red">Cancer is hard enough.</span><br />
               naræ<span class="mark">+</span> is for the women carrying more.
             </h1>
             <p class="intro">
-              naræ International Foundation is building a culturally grounded community for immigrant and diverse women navigating breast and gynecologic cancers, with dignity, cultural care, and real connection.
+              Not just illness — but culture, language, expectations, and everything that is often carried without being seen.
             </p>
 
             <div class="hero-actions">
@@ -480,8 +517,9 @@
                   <span class="visual-dot"></span>
                 </div>
                 <h2>naræ<span class="mark">+</span></h2>
-                <p>
-                  Built for women navigating more than illness, and for those who may one day heal by helping carry others too.
+                <div class="accent-line"></div>
+                <p class="hero-side-text">
+                  A space for women navigating more than cancer — and for those who may one day heal by helping carry others, too.
                 </p>
               </div>
             </div>
@@ -490,6 +528,114 @@
               <div class="signup-embed">
                 <!-- Paste your MailerLite embed code below this line -->
                 <!-- MAILERLITE CODE HERE -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <div class="story-panel">
+          <div class="card accent-red">
+            <span class="kicker">Who we are for</span>
+            <h2>Created with lived experience in mind</h2>
+            <p>
+              For women carrying more than what is visible — migration, caregiving, illness, recovery, and the expectation to remain strong through it all.
+            </p>
+            <p>
+              naræ<span class="mark">+</span> creates space that feels human, respectful, and grounded in dignity.
+            </p>
+          </div>
+
+          <div class="card">
+            <span class="kicker">What makes this different</span>
+            <h2>Healing can also include giving back</h2>
+            <p>
+              Support should reflect culture, language, memory, and identity.
+            </p>
+            <p>
+              In time, healing can grow into something more — the ability to help carry someone else.
+            </p>
+          </div>
+        </div>
+
+        <div class="meaning-grid">
+          <div class="mini-card">
+            <div class="card-dot-wrap"><span class="card-dot"></span></div>
+            <h3>Community</h3>
+            <p>
+              A place to feel less alone — and more understood.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="card-dot-wrap"><span class="card-dot"></span></div>
+            <h3>Care</h3>
+            <p>
+              Support shaped with dignity, attention, and intention.
+            </p>
+          </div>
+
+          <div class="mini-card">
+            <div class="card-dot-wrap"><span class="card-dot"></span></div>
+            <h3>Culture</h3>
+            <p>
+              Identity and heritage are part of care.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-panel">
+          <div class="card accent-pink">
+            <span class="kicker pink">What we are shaping</span>
+            <h2>Shaped slowly and intentionally</h2>
+            <p>
+              naræ<span class="mark">+</span> is being shaped slowly and intentionally — beginning with a pilot retreat, and growing into something lasting.
+            </p>
+            <p>
+              Not just support, but a space where healing and purpose can exist together.
+            </p>
+          </div>
+
+          <div class="card quote-card" style="display:flex; flex-direction:column; justify-content:center;">
+            <blockquote>
+              “Some things are not rebuilt all at once. They are shaped, slowly, into something new.”
+            </blockquote>
+            <cite>naræ<span class="mark">+</span></cite>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="section">
+      <div class="container">
+        <div class="card nav-card">
+          <p class="nav-label">Explore naræ<span class="mark">+</span></p>
+          <div class="nav-buttons">
+            <a href="founder.html" class="btn btn-secondary">Founder</a>
+            <a href="about.html" class="btn btn-secondary">About</a>
+            <a href="program.html" class="btn btn-secondary">Program</a>
+            <a href="community.html" class="btn btn-secondary">Community</a>
+            <a href="leadership.html" class="btn btn-secondary">Leadership</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container small">
+      © 2026 naræ International Foundation. All rights reserved.<br />
+      A Maryland nonprofit organization. 501(c)(3) status pending.
+    </div>
+  </footer>
+
+</body>
+</html>
 
   <div class="signup-embed">
     <!-- Paste your MailerLite embed code below this line -->
