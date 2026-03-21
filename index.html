@@ -10,6 +10,8 @@
   />
 
   <style>
+    @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
+
     :root {
       --bg:        #ffffff;
       --text:      #111111;
@@ -51,12 +53,12 @@
     }
 
     .container {
-      width: min(100% - 44px, var(--max));
+      width: min(100% - 48px, var(--max));
       margin: 0 auto;
     }
 
     .section {
-      padding: 68px 0;
+      padding: 74px 0;
     }
 
     .section.soft { background: var(--soft); }
@@ -64,16 +66,16 @@
 
     .section-head {
       max-width: 780px;
-      margin: 0 auto 38px;
+      margin: 0 auto 42px;
       text-align: center;
     }
 
     .section-head h2 {
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .section-head p {
-      margin-top: 14px;
+      margin-top: 16px;
     }
 
     .kicker {
@@ -102,20 +104,6 @@
     h2 {
       font-size: clamp(1.9rem, 3.5vw, 2.75rem);
       line-height: 1.08;
-    }
-
-    .card-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.34rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin: 0 0 8px;
-      line-height: 1.2;
-    }
-
-    .card-title + p {
-      margin-top: 10px;
     }
 
     p {
@@ -151,46 +139,64 @@
     .brand-plus {
       position: relative;
       display: inline-block;
-      width: 0.31em;
-      height: 0.31em;
-      margin-left: 0.01em;
-      transform: translateY(-0.48em);
+      width: 0.34em;
+      height: 0.34em;
+      margin-left: 0.015em;
+      transform: translateY(-0.46em);
       flex: 0 0 auto;
     }
 
-    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm {
+      position: absolute;
+      border-radius: 999px;
+    }
 
     .brand-plus .arm-top,
     .brand-plus .arm-bottom,
-    .brand-plus .arm-left  { background: var(--pink); }
+    .brand-plus .arm-left {
+      background: var(--pink);
+    }
 
-    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-right {
+      background: var(--teal);
+    }
 
     .brand-plus .arm-top,
     .brand-plus .arm-bottom {
       left: 50%;
-      width: 0.08em;
-      height: 0.15em;
+      width: 0.085em;
+      height: 0.16em;
       transform: translateX(-50%);
     }
 
-    .brand-plus .arm-top    { top: 0; }
+    .brand-plus .arm-top { top: 0; }
     .brand-plus .arm-bottom { bottom: 0; }
 
     .brand-plus .arm-left,
     .brand-plus .arm-right {
       top: 50%;
-      width: 0.15em;
-      height: 0.08em;
+      width: 0.16em;
+      height: 0.085em;
       transform: translateY(-50%);
     }
 
-    .brand-plus .arm-left  { left: 0; }
+    .brand-plus .arm-left { left: 0; }
     .brand-plus .arm-right { right: 0; }
 
     .brand-inline {
       text-transform: none !important;
       letter-spacing: 0 !important;
+    }
+
+    .logo .brandmark,
+    .nav .brandmark,
+    h1 .brandmark,
+    h2 .brandmark,
+    h3 .brandmark,
+    .section-link .brandmark,
+    .text-link .brandmark,
+    .footer-links .brandmark {
+      font-size: 1em;
     }
 
     /* Header */
@@ -204,7 +210,7 @@
     }
 
     .header-inner {
-      width: min(100% - 44px, var(--max));
+      width: min(100% - 48px, var(--max));
       margin: 0 auto;
       min-height: 82px;
       display: flex;
@@ -255,10 +261,7 @@
       transition: color 0.22s ease;
     }
 
-    .nav a:hover {
-      color: var(--gold-deep);
-    }
-
+    .nav a:hover,
     .nav a.active {
       color: var(--gold-deep);
     }
@@ -314,7 +317,7 @@
 
     /* Hero */
     .hero {
-      padding: 72px 0 54px;
+      padding: 78px 0 60px;
       background:
         radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
         linear-gradient(180deg, #fff 0%, #fcfbf8 100%);
@@ -323,12 +326,12 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
-      gap: 36px;
+      gap: 42px;
       align-items: center;
     }
 
     .hero-sub {
-      margin-top: 18px;
+      margin-top: 20px;
       max-width: 640px;
     }
 
@@ -336,14 +339,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .hero-card {
       background: rgba(255,255,255,0.88);
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 26px;
+      padding: 28px;
       box-shadow: var(--shadow);
       position: relative;
       overflow: hidden;
@@ -382,7 +385,7 @@
     /* Cards / grids */
     .grid {
       display: grid;
-      gap: 20px;
+      gap: 22px;
     }
 
     .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -393,8 +396,22 @@
       background: #fff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 26px 24px;
+      padding: 28px 26px;
       box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.34rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+
+    .card-title + p {
+      margin-top: 12px;
     }
 
     .card p + p {
@@ -403,7 +420,7 @@
 
     .text-link {
       display: inline-block;
-      margin-top: 18px;
+      margin-top: 20px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
@@ -411,7 +428,7 @@
     }
 
     .section-link-wrap {
-      margin-top: 28px;
+      margin-top: 32px;
       text-align: center;
     }
 
@@ -471,23 +488,26 @@
       color: var(--muted);
     }
 
-    /* MailerLite styles */
-    @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
-
-    /* naræ+ MailerLite visual override */
+    /* MailerLite visual override */
     #stay-connected {
-      padding-top: 22px;
-      padding-bottom: 72px;
+      padding: 30px 0 78px;
+    }
+
+    #stay-connected .container {
+      display: flex;
+      justify-content: center;
     }
 
     #mlb2-38624714.ml-form-embedContainer {
       width: 100% !important;
-      max-width: 100%;
+      max-width: 720px !important;
       margin: 0 auto !important;
     }
 
     #mlb2-38624714.ml-form-embedContainer .ml-form-align-center {
       width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper,
@@ -496,10 +516,11 @@
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedPopup {
       width: 100% !important;
       max-width: 720px !important;
+      margin: 0 auto !important;
       background: #ffffff !important;
-      border: 1px solid #e8e1d7 !important;
+      border: 1px solid var(--line) !important;
       border-radius: 22px !important;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+      box-shadow: var(--shadow) !important;
       padding: 0 !important;
       overflow: hidden;
     }
@@ -518,7 +539,7 @@
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
       margin: 0 0 10px !important;
-      color: #111111 !important;
+      color: var(--text) !important;
       font-family: Georgia, "Times New Roman", serif !important;
       font-size: 2rem !important;
       font-weight: 700 !important;
@@ -547,10 +568,10 @@
       width: 100% !important;
       height: 54px !important;
       background: #ffffff !important;
-      border: 1px solid #e8e1d7 !important;
+      border: 1px solid var(--line) !important;
       border-radius: 999px !important;
       padding: 0 18px !important;
-      color: #111111 !important;
+      color: var(--text) !important;
       font-family: Arial, Helvetica, sans-serif !important;
       font-size: 0.95rem !important;
       line-height: 1.2 !important;
@@ -563,7 +584,7 @@
 
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control:focus {
       outline: none !important;
-      border-color: #b98d43 !important;
+      border-color: var(--gold-deep) !important;
       box-shadow: 0 0 0 3px rgba(215,176,106,0.12) !important;
     }
 
@@ -578,11 +599,11 @@
       width: 100% !important;
       min-height: 48px !important;
       padding: 0 20px !important;
-      background: #111111 !important;
+      background: var(--text) !important;
       color: #ffffff !important;
       border: none !important;
       border-radius: 999px !important;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
+      box-shadow: var(--shadow) !important;
       font-family: Arial, Helvetica, sans-serif !important;
       font-size: 0.92rem !important;
       font-weight: 700 !important;
@@ -593,7 +614,7 @@
     }
 
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
-      background: #111111 !important;
+      background: var(--text) !important;
       transform: translateY(-1px) !important;
       box-shadow: 0 12px 26px rgba(0,0,0,0.07) !important;
     }
@@ -603,7 +624,7 @@
     }
 
     #mlb2-38624714.ml-form-embedContainer .ml-form-successBody h4 {
-      color: #111111 !important;
+      color: var(--text) !important;
     }
 
     /* Footer */
@@ -614,7 +635,7 @@
     }
 
     .footer-inner {
-      width: min(100% - 44px, var(--max));
+      width: min(100% - 48px, var(--max));
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -659,7 +680,7 @@
     @media (max-width: 760px) {
       .header-inner {
         min-height: auto;
-        padding: 16px 0;
+        padding: 18px 0;
         flex-direction: column;
         align-items: flex-start;
         gap: 14px;
@@ -680,20 +701,27 @@
       }
 
       .hero {
-        padding: 48px 0 34px;
+        padding: 52px 0 38px;
       }
 
       .section {
-        padding: 50px 0;
+        padding: 56px 0;
       }
 
       .section-head {
-        margin-bottom: 28px;
+        margin-bottom: 30px;
+      }
+
+      .hero-grid,
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
       }
 
       .hero-card,
       .card {
-        padding: 20px 18px;
+        padding: 22px 18px;
       }
 
       .footer-inner {
@@ -702,8 +730,7 @@
       }
 
       #stay-connected {
-        padding-top: 10px;
-        padding-bottom: 54px;
+        padding: 16px 0 58px;
       }
 
       #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
