@@ -62,7 +62,7 @@
     }
 
     .section {
-      padding: 40px 0;
+      padding: 34px 0;
     }
 
     .section.soft {
@@ -75,7 +75,7 @@
 
     .section-head {
       max-width: 760px;
-      margin: 0 auto 18px;
+      margin: 0 auto 14px;
       text-align: center;
     }
 
@@ -97,18 +97,19 @@
     }
 
     h1 {
-      font-size: clamp(2.45rem, 5.2vw, 4.6rem);
+      font-size: clamp(2.45rem, 5.2vw, 4.55rem);
       line-height: 1.03;
     }
 
     h2 {
-      font-size: clamp(1.8rem, 3.3vw, 2.6rem);
+      font-size: clamp(1.8rem, 3.3vw, 2.55rem);
       line-height: 1.08;
     }
 
     h3 {
-      font-size: 1.12rem;
+      font-size: 1.14rem;
       line-height: 1.24;
+      font-weight: 700;
     }
 
     p {
@@ -187,6 +188,13 @@
       font-weight: 700;
     }
 
+    .statement-emphasis {
+      font-size: 1.08rem;
+      line-height: 1.55;
+      color: var(--text);
+      font-weight: 700;
+    }
+
     /* header */
     .site-header {
       position: sticky;
@@ -200,7 +208,7 @@
     .header-inner {
       width: min(100% - 40px, var(--max));
       margin: 0 auto;
-      min-height: 70px;
+      min-height: 68px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -246,7 +254,7 @@
 
     /* hero */
     .hero {
-      padding: 42px 0 28px;
+      padding: 34px 0 22px;
       background:
         radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
         linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
@@ -254,8 +262,8 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 20px;
+      grid-template-columns: 1.14fr 0.86fr;
+      gap: 16px;
       align-items: center;
     }
 
@@ -313,8 +321,8 @@
     .hero-card {
       background: rgba(255,255,255,0.86);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 18px;
+      border-radius: 22px;
+      padding: 16px;
       box-shadow: var(--shadow);
     }
 
@@ -341,7 +349,7 @@
     /* cards and grids */
     .grid {
       display: grid;
-      gap: 14px;
+      gap: 12px;
     }
 
     .grid-3 {
@@ -356,7 +364,7 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 14px;
       box-shadow: var(--shadow);
     }
 
@@ -373,16 +381,20 @@
       margin-top: 12px;
       font-size: 0.89rem;
       font-weight: 700;
+      color: var(--gold-deep);
+    }
+
+    .text-link:hover {
       color: var(--text);
     }
 
     /* cycle */
     .cycle-grid {
-      gap: 14px;
+      gap: 12px;
     }
 
     .cycle-card {
-      padding: 16px;
+      padding: 14px;
     }
 
     .cycle-icon {
@@ -450,7 +462,7 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 20px 18px;
+      padding: 18px 16px;
       box-shadow: var(--shadow);
       text-align: center;
     }
@@ -460,7 +472,7 @@
     }
 
     .mailerlite-embed-wrap {
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     /* footer */
@@ -510,17 +522,17 @@
       }
 
       .hero {
-        padding: 36px 0 24px;
+        padding: 30px 0 20px;
       }
 
       .section {
-        padding: 34px 0;
+        padding: 30px 0;
       }
 
       .hero-card,
       .card,
       .newsletter-shell {
-        padding: 16px 14px;
+        padding: 14px 12px;
       }
     }
   </style>
@@ -544,10 +556,10 @@
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="care-and-connection.html">Care &amp; Connection</a>
-        <a href="ways-we-support.html">Ways We Support</a>
-        <a href="leadership.html">Leadership</a>
+        <a href="program-approach.html">Program Approach</a>
+        <a href="ways-we-support.html">Ways to Be Part</a>
         <a href="founder.html">Founder</a>
+        <a href="leadership.html">Leadership</a>
       </nav>
     </div>
   </header>
@@ -576,15 +588,18 @@
           </p>
 
           <div class="hero-actions">
-            <a href="care-and-connection.html" class="btn-primary">Get Support</a>
+            <a href="program-approach.html" class="btn-primary">See Program Approach</a>
             <a href="ways-we-support.html" class="btn-secondary">See Ways to Be Part</a>
           </div>
         </div>
 
         <aside class="hero-card" aria-label="Homepage highlight">
           <div class="quote-mark">✦</div>
+          <p class="statement-emphasis">
+            For some women, giving back becomes part of healing.
+          </p>
           <p class="quote">
-            For some women, giving back becomes part of healing, part of identity, and part of how strength returns, when they are ready.
+            Over time, and when they are ready, that may grow into volunteering, offering presence, and walking beside someone else.
           </p>
           <p class="note">support. return. care carried forward.</p>
         </aside>
@@ -609,7 +624,7 @@
           <p class="kicker">How narae works</p>
           <h2>How care carries forward</h2>
           <p class="lead">
-            Care begins with support, grows through connection, and for some, continues through volunteering, giving back, and walking beside someone else when they are ready.
+            Care begins with support, grows through renewed steadiness and reconnection, and for some, continues through volunteering, giving back, and walking beside someone else when they are ready.
           </p>
         </div>
 
@@ -620,7 +635,7 @@
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
               </svg>
             </div>
-            <h3>Receive Care</h3>
+            <h3>Be Supported</h3>
             <p>Support, understanding, and a space where women do not have to explain every part of their experience.</p>
           </article>
 
@@ -677,13 +692,13 @@
             <h3>Be Supported</h3>
             <p>Care, understanding, and thoughtful accompaniment for women navigating breast and gynecologic cancers.</p>
             <p>Retreat experiences are invitation-based and referral-informed, allowing them to remain intentional and deeply personal.</p>
-            <a href="care-and-connection.html" class="text-link">Explore Care &amp; Connection →</a>
+            <a href="program-approach.html" class="text-link">See Program Approach →</a>
           </article>
 
           <article class="card">
             <h3>Walk With Someone</h3>
             <p>For some, healing eventually includes volunteering, offering presence, and walking beside another woman.</p>
-            <a href="ways-we-support.html" class="text-link">See Ways We Support →</a>
+            <a href="ways-we-support.html" class="text-link">See Ways to Be Part →</a>
           </article>
 
           <article class="card">
@@ -781,7 +796,7 @@
           <div class="mailerlite-embed-wrap">
             <!-- Paste your MailerLite embed code below this line -->
             <!-- MailerLite form start -->
-            
+
             <!-- MailerLite form end -->
           </div>
         </div>
