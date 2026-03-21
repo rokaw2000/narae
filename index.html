@@ -6,31 +6,33 @@
   <title>narae International Foundation</title>
   <meta
     name="description"
-    content="narae International Foundation creates emotionally grounded, culturally aware support for women navigating breast and gynecologic cancers, especially those from immigrant and culturally diverse communities."
+    content="narae International Foundation provides emotionally and culturally grounded support for women navigating breast and gynecologic cancers."
   />
   <style>
     :root {
       --bg: #ffffff;
-      --surface: #ffffff;
-      --surface-soft: #faf8f5;
-      --surface-warm: #fcfbf8;
       --text: #111111;
       --muted: #5c5a57;
       --line: #e8e1d7;
-      --line-soft: #efe8df;
+      --soft: #faf8f5;
+      --warm: #fcfbf8;
       --gold: #d7b06a;
       --gold-deep: #b98d43;
       --pink: #d98aa0;
       --teal: #5f9f9f;
       --crane-red: #8e1b1b;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.07);
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
-      --radius: 24px;
-      --max: 1160px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --radius: 22px;
+      --max: 1100px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -41,18 +43,14 @@
       text-rendering: optimizeLegibility;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     a {
       color: inherit;
       text-decoration: none;
     }
 
-    .page-shell {
-      overflow: hidden;
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
@@ -61,51 +59,52 @@
     }
 
     .section {
-      padding: 60px 0;
+      padding: 54px 0;
     }
 
     .section.soft {
-      background: var(--surface-soft);
+      background: var(--soft);
     }
 
     .section.warm {
-      background: var(--surface-warm);
+      background: var(--warm);
     }
 
     .section-head {
-      max-width: 820px;
-      margin: 0 auto 26px;
+      max-width: 760px;
+      margin: 0 auto 24px;
       text-align: center;
     }
 
     .kicker {
       margin: 0 0 8px;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gold-deep);
-      font-family: Arial, Helvetica, sans-serif;
     }
 
     h1, h2, h3 {
       margin: 0;
       font-weight: 500;
       letter-spacing: -0.02em;
+      color: var(--text);
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5.6vw, 4.9rem);
-      line-height: 1.02;
+      font-size: clamp(2.55rem, 5.6vw, 4.85rem);
+      line-height: 1.03;
     }
 
     h2 {
-      font-size: clamp(1.85rem, 3.6vw, 2.8rem);
+      font-size: clamp(1.9rem, 3.7vw, 2.85rem);
       line-height: 1.08;
     }
 
     h3 {
-      font-size: 1.22rem;
+      font-size: 1.18rem;
       line-height: 1.24;
     }
 
@@ -118,15 +117,10 @@
 
     .lead {
       font-size: 1.03rem;
-      line-height: 1.75;
+      line-height: 1.76;
     }
 
-    .hero-emphasis {
-      color: var(--crane-red);
-      font-weight: 700;
-    }
-
-    /* Brand */
+    /* brand */
     .brandmark {
       display: inline-flex;
       align-items: baseline;
@@ -145,7 +139,7 @@
       display: inline-block;
       width: 0.31em;
       height: 0.31em;
-      margin-left: 0.014em;
+      margin-left: 0.012em;
       transform: translateY(-0.54em);
       flex: 0 0 auto;
     }
@@ -170,8 +164,8 @@
     .brand-plus .arm-left,
     .brand-plus .arm-right {
       top: 50%;
-      height: 0.08em;
       width: 0.15em;
+      height: 0.08em;
       transform: translateY(-50%);
     }
 
@@ -185,14 +179,19 @@
       background: var(--teal);
     }
 
-    /* Global header */
+    .hero-emphasis {
+      color: var(--crane-red);
+      font-weight: 700;
+    }
+
+    /* header */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(232, 225, 215, 0.8);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
     .header-inner {
@@ -218,24 +217,24 @@
 
     .logo small {
       display: block;
-      font-size: 0.74rem;
-      letter-spacing: 0.06em;
-      text-transform: none;
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      font-weight: 700;
       margin-top: 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      text-transform: none;
     }
 
     .nav {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
       gap: 20px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 0.91rem;
       color: var(--muted);
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
     .nav a:hover {
@@ -247,37 +246,35 @@
       align-items: center;
       justify-content: center;
       padding: 11px 17px;
-      border-radius: 999px;
       border: 1px solid var(--line);
+      border-radius: 999px;
       background: #fff;
       color: var(--text);
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow);
     }
 
-    /* Hero */
+    /* hero */
     .hero {
-      padding: 62px 0 42px;
+      padding: 58px 0 42px;
       background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.10), transparent 32%),
-        linear-gradient(180deg, #fff 0%, #fcfbf8 100%);
+        radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
+        linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
-      gap: 30px;
+      gap: 28px;
       align-items: center;
     }
 
     .hero-copy {
-      max-width: 740px;
+      max-width: 730px;
     }
 
     .hero-sub {
       margin-top: 14px;
-      max-width: 680px;
-      font-size: 1.03rem;
-      line-height: 1.74;
+      max-width: 650px;
     }
 
     .hero-actions {
@@ -288,6 +285,12 @@
     }
 
     .btn-primary,
+    .btn-secondary,
+    .text-link {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn-primary,
     .btn-secondary {
       display: inline-flex;
       align-items: center;
@@ -295,19 +298,18 @@
       min-height: 46px;
       padding: 0 18px;
       border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
       font-size: 0.93rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .btn-primary {
       background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow-soft);
+      color: #ffffff;
+      box-shadow: var(--shadow);
     }
 
     .btn-secondary {
-      background: #fff;
+      background: #ffffff;
       color: var(--text);
       border: 1px solid var(--line);
     }
@@ -319,8 +321,8 @@
     }
 
     .hero-card {
-      background: rgba(255,255,255,0.82);
-      border: 1px solid var(--line-soft);
+      background: rgba(255,255,255,0.86);
+      border: 1px solid var(--line);
       border-radius: 26px;
       padding: 22px;
       box-shadow: var(--shadow);
@@ -339,14 +341,69 @@
     }
 
     .hero-card .note {
-      margin-top: 12px;
-      font-size: 0.88rem;
-      color: var(--muted);
+      margin-top: 10px;
       font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
       letter-spacing: 0.02em;
+      color: var(--muted);
     }
 
-    /* Expandable */
+    /* cards and grids */
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p + p {
+      margin-top: 8px;
+    }
+
+    .text-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* cycle */
+    .cycle-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      background: rgba(215,176,106,0.15);
+      color: var(--gold-deep);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    /* details */
     details.expand {
       margin-top: 12px;
       padding-top: 10px;
@@ -360,9 +417,9 @@
       align-items: center;
       gap: 8px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -387,241 +444,61 @@
       gap: 10px;
     }
 
-    /* Section layouts */
-    .split {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      align-items: start;
-    }
-
-    .panel {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    /* Ways */
-    .ways-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .way-card {
-      grid-column: span 4;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .way-card.featured {
-      grid-column: 4 / span 6;
-      background:
-        linear-gradient(180deg, rgba(215,176,106,0.10) 0%, rgba(255,255,255,1) 100%);
-      border: 1px solid rgba(215,176,106,0.40);
-      padding: 24px 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .way-badge {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(215,176,106,0.16);
-      color: #8a6a2f;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      text-transform: none;
-    }
-
-    .way-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .way-card p + p {
-      margin-top: 8px;
-    }
-
-    .featured-lines {
-      color: var(--text);
-    }
-
-    .card-details {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px solid var(--line);
-    }
-
-    .card-details summary {
-      list-style: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .card-details summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .card-details summary::after {
-      content: "+";
-    }
-
-    .card-details[open] summary::after {
-      content: "−";
-    }
-
-    .card-details ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .card-details li {
-      margin-bottom: 6px;
-      line-height: 1.58;
-    }
-
-    /* Insight */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 18px;
-    }
-
-    .pillar {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .pillar h3 {
-      margin-bottom: 8px;
-      font-size: 1.08rem;
-    }
-
-    /* Join box */
-    .join-box {
-      max-width: 860px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px 22px;
-      box-shadow: var(--shadow-soft);
-      text-align: center;
-    }
-
-    .join-box p + p {
-      margin-top: 8px;
-    }
-
-    .join-actions {
-      margin-top: 16px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* Founder */
-    .founder-wrap {
+    /* cta band */
+    .cta-box {
       max-width: 760px;
       margin: 0 auto;
       text-align: center;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
     }
 
-    .founder-lead {
-      color: var(--text);
-      font-size: 1.1rem;
-      line-height: 1.62;
-      margin-bottom: 12px;
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .founder-wrap p + p {
-      margin-top: 10px;
-    }
-
-    .founder-close {
-      margin-top: 18px;
-      color: var(--text);
-    }
-
-    /* Footer */
+    /* footer */
     .site-footer {
       padding: 24px 0 28px;
       border-top: 1px solid var(--line);
-      background: #fff;
+      background: #ffffff;
     }
 
     .footer-inner {
       width: min(100% - 40px, var(--max));
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--muted);
       font-size: 0.88rem;
+      color: var(--muted);
     }
 
-    /* Responsive */
-    @media (max-width: 1180px) {
-      .header-inner {
-        align-items: flex-start;
-        padding-top: 14px;
-        padding-bottom: 14px;
-      }
-
-      .nav {
-        gap: 16px;
-      }
-    }
-
-    @media (max-width: 1040px) {
+    /* responsive */
+    @media (max-width: 980px) {
       .hero-grid,
-      .split,
-      .pillars {
+      .grid-3,
+      .grid-4 {
         grid-template-columns: 1fr;
-      }
-
-      .way-card,
-      .way-card.featured {
-        grid-column: span 12;
-      }
-
-      .way-card.featured {
-        order: -1;
-      }
-
-      .hero {
-        padding: 54px 0 38px;
       }
     }
 
     @media (max-width: 760px) {
+      .container,
+      .header-inner,
+      .footer-inner {
+        width: min(100% - 28px, var(--max));
+      }
+
       .header-inner {
         min-height: auto;
+        padding: 14px 0;
         flex-direction: column;
         align-items: flex-start;
         gap: 14px;
@@ -630,453 +507,269 @@
       .nav {
         width: 100%;
         justify-content: flex-start;
+        gap: 16px;
       }
 
       .hero {
-        padding: 46px 0 34px;
+        padding: 48px 0 34px;
       }
 
       .section {
-        padding: 48px 0;
-      }
-
-      .container {
-        width: min(100% - 28px, var(--max));
+        padding: 46px 0;
       }
 
       .hero-card,
-      .panel,
-      .way-card,
-      .way-card.featured,
-      .pillar,
-      .join-box {
+      .card,
+      .cta-box {
         padding: 18px 16px;
-        border-radius: 18px;
-      }
-
-      .hero-actions,
-      .join-actions {
-        gap: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <div class="header-inner">
-        <a href="index.html" class="logo" aria-label="narae International Foundation home">
-          <span class="brandmark">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="narae International Foundation home">
+        <span class="brandmark">
+          <span class="logo-word">naræ</span>
+          <span class="brand-plus" aria-hidden="true">
+            <span class="arm arm-top"></span>
+            <span class="arm arm-right"></span>
+            <span class="arm arm-bottom"></span>
+            <span class="arm arm-left"></span>
           </span>
-          <small>narae International Foundation</small>
-        </a>
+        </span>
+        <small>narae International Foundation</small>
+      </a>
 
-        <nav class="nav" aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="care-and-connection.html">Care &amp; Connection</a>
-          <a href="ways-we-support.html">Ways We Support</a>
-          <a href="leadership.html">Leadership</a>
-          <a href="founder.html">Founder</a>
-          <a href="contact.html" class="nav-cta">Connect</a>
-        </nav>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="care-and-connection.html">Care &amp; Connection</a>
+        <a href="ways-we-support.html">Ways We Support</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="founder.html">Founder</a>
+        <a href="contact.html" class="nav-cta">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">narae International Foundation</p>
+          <h1>
+            <span class="hero-emphasis">Cancer is hard enough.</span><br>
+            <span class="brandmark">
+              <span class="logo-word">naræ</span>
+              <span class="brand-plus" aria-hidden="true">
+                <span class="arm arm-top"></span>
+                <span class="arm arm-right"></span>
+                <span class="arm arm-bottom"></span>
+                <span class="arm arm-left"></span>
+              </span>
+            </span>
+            is for the women carrying more.
+          </h1>
+
+          <p class="hero-sub lead">
+            Emotional and culturally grounded support for women navigating breast and gynecologic cancers, especially those from immigrant and culturally diverse communities.
+          </p>
+
+          <div class="hero-actions">
+            <a href="care-and-connection.html" class="btn-primary">Get Support</a>
+            <a href="ways-we-support.html" class="btn-secondary">See Ways to Be Part</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Homepage highlight">
+          <div class="quote-mark">✦</div>
+          <p class="quote">
+            Giving back is not separate from healing. For some, it is how strength returns.
+          </p>
+          <p class="note">support. return. care carried forward.</p>
+        </aside>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="kicker">narae International Foundation</p>
-            <h1>
-              <span class="hero-emphasis">Cancer is hard enough.</span><br>
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              is for the women carrying more.
-            </h1>
-
-            <p class="hero-sub">
-              Emotional and culturally grounded support for women navigating breast and gynecologic cancers, especially those from immigrant and culturally diverse communities. Here, healing is not only about getting through. It is also about returning to life, and for some, finding strength in giving back.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#ways-to-be-part" class="btn-primary">Find Your Way In</a>
-              <a href="care-and-connection.html" class="btn-secondary">Explore Care &amp; Connection</a>
-            </div>
-          </div>
-
-          <aside class="hero-card" aria-label="Homepage highlight">
-            <div class="quote-mark">✦</div>
-            <p class="quote">
-              Giving back is not separate from healing. For some, it becomes part of how confidence returns, how connection deepens, and how life begins to open again.
-            </p>
-            <p class="note">
-              support. return. care carried forward.
-            </p>
-          </aside>
+    <section class="section" id="who-this-is-for">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Who This Is For</p>
+          <h2>A space for women carrying more than what is visible.</h2>
+          <p class="lead">
+            Especially for women from immigrant and culturally diverse communities who may not always feel fully seen in traditional support spaces.
+          </p>
         </div>
-      </section>
-
-      <section class="section warm" id="why-the-crane">
-        <div class="container">
-          <div class="section-head">
-            <p class="kicker">Symbol &amp; Meaning</p>
-            <h2>Why the Crane</h2>
-            <p class="lead">
-              A symbol of grace, resilience, and return.
-            </p>
-          </div>
-
-          <div class="split">
-            <div class="panel">
-              <p>
-                The red-crowned crane represents longevity, dignity, and quiet strength.
-              </p>
-
-              <details class="expand">
-                <summary>Read the meaning</summary>
-                <div class="expand-body">
-                  <p>
-                    At
-                    <span class="brandmark">
-                      <span class="logo-word">naræ</span>
-                      <span class="brand-plus" aria-hidden="true">
-                        <span class="arm arm-top"></span>
-                        <span class="arm arm-right"></span>
-                        <span class="arm arm-bottom"></span>
-                        <span class="arm arm-left"></span>
-                      </span>
-                    </span>,
-                    the crane holds more than symbolism. It reflects the journey of gathering yourself again, slowly and intentionally.
-                  </p>
-                  <p>
-                    Each woman folds her own crane, not perfectly, but with care. It becomes a reminder that healing is not only about surviving what happened, but about rising and returning to life with presence.
-                  </p>
-                </div>
-              </details>
-            </div>
-
-            <div class="panel">
-              <p>
-                The crane also speaks to reintegration, not just recovery.
-              </p>
-              <p style="margin-top: 8px;">
-                That matters to
-                <span class="brandmark">
-                  <span class="logo-word">naræ</span>
-                  <span class="brand-plus" aria-hidden="true">
-                    <span class="arm arm-top"></span>
-                    <span class="arm arm-right"></span>
-                    <span class="arm arm-bottom"></span>
-                    <span class="arm arm-left"></span>
-                  </span>
-                </span>:
-                not only helping women through treatment, but supporting confidence, reconnection, and fuller participation in life again.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="who-we-are">
-        <div class="container">
-          <div class="section-head">
-            <p class="kicker">Who We Are</p>
-            <h2>A space for women carrying more than what is visible.</h2>
-            <p class="lead">
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              centers emotional presence, cultural understanding, and human connection for women navigating breast and gynecologic cancers.
-            </p>
-          </div>
-
-          <div class="split">
-            <div class="panel">
-              <p>
-                We are especially attentive to women from immigrant and culturally diverse communities who may not always feel seen in traditional support spaces.
-              </p>
-            </div>
-
-            <div class="panel">
-              <p>
-                Our approach is intentional, human, and grounded in lived experience. We believe healing can continue through connection, confidence, and community, and for some, that journey eventually includes walking beside someone else.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section soft" id="ways-to-be-part">
-        <div class="container">
-          <div class="section-head">
-            <p class="kicker">Ways to Be Part</p>
-            <h2>There are many ways to enter this community.</h2>
-            <p class="lead">
-              Some come needing care. Some return ready to walk beside someone else. Others strengthen the work through collaboration, service, or giving.
-            </p>
-          </div>
-
-          <div class="ways-grid">
-            <article class="way-card">
-              <h3>Be Supported</h3>
-              <p>
-                For women navigating breast and gynecologic cancers who are seeking space, comfort, and community.
-              </p>
-
-              <details class="card-details">
-                <summary>Learn more</summary>
-                <ul>
-                  <li>Thoughtful emotional support</li>
-                  <li>Culturally grounded understanding</li>
-                  <li>Space to be seen without needing to explain everything</li>
-                </ul>
-              </details>
-            </article>
-
-            <article class="way-card featured">
-              <span class="way-badge">
-                at the heart of
-                <span class="brandmark">
-                  <span class="logo-word">naræ</span>
-                  <span class="brand-plus" aria-hidden="true">
-                    <span class="arm arm-top"></span>
-                    <span class="arm arm-right"></span>
-                    <span class="arm arm-bottom"></span>
-                    <span class="arm arm-left"></span>
-                  </span>
-                </span>
-              </span>
-
-              <h3>Walk With Someone Else</h3>
-              <p>
-                Some who come to
-                <span class="brandmark">
-                  <span class="logo-word">naræ</span>
-                  <span class="brand-plus" aria-hidden="true">
-                    <span class="arm arm-top"></span>
-                    <span class="arm arm-right"></span>
-                    <span class="arm arm-bottom"></span>
-                    <span class="arm arm-left"></span>
-                  </span>
-                </span>
-                for support find, over time, a quiet desire to walk beside someone else.
-              </p>
-              <p class="featured-lines">
-                Not because they are asked to.<br>
-                Not because they have to.<br>
-                But because they understand.
-              </p>
-              <p>
-                Giving back becomes part of healing, building confidence, connection, and renewed purpose.
-              </p>
-
-              <details class="card-details">
-                <summary>What this can look like</summary>
-                <ul>
-                  <li>Sitting with someone during treatment or appointments</li>
-                  <li>Checking in through a simple message or call</li>
-                  <li>Going for a short walk or sharing quiet time together</li>
-                  <li>Offering language support when needed</li>
-                  <li>Being present without needing to fix or advise</li>
-                </ul>
-              </details>
-            </article>
-
-            <article class="way-card">
-              <h3>Partner With Us</h3>
-              <p>
-                We welcome thoughtful collaboration with individuals and organizations who share our values.
-              </p>
-            </article>
-
-            <article class="way-card">
-              <h3>Support the Work</h3>
-              <p>
-                We also welcome a small number of outside volunteers who support this work with humility and care.
-              </p>
-            </article>
-
-            <article class="way-card">
-              <h3>Support Through Giving</h3>
-              <p>
-                Financial support helps make care, community, and future initiatives more accessible.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section warm" id="what-this-work-teaches-us">
-        <div class="container">
-          <div class="section-head">
-            <p class="kicker">What This Work Teaches Us</p>
-            <h2>Not all experiences are captured in formal systems.</h2>
-            <p class="lead">
-              Some realities are lived quietly, yet they still shape care, confidence, and the way women return to life.
-            </p>
-          </div>
-
-          <div class="panel" style="max-width: 860px; margin: 0 auto;">
-            <p>
-              At
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>,
-              we pay attention to what is often unseen: emotional weight, cultural context, quiet resilience, and how confidence can grow through connection and care.
-            </p>
-
-            <details class="expand">
-              <summary>Explore further</summary>
-              <div class="expand-body">
-                <p>
-                  As women regain confidence and return to life, many begin to engage more fully in their communities, in their care, and in spaces that once felt distant or difficult to enter.
-                </p>
-                <p>
-                  Over time, this can support broader participation, including stronger engagement in research and other systems that shape future care, especially for women whose experiences have too often gone underrepresented.
-                </p>
-              </div>
-            </details>
-          </div>
-
-          <div class="pillars">
-            <article class="pillar">
-              <h3>Lived Experience</h3>
-              <p>Understanding support through real journeys, not assumptions.</p>
-            </article>
-
-            <article class="pillar">
-              <h3>Growth Through Giving</h3>
-              <p>For some, giving back becomes part of healing, identity, and confidence.</p>
-            </article>
-
-            <article class="pillar">
-              <h3>Return to Life</h3>
-              <p>Not just recovery, but reintegration with strength, presence, and possibility.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section soft" id="join-the-community">
-        <div class="container">
-          <div class="join-box">
-            <p class="kicker">Join the Community</p>
-            <h2>You do not have to carry this alone.</h2>
-            <p class="lead">
-              Whether you are seeking support, feeling ready to give back, or simply resonating with this work, there is a place for you here.
-            </p>
-
-            <div class="join-actions">
-              <a href="contact.html" class="btn-primary">Stay Connected</a>
-              <a href="ways-we-support.html" class="btn-secondary">See Ways We Support</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="founder-note">
-        <div class="container">
-          <div class="founder-wrap">
-            <p class="kicker">Founder Note</p>
-            <h2>
-              Why I Created
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-            </h2>
-
-            <p class="founder-lead">
-              Cancer was never an abstract word to me. I grew up knowing what it meant, watching people I loved face it, and not come back.
-            </p>
-
-            <p>
-              I never imagined it would come for me. There was no warning, no reason to expect it. And then it did, not once, but twice.
-            </p>
-
-            <p style="color: var(--text);">
-              My very first mammogram was a diagnosis.
-            </p>
-
-            <details class="expand" style="text-align: left;">
-              <summary>Read more</summary>
-              <div class="expand-body">
-                <p>
-                  During chemotherapy, someone reached out asking for my help. I almost said no. I was very sick. I was tired. It did not feel like the right time.
-                </p>
-
-                <p>
-                  But something in me said to try. I am glad I did. It gave me purpose. And somewhere in the giving, I found strength I did not know I still had.
-                </p>
-
-                <p>
-                  As a Korean immigrant, I also know what it feels like to move through a world that was not built for you. I know the quiet habit of not asking for help, of figuring things out alone, of not wanting to be a burden.
-                </p>
-
-                <p>
-                  I began to wonder where the women like me were. In waiting rooms, in support groups, I did not see them. Not because they did not exist, but because many never entered those spaces at all.
-                </p>
-
-                <p>
-                  <span class="brandmark">
-                    <span class="logo-word">naræ</span>
-                    <span class="brand-plus" aria-hidden="true">
-                      <span class="arm arm-top"></span>
-                      <span class="arm arm-right"></span>
-                      <span class="arm arm-bottom"></span>
-                      <span class="arm arm-left"></span>
-                    </span>
-                  </span>
-                  was born from that question, and from connecting the pieces of everything I had lived. It exists so that women can feel understood, supported, and less alone, and when they are ready, pass that care forward and find healing in the giving.
-                </p>
-              </div>
-            </details>
-
-            <p class="founder-close">
-              This is not just about getting through. It is about finding your way back, and moving forward with strength.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div>© 2026 narae International Foundation. All rights reserved.</div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section class="section warm" id="care-cycle">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">How narae works</p>
+          <h2>How care carries forward</h2>
+          <p class="lead">
+            Healing does not move in a straight line. At narae, care begins with support, grows through connection, and for some, returns as care for someone else.
+          </p>
+        </div>
+
+        <div class="grid grid-4">
+          <article class="card">
+            <div class="cycle-number">01</div>
+            <h3>Receive Care</h3>
+            <p>Support, understanding, and a space where women do not have to explain every part of their experience.</p>
+          </article>
+
+          <article class="card">
+            <div class="cycle-number">02</div>
+            <h3>Rebuild Strength</h3>
+            <p>Confidence begins to return through dignity, emotional support, and human connection.</p>
+          </article>
+
+          <article class="card">
+            <div class="cycle-number">03</div>
+            <h3>Reconnect</h3>
+            <p>Women begin returning to life with greater presence, self-trust, and renewed possibility.</p>
+          </article>
+
+          <article class="card">
+            <div class="cycle-number">04</div>
+            <h3>Give Forward</h3>
+            <p>Some choose to walk beside someone else, not from obligation, but from understanding.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="ways-to-be-part">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Ways to Be Part</p>
+          <h2>There are different ways to enter this community.</h2>
+          <p class="lead">
+            This page gives the overview. Each path has its own dedicated space for more detail.
+          </p>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <h3>Be Supported</h3>
+            <p>Care, understanding, and connection for women navigating breast and gynecologic cancers.</p>
+            <a href="care-and-connection.html" class="text-link">Explore Care &amp; Connection →</a>
+          </article>
+
+          <article class="card">
+            <h3>Walk With Someone</h3>
+            <p>For some, giving back becomes part of healing and a way to walk beside another woman.</p>
+            <a href="ways-we-support.html" class="text-link">See Ways We Support →</a>
+          </article>
+
+          <article class="card">
+            <h3>Support the Work</h3>
+            <p>Partnership, volunteering, and giving all help make care and community more accessible.</p>
+            <a href="ways-we-support.html" class="text-link">Learn More →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-the-crane">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Symbol &amp; Meaning</p>
+          <h2>Why the crane</h2>
+          <p class="lead">
+            A symbol of resilience, dignity, and return.
+          </p>
+        </div>
+
+        <div class="card" style="max-width: 760px; margin: 0 auto;">
+          <p>
+            The red-crowned crane reflects quiet strength and the journey of gathering yourself again.
+          </p>
+
+          <details class="expand">
+            <summary>Read more</summary>
+            <div class="expand-body">
+              <p>
+                At
+                <span class="brandmark">
+                  <span class="logo-word">naræ</span>
+                  <span class="brand-plus" aria-hidden="true">
+                    <span class="arm arm-top"></span>
+                    <span class="arm arm-right"></span>
+                    <span class="arm arm-bottom"></span>
+                    <span class="arm arm-left"></span>
+                  </span>
+                </span>,
+                the crane is not only a symbol of survival. It also speaks to return, dignity, and the possibility of moving forward with presence.
+              </p>
+              <p>
+                For more about the symbolism and the foundation’s broader vision, visit the About page.
+              </p>
+            </div>
+          </details>
+
+          <a href="about.html" class="text-link">Learn more on About →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section warm" id="founder-preview">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Founder</p>
+          <h2>Why I created narae</h2>
+          <p class="lead">
+            A personal journey that became something larger.
+          </p>
+        </div>
+
+        <div class="card" style="max-width: 760px; margin: 0 auto; text-align: center;">
+          <p>
+            This work was shaped by lived experience, loss, survivorship, and the quiet question of where women like us were in the spaces meant to support healing.
+          </p>
+
+          <details class="expand" style="text-align: left;">
+            <summary>Read more</summary>
+            <div class="expand-body">
+              <p>
+                narae grew from the belief that women can feel more understood, less alone, and over time, stronger in the giving back that healing sometimes makes possible.
+              </p>
+              <p>
+                The full story belongs on the Founder page, where it can be held with the depth it deserves.
+              </p>
+            </div>
+          </details>
+
+          <a href="founder.html" class="text-link">Read the Founder story →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="closing-cta">
+      <div class="container">
+        <div class="cta-box">
+          <p class="kicker">Connect</p>
+          <h2>You do not have to carry this alone.</h2>
+          <p class="lead">
+            Whether you are seeking support, feeling ready to give back, or simply resonating with this work, there is a place for you here.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">Connect</a>
+            <a href="ways-we-support.html" class="btn-secondary">Explore More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      © 2026 narae International Foundation. All rights reserved.
+    </div>
+  </footer>
 </body>
 </html>
