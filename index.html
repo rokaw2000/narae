@@ -19,8 +19,11 @@
       --gold: #d7b06a;
       --gold-deep: #b98d43;
       --pink: #d98aa0;
+      --pink-deep: #c97b96;
       --teal: #5f9f9f;
+      --teal-deep: #4f9494;
       --crane-red: #8e1b1b;
+      --red-bg: rgba(142, 27, 27, 0.07);
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
       --radius: 22px;
       --max: 1100px;
@@ -59,7 +62,7 @@
     }
 
     .section {
-      padding: 54px 0;
+      padding: 44px 0;
     }
 
     .section.soft {
@@ -72,7 +75,7 @@
 
     .section-head {
       max-width: 760px;
-      margin: 0 auto 24px;
+      margin: 0 auto 18px;
       text-align: center;
     }
 
@@ -94,30 +97,30 @@
     }
 
     h1 {
-      font-size: clamp(2.55rem, 5.6vw, 4.85rem);
+      font-size: clamp(2.5rem, 5.4vw, 4.7rem);
       line-height: 1.03;
     }
 
     h2 {
-      font-size: clamp(1.9rem, 3.7vw, 2.85rem);
+      font-size: clamp(1.85rem, 3.5vw, 2.7rem);
       line-height: 1.08;
     }
 
     h3 {
-      font-size: 1.18rem;
+      font-size: 1.14rem;
       line-height: 1.24;
     }
 
     p {
       margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.72;
+      font-size: 0.97rem;
+      line-height: 1.7;
       color: var(--muted);
     }
 
     .lead {
-      font-size: 1.03rem;
-      line-height: 1.76;
+      font-size: 1.01rem;
+      line-height: 1.74;
     }
 
     /* brand */
@@ -139,8 +142,8 @@
       display: inline-block;
       width: 0.31em;
       height: 0.31em;
-      margin-left: 0.012em;
-      transform: translateY(-0.54em);
+      margin-left: 0.01em;
+      transform: translateY(-0.48em);
       flex: 0 0 auto;
     }
 
@@ -197,7 +200,7 @@
     .header-inner {
       width: min(100% - 40px, var(--max));
       margin: 0 auto;
-      min-height: 72px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -245,7 +248,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 11px 17px;
+      padding: 10px 16px;
       border: 1px solid var(--line);
       border-radius: 999px;
       background: #fff;
@@ -255,7 +258,7 @@
 
     /* hero */
     .hero {
-      padding: 58px 0 42px;
+      padding: 46px 0 32px;
       background:
         radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
         linear-gradient(180deg, #ffffff 0%, #fcfbf8 100%);
@@ -264,24 +267,24 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.12fr 0.88fr;
-      gap: 28px;
+      gap: 22px;
       align-items: center;
     }
 
     .hero-copy {
-      max-width: 730px;
+      max-width: 720px;
     }
 
     .hero-sub {
-      margin-top: 14px;
-      max-width: 650px;
+      margin-top: 12px;
+      max-width: 640px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 18px;
     }
 
     .btn-primary,
@@ -295,10 +298,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
+      min-height: 44px;
+      padding: 0 17px;
       border-radius: 999px;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       transition: transform 0.2s ease;
     }
 
@@ -323,27 +326,27 @@
     .hero-card {
       background: rgba(255,255,255,0.86);
       border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 22px;
+      border-radius: 24px;
+      padding: 18px;
       box-shadow: var(--shadow);
     }
 
     .hero-card .quote-mark {
       color: var(--gold-deep);
-      font-size: 1.35rem;
-      margin-bottom: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
     }
 
     .hero-card .quote {
-      font-size: 1.12rem;
-      line-height: 1.56;
+      font-size: 1.08rem;
+      line-height: 1.55;
       color: var(--text);
     }
 
     .hero-card .note {
-      margin-top: 10px;
+      margin-top: 8px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       letter-spacing: 0.02em;
       color: var(--muted);
     }
@@ -351,7 +354,7 @@
     /* cards and grids */
     .grid {
       display: grid;
-      gap: 16px;
+      gap: 14px;
     }
 
     .grid-3 {
@@ -366,7 +369,7 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 18px;
+      padding: 16px;
       box-shadow: var(--shadow);
     }
 
@@ -381,26 +384,35 @@
     .text-link {
       display: inline-block;
       margin-top: 12px;
-      font-size: 0.9rem;
+      font-size: 0.89rem;
       font-weight: 700;
       color: var(--text);
     }
 
     /* cycle */
-    .cycle-number {
+    .cycle-grid {
+      gap: 14px;
+    }
+
+    .cycle-card {
+      padding: 16px;
+    }
+
+    .cycle-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border-radius: 999px;
+      background: var(--red-bg);
       margin-bottom: 10px;
-      background: rgba(215,176,106,0.15);
-      color: var(--gold-deep);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
+    }
+
+    .cycle-icon svg {
+      width: 16px;
+      height: 16px;
+      display: block;
     }
 
     /* details */
@@ -452,7 +464,7 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 24px 20px;
+      padding: 22px 18px;
       box-shadow: var(--shadow);
     }
 
@@ -461,12 +473,12 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     /* footer */
     .site-footer {
-      padding: 24px 0 28px;
+      padding: 22px 0 24px;
       border-top: 1px solid var(--line);
       background: #ffffff;
     }
@@ -511,17 +523,17 @@
       }
 
       .hero {
-        padding: 48px 0 34px;
+        padding: 40px 0 28px;
       }
 
       .section {
-        padding: 46px 0;
+        padding: 40px 0;
       }
 
       .hero-card,
       .card,
       .cta-box {
-        padding: 18px 16px;
+        padding: 16px 14px;
       }
     }
   </style>
@@ -586,7 +598,7 @@
         <aside class="hero-card" aria-label="Homepage highlight">
           <div class="quote-mark">✦</div>
           <p class="quote">
-            Giving back is not separate from healing. For some, it is how strength returns.
+            Giving back is not separate from healing. For some, it becomes part of identity and part of how strength returns, when they are ready.
           </p>
           <p class="note">support. return. care carried forward.</p>
         </aside>
@@ -611,33 +623,54 @@
           <p class="kicker">How narae works</p>
           <h2>How care carries forward</h2>
           <p class="lead">
-            Healing does not move in a straight line. At narae, care begins with support, grows through connection, and for some, returns as care for someone else.
+            Healing does not move in a straight line. At narae, care begins with support, grows through connection, and for some, becomes part of identity through giving back, volunteering, and walking beside someone else when they are ready.
           </p>
         </div>
 
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="cycle-number">01</div>
+        <div class="grid grid-4 cycle-grid">
+          <article class="card cycle-card">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c97b96" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
             <h3>Receive Care</h3>
             <p>Support, understanding, and a space where women do not have to explain every part of their experience.</p>
           </article>
 
-          <article class="card">
-            <div class="cycle-number">02</div>
+          <article class="card cycle-card">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#b98d43" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
             <h3>Rebuild Strength</h3>
-            <p>Confidence begins to return through dignity, emotional support, and human connection.</p>
+            <p>Confidence begins to return through dignity, support, and human connection.</p>
           </article>
 
-          <article class="card">
-            <div class="cycle-number">03</div>
+          <article class="card cycle-card">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#4f9494" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15"></path>
+              </svg>
+            </div>
             <h3>Reconnect</h3>
             <p>Women begin returning to life with greater presence, self-trust, and renewed possibility.</p>
           </article>
 
-          <article class="card">
-            <div class="cycle-number">04</div>
+          <article class="card cycle-card">
+            <div class="cycle-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#8e1b1b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
             <h3>Give Forward</h3>
-            <p>Some choose to walk beside someone else, not from obligation, but from understanding.</p>
+            <p>When they are ready, some women become part of the healing cycle by volunteering, giving back, and walking beside someone else.</p>
           </article>
         </div>
       </div>
@@ -657,12 +690,13 @@
           <article class="card">
             <h3>Be Supported</h3>
             <p>Care, understanding, and connection for women navigating breast and gynecologic cancers.</p>
+            <p>Retreat experiences are invitation-based and referral-informed, allowing them to remain intentional, supportive, and deeply personal.</p>
             <a href="care-and-connection.html" class="text-link">Explore Care &amp; Connection →</a>
           </article>
 
           <article class="card">
             <h3>Walk With Someone</h3>
-            <p>For some, giving back becomes part of healing and a way to walk beside another woman.</p>
+            <p>For some, giving back becomes part of healing and part of identity through volunteering and walking beside another woman.</p>
             <a href="ways-we-support.html" class="text-link">See Ways We Support →</a>
           </article>
 
