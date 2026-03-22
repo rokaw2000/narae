@@ -4,748 +4,216 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>naræ+ | narae International Foundation</title>
-  <meta
-    name="description"
-    content="narae International Foundation provides emotionally and culturally grounded support for women navigating breast and gynecologic cancers."
-  />
-
+  <meta name="description" content="narae International Foundation provides emotionally and culturally grounded support for women navigating breast and gynecologic cancers." />
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
-
     :root {
-      --bg:        #ffffff;
-      --text:      #111111;
-      --muted:     #6b6762;
-      --line:      #e8e1d7;
-      --soft:      #faf8f5;
-      --warm:      #fcfbf8;
-      --gold:      #d7b06a;
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #6b6762;
+      --line: #e8e1d7;
+      --soft: #faf8f5;
+      --warm: #fcfbf8;
       --gold-deep: #b98d43;
-      --pink:      #d98aa0;
-      --pink-deep: #c97b96;
-      --teal:      #5f9f9f;
-      --teal-deep: #4f9494;
-      --red:       #8e1b1b;
-      --red-bg:    rgba(142,27,27,0.07);
-      --shadow:    0 10px 30px rgba(0,0,0,0.05);
-      --radius:    22px;
-      --max:       1100px;
+      --gold-pale: #fdf6e8;
+      --pink: #d98aa0;
+      --teal: #5f9f9f;
+      --red: #8e1b1b;
+      --red-bg: rgba(142,27,27,0.07);
+      --shadow: 0 8px 24px rgba(0,0,0,0.05);
+      --radius: 20px;
+      --max: 1100px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    strong { color: var(--text); font-weight: 700; }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
 
-    strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .container {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 74px 0;
-    }
-
-    .section.soft { background: var(--soft); }
-    .section.warm { background: var(--warm); }
-
-    .section-head {
-      max-width: 780px;
-      margin: 0 auto 42px;
-      text-align: center;
-    }
-
-    .section-head h2 {
-      margin-top: 10px;
-    }
-
-    .section-head p {
-      margin-top: 16px;
-    }
-
-    .kicker {
-      display: block;
-      margin: 0 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    h1 {
-      font-size: clamp(2.55rem, 5.4vw, 4.8rem);
-      line-height: 1.03;
-    }
-
-    h2 {
-      font-size: clamp(1.9rem, 3.5vw, 2.75rem);
-      line-height: 1.08;
-    }
-
-    p {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.78;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.03rem;
-      line-height: 1.82;
-    }
+    h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    h1 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; }
+    h2 { font-size: clamp(1.5rem, 2.8vw, 2rem); line-height: 1.1; }
+    h3 { font-size: 1.08rem; line-height: 1.24; font-weight: 700; }
+    p { margin: 0; font-size: 0.98rem; line-height: 1.8; color: var(--muted); }
+    .lead { font-size: 1.03rem; line-height: 1.84; }
+    .kicker { display: block; margin: 0 0 5px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
 
     /* Brand */
-    .brandmark {
-      display: inline-flex;
-      align-items: baseline;
-      white-space: nowrap;
-      text-transform: none !important;
-      letter-spacing: -0.03em !important;
-      font-variant: normal;
-    }
-
-    .logo-word {
-      display: inline-block;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      text-transform: none !important;
-      font-variant: normal;
-    }
-
-    .brand-plus {
-      position: relative;
-      display: inline-block;
-      width: 0.34em;
-      height: 0.34em;
-      margin-left: 0.015em;
-      transform: translateY(-0.46em);
-      flex: 0 0 auto;
-    }
-
-    .brand-plus .arm {
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom,
-    .brand-plus .arm-left {
-      background: var(--pink);
-    }
-
-    .brand-plus .arm-right {
-      background: var(--teal);
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom {
-      left: 50%;
-      width: 0.085em;
-      height: 0.16em;
-      transform: translateX(-50%);
-    }
-
+    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
+    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; }
+    /* Explicit color contexts */
+    .logo .logo-word { color: var(--text); }
+    .nav .logo-word { color: var(--gold-deep); }
+    .kicker .logo-word { color: var(--gold-deep); }
+    .footer-links .logo-word { color: var(--gold-deep); }
+    .btn-primary .logo-word { color: #fff; }
+    .btn-secondary .logo-word { color: var(--text); }
+    /* Body content: inherit dark from parent heading/paragraph */
+    h1 .logo-word, h2 .logo-word, h3 .logo-word,
+    .cycle-title .logo-word, .role-title .logo-word,
+    p .logo-word, .about-panel .logo-word, .spirit-title .logo-word { color: var(--text); }
+    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.46em); flex: 0 0 auto; }
+    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
+    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
     .brand-plus .arm-top { top: 0; }
     .brand-plus .arm-bottom { bottom: 0; }
-
-    .brand-plus .arm-left,
-    .brand-plus .arm-right {
-      top: 50%;
-      width: 0.16em;
-      height: 0.085em;
-      transform: translateY(-50%);
-    }
-
+    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
     .brand-plus .arm-left { left: 0; }
     .brand-plus .arm-right { right: 0; }
-
-    .brand-inline {
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-    }
-
-    .logo .brandmark,
-    .nav .brandmark,
-    h1 .brandmark,
-    h2 .brandmark,
-    h3 .brandmark,
-    .section-link .brandmark,
-    .text-link .brandmark,
-    .footer-links .brandmark {
-      font-size: 1em;
-    }
+    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
 
     /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo .brandmark {
-      font-size: 1.82rem;
-      font-weight: 700;
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 5px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.045em;
-      color: var(--text);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: var(--gold-deep);
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 2px;
-      color: var(--gold-deep);
-      transition: color 0.22s ease;
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--gold-deep);
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--gold-deep);
-      transition: width 0.22s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      width: 100%;
-    }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
+    .logo .brandmark { font-size: 1.82rem; }
+    .logo .logo-word { color: var(--text); }
+    .logo small { display: block; margin-top: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; }
+    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); }
+    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
+    .nav a:hover::after, .nav a.active::after { width: 100%; }
 
     /* Buttons */
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 5px; justify-content: center; min-height: 40px; padding: 0 18px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
+    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
+    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
 
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
+    /* ── HERO ── */
+    .hero { padding: 44px 0 36px; background: radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%), linear-gradient(180deg, #fff 0%, var(--warm) 100%); border-bottom: 1px solid var(--line); }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 32px; align-items: center; }
+    .hero h1 { margin-top: 8px; }
+    .hero-sub { margin-top: 12px; max-width: 580px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .hero-card { background: rgba(255,255,255,0.9); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+    .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--pink), var(--teal)); }
+    .hero-card .quote-mark { color: var(--gold-deep); font-size: 1rem; margin-bottom: 6px; }
+    .hero-card .quote { font-size: 0.97rem; line-height: 1.72; color: var(--muted); }
+    .hero-card .note { margin-top: 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.82rem; letter-spacing: 0.02em; color: var(--muted); }
 
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
+    /* ── MAIN BODY: two columns ── */
+    .main-body { display: grid; grid-template-columns: 1fr 340px; gap: 0; border-bottom: 1px solid var(--line); }
 
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07);
-    }
+    /* LEFT col */
+    .left-col { border-right: 1px solid var(--line); }
 
-    /* Hero */
-    .hero {
-      padding: 78px 0 60px;
-      background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
-        linear-gradient(180deg, #fff 0%, #fcfbf8 100%);
-    }
+    /* Care cycle — top of left */
+    .care-cycle { padding: 32px 36px 28px 0; border-bottom: 1px solid var(--line); }
+    .care-cycle .kicker { margin-bottom: 4px; }
+    .care-cycle h2 { margin-top: 4px; margin-bottom: 18px; font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
+    .cycle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .cycle-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; box-shadow: var(--shadow); }
+    .cycle-icon { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--red-bg); margin-bottom: 8px; }
+    .cycle-icon svg { width: 14px; height: 14px; display: block; }
+    .cycle-title { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0 0 5px; letter-spacing: -0.01em; }
+    .cycle-text { font-size: 0.88rem; line-height: 1.7; color: var(--muted); margin: 0; }
+    .section-link-wrap { margin-top: 14px; }
+    .section-link { font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--gold-deep); }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 42px;
-      align-items: center;
-    }
+    /* Roles — bottom of left */
+    .roles { padding: 28px 36px 32px 0; }
+    .roles .kicker { margin-bottom: 4px; }
+    .roles h2 { margin-top: 4px; margin-bottom: 16px; font-size: clamp(1.3rem, 2.2vw, 1.7rem); }
+    .roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .role-card { border: 1px solid var(--line); border-radius: 16px; padding: 16px 16px 14px; background: #fff; box-shadow: var(--shadow); }
+    .role-title { font-size: 1rem; font-weight: 700; color: var(--text); margin: 0 0 5px; letter-spacing: -0.01em; }
+    .role-text { font-size: 0.88rem; line-height: 1.7; color: var(--muted); margin: 0; }
 
-    .hero-sub {
-      margin-top: 20px;
-      max-width: 640px;
-    }
+    /* RIGHT col — stacked panels */
+    .right-col { display: flex; flex-direction: column; }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
+    .about-panel { padding: 32px 0 24px 32px; border-bottom: 1px solid var(--line); }
+    .about-panel .kicker { margin-bottom: 4px; }
+    .about-panel h2 { margin-top: 4px; margin-bottom: 10px; font-size: clamp(1.1rem, 1.8vw, 1.35rem); }
+    .about-panel p { font-size: 0.93rem; line-height: 1.76; }
+    .text-link { display: inline-block; margin-top: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--gold-deep); }
 
-    .hero-card {
-      background: rgba(255,255,255,0.88);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
+    .spirit-panel { padding: 24px 0 22px 32px; border-bottom: 1px solid var(--line); background: var(--warm); }
+    .spirit-panel .kicker { margin-bottom: 4px; }
+    .spirit-title { font-size: clamp(1rem, 1.6vw, 1.2rem); font-weight: 700; line-height: 1.35; color: var(--text); margin: 4px 0 8px; }
+    .spirit-copy { font-size: 0.91rem; line-height: 1.76; color: var(--muted); font-style: italic; }
 
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--pink), var(--teal));
-    }
+    /* ML form panel */
+    .ml-panel { padding: 22px 0 24px 32px; background: var(--soft); flex: 1; }
+    .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+    .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #fff #fff #fff transparent; animation: ml-spin 1.2s linear infinite; }
+    @keyframes ml-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-    .hero-card .quote-mark {
-      color: var(--gold-deep);
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .hero-card .quote {
-      font-size: 1.08rem;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    .hero-card .note {
-      margin-top: 12px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.86rem;
-      letter-spacing: 0.02em;
-      color: var(--muted);
-    }
-
-    /* Cards / grids */
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .card-title {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.34rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin: 0 0 10px;
-      line-height: 1.2;
-    }
-
-    .card-title + p {
-      margin-top: 12px;
-    }
-
-    .card p + p {
-      margin-top: 12px;
-    }
-
-    .text-link {
-      display: inline-block;
-      margin-top: 20px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-    }
-
-    .section-link-wrap {
-      margin-top: 32px;
-      text-align: center;
-    }
-
-    .section-link {
-      display: inline-block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-      letter-spacing: 0.01em;
-    }
-
-    /* Cycle icons */
-    .cycle-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      background: var(--red-bg);
-      margin-bottom: 14px;
-    }
-
-    .cycle-icon svg {
-      width: 17px;
-      height: 17px;
-      display: block;
-    }
-
-    /* Guiding spirit */
-    .guiding-spirit {
-      max-width: 780px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 6px 0;
-    }
-
-    .guiding-spirit .kicker {
-      margin-bottom: 10px;
-    }
-
-    .guiding-spirit-title {
-      font-size: clamp(1.6rem, 2.9vw, 2.25rem);
-      line-height: 1.3;
-      font-weight: 700;
-      color: var(--text);
-      max-width: 740px;
-      margin: 0 auto 16px;
-    }
-
-    .guiding-spirit-copy {
-      max-width: 680px;
-      margin: 0 auto;
-      font-size: 1.01rem;
-      line-height: 1.9;
-      color: var(--muted);
-    }
-
-    /* MailerLite visual override */
-    #stay-connected {
-      padding: 30px 0 78px;
-    }
-
-    #stay-connected .container {
-      display: flex;
-      justify-content: center;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer {
-      width: 100% !important;
-      max-width: 720px !important;
-      margin: 0 auto !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-align-center {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
+    #mlb2-38624714.ml-form-embedContainer { display: block !important; width: 100% !important; margin: 0 !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-align-center { text-align: center !important; display: block !important; }
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedForm,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedDefault,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedPopup {
-      width: 100% !important;
-      max-width: 720px !important;
-      margin: 0 auto !important;
-      background: #ffffff !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 22px !important;
-      box-shadow: var(--shadow) !important;
-      padding: 0 !important;
-      overflow: hidden;
+      display: block !important; width: 100% !important; max-width: 100% !important;
+      background: transparent !important; border: none !important; border-radius: 0 !important;
+      box-shadow: none !important; padding: 0 !important; overflow: visible !important;
     }
-
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-      padding: 34px 34px 30px !important;
-    }
-
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 0 !important; }
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
-      text-align: center !important;
-      margin: 0 0 20px 0 !important;
-    }
-
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent { text-align: center !important; margin: 0 0 12px 0 !important; }
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
-      margin: 0 0 10px !important;
-      color: var(--text) !important;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 2rem !important;
-      font-weight: 700 !important;
-      line-height: 1.15 !important;
-      letter-spacing: -0.02em !important;
+      margin: 0 0 4px !important; color: #b98d43 !important;
+      font-family: Georgia, "Times New Roman", serif !important; font-size: 1.15rem !important;
+      font-weight: 700 !important; line-height: 1.2 !important; letter-spacing: -0.02em !important; text-align: center !important;
     }
-
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent p,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent p {
-      margin: 0 0 8px !important;
-      color: var(--muted) !important;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 1rem !important;
-      line-height: 1.8 !important;
+      margin: 0 0 2px !important; color: #6b6762 !important;
+      font-family: Georgia, "Times New Roman", serif !important; font-size: 0.88rem !important;
+      line-height: 1.55 !important; text-align: center !important;
     }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent {
-      margin: 0 !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-formContent .ml-form-fieldRow {
-      margin-bottom: 14px !important;
-    }
-
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-formContent { margin: 0 !important; width: 100% !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-formContent .ml-form-fieldRow { margin-bottom: 7px !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control {
-      width: 100% !important;
-      height: 54px !important;
-      background: #ffffff !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 999px !important;
-      padding: 0 18px !important;
-      color: var(--text) !important;
-      font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 0.95rem !important;
-      line-height: 1.2 !important;
-      box-shadow: none !important;
+      width: 100% !important; height: 40px !important; background: #ffffff !important;
+      border: 1px solid #e8e1d7 !important; border-radius: 999px !important; padding: 0 14px !important;
+      color: #111111 !important; font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 0.9rem !important; line-height: 1.2 !important; box-shadow: none !important; box-sizing: border-box !important;
     }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control::placeholder {
-      color: #7a7772 !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control:focus {
-      outline: none !important;
-      border-color: var(--gold-deep) !important;
-      box-shadow: 0 0 0 3px rgba(215,176,106,0.12) !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit {
-      margin: 8px 0 0 0 !important;
-      width: 100% !important;
-      float: none !important;
-    }
-
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control::placeholder { color: #9a9490 !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control:focus { outline: none !important; border-color: #b98d43 !important; box-shadow: 0 0 0 3px rgba(215,176,106,0.12) !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit { margin: 6px 0 0 0 !important; width: 100% !important; float: none !important; }
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button,
     #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button.loading {
-      width: 100% !important;
-      min-height: 48px !important;
-      padding: 0 20px !important;
-      background: var(--text) !important;
-      color: #ffffff !important;
-      border: none !important;
-      border-radius: 999px !important;
-      box-shadow: var(--shadow) !important;
-      font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 0.92rem !important;
-      font-weight: 700 !important;
-      line-height: 1.2 !important;
-      letter-spacing: 0.01em !important;
-      cursor: pointer !important;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+      width: 100% !important; min-height: 40px !important; height: auto !important; padding: 0 16px !important;
+      background: #111111 !important; color: #ffffff !important; border: none !important; border-radius: 999px !important;
+      font-family: Arial, Helvetica, sans-serif !important; font-size: 0.9rem !important; font-weight: 700 !important;
+      line-height: 40px !important; cursor: pointer !important; box-sizing: border-box !important;
+      transition: transform 0.2s ease !important;
     }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover {
-      background: var(--text) !important;
-      transform: translateY(-1px) !important;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07) !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-successBody {
-      text-align: center !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-successBody h4 {
-      color: var(--text) !important;
-    }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover { transform: translateY(-1px) !important; }
+    #mlb2-38624714.ml-form-embedContainer .ml-form-successBody { text-align: center !important; }
 
     /* Footer */
-    .site-footer {
-      padding: 26px 0 30px;
-      border-top: 1px solid var(--line);
-      background: #fff;
-    }
-
-    .footer-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--gold-deep);
-    }
-
-    .footer-links a:hover {
-      color: var(--gold-deep);
-    }
+    .site-footer { padding: 18px 0 22px; border-top: 1px solid var(--line); background: #fff; }
+    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a { color: var(--gold-deep); }
 
     /* Responsive */
     @media (max-width: 980px) {
-      .hero-grid,
-      .grid-3,
-      .grid-4 {
-        grid-template-columns: 1fr;
-      }
+      .main-body { grid-template-columns: 1fr; }
+      .left-col { border-right: none; border-bottom: 1px solid var(--line); }
+      .care-cycle, .roles { padding-right: 0; }
+      .about-panel, .spirit-panel, .ml-panel { padding-left: 0; padding-right: 0; }
+      .cycle-grid, .roles-grid { grid-template-columns: 1fr; }
     }
-
-    @media (max-width: 900px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .logo .brandmark {
-        font-size: 1.7rem;
-      }
-
-      .logo small {
-        font-size: 0.82rem;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 14px 16px;
-      }
-
-      .hero {
-        padding: 52px 0 38px;
-      }
-
-      .section {
-        padding: 56px 0;
-      }
-
-      .section-head {
-        margin-bottom: 30px;
-      }
-
-      .hero-grid,
-      .grid-2,
-      .grid-3,
-      .grid-4 {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card,
-      .card {
-        padding: 22px 18px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #stay-connected {
-        padding: 16px 0 58px;
-      }
-
-      #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-      #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-        padding: 24px 20px 22px !important;
-      }
-
-      #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent h4,
-      #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent h4 {
-        font-size: 1.65rem !important;
-      }
-
-      #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody input.form-control {
-        height: 50px !important;
-      }
+      .header-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; gap: 10px; }
+      .logo .brandmark { font-size: 1.6rem; }
+      .nav { width: 100%; justify-content: flex-start; gap: 10px 14px; font-size: 0.86rem; }
+      .hero { padding: 32px 0 26px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -756,44 +224,15 @@
       <a href="index.html" class="logo" aria-label="narae International Foundation home">
         <span class="brandmark">
           <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true">
-            <span class="arm arm-top"></span>
-            <span class="arm arm-right"></span>
-            <span class="arm arm-bottom"></span>
-            <span class="arm arm-left"></span>
-          </span>
+          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
         </span>
         <small>narae International Foundation</small>
       </a>
-
       <nav class="nav" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
-        <a href="program.html">
-          How
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-          Works
-        </a>
+        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
         <a href="ways-we-support.html">Ways to Be Part</a>
-        <a href="about.html">
-          About
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-        </a>
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="founder.html">Founder</a>
         <a href="leadership.html">Leadership</a>
       </nav>
@@ -808,460 +247,154 @@
         <div>
           <p class="kicker">narae International Foundation</p>
           <h1>
-            <span style="color:var(--red); font-weight:700;">Cancer is hard enough.</span><br>
-            <span style="font-weight:700;">
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              is for women carrying more.
-            </span>
+            <span style="color:var(--red);font-weight:700;">Cancer is hard enough.</span><br>
+            <span style="font-weight:700;"><span class="brandmark"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is for women carrying more.</span>
           </h1>
-
-          <p class="hero-sub lead">
-            <strong>Emotional and culturally grounded support</strong> for women navigating breast and gynecologic cancers, especially those from <strong>immigrant and culturally diverse communities</strong>.
-          </p>
-
-<div class="hero-actions">
-  <a href="program.html" class="btn-primary">
-    How
-    <span class="brandmark brand-inline" style="margin:0 0.18em;">
-      <span class="logo-word">naræ</span>
-      <span class="brand-plus" aria-hidden="true">
-        <span class="arm arm-top"></span>
-        <span class="arm arm-right"></span>
-        <span class="arm arm-bottom"></span>
-        <span class="arm arm-left"></span>
-      </span>
-    </span>
-    Works
-  </a>
-  <a href="community.html" class="btn-secondary">Ways to Be Part</a>
-</div>
-</div>
+          <p class="hero-sub lead"><strong>Emotional and culturally grounded support</strong> for women navigating breast and gynecologic cancers, especially those from <strong>immigrant and culturally diverse communities</strong>.</p>
+          <div class="hero-actions">
+            <a href="program.html" class="btn-primary">How <span class="brandmark brand-inline" style="margin:0 0.15em;"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
+            <a href="ways-we-support.html" class="btn-secondary">Ways to Be Part</a>
+          </div>
+        </div>
         <aside class="hero-card" aria-label="Homepage highlight">
           <div class="quote-mark">✦</div>
-          <p class="quote">
-            <strong>Giving back is not separate from healing.</strong><br>
-            For some, it becomes part of how strength returns, when they are ready.
-          </p>
+          <p class="quote"><strong>Giving back is not separate from healing.</strong><br>For some, it becomes part of how strength returns, when they are ready.</p>
           <p class="note">support · return · care carried forward</p>
         </aside>
       </div>
     </section>
 
-    <!-- How naræ Works -->
-    <section class="section warm" id="care-cycle">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">
-            How
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            Works
-          </p>
-          <h2>How care carries forward.</h2>
-        </div>
+    <!-- Main body: two columns -->
+    <div class="container">
+      <div class="main-body">
 
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="cycle-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#c97b96" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
-              </svg>
+        <!-- Left: care cycle + roles -->
+        <div class="left-col">
+
+          <div class="care-cycle">
+            <p class="kicker">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</p>
+            <h2>How care carries forward.</h2>
+            <div class="cycle-grid">
+              <div class="cycle-card">
+                <div class="cycle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#c97b96" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <div class="cycle-title">Be Supported &amp; Held</div>
+                <p class="cycle-text">Support and care through dignity, cultural understanding, and human connection.</p>
+              </div>
+              <div class="cycle-card">
+                <div class="cycle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4f9494" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15"/></svg>
+                </div>
+                <div class="cycle-title">Become <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></div>
+                <p class="cycle-text">A quiet return to self, presence, and possibility.</p>
+              </div>
+              <div class="cycle-card">
+                <div class="cycle-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#8e1b1b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="cycle-title">Give Forward</div>
+                <p class="cycle-text">One of the core healing modalities of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
+              </div>
             </div>
-            <h3 class="card-title">Be Supported</h3>
-            <p><strong>Support, understanding, and space.</strong> A place where women do not have to explain every part of their experience.</p>
-          </article>
-
-          <article class="card">
-            <div class="cycle-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#b98d43" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
+            <div class="section-link-wrap">
+              <a href="program.html" class="section-link">Read more about How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works →</a>
             </div>
-            <h3 class="card-title">Be Held</h3>
-            <p><strong>Care becomes steadier through dignity.</strong> Cultural understanding and human connection help support feel real, not generic.</p>
-          </article>
-
-          <article class="card">
-            <div class="cycle-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#4f9494" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 4 23 10 17 10"/>
-                <polyline points="1 20 1 14 7 14"/>
-                <path d="M3.51 9a9 9 0 0 1 14.13-3.36L23 10M1 14l5.36 4.36A9 9 0 0 0 20.49 15"/>
-              </svg>
-            </div>
-            <h3 class="card-title">
-              Become
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-            </h3>
-            <p><strong>Healing is not only survival.</strong> It can also be a quiet return to self, presence, and possibility.</p>
-          </article>
-
-          <article class="card">
-            <div class="cycle-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#8e1b1b" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <h3 class="card-title">Give Forward</h3>
-            <p style="font-size:1.07rem; line-height:1.65;">
-              <strong>For some, healing continues through giving.</strong>
-            </p>
-          </article>
-        </div>
-
-        <div class="section-link-wrap">
-          <a href="program.html" class="section-link">
-            Read more about How
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            Works →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Be Part -->
-    <section class="section soft" id="ways-to-be-part">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Why Be Part</p>
-          <h2>
-            Different roles within the
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            community.
-          </h2>
-          <p class="lead">
-            <strong>
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              is a living ecosystem of care.
-            </strong><br>
-            It is held by the women at its heart, carried forward by those who have walked the path, and sustained by people and partners who support the work with dignity and intention.
-          </p>
-        </div>
-
-        <div class="grid grid-3">
-          <article class="card">
-            <h3 class="card-title">
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Fellow
-            </h3>
-            <p>
-              A woman at the heart of
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>,
-              receiving care, rest, and community through our programs and retreat experience.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Companion
-            </h3>
-            <p>
-              A
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Fellow in action, carrying healing forward by walking beside another woman when she is ready. Not separate from the journey, but a continuation of it. A re-folding of her wings.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Steward
-            </h3>
-            <p>
-              A person or organization who helps sustain the spirit and structure of
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              through service, generosity, partnership, advocacy, and care behind the scenes.
-            </p>
-          </article>
-        </div>
-
-        <div class="section-link-wrap">
-          <a href="community.html" class="section-link">
-            Explore ways to be part of
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About + Founder -->
-    <section class="section" id="about-founder">
-      <div class="container">
-        <div class="grid grid-2">
-
-          <div class="card">
-            <p class="kicker">
-              About
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-            </p>
-
-            <h3 class="card-title">
-              Why
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              exists.
-            </h3>
-
-            <p>
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              exists to offer <strong>emotionally and culturally grounded care</strong> for women whose cancer experience may also be shaped by migration, identity, isolation, language, or the pressure of carrying more than others can see.
-            </p>
-
-            <a href="about.html" class="text-link">Learn more →</a>
           </div>
 
-          <div class="card">
-            <p class="kicker">Founder</p>
+          <div class="roles">
+            <p class="kicker">Ways to Be Part</p>
+            <h2>Different roles within the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community.</h2>
+            <div class="roles-grid">
+              <div class="role-card">
+                <div class="role-title"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow</div>
+                <p class="role-text">A woman at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, receiving care, rest, and community.</p>
+              </div>
+              <div class="role-card">
+                <div class="role-title"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Companion</div>
+                <p class="role-text">A Fellow in action — walking beside another woman when she is ready. A re-folding of her wings.</p>
+              </div>
+              <div class="role-card">
+                <div class="role-title"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Steward</div>
+                <p class="role-text">A person or organization sustaining the spirit and structure of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> behind the scenes.</p>
+              </div>
+            </div>
+            <div class="section-link-wrap">
+              <a href="ways-we-support.html" class="section-link">Explore ways to be part →</a>
+            </div>
+          </div>
 
-            <h3 class="card-title">
-              Why I created
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>.
-            </h3>
+        </div>
 
-            <p>
-              This work was shaped by <strong>lived experience, loss, survivorship, and the quiet question</strong> of where women like us were in the spaces meant to support healing.
-            </p>
+        <!-- Right: about + spirit + ML form -->
+        <div class="right-col">
 
+          <div class="about-panel">
+            <p class="kicker">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></p>
+            <h2>Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists.</h2>
+            <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists to offer <strong>emotionally and culturally grounded care</strong> for women whose cancer experience may also be shaped by migration, identity, isolation, language, or the pressure of carrying more than others can see.</p>
+            <a href="about.html" class="text-link">Learn more →</a>
+            <br>
             <a href="founder.html" class="text-link">Read the Founder story →</a>
           </div>
 
-        </div>
-      </div>
-    </section>
+          <div class="spirit-panel">
+            <p class="kicker">Guiding Spirit</p>
+            <p class="spirit-title"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> believes healing does not always end where support begins.</p>
+            <p class="spirit-copy">Sometimes it becomes companionship. Sometimes quiet courage. Sometimes, in time, a way of returning care to someone else.</p>
+          </div>
 
-    <!-- Guiding spirit -->
-    <section class="section warm" id="community-lead-in">
-      <div class="container">
-        <div class="guiding-spirit">
-          <p class="kicker">Guiding Spirit</p>
-          <h2 class="guiding-spirit-title">
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            believes healing does not always end where support begins.
-          </h2>
-          <p class="guiding-spirit-copy">
-            Sometimes it becomes companionship. Sometimes it becomes quite courageous. Sometimes, in time, it becomes a way of returning care to someone else.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stay connected -->
-    <section class="section" id="stay-connected">
-      <div class="container">
-        <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
-          <div class="ml-form-align-center">
-            <div class="ml-form-embedWrapper embedForm">
-
-              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                <div class="ml-form-embedContent">
-                  <h4>Stay connected with naræ+</h4>
-                  <p><strong>If this resonates, you're not alone.</strong></p>
-                  <p><strong>Be part of what we're building.</strong></p>
-                </div>
-
-                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/subscribe" data-code="" method="post" target="_blank">
-                  <div class="ml-form-formContent">
-                    <div class="ml-form-fieldRow ml-last-item">
-                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                        <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email" autocomplete="email">
+          <div class="ml-panel">
+            <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
+              <div class="ml-form-align-center">
+                <div class="ml-form-embedWrapper embedForm">
+                  <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                    <div class="ml-form-embedContent">
+                      <h4>Stay connected with naræ<svg aria-hidden="true" style="display:inline-block;width:0.38em;height:0.38em;vertical-align:super;overflow:visible;margin-left:0.02em;" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/><rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/></svg></h4>
+                      <p><strong>If this resonates, you're not alone.</strong></p>
+                      <p><strong>Be part of what we're building.</strong></p>
+                    </div>
+                    <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/subscribe" data-code="" method="post" target="_blank">
+                      <div class="ml-form-formContent">
+                        <div class="ml-form-fieldRow ml-last-item">
+                          <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                            <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email" autocomplete="email">
+                          </div>
+                        </div>
                       </div>
+                      <input type="hidden" name="ml-submit" value="1">
+                      <div class="ml-form-embedSubmit">
+                        <button type="submit" class="primary">Join the naræ+ Community</button>
+                        <button disabled="disabled" style="display:none;" type="button" class="loading">
+                          <div class="ml-form-embedSubmitLoad"></div>
+                          <span class="sr-only">Loading...</span>
+                        </button>
+                      </div>
+                      <input type="hidden" name="anticsrf" value="true">
+                    </form>
+                  </div>
+                  <div class="ml-form-successBody row-success" style="display:none">
+                    <div class="ml-form-successContent">
+                      <h4>Thank you!</h4>
+                      <p>You have successfully joined our community!</p>
                     </div>
                   </div>
-
-                  <input type="hidden" name="ml-submit" value="1">
-
-                  <div class="ml-form-embedSubmit">
-                    <button type="submit" class="primary">Join the naræ+ Community</button>
-                    <button disabled="disabled" style="display: none;" type="button" class="loading">
-                      <div class="ml-form-embedSubmitLoad"></div>
-                      <span class="sr-only">Loading...</span>
-                    </button>
-                  </div>
-
-                  <input type="hidden" name="anticsrf" value="true">
-                </form>
-              </div>
-
-              <div class="ml-form-successBody row-success" style="display: none">
-                <div class="ml-form-successContent">
-                  <h4>Thank you!</h4>
-                  <p>You have successfully joined our community!</p>
                 </div>
               </div>
-
             </div>
           </div>
+
         </div>
       </div>
-    </section>
+    </div>
 
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>
-        © 2026 narae International Foundation. All rights reserved.
-      </div>
+      <div>© 2026 narae International Foundation. All rights reserved.</div>
       <div class="footer-links">
-        <a href="about.html">
-          About
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-        </a>
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="founder.html">Founder</a>
         <a href="leadership.html">Leadership</a>
       </div>
@@ -1276,9 +409,7 @@
     }
   </script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel")
-  </script>
+  <script>fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel")</script>
 
 </body>
 </html>
