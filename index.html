@@ -31,6 +31,7 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       background: var(--bg);
@@ -55,17 +56,17 @@
     }
 
     h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-size: clamp(2.55rem, 5vw, 4rem);
       line-height: 1.04;
     }
 
     h2 {
-      font-size: clamp(1.8rem, 3vw, 2.45rem);
-      line-height: 1.1;
+      font-size: clamp(1.86rem, 3vw, 2.45rem);
+      line-height: 1.12;
     }
 
     h3 {
-      font-size: 1.18rem;
+      font-size: 1.2rem;
       line-height: 1.24;
       font-weight: 700;
     }
@@ -112,7 +113,7 @@
       font-weight: 700;
       text-transform: none !important;
       font-variant: normal;
-      color: var(--text);
+      color: inherit;
     }
 
     .nav .logo-word,
@@ -202,7 +203,7 @@
     }
 
     .logo .brandmark {
-      font-size: 1.9rem;
+      font-size: 1.95rem;
     }
 
     .logo .logo-word {
@@ -235,7 +236,7 @@
       position: relative;
       padding-bottom: 2px;
       color: var(--gold-deep);
-      transition: opacity 0.2s;
+      transition: opacity 0.2s ease;
     }
 
     .nav a::after {
@@ -256,7 +257,7 @@
 
     /* Hero */
     .hero {
-      padding: 64px 0 54px;
+      padding: 64px 0 44px;
       border-bottom: 1px solid var(--line);
       background:
         radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%),
@@ -266,8 +267,8 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
-      gap: 44px;
-      align-items: center;
+      gap: 34px;
+      align-items: stretch;
     }
 
     .hero h1 {
@@ -279,19 +280,14 @@
       font-weight: 700;
     }
 
-    .hero-headline .hero-brand .brand-plus {
-      transform: translateY(-0.16em);
-      margin-left: 0.005em;
-    }
-
     .hero-sub {
       margin-top: 18px;
-      max-width: 620px;
+      max-width: 660px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
       margin-top: 24px;
     }
@@ -302,11 +298,11 @@
       align-items: center;
       gap: 6px;
       justify-content: center;
-      min-height: 42px;
+      min-height: 44px;
       padding: 0 20px;
       border-radius: 999px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
+      font-size: 0.92rem;
       font-weight: 700;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       white-space: nowrap;
@@ -330,11 +326,19 @@
       box-shadow: 0 12px 24px rgba(0,0,0,0.08);
     }
 
+    .btn-primary .logo-word {
+      color: #fff;
+    }
+
     .hero-card {
       border: 1px solid var(--line);
       background: var(--warm);
       padding: 28px 26px;
+      border-radius: 18px;
       box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero-card .eyebrow {
@@ -349,23 +353,32 @@
     /* Main split */
     .main-grid {
       display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 0;
+      grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.9fr);
+      gap: 34px;
       border-bottom: 1px solid var(--line);
+      align-items: start;
     }
 
     .main-left {
-      padding: 42px 40px 44px 0;
+      padding: 38px 0 42px;
       border-right: 1px solid var(--line);
+      padding-right: 34px;
     }
 
     .main-right {
       display: flex;
       flex-direction: column;
+      padding-left: 0;
     }
 
-    .section + .section {
-      margin-top: 44px;
+    .section,
+    .right-panel {
+      padding: 6px 0 28px;
+    }
+
+    .section + .section,
+    .right-panel + .right-panel {
+      margin-top: 8px;
     }
 
     .section h2 {
@@ -373,10 +386,11 @@
       margin-bottom: 20px;
     }
 
+    /* Flow */
     .flow-list {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      margin-top: 24px;
     }
 
     .flow-item {
@@ -395,7 +409,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 22px;
+      padding-top: 24px;
       position: relative;
     }
 
@@ -421,37 +435,39 @@
     }
 
     .flow-body {
-      padding: 18px 0 28px;
+      padding: 20px 0;
     }
 
     .flow-label {
+      display: block;
+      margin-bottom: 4px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--gold-deep);
-      margin-bottom: 4px;
-      display: block;
     }
 
     .flow-title {
-      font-size: 1.38rem;
+      font-size: 1.4rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text);
-      margin: 0 0 7px;
+      margin: 4px 0 8px;
       line-height: 1.15;
     }
 
     .flow-text {
+      max-width: 62ch;
       font-size: 1rem;
       line-height: 1.8;
       color: var(--muted);
       margin: 0;
     }
 
-    .section-link {
+    .section-link,
+    .text-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -462,30 +478,37 @@
       color: var(--gold-deep);
     }
 
-    .section-link:hover {
+    .section-link:hover,
+    .text-link:hover {
       text-decoration: underline;
       text-underline-offset: 3px;
     }
 
     /* Roles */
     .role-list {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       border: 1px solid var(--line);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
+      background: #fff;
     }
 
     .role-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       gap: 14px;
-      padding: 18px 20px;
-      border-bottom: 1px solid var(--line);
+      min-height: 100%;
+      padding: 24px 22px 22px;
+      border-right: 1px solid var(--line);
       background: #fff;
-      transition: background 0.18s;
+      transition: background 0.18s ease;
     }
 
     .role-item:last-child {
-      border-bottom: none;
+      border-right: none;
     }
 
     .role-item:hover {
@@ -496,78 +519,159 @@
       font-size: 1.12rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 6px;
-      line-height: 1.2;
+      margin-bottom: 10px;
+      line-height: 1.24;
     }
 
     .role-text {
       font-size: 0.97rem;
-      line-height: 1.76;
+      line-height: 1.72;
       color: var(--muted);
+      flex-grow: 1;
     }
 
     .role-arrow {
       color: var(--gold-deep);
       font-weight: 700;
-      align-self: start;
-      margin-top: 3px;
+      margin-top: 2px;
+      align-self: flex-start;
     }
 
     /* Right panels */
     .right-panel {
-      padding: 34px 0 28px 36px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .right-panel:last-child {
-      border-bottom: none;
+      padding-left: 0;
     }
 
     .right-panel h2 {
-      font-size: clamp(1.24rem, 2vw, 1.65rem);
-      margin-top: 6px;
-      margin-bottom: 10px;
-    }
-
-    .right-panel p {
-      font-size: 0.98rem;
-      line-height: 1.78;
+      margin-top: 8px;
+      margin-bottom: 16px;
     }
 
     .right-panel.soft {
-      background: var(--gold-pale);
+      background: transparent;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
     }
 
     .right-panel.warm {
+      padding-top: 28px;
+    }
+
+    /* MailerLite box */
+    .ml-wrap {
+      margin-top: 6px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       background: var(--warm);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.86rem;
+    .ml-inner {
+      padding: 24px 22px 22px;
+    }
+
+    .ml-title {
+      margin: 0 0 10px;
+      font-size: 1.34rem;
+      line-height: 1.18;
+      color: var(--text);
       font-weight: 700;
-      color: var(--gold-deep);
     }
 
-    .text-link:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    .ml-title-soft {
+      color: var(--muted);
+      font-weight: 500;
     }
 
-    /* MailerLite */
-    #stay-connected .eyebrow {
-      text-align: center;
-      margin-bottom: 10px;
+    .ml-title-brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0;
+      color: var(--text);
+      font-weight: 700;
     }
 
-    .ml-form-embedSubmitLoad {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
+    .ml-title-brand svg {
+      width: 0.58em;
+      height: 0.58em;
+      margin-left: 0.02em;
+      transform: translateY(-0.24em);
+      flex: 0 0 auto;
+    }
+
+    .ml-copy p + p {
+      margin-top: 3px;
+    }
+
+    .ml-copy strong {
+      color: var(--text);
+    }
+
+    .ml-block-form {
+      margin-top: 18px;
+    }
+
+    .ml-form-formContent {
+      margin-bottom: 12px;
+    }
+
+    .ml-field-group input {
+      width: 100%;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ml-field-group input:focus {
+      border-color: var(--gold-deep);
+      box-shadow: 0 0 0 3px rgba(185,141,67,0.12);
+    }
+
+    .ml-form-embedSubmit .primary,
+    .ml-form-embedSubmit .loading {
+      width: 100%;
+      min-height: 46px;
+      border: none;
+      border-radius: 999px;
+      padding: 0 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.93rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ml-form-embedSubmit .primary {
+      background: var(--text);
+      color: #fff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ml-form-embedSubmit .primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.07);
+    }
+
+    .ml-form-successBody {
+      padding: 24px 22px;
+    }
+
+    .ml-form-successContent h4 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.2;
+      color: var(--text);
+    }
+
+    .ml-form-successContent p {
+      margin: 0;
     }
 
     .sr-only {
@@ -578,180 +682,13 @@
       margin: -1px;
       overflow: hidden;
       clip: rect(0,0,0,0);
+      white-space: nowrap;
       border: 0;
     }
 
-    .ml-form-embedSubmitLoad:after {
-      content: " ";
-      display: block;
-      width: 11px;
-      height: 11px;
-      margin: 1px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      border-color: #fff #fff #fff transparent;
-      animation: ml-form-embedSubmitLoad 1.2s linear infinite;
-    }
-
-    @keyframes ml-form-embedSubmitLoad {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .ml-error input,
-    .ml-error textarea,
-    .ml-error select {
-      border-color: red !important;
-    }
-
-    .ml-error .label-description,
-    .ml-error .label-description p,
-    .ml-error label:first-child {
-      color: #ff0000 !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer {
-      display: block !important;
-      width: 100% !important;
-      margin: 0 auto !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-align-center {
-      text-align: center !important;
-      display: flex !important;
-      justify-content: center !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedForm,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedDefault,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper.embedPopup {
-      display: block !important;
-      width: 100% !important;
-      max-width: 460px !important;
-      background: #ffffff !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 22px !important;
-      box-shadow: var(--shadow) !important;
-      padding: 0 !important;
-      overflow: hidden !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody {
-      padding: 22px 24px 20px !important;
-    }
-
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedContent,
-    #mlb2-38624714.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody .ml-form-successContent {
-      text-align: center !important;
-      margin: 0 0 14px 0 !important;
-    }
-
-    #mlb2-38624714 .ml-form-embedContent h4,
-    #mlb2-38624714 .ml-form-successContent h4 {
-      margin: 0 0 6px !important;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 1.52rem !important;
-      font-weight: 700 !important;
-      line-height: 1.2 !important;
-      letter-spacing: -0.02em !important;
-      text-align: center !important;
-      color: #6b6762 !important;
-    }
-
-    #mlb2-38624714 .sc-brand {
-      color: var(--gold-deep) !important;
-    }
-
-    #mlb2-38624714 .sc-plus {
-      display: inline-block;
-      width: 0.38em;
-      height: 0.38em;
-      vertical-align: super;
-      overflow: visible;
-      margin-left: 0.02em;
-    }
-
-    #mlb2-38624714 .ml-form-embedContent p,
-    #mlb2-38624714 .ml-form-successContent p {
-      margin: 0 0 3px !important;
-      color: var(--muted) !important;
-      font-family: Georgia, "Times New Roman", serif !important;
-      font-size: 0.98rem !important;
-      line-height: 1.58 !important;
-      text-align: center !important;
-    }
-
-    #mlb2-38624714 .ml-form-formContent {
-      margin: 0 !important;
-      width: 100% !important;
-    }
-
-    #mlb2-38624714 .ml-form-fieldRow {
-      margin-bottom: 8px !important;
-    }
-
-    #mlb2-38624714 input.form-control {
-      width: 100% !important;
-      height: 46px !important;
-      background: #ffffff !important;
-      border: 1px solid var(--line) !important;
-      border-radius: 999px !important;
-      padding: 0 16px !important;
-      color: #111111 !important;
-      font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 0.96rem !important;
-      line-height: 1.2 !important;
-      box-shadow: none !important;
-      box-sizing: border-box !important;
-    }
-
-    #mlb2-38624714 input.form-control::placeholder {
-      color: #7a7772 !important;
-    }
-
-    #mlb2-38624714 input.form-control:focus {
-      outline: none !important;
-      border-color: var(--gold-deep) !important;
-      box-shadow: 0 0 0 3px rgba(215,176,106,0.12) !important;
-    }
-
-    #mlb2-38624714 .ml-form-embedSubmit {
-      margin: 8px 0 0 0 !important;
-      width: 100% !important;
-      float: none !important;
-    }
-
-    #mlb2-38624714 .ml-form-embedSubmit button,
-    #mlb2-38624714 .ml-form-embedSubmit button.loading {
-      width: 100% !important;
-      min-height: 44px !important;
-      height: auto !important;
-      padding: 0 20px !important;
-      background: #111111 !important;
-      color: #ffffff !important;
-      border: none !important;
-      border-radius: 999px !important;
-      box-shadow: var(--shadow) !important;
-      font-family: Arial, Helvetica, sans-serif !important;
-      font-size: 0.94rem !important;
-      font-weight: 700 !important;
-      line-height: 44px !important;
-      letter-spacing: 0.01em !important;
-      cursor: pointer !important;
-      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-      box-sizing: border-box !important;
-    }
-
-    #mlb2-38624714 .ml-form-embedSubmit button:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07) !important;
-    }
-
-    /* Footer matched to reference */
+    /* Footer */
     .site-footer {
-      padding: 20px 0 24px;
+      padding: 22px 0;
       border-top: 1px solid var(--line);
       background: #fff;
     }
@@ -759,11 +696,12 @@
     .footer-inner {
       width: min(100% - 48px, var(--max));
       margin: 0 auto;
+      min-height: 72px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
       flex-wrap: wrap;
-      gap: 12px;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 0.84rem;
       font-weight: 700;
@@ -773,8 +711,10 @@
 
     .footer-links {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      justify-content: flex-end;
       flex-wrap: wrap;
+      gap: 22px;
     }
 
     .footer-links a {
@@ -792,10 +732,24 @@
         padding-right: 0;
         border-right: none;
         border-bottom: 1px solid var(--line);
+        padding-bottom: 34px;
       }
 
-      .right-panel {
-        padding-left: 0;
+      .main-right {
+        padding-top: 6px;
+      }
+
+      .role-list {
+        grid-template-columns: 1fr;
+      }
+
+      .role-item {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .role-item:last-child {
+        border-bottom: none;
       }
     }
 
@@ -823,8 +777,16 @@
       }
 
       .footer-inner {
+        min-height: auto;
+        padding: 6px 0;
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+        gap: 12px 16px;
       }
     }
 
@@ -840,8 +802,14 @@
       }
 
       .main-left {
-        padding-top: 34px;
-        padding-bottom: 36px;
+        padding-top: 32px;
+      }
+
+      .hero-card,
+      .ml-inner,
+      .ml-form-successBody {
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
   </style>
@@ -881,15 +849,13 @@
           <p class="kicker">narae International Foundation</p>
           <h1 class="hero-headline">
             <span class="red-strong">Cancer is hard enough.</span><br>
-            <span class="hero-brand">
-              <span class="brandmark">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
+            <span class="brandmark">
+              <span class="logo-word">naræ</span>
+              <span class="brand-plus" aria-hidden="true">
+                <span class="arm arm-top"></span>
+                <span class="arm arm-right"></span>
+                <span class="arm arm-bottom"></span>
+                <span class="arm arm-left"></span>
               </span>
             </span>
             is for women carrying more.
@@ -900,15 +866,36 @@
           </p>
 
           <div class="hero-actions">
-            <a href="program.html" class="btn-primary">How <span class="brandmark brand-inline"><span class="logo-word" style="color:#fff;">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
+            <a href="program.html" class="btn-primary">
+              How
+              <span class="brandmark brand-inline">
+                <span class="logo-word">naræ</span>
+                <span class="brand-plus" aria-hidden="true">
+                  <span class="arm arm-top"></span>
+                  <span class="arm arm-right"></span>
+                  <span class="arm arm-bottom"></span>
+                  <span class="arm arm-left"></span>
+                </span>
+              </span>
+              Works
+            </a>
             <a href="community.html" class="btn-secondary">Ways to Be Part</a>
           </div>
         </div>
 
         <div class="hero-card">
-          <p class="eyebrow">Why this matters</p>
+          <p class="eyebrow">What makes naræ+ different</p>
           <p>
-            Some women need rest. Some need recognition. Some need a place where support feels human again.
+            <span class="brandmark brand-inline">
+              <span class="logo-word">naræ</span>
+              <span class="brand-plus" aria-hidden="true">
+                <span class="arm arm-top"></span>
+                <span class="arm arm-right"></span>
+                <span class="arm arm-bottom"></span>
+                <span class="arm arm-left"></span>
+              </span>
+            </span>
+            is not only a place to receive support. It is a living ecosystem where support can become return, companionship, stewardship, and, when the time is right, giving forward.
           </p>
         </div>
       </div>
@@ -948,9 +935,9 @@
                 <div class="flow-connector"><div class="flow-dot"></div></div>
                 <div class="flow-body">
                   <span class="flow-label">Give Forward</span>
-                  <h3 class="flow-title">Give Forward</h3>
+                  <h3 class="flow-title">Support Becomes Shared</h3>
                   <p class="flow-text">
-                    For some women, healing continues through volunteering, companionship, advocacy, and helping another woman feel less alone. Giving back becomes part of a living ecosystem of support.
+                    What makes <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> special is that support can continue beyond receiving. For some women, healing grows into companionship, volunteering, advocacy, and helping another woman feel less alone. Giving forward is not extra. It is part of the heart of naræ+.
                   </p>
                 </div>
               </div>
@@ -961,7 +948,7 @@
 
           <section class="section">
             <p class="kicker">Ways to Be Part</p>
-            <h2>A living ecosystem of support, return, and stewardship.</h2>
+            <h2>A living ecosystem of support, return, and giving forward.</h2>
 
             <div class="role-list">
               <a href="community.html" class="role-item">
@@ -997,7 +984,7 @@
                     Steward
                   </div>
                   <div class="role-text">
-                    A person or organization who helps sustain the spirit of naræ+ through service, generosity, partnership, advocacy, or support behind the scenes.
+                    A person or organization who helps sustain the spirit and structure of naræ+ through service, generosity, partnership, advocacy, or support behind the scenes.
                   </div>
                 </div>
                 <div class="role-arrow">→</div>
@@ -1021,67 +1008,72 @@
           <section class="right-panel warm" id="stay-connected">
             <p class="eyebrow">Stay Connected</p>
 
-            <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
-              <div class="ml-form-align-center">
-                <div class="ml-form-embedWrapper embedForm">
+            <div class="ml-wrap">
+              <div class="ml-inner">
+                <h4 class="ml-title">
+                  <span class="ml-title-soft">Stay connected with</span>
+                  <span class="ml-title-brand">
+                    naræ
+                    <svg aria-hidden="true" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"></rect>
+                      <rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"></rect>
+                      <rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"></rect>
+                      <rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"></rect>
+                    </svg>
+                  </span>
+                </h4>
 
-                  <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                    <div class="ml-form-embedContent">
-                      <h4>
-                        <span class="sc-soft">Stay connected with</span>
-                        <span class="sc-brand">
-                          naræ
-                          <svg class="sc-plus" aria-hidden="true" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/>
-                            <rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/>
-                            <rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/>
-                            <rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/>
-                          </svg>
-                        </span>
-                      </h4>
-                      <p><strong>If this resonates, you're not alone.</strong></p>
-                      <p><strong>Be part of what we’re building.</strong></p>
-                    </div>
+                <div class="ml-copy">
+                  <p><strong>If this resonates, you're not alone.</strong></p>
+                  <p><strong>Be part of what we’re building.</strong></p>
+                </div>
 
-                    <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/subscribe" data-code="" method="post" target="_blank">
-                      <div class="ml-form-formContent">
-                        <div class="ml-form-fieldRow ml-last-item">
-                          <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                            <input
-                              aria-label="email"
-                              aria-required="true"
-                              type="email"
-                              class="form-control"
-                              data-inputmask=""
-                              name="fields[email]"
-                              placeholder="Your email"
-                              autocomplete="email"
-                            >
+                <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
+                  <div class="ml-form-align-center">
+                    <div class="ml-form-embedWrapper embedForm">
+
+                      <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/subscribe" data-code="" method="post" target="_blank">
+                          <div class="ml-form-formContent">
+                            <div class="ml-form-fieldRow ml-last-item">
+                              <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                <input
+                                  aria-label="email"
+                                  aria-required="true"
+                                  type="email"
+                                  class="form-control"
+                                  data-inputmask=""
+                                  name="fields[email]"
+                                  placeholder="Your email"
+                                  autocomplete="email"
+                                >
+                              </div>
+                            </div>
                           </div>
+
+                          <input type="hidden" name="ml-submit" value="1">
+
+                          <div class="ml-form-embedSubmit">
+                            <button type="submit" class="primary">Join the naræ+ Community</button>
+                            <button disabled="disabled" style="display:none;" type="button" class="loading">
+                              <div class="ml-form-embedSubmitLoad"></div>
+                              <span class="sr-only">Loading...</span>
+                            </button>
+                          </div>
+
+                          <input type="hidden" name="anticsrf" value="true">
+                        </form>
+                      </div>
+
+                      <div class="ml-form-successBody row-success" style="display:none">
+                        <div class="ml-form-successContent">
+                          <h4>Thank you!</h4>
+                          <p>You have successfully joined our subscriber list.</p>
                         </div>
                       </div>
 
-                      <input type="hidden" name="ml-submit" value="1">
-
-                      <div class="ml-form-embedSubmit">
-                        <button type="submit" class="primary">Join the naræ+ Community</button>
-                        <button disabled="disabled" style="display:none;" type="button" class="loading">
-                          <div class="ml-form-embedSubmitLoad"></div>
-                          <span class="sr-only">Loading...</span>
-                        </button>
-                      </div>
-
-                      <input type="hidden" name="anticsrf" value="true">
-                    </form>
-                  </div>
-
-                  <div class="ml-form-successBody row-success" style="display:none">
-                    <div class="ml-form-successContent">
-                      <h4>Thank you!</h4>
-                      <p>You have successfully joined our subscriber list.</p>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
@@ -1104,9 +1096,16 @@
 
   <script>
     function ml_webform_success_38624714() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-38624714 .row-success').show();
-      $('.ml-subscribe-form-38624714 .row-form').hide();
+      var $ = window.ml_jQuery || window.jQuery;
+      if ($) {
+        $('.ml-subscribe-form-38624714 .row-success').show();
+        $('.ml-subscribe-form-38624714 .row-form').hide();
+      } else {
+        var success = document.querySelector('.ml-subscribe-form-38624714 .row-success');
+        var form = document.querySelector('.ml-subscribe-form-38624714 .row-form');
+        if (success) success.style.display = 'block';
+        if (form) form.style.display = 'none';
+      }
     }
   </script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
