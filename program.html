@@ -4,14 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How naræ+ Works | narae International Foundation</title>
-  <meta
-    name="description"
-    content="Learn how naræ+ works through culturally grounded support, intentionally small gatherings, retreat, circles, and the 1000 Crane Project for immigrant and culturally diverse women navigating breast and gynecologic cancers."
-  />
-
+  <meta name="description" content="How naræ+ works — culturally grounded support, intentionally small gatherings, retreat, circles, and the 1000 Crane Project." />
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
-
     :root {
       --bg: #ffffff;
       --text: #111111;
@@ -21,549 +16,140 @@
       --warm: #fcfbf8;
       --gold: #d7b06a;
       --gold-deep: #b98d43;
+      --gold-pale: #fdf6e8;
       --pink: #d98aa0;
       --teal: #5f9f9f;
       --red: #8e1b1b;
-      --red-bg: rgba(142, 27, 27, 0.07);
       --shadow: 0 10px 30px rgba(0,0,0,0.05);
-      --radius: 22px;
       --max: 1100px;
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: Georgia, "Times New Roman", serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    strong { color: var(--text); font-weight: 700; }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
+    .kicker { display: block; margin: 0 0 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
+    h1, h2, h3 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    h1 { font-size: clamp(2.5rem, 5vw, 4.15rem); line-height: 1.04; }
+    h2 { font-size: clamp(1.95rem, 3.5vw, 2.7rem); line-height: 1.08; }
+    h3 { font-size: 1.22rem; line-height: 1.22; }
+    p { margin: 0; font-size: 1.02rem; line-height: 1.82; color: var(--muted); }
+    .lead { font-size: 1.07rem; line-height: 1.88; }
 
-    strong {
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .container {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 74px 0;
-    }
-
-    .section.soft { background: var(--soft); }
-    .section.warm { background: var(--warm); }
-
-    .section-head {
-      max-width: 800px;
-      margin: 0 auto 38px;
-      text-align: center;
-    }
-
-    .kicker {
-      display: block;
-      margin: 0 0 8px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.74rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4.15rem);
-      line-height: 1.04;
-    }
-
-    h2 {
-      font-size: clamp(1.95rem, 3.5vw, 2.7rem);
-      line-height: 1.08;
-    }
-
-    h3 {
-      font-size: 1.22rem;
-      line-height: 1.2;
-    }
-
-    p {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.8;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.03rem;
-      line-height: 1.86;
-    }
-
-    /* Brand */
-    .brandmark {
-      display: inline-flex;
-      align-items: baseline;
-      white-space: nowrap;
-      text-transform: none !important;
-      letter-spacing: -0.03em !important;
-      font-variant: normal;
-    }
-
-    .logo-word {
-      display: inline-block;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      text-transform: none !important;
-      font-variant: normal;
-    }
-
-    .brand-plus {
-      position: relative;
-      display: inline-block;
-      width: 0.34em;
-      height: 0.34em;
-      margin-left: 0.015em;
-      transform: translateY(-0.46em);
-      flex: 0 0 auto;
-    }
-
-    .brand-plus .arm {
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom,
-    .brand-plus .arm-left {
-      background: var(--pink);
-    }
-
-    .brand-plus .arm-right {
-      background: var(--teal);
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom {
-      left: 50%;
-      width: 0.085em;
-      height: 0.16em;
-      transform: translateX(-50%);
-    }
-
+    /* Brand — always bold */
+    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
+    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; color: var(--text); text-transform: none !important; font-variant: normal; }
+    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.46em); flex: 0 0 auto; }
+    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
+    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
     .brand-plus .arm-top { top: 0; }
     .brand-plus .arm-bottom { bottom: 0; }
-
-    .brand-plus .arm-left,
-    .brand-plus .arm-right {
-      top: 50%;
-      width: 0.16em;
-      height: 0.085em;
-      transform: translateY(-50%);
-    }
-
+    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
     .brand-plus .arm-left { left: 0; }
     .brand-plus .arm-right { right: 0; }
-
-    .brand-inline {
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-    }
+    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
 
     /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo .brandmark {
-      font-size: 1.82rem;
-      font-weight: 700;
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 5px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.045em;
-      color: var(--text);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: var(--gold-deep);
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 2px;
-      color: var(--gold-deep);
-      transition: color 0.22s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--gold-deep);
-      transition: width 0.22s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      width: 100%;
-    }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
+    .logo .brandmark { font-size: 1.82rem; }
+    .logo small { display: block; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 0.86rem; font-weight: 700; letter-spacing: 0.045em; color: var(--text); }
+    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; color: var(--gold-deep); }
+    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); transition: color 0.22s ease; }
+    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
+    .nav a:hover::after, .nav a.active::after { width: 100%; }
 
     /* Buttons */
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07);
-    }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 22px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.93rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
+    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0,0,0,0.07); }
 
     /* Hero */
-    .hero {
-      padding: 78px 0 58px;
-      background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%),
-        linear-gradient(180deg, #fff 0%, #fcfbf8 100%);
-    }
+    .hero { padding: 64px 0 50px; background: radial-gradient(circle at top right, rgba(215,176,106,0.09), transparent 34%), linear-gradient(180deg, #fff 0%, #fcfbf8 100%); }
+    .hero-inner { max-width: 720px; }
+    .hero h1 { margin-top: 10px; }
+    .hero-sub { margin-top: 18px; max-width: 640px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 38px;
-      align-items: center;
-    }
+    /* Stages */
+    .stages { padding: 60px 0 48px; }
+    .stages-head { max-width: 600px; margin: 0 auto 44px; text-align: center; }
+    .stages-head h2 { margin-top: 8px; }
+    .stages-head p { margin-top: 10px; }
+    .stage { display: grid; grid-template-columns: 80px 1fr; gap: 0 36px; align-items: start; border-top: 1px solid var(--line); }
+    .stage:last-child { border-bottom: 1px solid var(--line); }
+    .stage-num { font-family: Georgia, "Times New Roman", serif; font-size: 4rem; font-weight: 500; line-height: 1; color: var(--gold-deep); opacity: 0.22; letter-spacing: -0.04em; padding-top: 26px; }
+    .stage-body { padding: 24px 0 0; }
+    .stage-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 6px; display: block; }
+    .stage-title { font-size: 1.62rem; font-weight: 700; letter-spacing: -0.025em; color: var(--text); margin: 0 0 10px; line-height: 1.1; }
+    .stage-text { font-size: 1.02rem; line-height: 1.82; color: var(--muted); max-width: 540px; margin: 0; }
+    details.stage-more { margin-top: 12px; padding-bottom: 24px; }
+    details.stage-more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 6px; user-select: none; }
+    details.stage-more summary::-webkit-details-marker { display: none; }
+    details.stage-more summary::before { content: "+"; font-size: 1.1rem; line-height: 1; }
+    details.stage-more[open] summary::before { content: "−"; }
+    .stage-detail { margin-top: 12px; font-size: 0.95rem; line-height: 1.78; color: var(--muted); max-width: 540px; border-left: 2px solid var(--line); padding-left: 16px; }
 
-    .hero-sub {
-      margin-top: 18px;
-      max-width: 690px;
-    }
+    /* Formats */
+    .formats { background: var(--soft); padding: 56px 0; }
+    .formats-head { max-width: 600px; margin: 0 auto 32px; text-align: center; }
+    .formats-head h2 { margin-top: 8px; }
+    .formats-head p { margin-top: 10px; }
+    .format-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; }
+    .format-item { background: #fff; padding: 26px 22px; transition: background 0.2s; }
+    .format-item:hover { background: var(--warm); }
+    .format-num { font-family: Georgia, serif; font-size: 0.78rem; color: var(--gold-deep); opacity: 0.55; margin-bottom: 10px; display: block; letter-spacing: 0.1em; }
+    .format-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0 0 8px; }
+    .format-text { font-size: 0.97rem; line-height: 1.76; color: var(--muted); margin: 0; }
+    details.more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.82rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; }
+    details.more summary::-webkit-details-marker { display: none; }
+    details.more summary::before { content: "+"; font-size: 1rem; line-height: 1; }
+    details.more[open] summary::before { content: "−"; }
+    .more-content { margin-top: 10px; font-size: 0.95rem; line-height: 1.76; color: var(--muted); }
+    .formats-note { max-width: 560px; margin: 22px auto 0; text-align: center; font-size: 0.93rem; line-height: 1.72; color: var(--muted); font-family: Arial, Helvetica, sans-serif; }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,0.92);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--pink), var(--teal));
-    }
-
-    .hero-points {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .hero-point {
-      display: grid;
-      grid-template-columns: 40px 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-
-    .hero-icon,
-    .card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(217,138,160,0.14), rgba(95,159,159,0.14));
-      border: 1px solid rgba(215,176,106,0.35);
-      color: var(--gold-deep);
-      font-size: 0.95rem;
-      line-height: 1;
-      flex: 0 0 auto;
-    }
-
-    /* Cards / grids */
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
-
-    .card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 26px 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .card-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .card-title {
-      margin: 0 0 10px;
-      font-size: 1.24rem;
-      font-weight: 700;
-      line-height: 1.18;
-    }
-
-    .feature-panel {
-      max-width: 860px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      padding: 36px 32px;
-      text-align: center;
-    }
-
-    .feature-panel p + p {
-      margin-top: 12px;
-    }
-
-    /* Expandable */
-    details.more {
-      margin-top: 14px;
-      border-top: 1px solid var(--line);
-      padding-top: 12px;
-    }
-
-    details.more summary {
-      list-style: none;
-      cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    details.more summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details.more summary::before {
-      content: "+";
-      font-size: 1rem;
-      line-height: 1;
-      color: var(--gold-deep);
-    }
-
-    details.more[open] summary::before {
-      content: "−";
-    }
-
-    .more-content {
-      margin-top: 12px;
-    }
-
-    .more-content p + p {
-      margin-top: 10px;
-    }
+    /* Crane teaser */
+    .crane { padding: 52px 0; }
+    .crane-card { max-width: 720px; margin: 0 auto; background: var(--gold-pale); border: 1px solid #e0c98a; border-radius: 22px; padding: 34px 38px 30px; display: grid; grid-template-columns: 1fr auto; gap: 16px 36px; align-items: center; }
+    .crane-text .kicker { margin-bottom: 10px; }
+    .crane-text h2 { font-size: clamp(1.45rem, 2.8vw, 1.9rem); margin-bottom: 10px; }
+    .crane-text p { font-size: 0.97rem; line-height: 1.78; max-width: 460px; }
+    .crane-link { display: inline-flex; align-items: center; gap: 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold-deep); border: 1px solid #c9a85c; border-radius: 999px; padding: 10px 20px; white-space: nowrap; transition: background 0.2s, transform 0.2s; }
+    .crane-link:hover { background: rgba(185,141,67,0.08); transform: translateY(-1px); }
 
     /* CTA */
-    .cta-panel {
-      max-width: 860px;
-      margin: 0 auto;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      padding: 38px 34px;
-      text-align: center;
-    }
-
-    .cta-panel p {
-      max-width: 680px;
-      margin: 16px auto 0;
-    }
-
-    .cta-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
+    .cta-section { padding: 56px 0; background: var(--warm); }
+    .cta-inner { max-width: 660px; margin: 0 auto; text-align: center; border: 1px solid var(--line); border-radius: 24px; padding: 42px 40px; background: #fff; box-shadow: var(--shadow); }
+    .cta-inner h2 { margin: 8px 0 14px; }
+    .cta-inner p { max-width: 540px; margin: 0 auto; }
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 
     /* Footer */
-    .site-footer {
-      padding: 26px 0 30px;
-      border-top: 1px solid var(--line);
-      background: #fff;
-    }
+    .site-footer { padding: 26px 0 30px; border-top: 1px solid var(--line); background: #fff; }
+    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.75; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a { color: var(--gold-deep); }
 
-    .footer-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.75;
+    @media (max-width: 860px) {
+      .format-grid { grid-template-columns: 1fr; }
+      .crane-card { grid-template-columns: 1fr; }
+      .stage { grid-template-columns: 52px 1fr; gap: 0 20px; }
+      .stage-num { font-size: 2.8rem; }
     }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      color: var(--gold-deep);
-    }
-
-    /* Responsive */
-    @media (max-width: 980px) {
-      .hero-grid,
-      .grid-4,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 18px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 14px 16px;
-      }
-
-      .hero {
-        padding: 54px 0 40px;
-      }
-
-      .section {
-        padding: 58px 0;
-      }
-
-      .hero-card,
-      .card,
-      .feature-panel,
-      .cta-panel {
-        padding: 22px 18px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .header-inner { min-height: auto; padding: 18px 0; flex-direction: column; align-items: flex-start; gap: 14px; }
+      .nav { width: 100%; justify-content: flex-start; gap: 14px 16px; }
+      .hero { padding: 44px 0 32px; }
+      .stages { padding: 44px 0 32px; }
+      .formats, .crane, .cta-section { padding: 40px 0; }
+      .cta-inner, .crane-card { padding: 26px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -574,44 +160,15 @@
       <a href="index.html" class="logo" aria-label="narae International Foundation home">
         <span class="brandmark">
           <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true">
-            <span class="arm arm-top"></span>
-            <span class="arm arm-right"></span>
-            <span class="arm arm-bottom"></span>
-            <span class="arm arm-left"></span>
-          </span>
+          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
         </span>
         <small>narae International Foundation</small>
       </a>
-
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="program.html" class="active">
-          How
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-          Works
-        </a>
+        <a href="program.html" class="active">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
         <a href="community.html">Ways to Be Part</a>
-        <a href="about.html">
-          About
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-        </a>
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="founder.html">Founder</a>
         <a href="leadership.html">Leadership</a>
       </nav>
@@ -619,300 +176,145 @@
   </header>
 
   <main>
-    <!-- Hero -->
+
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="kicker">
-            How
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            Works
-          </p>
-
-          <h1>
-            A calm, culturally grounded
-            <span style="color: var(--red); font-weight:700;">program experience.</span>
-          </h1>
-
-          <p class="hero-sub lead">
-            <strong>
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-            </strong>
-            is created for women navigating breast and gynecologic cancers, especially
-            <strong>immigrant and culturally diverse women</strong> whose experiences may be shaped by language,
-            migration, identity, family expectations, and the feeling of being unseen in traditional support spaces.
-          </p>
-
+      <div class="container">
+        <div class="hero-inner">
+          <p class="kicker">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</p>
+          <h1>A calm, culturally grounded <span style="color:var(--red);font-weight:700;">program experience.</span></h1>
+          <p class="hero-sub lead"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is created for women navigating breast and gynecologic cancers — especially <strong>immigrant and culturally diverse women</strong> whose experiences may be shaped by language, migration, identity, family expectations, and the feeling of being unseen in traditional support spaces.</p>
           <div class="hero-actions">
             <a href="community.html" class="btn-primary">Ways to Be Part</a>
-            <a href="about.html" class="btn-secondary">Why naræ exists</a>
+            <a href="about.html" class="btn-secondary">Why naræ<svg aria-hidden="true" style="display:inline-block;width:0.38em;height:0.38em;vertical-align:super;overflow:visible;margin-left:0.02em;margin-right:0.12em;" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/><rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/></svg>exists</a>
           </div>
         </div>
-
-        <aside class="hero-card" aria-label="How naræ works summary">
-          <p class="kicker" style="margin-bottom:14px;">At a glance</p>
-          <div class="hero-points">
-            <div class="hero-point">
-              <div class="hero-icon">♥</div>
-              <p><strong>Support</strong> begins with dignity, not pressure.</p>
-            </div>
-            <div class="hero-point">
-              <div class="hero-icon">✦</div>
-              <p><strong>Culture</strong> is part of care, not decoration.</p>
-            </div>
-            <div class="hero-point">
-              <div class="hero-icon">⟡</div>
-              <p><strong>Healing</strong> can, in time, become care carried forward.</p>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <!-- Core care arc -->
-    <section class="section warm">
+    <section class="stages">
       <div class="container">
-        <div class="section-head">
+        <div class="stages-head">
           <p class="kicker">The Experience of Care</p>
-          <h2>The heart of the program.</h2>
-          <p class="lead">
+          <h2>How care moves through the program.</h2>
+          <p class="lead">Each stage grows naturally from the one before. There is no pressure to move quickly — or at all.</p>
         </div>
 
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">♥</div>
-            </div>
-            <h3 class="card-title"><strong>Be Supported</strong></h3>
-            <p>
-              Support, understanding, and space. A place where women do not have to explain every part of their experience.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">✦</div>
-            </div>
-            <h3 class="card-title"><strong>Be Held</strong></h3>
-            <p>
-              Care becomes steadier through dignity. Cultural understanding and human connection help support feel real, not generic.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">◌</div>
-            </div>
-            <h3 class="card-title"><strong>Become naræ</strong></h3>
-            <p>
-              Healing is not only survival. It can also be a quiet return to self, presence, and possibility.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">⟡</div>
-            </div>
-            <h3 class="card-title"><strong>Give Forward</strong></h3>
-            <p>
-              For some, healing continues through giving, encouragement, companionship, and care carried forward.
-            </p>
-          </article>
+        <div class="stage">
+          <div class="stage-num">01</div>
+          <div class="stage-body">
+            <span class="stage-label">Receive</span>
+            <h3 class="stage-title">Be Supported</h3>
+            <p class="stage-text">Support, understanding, and space — through circles, virtual gatherings, in-person events, or community connection. A place where women do not have to explain every part of their experience.</p>
+            <details class="stage-more">
+              <summary>Read more</summary>
+              <p class="stage-detail">This is where the journey begins — arriving as you are, without having to translate your pain or prove it. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> holds this space with cultural grounding and emotional attunement. Retreat is one possibility — rare, intentional, and by invitation.</p>
+            </details>
+          </div>
         </div>
+
+        <div class="stage">
+          <div class="stage-num">02</div>
+          <div class="stage-body">
+            <span class="stage-label">Rest</span>
+            <h3 class="stage-title">Be Held</h3>
+            <p class="stage-text">Care becomes steadier through dignity. Cultural understanding and human connection help support feel real, not generic.</p>
+            <details class="stage-more">
+              <summary>Read more</summary>
+              <p class="stage-detail">Being held means your whole self is welcome — your language, your background, your way of grieving or hoping. Dignity is not something you earn here. It is the starting point.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">03</div>
+          <div class="stage-body">
+            <span class="stage-label">Return</span>
+            <h3 class="stage-title">Become <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h3>
+            <p class="stage-text">Healing is not only survival. It can also be a quiet return to self, presence, and possibility.</p>
+            <details class="stage-more">
+              <summary>Read more</summary>
+              <p class="stage-detail">A quiet return to self — to presence, to what feels possible again. What that looks like is different for every woman.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="stage-num">04</div>
+          <div class="stage-body">
+            <span class="stage-label">Give forward</span>
+            <h3 class="stage-title">Give Forward</h3>
+            <p class="stage-text"><strong>Giving forward is at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</strong> For some women, healing continues and deepens through encouragement, companionship, and care carried forward to another.</p>
+            <details class="stage-more">
+              <summary>Read more</summary>
+              <p class="stage-detail">Walking beside another woman when she is ready — carrying the care that was once carried for them. This is the natural completion of the cycle, when a woman feels ready to return what she has received.</p>
+            </details>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- What the program may include -->
-    <section class="section">
+    <section class="formats">
       <div class="container">
-        <div class="section-head">
-          <p class="kicker">What naræ May Include</p>
+        <div class="formats-head">
+          <p class="kicker">What <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> May Include</p>
           <h2>What a woman may actually encounter.</h2>
-          <p class="lead">
-            This is not one single format. It may take shape through retreat, circles, and community gatherings, each designed to feel human, thoughtful, and culturally grounded.
-          </p>
+          <p class="lead">Not one single format — retreat, circles, and community gatherings, each designed to feel human, unhurried, and culturally grounded.</p>
         </div>
 
-        <div class="grid grid-3">
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">☾</div>
-            </div>
-            <h3 class="card-title">Retreat</h3>
-            <p>
-              Small, invitation or referral-only retreat experiences designed for rest, reflection, and gentle reconnection.
-            </p>
+        <div class="format-grid">
+          <div class="format-item">
+            <span class="format-num">I</span>
+            <h3 class="format-title">Retreat</h3>
+            <p class="format-text">Small, invitation or referral-only experiences designed for rest, reflection, and gentle reconnection.</p>
             <details class="more">
               <summary>Read more</summary>
-              <div class="more-content">
-                <p>
-                  Retreats are <strong>intentionally small</strong>. That is part of the care. It protects emotional safety and allows the experience to remain personal, calm, and deeply held.
-                </p>
-              </div>
+              <div class="more-content">Intentionally small — that is part of the care. It protects emotional safety and allows the experience to remain personal, calm, and deeply held.</div>
             </details>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">◌</div>
-            </div>
-            <h3 class="card-title">Circles</h3>
-            <p>
-              Small virtual or in-person gatherings for honest conversation, storytelling, reflection, and feeling less alone.
-            </p>
+          </div>
+          <div class="format-item">
+            <span class="format-num">II</span>
+            <h3 class="format-title">Circles</h3>
+            <p class="format-text">Small virtual or in-person gatherings for honest conversation, storytelling, and feeling less alone.</p>
             <details class="more">
               <summary>Read more</summary>
-              <div class="more-content">
-                <p>
-                  Circles may include cultural sharing, creativity, quiet companionship, or simply space to be present without pressure to perform.
-                </p>
-              </div>
+              <div class="more-content">Circles may include cultural sharing, creativity, quiet companionship, or simply space to be present without pressure to perform.</div>
             </details>
-          </article>
-
-          <article class="card">
-            <div class="card-top">
-              <div class="card-icon">✦</div>
-            </div>
-            <h3 class="card-title">Community gatherings</h3>
-            <p>
-              Gentle spaces for connection, remembrance, encouragement, storytelling, and cultural expression.
-            </p>
+          </div>
+          <div class="format-item">
+            <span class="format-num">III</span>
+            <h3 class="format-title">Community gatherings</h3>
+            <p class="format-text">Gentle spaces for connection, remembrance, encouragement, and cultural expression.</p>
             <details class="more">
               <summary>Read more</summary>
-              <div class="more-content">
-                <p>
-                  These moments may include shared meals, tea, reflection, beauty, sensory care, or quiet forms of collective support and cultural exchange.
-                </p>
-              </div>
+              <div class="more-content">Shared meals, tea, reflection, beauty, sensory care — quiet forms of collective support and cultural exchange.</div>
             </details>
-          </article>
+          </div>
+        </div>
+
+        <p class="formats-note"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is not built for volume. Experiences are invitation or referral-based and intentionally small — to protect emotional safety and keep care personal.</p>
+      </div>
+    </section>
+
+    <section class="crane">
+      <div class="container">
+        <div class="crane-card">
+          <div class="crane-text">
+            <p class="kicker">The 1000 Crane Project</p>
+            <h2>A living expression of care.</h2>
+            <p>A shared act of hope, remembrance, and solidarity woven through the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> experience. A crane may be folded for oneself, for another, or for the community.</p>
+          </div>
+          <a href="crane-project.html" class="crane-link">Learn more →</a>
         </div>
       </div>
     </section>
 
-    <!-- What they may experience -->
-    <section class="section soft">
+    <section class="cta-section">
       <div class="container">
-        <div class="section-head">
-          <p class="kicker">Inside the Experience</p>
-          <h2>What the program may feel like.</h2>
-          <p class="lead">
-            The program is not just what happens on paper. It is also how a woman feels while she is there.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card">
-            <h3 class="card-title">What may be present</h3>
-            <p>
-              Quiet rest, reflection, culturally grounded connection, storytelling, creative ritual, companionship, shared meals, remembrance, and space to reconnect with self.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">What matters most</h3>
-            <p>
-              That care feels <strong>human</strong>, <strong>dignified</strong>, and <strong>culturally aware</strong>, especially for women whose identities and lived experiences are often overlooked in standard support spaces.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 1000 Crane Project -->
-    <section class="section">
-      <div class="container">
-        <div class="feature-panel">
-          <p class="kicker">The 1000 Crane Project</p>
-          <h2>A living expression of care.</h2>
-          <p>
-            Within
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>,
-            the 1000 Crane Project can become a shared act of hope, remembrance, solidarity, and return.
-          </p>
-          <p>
-            A crane may be folded for oneself, for another woman, or for the community. Over time, these small acts become part of a larger story of healing, dignity, and care carried forward.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why intentionally small -->
-    <section class="section warm">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Why Intentionally Small</p>
-          <h2>Small by design. Human by intention.</h2>
-          <p class="lead">
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            is not built for volume. It is built for depth.
-          </p>
-        </div>
-
-        <div class="grid grid-2">
-          <article class="card">
-            <h3 class="card-title">Why this matters</h3>
-            <p>
-              Keeping experiences invitation or referral-based and intentionally small helps protect emotional safety, cultural sensitivity, calm, and care that remains personal rather than rushed.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3 class="card-title">What this space is not</h3>
-            <p>
-              It is not medical treatment. It is not a replacement for therapy or clinical care. It is not a large open-enrollment retreat model.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section">
-      <div class="container">
-        <div class="cta-panel">
+        <div class="cta-inner">
           <p class="kicker">Next Step</p>
           <h2>There is more than one way to belong.</h2>
-          <p>
-            The program page explains the experience. The next page explains the living ecosystem of care, including how someone may be part of
-            <strong>naræ Fellow</strong>,
-            <strong>naræ Companion</strong>,
-            or
-            <strong>naræ Steward</strong>.
-          </p>
+          <p>Explore the living ecosystem of care — including what it means to be a <strong>naræ<svg aria-hidden="true" style="display:inline-block;width:0.38em;height:0.38em;vertical-align:super;overflow:visible;margin-left:0.02em;" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/><rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/></svg> Fellow</strong>, <strong>naræ<svg aria-hidden="true" style="display:inline-block;width:0.38em;height:0.38em;vertical-align:super;overflow:visible;margin-left:0.02em;" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/><rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/></svg> Companion</strong>, or <strong>naræ<svg aria-hidden="true" style="display:inline-block;width:0.38em;height:0.38em;vertical-align:super;overflow:visible;margin-left:0.02em;" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"/><rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"/><rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"/></svg> Steward</strong>.</p>
           <div class="cta-actions">
             <a href="community.html" class="btn-primary">Explore Ways to Be Part</a>
             <a href="founder.html" class="btn-secondary">Read the Founder story</a>
@@ -920,26 +322,14 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>
-        © 2026 narae International Foundation. All rights reserved.
-      </div>
+      <div>© 2026 narae International Foundation. All rights reserved.</div>
       <div class="footer-links">
-        <a href="about.html">
-          About
-          <span class="brandmark brand-inline">
-            <span class="logo-word">naræ</span>
-            <span class="brand-plus" aria-hidden="true">
-              <span class="arm arm-top"></span>
-              <span class="arm arm-right"></span>
-              <span class="arm arm-bottom"></span>
-              <span class="arm arm-left"></span>
-            </span>
-          </span>
-        </a>
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="founder.html">Founder</a>
         <a href="leadership.html">Leadership</a>
       </div>
