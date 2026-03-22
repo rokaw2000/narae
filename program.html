@@ -174,16 +174,17 @@
     .format-item { padding: 18px 20px; border-bottom: 1px solid var(--line); background: #fff; transition: background 0.18s; }
     .format-item:last-child { border-bottom: none; }
     .format-item:hover { background: var(--warm); }
-    .format-row { display: flex; align-items: baseline; gap: 12px; }
-    .format-num { font-family: Georgia, serif; font-size: 0.72rem; color: var(--gold-deep); opacity: 0.5; letter-spacing: 0.1em; flex-shrink: 0; width: 20px; }
+    .format-row { display: flex; align-items: center; gap: 10px; }
+    .format-icon { width: 28px; height: 28px; border-radius: 50%; background: var(--gold-pale); border: 1px solid #e0c98a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .format-icon svg { width: 14px; height: 14px; display: block; }
     .format-title { font-size: 1.05rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
-    .format-text { font-size: 0.93rem; line-height: 1.72; color: var(--muted); margin: 6px 0 0 32px; }
+    .format-text { font-size: 0.93rem; line-height: 1.72; color: var(--muted); margin: 6px 0 0 38px; }
 
-    details.more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 5px; margin: 6px 0 0 32px; }
+    details.more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 5px; margin: 6px 0 0 38px; }
     details.more summary::-webkit-details-marker { display: none; }
     details.more summary::before { content: "+"; font-size: 0.95rem; line-height: 1; }
     details.more[open] summary::before { content: "−"; }
-    .more-content { font-size: 0.91rem; line-height: 1.72; color: var(--muted); margin: 6px 0 0 32px; }
+    .more-content { font-size: 0.91rem; line-height: 1.72; color: var(--muted); margin: 6px 0 0 38px; }
     .formats-note { margin-top: 14px; font-size: 0.88rem; line-height: 1.68; color: var(--muted); font-family: Arial, Helvetica, sans-serif; }
 
     /* Right: crane + cta stacked */
@@ -286,25 +287,12 @@
             <div class="stage">
               <div class="stage-connector"><div class="stage-dot"></div></div>
               <div class="stage-body">
-                <span class="stage-label">Receive</span>
-                <h3 class="stage-title">Be Supported</h3>
-                <p class="stage-text">Support, understanding, and space — through circles, virtual gatherings, in-person events, or community connection. A place where women do not have to explain every part of their experience.</p>
+                <span class="stage-label">Receive &amp; Rest</span>
+                <h3 class="stage-title">Be Supported &amp; Held</h3>
+                <p class="stage-text">Support, understanding, and space — through circles, virtual gatherings, in-person events, or community connection. Care becomes steadier through dignity, cultural understanding, and human connection.</p>
                 <details class="stage-more">
                   <summary>Read more</summary>
-                  <p class="stage-detail">This is where the journey begins — arriving as you are, without having to translate your pain or prove it. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> holds this space with cultural grounding and emotional attunement. Retreat is one possibility — intentional, small, and by invitation.</p>
-                </details>
-              </div>
-            </div>
-
-            <div class="stage">
-              <div class="stage-connector"><div class="stage-dot"></div></div>
-              <div class="stage-body">
-                <span class="stage-label">Rest</span>
-                <h3 class="stage-title">Be Held</h3>
-                <p class="stage-text">Care becomes steadier through dignity. Cultural understanding and human connection help support feel real, not generic.</p>
-                <details class="stage-more">
-                  <summary>Read more</summary>
-                  <p class="stage-detail">Being held means your whole self is welcome — your language, your background, your way of grieving or hoping. Dignity is not something you earn here. It is the starting point.</p>
+                  <p class="stage-detail">This is where the journey begins — arriving as you are, without having to translate your pain or prove it. Being held means your whole self is welcome — your language, your background, your way of grieving or hoping. Dignity is not something you earn here. It is the starting point. Retreat is one possibility — intentional, small, and by invitation.</p>
                 </details>
               </div>
             </div>
@@ -314,10 +302,10 @@
               <div class="stage-body">
                 <span class="stage-label">Return</span>
                 <h3 class="stage-title">Become <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h3>
-                <p class="stage-text">Healing is not only survival. It can also be a quiet return to self, presence, and possibility.</p>
+                <p class="stage-text">Something shifts — quietly, in its own time. Healing is not only survival. It is also a return to self, to presence, to what feels possible again.</p>
                 <details class="stage-more">
                   <summary>Read more</summary>
-                  <p class="stage-detail">A quiet return to self — to presence, to what feels possible again. What that looks like is different for every woman.</p>
+                  <p class="stage-detail">This return does not look the same for every woman. For some it is stillness. For some it is laughter, or creativity, or the courage to imagine something ahead. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> holds space for that return without defining what it must look like.</p>
                 </details>
               </div>
             </div>
@@ -327,10 +315,10 @@
               <div class="stage-body">
                 <span class="stage-label">Give forward</span>
                 <h3 class="stage-title">Give Forward</h3>
-                <p class="stage-text"><strong>Giving forward is at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</strong> For some women, healing continues and deepens through encouragement, companionship, and care carried forward to another.</p>
+                <p class="stage-text">Giving forward is one of the core healing modalities of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>. When a woman is ready, walking beside another becomes part of how her own healing deepens and completes.</p>
                 <details class="stage-more">
                   <summary>Read more</summary>
-                  <p class="stage-detail">Walking beside another woman when she is ready — carrying the care that was once carried for them. This is the natural completion of the cycle, when a woman feels ready to return what she has received.</p>
+                  <p class="stage-detail">This is never an obligation. It arises naturally — when a woman who has been held feels ready to hold another. The care she received does not end with her. It moves forward, becoming encouragement, companionship, and presence for someone at the beginning of their own journey. This cycle of giving and receiving is what makes <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> a living ecosystem — not a program with a start and end date.</p>
                 </details>
               </div>
             </div>
@@ -352,7 +340,13 @@
           <div class="format-list">
             <div class="format-item">
               <div class="format-row">
-                <span class="format-num">I</span>
+                <div class="format-icon">
+                  <!-- Two overlapping circles — community/togetherness -->
+                  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="5" cy="7" r="3.5" stroke="#b98d43" stroke-width="1.1"/>
+                    <circle cx="9" cy="7" r="3.5" stroke="#b98d43" stroke-width="1.1"/>
+                  </svg>
+                </div>
                 <span class="format-title">Circles &amp; Gatherings</span>
               </div>
               <p class="format-text">Small virtual or in-person gatherings for honest conversation, storytelling, and feeling less alone.</p>
@@ -361,9 +355,19 @@
                 <div class="more-content">May include cultural sharing, creativity, quiet companionship, or simply space to be present without pressure to perform.</div>
               </details>
             </div>
+
             <div class="format-item">
               <div class="format-row">
-                <span class="format-num">II</span>
+                <div class="format-icon">
+                  <!-- Gentle flower/petals — community warmth -->
+                  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="7" cy="7" r="1.8" fill="#b98d43" opacity="0.6"/>
+                    <ellipse cx="7" cy="3.2" rx="1.2" ry="2" fill="#b98d43" opacity="0.35"/>
+                    <ellipse cx="7" cy="10.8" rx="1.2" ry="2" fill="#b98d43" opacity="0.35"/>
+                    <ellipse cx="3.2" cy="7" rx="2" ry="1.2" fill="#b98d43" opacity="0.35"/>
+                    <ellipse cx="10.8" cy="7" rx="2" ry="1.2" fill="#b98d43" opacity="0.35"/>
+                  </svg>
+                </div>
                 <span class="format-title">Community Events</span>
               </div>
               <p class="format-text">Gentle spaces for connection, remembrance, encouragement, and cultural expression.</p>
@@ -372,9 +376,15 @@
                 <div class="more-content">Shared meals, tea, reflection, beauty, sensory care — quiet forms of collective support and cultural exchange.</div>
               </details>
             </div>
+
             <div class="format-item">
               <div class="format-row">
-                <span class="format-num">III</span>
+                <div class="format-icon">
+                  <!-- Crescent moon — rest, retreat, stillness -->
+                  <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.5 7A4.5 4.5 0 0 1 5 11.5 4.5 4.5 0 1 0 9.5 2.5 4.5 4.5 0 0 1 9.5 7Z" fill="#b98d43" opacity="0.55"/>
+                  </svg>
+                </div>
                 <span class="format-title">Retreat</span>
               </div>
               <p class="format-text">Small, invitation or referral-only experiences for rest and reflection — intentional, deeply held, and by invitation.</p>
