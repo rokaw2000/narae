@@ -102,27 +102,59 @@
     /* Right: scrollable stages */
     .stages-panel { padding: 0 0 0 44px; }
 
+    .stage-flow { display: flex; flex-direction: column; }
     .stage {
-      padding: 28px 0;
-      border-bottom: 1px solid var(--line);
       display: grid;
-      grid-template-columns: 52px 1fr;
-      gap: 0 20px;
+      grid-template-columns: 28px 1fr;
+      gap: 0 18px;
+      position: relative;
     }
-    .stage:first-child { padding-top: 36px; }
-    .stage:last-child { border-bottom: none; padding-bottom: 36px; }
 
-    .stage-num { font-family: Georgia, serif; font-size: 3rem; font-weight: 500; line-height: 1; color: var(--gold-deep); opacity: 0.2; letter-spacing: -0.04em; padding-top: 4px; }
+    /* Connector line between stages */
+    .stage:not(:last-child) .stage-connector::after {
+      content: '';
+      position: absolute;
+      left: 13px;
+      top: 28px;
+      bottom: -28px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .stage-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 22px;
+      position: relative;
+    }
+
+    .stage-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      border: 2px solid var(--gold-deep);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stage-body {
+      padding: 18px 0 28px;
+    }
+    .stage:last-child .stage-body { padding-bottom: 36px; }
+    .stage:first-child .stage-body { padding-top: 22px; }
+
     .stage-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 4px; display: block; }
-    .stage-title { font-size: 1.45rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0 0 8px; line-height: 1.15; }
-    .stage-text { font-size: 0.98rem; line-height: 1.78; color: var(--muted); margin: 0; }
+    .stage-title { font-size: 1.38rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 0 0 7px; line-height: 1.15; }
+    .stage-text { font-size: 0.97rem; line-height: 1.78; color: var(--muted); margin: 0; }
 
     details.stage-more { margin-top: 8px; }
     details.stage-more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 5px; user-select: none; }
     details.stage-more summary::-webkit-details-marker { display: none; }
     details.stage-more summary::before { content: "+"; font-size: 1rem; line-height: 1; }
     details.stage-more[open] summary::before { content: "−"; }
-    details.stage-more[open] { padding-bottom: 4px; }
     .stage-detail { margin-top: 10px; font-size: 0.93rem; line-height: 1.74; color: var(--muted); border-left: 2px solid var(--line); padding-left: 14px; }
 
     /* ── FORMATS + CRANE side by side ────────────── */
@@ -183,6 +215,7 @@
     .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
     .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
     .footer-links a { color: var(--gold-deep); }
+    .footer-links .logo-word { color: var(--gold-deep); }
 
     /* Responsive */
     @media (max-width: 1020px) {
@@ -248,56 +281,60 @@
         </div>
 
         <div class="stages-panel">
-          <div class="stage">
-            <div class="stage-num">01</div>
-            <div>
-              <span class="stage-label">Receive</span>
-              <h3 class="stage-title">Be Supported</h3>
-              <p class="stage-text">Support, understanding, and space — through circles, virtual gatherings, in-person events, or community connection. A place where women do not have to explain every part of their experience.</p>
-              <details class="stage-more">
-                <summary>Read more</summary>
-                <p class="stage-detail">This is where the journey begins — arriving as you are, without having to translate your pain or prove it. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> holds this space with cultural grounding and emotional attunement. Retreat is one possibility — rare, intentional, and by invitation.</p>
-              </details>
-            </div>
-          </div>
+          <div class="stage-flow">
 
-          <div class="stage">
-            <div class="stage-num">02</div>
-            <div>
-              <span class="stage-label">Rest</span>
-              <h3 class="stage-title">Be Held</h3>
-              <p class="stage-text">Care becomes steadier through dignity. Cultural understanding and human connection help support feel real, not generic.</p>
-              <details class="stage-more">
-                <summary>Read more</summary>
-                <p class="stage-detail">Being held means your whole self is welcome — your language, your background, your way of grieving or hoping. Dignity is not something you earn here. It is the starting point.</p>
-              </details>
+            <div class="stage">
+              <div class="stage-connector"><div class="stage-dot"></div></div>
+              <div class="stage-body">
+                <span class="stage-label">Receive</span>
+                <h3 class="stage-title">Be Supported</h3>
+                <p class="stage-text">Support, understanding, and space — through circles, virtual gatherings, in-person events, or community connection. A place where women do not have to explain every part of their experience.</p>
+                <details class="stage-more">
+                  <summary>Read more</summary>
+                  <p class="stage-detail">This is where the journey begins — arriving as you are, without having to translate your pain or prove it. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> holds this space with cultural grounding and emotional attunement. Retreat is one possibility — intentional, small, and by invitation.</p>
+                </details>
+              </div>
             </div>
-          </div>
 
-          <div class="stage">
-            <div class="stage-num">03</div>
-            <div>
-              <span class="stage-label">Return</span>
-              <h3 class="stage-title">Become <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h3>
-              <p class="stage-text">Healing is not only survival. It can also be a quiet return to self, presence, and possibility.</p>
-              <details class="stage-more">
-                <summary>Read more</summary>
-                <p class="stage-detail">A quiet return to self — to presence, to what feels possible again. What that looks like is different for every woman.</p>
-              </details>
+            <div class="stage">
+              <div class="stage-connector"><div class="stage-dot"></div></div>
+              <div class="stage-body">
+                <span class="stage-label">Rest</span>
+                <h3 class="stage-title">Be Held</h3>
+                <p class="stage-text">Care becomes steadier through dignity. Cultural understanding and human connection help support feel real, not generic.</p>
+                <details class="stage-more">
+                  <summary>Read more</summary>
+                  <p class="stage-detail">Being held means your whole self is welcome — your language, your background, your way of grieving or hoping. Dignity is not something you earn here. It is the starting point.</p>
+                </details>
+              </div>
             </div>
-          </div>
 
-          <div class="stage">
-            <div class="stage-num">04</div>
-            <div>
-              <span class="stage-label">Give forward</span>
-              <h3 class="stage-title">Give Forward</h3>
-              <p class="stage-text"><strong>Giving forward is at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</strong> For some women, healing continues and deepens through encouragement, companionship, and care carried forward to another.</p>
-              <details class="stage-more">
-                <summary>Read more</summary>
-                <p class="stage-detail">Walking beside another woman when she is ready — carrying the care that was once carried for them. This is the natural completion of the cycle, when a woman feels ready to return what she has received.</p>
-              </details>
+            <div class="stage">
+              <div class="stage-connector"><div class="stage-dot"></div></div>
+              <div class="stage-body">
+                <span class="stage-label">Return</span>
+                <h3 class="stage-title">Become <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h3>
+                <p class="stage-text">Healing is not only survival. It can also be a quiet return to self, presence, and possibility.</p>
+                <details class="stage-more">
+                  <summary>Read more</summary>
+                  <p class="stage-detail">A quiet return to self — to presence, to what feels possible again. What that looks like is different for every woman.</p>
+                </details>
+              </div>
             </div>
+
+            <div class="stage">
+              <div class="stage-connector"><div class="stage-dot"></div></div>
+              <div class="stage-body">
+                <span class="stage-label">Give forward</span>
+                <h3 class="stage-title">Give Forward</h3>
+                <p class="stage-text"><strong>Giving forward is at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</strong> For some women, healing continues and deepens through encouragement, companionship, and care carried forward to another.</p>
+                <details class="stage-more">
+                  <summary>Read more</summary>
+                  <p class="stage-detail">Walking beside another woman when she is ready — carrying the care that was once carried for them. This is the natural completion of the cycle, when a woman feels ready to return what she has received.</p>
+                </details>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -340,7 +377,7 @@
                 <span class="format-num">III</span>
                 <span class="format-title">Retreat</span>
               </div>
-              <p class="format-text">Small, invitation or referral-only experiences for rest and reflection — rare, intentional, and deeply held.</p>
+              <p class="format-text">Small, invitation or referral-only experiences for rest and reflection — intentional, deeply held, and by invitation.</p>
               <details class="more">
                 <summary>Read more</summary>
                 <div class="more-content">Intentionally small — that is part of the care. It protects emotional safety and allows the experience to remain personal and calm.</div>
