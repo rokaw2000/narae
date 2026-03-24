@@ -1,0 +1,402 @@
+<div class="ecosystem-diagram-wrap">
+  <svg id="naraeEco" viewBox="0 0 1200 1280" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="naræ+ Participant Ecosystem diagram">
+    <defs>
+      <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="8" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <style>
+        .eco-bg {
+          fill: transparent;
+        }
+
+        .eco-kicker {
+          font: 700 18px 'Jost', Arial, sans-serif;
+          letter-spacing: 0.18em;
+          fill: #b98d43;
+          text-transform: uppercase;
+        }
+
+        .eco-brand {
+          font: italic 700 68px 'Cormorant Garamond', Georgia, serif;
+          fill: #111111;
+        }
+
+        .eco-side {
+          font: 700 20px 'Jost', Arial, sans-serif;
+          letter-spacing: 0.14em;
+          fill: #66615b;
+          text-transform: uppercase;
+        }
+
+        .eco-title {
+          font: 700 36px 'Cormorant Garamond', Georgia, serif;
+          fill: #111111;
+        }
+
+        .eco-orbit {
+          fill: none;
+          stroke: #dfd4c6;
+          stroke-width: 2.2;
+          stroke-dasharray: 4 14;
+          opacity: 0.92;
+        }
+
+        .eco-dot {
+          fill: #d98aa0;
+          opacity: 1;
+        }
+
+        .node-title {
+          font: 700 30px 'Jost', Arial, sans-serif;
+          fill: #202020;
+        }
+
+        .node-sub {
+          font: 700 18px 'Jost', Arial, sans-serif;
+          fill: #33302d;
+        }
+
+        .node-body {
+          font: 400 18px 'Jost', Arial, sans-serif;
+          fill: #6b6762;
+        }
+
+        .heart-small {
+          font: 700 15px 'Jost', Arial, sans-serif;
+          letter-spacing: 0.12em;
+          fill: #b98d43;
+          text-transform: uppercase;
+        }
+
+        .heart-brand {
+          font: italic 700 50px 'Cormorant Garamond', Georgia, serif;
+          fill: #111111;
+        }
+
+        .footer-main {
+          font: italic 500 34px 'Cormorant Garamond', Georgia, serif;
+          fill: #262626;
+        }
+
+        .footer-small {
+          font: 700 18px 'Jost', Arial, sans-serif;
+          letter-spacing: 0.14em;
+          fill: #b98d43;
+          text-transform: uppercase;
+        }
+
+        .center-circle {
+          fill: #fbfaf7;
+          stroke: #e2d6c8;
+          stroke-width: 2;
+        }
+
+        #plusGlow {
+          opacity: 0.92;
+        }
+
+        #craneGroup {
+          transform-box: fill-box;
+          transform-origin: center;
+          will-change: transform, opacity;
+        }
+
+        #craneCrown {
+          fill: #b43a3a;
+          opacity: 0;
+        }
+      </style>
+    </defs>
+
+    <rect class="eco-bg" x="0" y="0" width="1200" height="1280" rx="28"/>
+
+    <!-- Header -->
+    <text x="600" y="64" text-anchor="middle" class="eco-kicker">HOW naræ<tspan baseline-shift="super" font-size="11" fill="#d98aa0">+</tspan> WORKS</text>
+
+    <text x="505" y="138" text-anchor="middle" class="eco-brand">naræ</text>
+
+    <!-- proper naræ+ plus -->
+    <g transform="translate(560,92)">
+      <rect x="10" y="0" width="7" height="16" rx="3.5" fill="#d98aa0"/>
+      <rect x="10" y="16" width="7" height="16" rx="3.5" fill="#d98aa0"/>
+      <rect x="0" y="12" width="16" height="7" rx="3.5" fill="#d98aa0"/>
+      <rect x="16" y="12" width="16" height="7" rx="3.5" fill="#5f9f9f"/>
+      <rect x="10" y="12" width="7" height="7" rx="3.5" fill="#d98aa0"/>
+    </g>
+
+    <line x1="615" y1="88" x2="615" y2="148" stroke="#ddd2c4" stroke-width="1.5"/>
+    <text x="638" y="102" class="eco-side">A LIVING</text>
+    <text x="638" y="136" class="eco-side">ECOSYSTEM</text>
+
+    <!-- Diagram title -->
+    <text x="600" y="200" text-anchor="middle" class="eco-title">Participant Ecosystem</text>
+
+    <!-- Orbit -->
+    <circle cx="600" cy="565" r="300" class="eco-orbit"/>
+
+    <!-- Belong -->
+    <g id="belongNode">
+      <circle cx="600" cy="265" r="11" class="eco-dot"/>
+      <text x="600" y="210" text-anchor="middle" class="node-title">Belong</text>
+      <text x="600" y="242" text-anchor="middle" class="node-sub">Connect quietly</text>
+      <text x="600" y="272" text-anchor="middle" class="node-body">Be received as you are</text>
+    </g>
+
+    <!-- Renew -->
+    <g id="renewNode">
+      <circle cx="860" cy="765" r="11" class="eco-dot"/>
+      <text x="888" y="755" class="node-title">Renew</text>
+      <text x="888" y="787" class="node-sub">Strength returns</text>
+      <text x="888" y="817" class="node-body">Dignity, voice, and quiet hope</text>
+    </g>
+
+    <!-- Walk Beside -->
+    <g id="walkNode">
+      <circle cx="340" cy="765" r="11" class="eco-dot"/>
+      <text x="312" y="755" text-anchor="end" class="node-title">Walk Beside</text>
+      <text x="312" y="787" text-anchor="end" class="node-sub">Healing deepens</text>
+      <text x="312" y="817" text-anchor="end" class="node-body">Support carried forward</text>
+      <text x="312" y="847" text-anchor="end" class="node-body">from one woman to another</text>
+    </g>
+
+    <!-- Center -->
+    <g id="centerHeart" transform="translate(600,565)">
+      <circle r="102" class="center-circle"/>
+      <text y="-18" text-anchor="middle" class="heart-small">THE HEART OF</text>
+      <text y="28" text-anchor="middle" class="heart-brand">naræ</text>
+
+      <g id="plusGlow" transform="translate(20,-10)">
+        <rect x="10" y="0" width="7" height="16" rx="3.5" fill="#d98aa0"/>
+        <rect x="10" y="16" width="7" height="16" rx="3.5" fill="#d98aa0"/>
+        <rect x="0" y="12" width="16" height="7" rx="3.5" fill="#d98aa0"/>
+        <rect x="16" y="12" width="16" height="7" rx="3.5" fill="#5f9f9f"/>
+        <rect x="10" y="12" width="7" height="7" rx="3.5" fill="#d98aa0"/>
+      </g>
+    </g>
+
+    <!-- Crane -->
+    <g id="craneGroup" opacity="1">
+      <image
+        id="craneImg"
+        href="assets/crane-flat.png"
+        x="-110"
+        y="-88"
+        width="220"
+        height="176"
+        preserveAspectRatio="xMidYMid meet"
+      />
+      <!-- red-crowned crane accent -->
+      <ellipse id="craneCrown" cx="38" cy="-32" rx="7" ry="5"/>
+    </g>
+
+    <!-- Footer -->
+    <line x1="60" y1="1095" x2="1140" y2="1095" stroke="#ddd2c4" stroke-width="1.5"/>
+
+    <text x="600" y="1150" text-anchor="middle" class="footer-main">
+      Healing deepens when she walks beside another —
+    </text>
+    <text x="600" y="1198" text-anchor="middle" class="footer-main">
+      still in the circle, still becoming whole
+    </text>
+    <text x="600" y="1248" text-anchor="middle" class="footer-small">
+      THE HEART OF naræ+ PARTICIPANT ECOSYSTEM
+    </text>
+  </svg>
+</div>
+
+<script>
+(() => {
+  const craneGroup = document.getElementById('craneGroup');
+  const craneImg = document.getElementById('craneImg');
+  const craneCrown = document.getElementById('craneCrown');
+  const plusGlow = document.getElementById('plusGlow');
+
+  const STAGES = {
+    flat:  { href: 'assets/crane-flat.png',      crown: false, crownX: 38, crownY: -32 },
+    f1:    { href: 'assets/crane-folding1.png',  crown: false, crownX: 38, crownY: -32 },
+    f2:    { href: 'assets/crane-folding2.png',  crown: false, crownX: 38, crownY: -32 },
+    f3:    { href: 'assets/crane-folding3.png',  crown: false, crownX: 38, crownY: -32 },
+    f4:    { href: 'assets/crane-folding4.png',  crown: false, crownX: 38, crownY: -32 },
+    f5:    { href: 'assets/crane-folding5.png',  crown: false, crownX: 38, crownY: -32 },
+    f6:    { href: 'assets/crane-folding6.png',  crown: true,  crownX: 34, crownY: -26 },
+    full:  { href: 'assets/crane-full.png',      crown: true,  crownX: 44, crownY: -28 }
+  };
+
+  const P = {
+    belong:       { x: 600, y: 265, angle: -12, scale: 0.56 },
+    renew:        { x: 860, y: 765, angle: 58,  scale: 0.74 },
+    walk:         { x: 340, y: 765, angle: 180, scale: 0.82 },
+    returnBelong: { x: 600, y: 265, angle: -32, scale: 0.90 },
+    center:       { x: 600, y: 565, angle: -90, scale: 0.34 }
+  };
+
+  const orbitCenter = { x: 600, y: 565 };
+  const orbitRadius = 58;
+
+  const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+  function setStage(stage) {
+    const s = STAGES[stage];
+    craneImg.setAttribute('href', s.href);
+    craneImg.setAttributeNS('http://www.w3.org/1999/xlink', 'href', s.href);
+    craneCrown.setAttribute('cx', s.crownX);
+    craneCrown.setAttribute('cy', s.crownY);
+    craneCrown.style.opacity = s.crown ? '1' : '0';
+  }
+
+  function setCrane({ x, y, angle, scale, opacity = 1 }) {
+    craneGroup.setAttribute(
+      'transform',
+      `translate(${x} ${y}) rotate(${angle}) scale(${scale})`
+    );
+    craneGroup.style.opacity = opacity;
+  }
+
+  function tween(duration, draw) {
+    const start = performance.now();
+    return new Promise(resolve => {
+      function frame(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = t < 0.5
+          ? 4 * t * t * t
+          : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        draw(eased, t);
+        if (t < 1) requestAnimationFrame(frame);
+        else resolve();
+      }
+      requestAnimationFrame(frame);
+    });
+  }
+
+  async function move(from, to, duration = 3200, stageFrames = []) {
+    const dx = to.x - from.x;
+    const dy = to.y - from.y;
+
+    await tween(duration, (eased, raw) => {
+      const x = from.x + dx * eased;
+      const yBase = from.y + dy * eased;
+
+      const arc = Math.sin(eased * Math.PI) * 16;
+      const drift = Math.sin(raw * Math.PI * 2) * 1.5;
+      const y = yBase - arc + drift;
+
+      const lookX = dx;
+      const lookY = dy - Math.cos(eased * Math.PI) * 8;
+      const angle = Math.atan2(lookY, lookX) * 180 / Math.PI;
+
+      setCrane({
+        x,
+        y,
+        angle,
+        scale: from.scale + (to.scale - from.scale) * eased,
+        opacity: 1
+      });
+
+      if (stageFrames.length) {
+        const idx = Math.min(stageFrames.length - 1, Math.floor(eased * stageFrames.length));
+        setStage(stageFrames[idx]);
+      }
+    });
+  }
+
+  async function settle(point, duration = 1800, amount = 8) {
+    await tween(duration, (_, raw) => {
+      const bobY = Math.sin(raw * Math.PI * 2) * amount * (1 - raw * 0.18);
+      const tilt = Math.sin(raw * Math.PI * 2) * 1.3 * (1 - raw * 0.22);
+
+      setCrane({
+        x: point.x,
+        y: point.y + bobY,
+        angle: point.angle + tilt,
+        scale: point.scale,
+        opacity: 1
+      });
+    });
+  }
+
+  async function proudPause(point, duration = 1900) {
+    await tween(duration, (_, raw) => {
+      const bobY = Math.sin(raw * Math.PI * 2) * 7;
+      const flap = Math.sin(raw * Math.PI * 4) * 2.8;
+      setCrane({
+        x: point.x,
+        y: point.y + bobY,
+        angle: point.angle + flap,
+        scale: point.scale,
+        opacity: 1
+      });
+    });
+  }
+
+  async function circleCenter(duration = 1800) {
+    await tween(duration, (_, t) => {
+      const theta = (Math.PI * 2 * t) - Math.PI / 2;
+      const x = orbitCenter.x + Math.cos(theta) * orbitRadius;
+      const y = orbitCenter.y + Math.sin(theta) * orbitRadius;
+      const angle = theta * 180 / Math.PI + 90;
+      const scale = 0.34 - (t * 0.05);
+      setCrane({ x, y, angle, scale, opacity: 1 });
+    });
+  }
+
+  async function dissolveIntoPlus(duration = 1200) {
+    const start = {
+      x: orbitCenter.x + orbitRadius,
+      y: orbitCenter.y,
+      angle: 90,
+      scale: 0.29
+    };
+
+    await tween(duration, (eased) => {
+      setCrane({
+        x: start.x + (orbitCenter.x - start.x) * eased,
+        y: start.y + (orbitCenter.y - start.y) * eased,
+        angle: start.angle + (-90 - start.angle) * eased,
+        scale: start.scale + (0.10 - start.scale) * eased,
+        opacity: 1 - eased
+      });
+
+      plusGlow.style.opacity = String(0.92 + eased * 0.08);
+      plusGlow.setAttribute('filter', eased > 0.12 ? 'url(#softGlow)' : '');
+    });
+
+    plusGlow.removeAttribute('filter');
+    plusGlow.style.opacity = '0.92';
+  }
+
+  async function run() {
+    while (true) {
+      setStage('flat');
+      setCrane(P.belong);
+      await settle(P.belong, 1700, 7);
+
+      await move(P.belong, P.renew, 3400, ['f1','f2','f3','f4']);
+      setStage('f5');
+      await settle(P.renew, 1700, 8);
+
+      await move(P.renew, P.walk, 3400, ['f5','f6','full']);
+      setStage('full');
+      await settle(P.walk, 1800, 8);
+
+      await move(P.walk, P.returnBelong, 3600, ['full']);
+      setStage('full');
+      await proudPause(P.returnBelong, 1900);
+
+      await move(P.returnBelong, P.center, 2300, ['full']);
+      await circleCenter(1800);
+      await dissolveIntoPlus(1200);
+
+      await wait(550);
+      craneGroup.style.opacity = '1';
+      await wait(350);
+    }
+  }
+
+  run();
+})();
+</script>
