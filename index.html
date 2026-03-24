@@ -48,7 +48,7 @@
       margin: 0 auto;
     }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       margin: 0;
       font-weight: 500;
       letter-spacing: -0.02em;
@@ -175,13 +175,12 @@
       letter-spacing: 0 !important;
     }
 
-    /* Make naræ+ feel less tiny inside inline links/buttons */
     .section-link .brandmark,
     .text-link .brandmark,
     .btn-primary .brandmark,
     .btn-secondary .brandmark,
     .nav .brandmark {
-      font-size: 1.02em;
+      font-size: 1.07em;
     }
 
     .section-link .brand-plus,
@@ -189,7 +188,7 @@
     .btn-primary .brand-plus,
     .btn-secondary .brand-plus,
     .nav .brand-plus {
-      transform: translateY(-0.34em);
+      transform: translateY(-0.31em);
     }
 
     .ml-form-embedSubmit .primary .brandmark {
@@ -286,7 +285,7 @@
 
     /* Hero */
     .hero {
-      padding: 64px 0 44px;
+      padding: 68px 0 52px;
       border-bottom: 1px solid var(--line);
       background:
         radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%),
@@ -310,7 +309,7 @@
     }
 
     .hero-sub {
-      margin-top: 18px;
+      margin-top: 20px;
       max-width: 660px;
     }
 
@@ -318,7 +317,7 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 28px;
     }
 
     .btn-primary,
@@ -362,7 +361,7 @@
     .hero-card {
       border: 1px solid var(--line);
       background: var(--warm);
-      padding: 28px 26px;
+      padding: 32px 30px;
       border-radius: 18px;
       box-shadow: var(--shadow);
       display: flex;
@@ -379,6 +378,12 @@
       line-height: 1.78;
     }
 
+    .hero-card-title {
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      line-height: 1.16;
+      margin: 2px 0 14px;
+    }
+
     /* Main split */
     .main-grid {
       display: grid;
@@ -389,7 +394,7 @@
     }
 
     .main-left {
-      padding: 38px 0 42px;
+      padding: 42px 0 46px;
       border-right: 1px solid var(--line);
       padding-right: 34px;
     }
@@ -402,17 +407,17 @@
 
     .section,
     .right-panel {
-      padding: 6px 0 28px;
+      padding: 10px 0 32px;
     }
 
     .section + .section,
     .right-panel + .right-panel {
-      margin-top: 8px;
+      margin-top: 12px;
     }
 
     .section h2 {
       margin-top: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     /* Flow */
@@ -464,7 +469,7 @@
     }
 
     .flow-body {
-      padding: 20px 0;
+      padding: 22px 0;
     }
 
     .flow-label {
@@ -530,7 +535,7 @@
       justify-content: space-between;
       gap: 14px;
       min-height: 100%;
-      padding: 24px 22px 22px;
+      padding: 22px 20px 20px;
       border-right: 1px solid var(--line);
       background: #fff;
       transition: background 0.18s ease;
@@ -545,16 +550,16 @@
     }
 
     .role-name {
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       font-weight: 700;
       color: var(--text);
-      margin-bottom: 10px;
-      line-height: 1.24;
+      margin-bottom: 8px;
+      line-height: 1.2;
     }
 
     .role-text {
-      font-size: 0.97rem;
-      line-height: 1.68;
+      font-size: 0.95rem;
+      line-height: 1.62;
       color: var(--muted);
       flex-grow: 1;
     }
@@ -573,17 +578,11 @@
 
     .right-panel h2 {
       margin-top: 8px;
-      margin-bottom: 16px;
-    }
-
-    .right-panel.soft {
-      background: transparent;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 28px;
+      margin-bottom: 18px;
     }
 
     .right-panel.warm {
-      padding-top: 28px;
+      padding-top: 10px;
     }
 
     /* MailerLite box */
@@ -913,7 +912,8 @@
         </div>
 
         <div class="hero-card">
-          <p class="eyebrow">Start Here</p>
+          <p class="eyebrow">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</p>
+          <h2 class="hero-card-title">Support should feel understood, not generic.</h2>
           <p>
             <span class="brandmark brand-inline">
               <span class="logo-word">naræ</span>
@@ -924,9 +924,9 @@
                 <span class="arm arm-left"></span>
               </span>
             </span>
-            begins with a <strong>small, quiet circle</strong>.
-            From there, connection forms naturally. For some, that connection may grow into companionship, community, and, when the time is right, giving forward.
+            exists for women whose cancer experience is also shaped by culture, migration, language, family roles, and the weight of carrying more than treatment alone.
           </p>
+          <a href="founder.html" class="text-link">Read the Founder Story →</a>
         </div>
       </div>
     </section>
@@ -945,7 +945,7 @@
                   <span class="flow-label">Begin</span>
                   <h3 class="flow-title">Enter a Quiet Circle</h3>
                   <p class="flow-text">
-                    Small, intentional circles. No need to explain everything. Just a space to arrive, reflect, and simply be.
+                    Small, intentional circles. A space to arrive, reflect, and simply be.
                   </p>
                 </div>
               </div>
@@ -1001,7 +1001,7 @@
                     Companion
                   </div>
                   <div class="role-text">
-                    A naræ Fellow in action, walking beside another woman when she is ready.
+                    A woman carrying support forward by walking beside another when ready.
                   </div>
                 </div>
                 <div class="role-arrow">→</div>
@@ -1013,9 +1013,9 @@
                     <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
                     Steward
                   </div>
-<div class="role-text">
-  A person or partner helping sustain naræ+ through service, generosity, or support behind the scenes.
-</div>
+                  <div class="role-text">
+                    A person or partner helping sustain naræ+ through service, generosity, or support behind the scenes.
+                  </div>
                 </div>
                 <div class="role-arrow">→</div>
               </a>
@@ -1026,24 +1026,6 @@
         </div>
 
         <div class="main-right">
-          <section class="right-panel soft">
-            <p class="kicker">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</p>
-            <h2>Support should feel understood, not generic.</h2>
-            <p>
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              exists for women whose cancer experience is also shaped by culture, migration, language, family roles, and the weight of carrying more than treatment alone.
-            </p>
-            <a href="founder.html" class="text-link">Read the Founder Story →</a>
-          </section>
-
           <section class="right-panel warm" id="stay-connected">
             <p class="eyebrow">Begin Here</p>
 
