@@ -155,7 +155,17 @@
       display: block;
       opacity: 0.13;
       filter: grayscale(100%);
+      mix-blend-mode: multiply;
       user-select: none;
+    }
+    @keyframes craneDrift {
+      0%   { transform: translateY(0px) rotate(-1deg); }
+      35%  { transform: translateY(-10px) rotate(0.5deg); }
+      65%  { transform: translateY(-6px) rotate(-0.8deg); }
+      100% { transform: translateY(0px) rotate(-1deg); }
+    }
+    .logo-fill-wrap img {
+      animation: craneDrift 9s ease-in-out infinite;
     }
     /* ── Support block ── */
     .support-block { margin-bottom: 20px; }
