@@ -132,31 +132,32 @@
 
     /* ── Crane fill image ── */
     .logo-fill-wrap {
-      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: visible;
-      transition: opacity 0.55s ease, max-height 0.5s ease;
-      max-height: 300px;
-      opacity: 1;
-      margin-top: 22px;
+      min-height: 240px;
+      margin-top: 18px;
+      margin-bottom: 6px;
     }
-    .logo-fill-wrap.hidden {
-      opacity: 0;
-      max-height: 0;
-      margin-top: 0;
-      pointer-events: none;
+    /* Gentle idle drift while visible */
+    @keyframes craneDrift {
+      0%   { transform: translateX(0px)  translateY(0px)  rotate(-1.5deg); }
+      35%  { transform: translateX(6px)  translateY(-8px) rotate(-0.5deg); }
+      70%  { transform: translateX(3px)  translateY(-4px) rotate(-2deg);   }
+      100% { transform: translateX(0px)  translateY(0px)  rotate(-1.5deg); }
     }
-    @keyframes craneFlying {
-      0%   { transform: translateX(0px)   translateY(0px)   rotate(-1.5deg); }
-      15%  { transform: translateX(6px)   translateY(-9px)  rotate(-0.5deg); }
-      30%  { transform: translateX(12px)  translateY(-5px)  rotate(-2deg);   }
-      45%  { transform: translateX(6px)   translateY(-13px) rotate(-0.8deg); }
-      60%  { transform: translateX(14px)  translateY(-7px)  rotate(-2.2deg); }
-      75%  { transform: translateX(8px)   translateY(-11px) rotate(-0.6deg); }
-      90%  { transform: translateX(4px)   translateY(-4px)  rotate(-1.8deg); }
-      100% { transform: translateX(0px)   translateY(0px)   rotate(-1.5deg); }
+    /* Fly away toward top-right, shrinks and fades */
+    @keyframes craneFlyAway {
+      0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 0.22; }
+      60%  { transform: translateX(200px) translateY(-160px) rotate(-5deg)   scale(0.6);  opacity: 0.14; }
+      100% { transform: translateX(380px) translateY(-300px) rotate(-10deg)  scale(0.25); opacity: 0;    }
+    }
+    /* Return from top-right back to position */
+    @keyframes craneFlyBack {
+      0%   { transform: translateX(380px) translateY(-300px) rotate(-10deg)  scale(0.25); opacity: 0;    }
+      40%  { transform: translateX(160px) translateY(-130px) rotate(-5deg)   scale(0.6);  opacity: 0.12; }
+      100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 0.22; }
     }
     .crane-img {
       display: block;
@@ -166,8 +167,14 @@
       opacity: 0.22;
       user-select: none;
       pointer-events: none;
-      animation: craneFlying 18s ease-in-out infinite;
-      filter: drop-shadow(0 4px 12px rgba(185,141,67,0.08));
+      filter: drop-shadow(0 2px 8px rgba(185,141,67,0.12));
+      animation: craneDrift 12s ease-in-out infinite;
+    }
+    .crane-img.flying-away {
+      animation: craneFlyAway 2.6s cubic-bezier(0.25, 0, 0.5, 1) forwards;
+    }
+    .crane-img.flying-back {
+      animation: craneFlyBack 3s cubic-bezier(0.1, 0, 0.3, 1) forwards;
     }
     /* ── Support block ── */
     .support-block { margin-bottom: 20px; }
@@ -431,17 +438,55 @@
 
   <script>
     (function() {
-      // ── Draw logo on canvas with white pixels stripped ──
-      var wrap = document.getElementById('craneFill');
-      if (!wrap) return;
+      var wrap  = document.getElementById('craneFill');
+      var crane = wrap ? wrap.querySelector('.crane-img') : null;
+      if (!crane) return;
 
-      // ── Show/hide based on open roles ──
       var roles = document.querySelectorAll('.role-item');
-      function update() {
-        var anyOpen = false;
-        roles.forEach(function(r) { if (r.open) anyOpen = true; });
-        wrap.classList.toggle('hidden', anyOpen);
+      var isAway = false;
+
+      function anyOpen() {
+        var open = false;
+        roles.forEach(function(r) { if (r.open) open = true; });
+        return open;
       }
+
+      function flyAway() {
+        if (isAway) return;
+        isAway = true;
+        crane.classList.remove('flying-back');
+        // Force reflow so animation restarts cleanly
+        void crane.offsetWidth;
+        crane.classList.add('flying-away');
+        // After fly-away completes, hide the wrap
+        crane.addEventListener('animationend', function onEnd() {
+          crane.removeEventListener('animationend', onEnd);
+          wrap.style.visibility = 'hidden';
+        });
+      }
+
+      function flyBack() {
+        if (!isAway) return;
+        isAway = false;
+        wrap.style.visibility = 'visible';
+        crane.classList.remove('flying-away');
+        void crane.offsetWidth;
+        crane.classList.add('flying-back');
+        // After fly-back, restore idle drift
+        crane.addEventListener('animationend', function onEnd() {
+          crane.removeEventListener('animationend', onEnd);
+          crane.classList.remove('flying-back');
+        });
+      }
+
+      function update() {
+        if (anyOpen()) {
+          flyAway();
+        } else {
+          flyBack();
+        }
+      }
+
       roles.forEach(function(r) { r.addEventListener('toggle', update); });
     })();
   </script>
