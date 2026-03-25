@@ -136,11 +136,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-      transition: opacity 0.45s ease, max-height 0.5s ease;
-      max-height: 280px;
+      overflow: visible;
+      transition: opacity 0.55s ease, max-height 0.5s ease;
+      max-height: 300px;
       opacity: 1;
       margin-top: 22px;
+      perspective: 600px;
     }
     .logo-fill-wrap.hidden {
       opacity: 0;
@@ -148,24 +149,25 @@
       margin-top: 0;
       pointer-events: none;
     }
-    @keyframes craneFloat {
-      0%   { transform: translateY(0px)   translateX(0px)   rotate(-0.8deg) scale(1);     }
-      20%  { transform: translateY(-8px)  translateX(4px)   rotate(0.4deg)  scale(1.01);  }
-      45%  { transform: translateY(-14px) translateX(-3px)  rotate(-0.3deg) scale(1.015); }
-      70%  { transform: translateY(-7px)  translateX(5px)   rotate(0.6deg)  scale(1.008); }
-      100% { transform: translateY(0px)   translateX(0px)   rotate(-0.8deg) scale(1);     }
+    @keyframes craneBreath {
+      0%   { transform: scale(1)    rotate3d(0.2, 1, 0, 0deg)   translateY(0px);    opacity: 0.14; }
+      25%  { transform: scale(1.03) rotate3d(0.2, 1, 0, 4deg)   translateY(-6px);   opacity: 0.16; }
+      50%  { transform: scale(1.01) rotate3d(0.2, 1, 0, -3deg)  translateY(-11px);  opacity: 0.13; }
+      75%  { transform: scale(1.04) rotate3d(0.2, 1, 0, 5deg)   translateY(-5px);   opacity: 0.17; }
+      100% { transform: scale(1)    rotate3d(0.2, 1, 0, 0deg)   translateY(0px);    opacity: 0.14; }
     }
     .logo-fill-wrap img {
-      width: 88%;
-      max-width: 340px;
+      width: 78%;
+      max-width: 300px;
       height: auto;
       display: block;
       opacity: 0.14;
-      filter: grayscale(100%) contrast(0.85);
-      -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, black 40%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 75% at 50% 50%, black 40%, transparent 100%);
+      filter: grayscale(100%) contrast(0.8);
+      -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, rgba(0,0,0,0.5) 75%, transparent 100%);
+      mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, rgba(0,0,0,0.5) 75%, transparent 100%);
       user-select: none;
-      animation: craneFloat 12s ease-in-out infinite;
+      animation: craneBreath 14s ease-in-out infinite;
+      transform-style: preserve-3d;
     }
     /* ── Support block ── */
     .support-block { margin-bottom: 20px; }
@@ -324,7 +326,7 @@
               <img src="narae-logo.png" alt="" aria-hidden="true" />
             </div>
 
-            <a href="/cdn-cgi/l/email-protection#650d0009090a250b04170400030a100b0104110c0a0b4b0a1702" class="section-link">Get in touch →</a>
+            <a href="mailto:hello@naraefoundation.org" class="section-link">Get in touch →</a>
           </section>
         </div>
 
@@ -401,7 +403,7 @@
       <div class="contact-card">
         <h2>Start the conversation</h2>
         <p>Whether you are seeking connection, offering support, or exploring collaboration — you are welcome to reach out.</p>
-        <a class="contact-email" href="/cdn-cgi/l/email-protection#2f474a4343406f414e5d4e4a49405a414b4e5b46404101405d48"><span class="__cf_email__" data-cfemail="127a777e7e7d527c73607377747d677c7673667b7d7c3c7d6075">[email&#160;protected]</span></a>
+        <a class="contact-email" href="mailto:hello@naraefoundation.org">hello@naraefoundation.org</a>
       </div>
 
       <!-- Bottom buttons -->
