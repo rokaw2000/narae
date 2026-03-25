@@ -154,7 +154,7 @@
     }
     /* Fly away — all the way off the page top-right */
     @keyframes craneFlyAway {
-      0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 0.22; }
+      0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 1;    }
       40%  { transform: translateX(180px) translateY(-200px) rotate(-5deg)   scale(0.65); opacity: 0.16; }
       70%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
       100% { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
@@ -164,17 +164,17 @@
       0%   { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
       30%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
       65%  { transform: translateX(160px) translateY(-180px) rotate(-4deg)   scale(0.65); opacity: 0.14; }
-      100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 0.22; }
+      100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 1;    }
     }
     .crane-img {
       display: block;
       width: 300px;
       max-width: 95%;
       height: auto;
-      opacity: 0.22;
+      opacity: 1;
       user-select: none;
       pointer-events: none;
-      filter: drop-shadow(0 2px 8px rgba(185,141,67,0.12));
+      filter: drop-shadow(0 2px 8px rgba(185,141,67,0.15));
       animation: craneDrift 8s ease-in-out infinite;
     }
     .crane-img.flying-away {
@@ -340,7 +340,7 @@
               <img class="crane-img" src="narae-logo.png" alt="" aria-hidden="true" />
             </div>
 
-            <a href="mailto:hello@naraefoundation.org" class="section-link">Get in touch →</a>
+            <a href="/cdn-cgi/l/email-protection#fa929f969695ba949b889b9f9c958f949e9b8e939594d495889d" class="section-link">Get in touch →</a>
           </section>
         </div>
 
@@ -417,7 +417,7 @@
       <div class="contact-card">
         <h2>Start the conversation</h2>
         <p>Whether you are seeking connection, offering support, or exploring collaboration — you are welcome to reach out.</p>
-        <a class="contact-email" href="mailto:hello@naraefoundation.org">hello@naraefoundation.org</a>
+        <a class="contact-email" href="/cdn-cgi/l/email-protection#5f373a3333301f313e2d3e3a39302a313b3e2b36303171302d38"><span class="__cf_email__" data-cfemail="5139343d3d3e113f30233034373e243f353025383e3f7f3e2336">[email&#160;protected]</span></a>
       </div>
 
       <!-- Bottom buttons -->
@@ -443,7 +443,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     (function() {
       var wrap  = document.getElementById('craneFill');
       var crane = wrap ? wrap.querySelector('.crane-img') : null;
@@ -482,21 +482,3 @@
         // After fly-back, restore idle drift
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
-          crane.classList.remove('flying-back');
-        });
-      }
-
-      function update() {
-        if (anyOpen()) {
-          flyAway();
-        } else {
-          flyBack();
-        }
-      }
-
-      roles.forEach(function(r) { r.addEventListener('toggle', update); });
-    })();
-  </script>
-
-</body>
-</html>
