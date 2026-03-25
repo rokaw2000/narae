@@ -449,6 +449,53 @@
       var crane = wrap ? wrap.querySelector('.crane-img') : null;
       if (!crane) return;
 
+      var roles  = document.querySelectorAll('.role-item');
+      var isAway = false;
+      var timer  = null;
+
+      function anyOpen() {
+        var open = false;
+        roles.forEach(function(r) { if (r.open) open = true; });
+        return open;
+      }
+
+      function flyAway() {
+        if (isAway) return;
+        isAway = true;
+        if (timer) clearTimeout(timer);
+        crane.style.animation = 'none';
+        void crane.offsetWidth;
+        crane.style.animation = 'craneFlyAway 2.6s cubic-bezier(0.25, 0, 0.5, 1) forwards';
+        timer = setTimeout(function() {
+          wrap.style.visibility = 'hidden';
+        }, 2500);
+      }
+
+      function flyBack() {
+        if (!isAway) return;
+        isAway = false;
+        if (timer) clearTimeout(timer);
+        wrap.style.visibility = 'visible';
+        crane.style.animation = 'none';
+        void crane.offsetWidth;
+        crane.style.animation = 'craneFlyBack 3s cubic-bezier(0.1, 0, 0.3, 1) forwards';
+        timer = setTimeout(function() {
+          crane.style.animation = 'craneDrift 8s ease-in-out infinite';
+        }, 3000);
+      }
+
+      roles.forEach(function(r) {
+        r.addEventListener('toggle', function() {
+          anyOpen() ? flyAway() : flyBack();
+        });
+      });
+    })();
+  </script><script>
+    (function() {
+      var wrap  = document.getElementById('craneFill');
+      var crane = wrap ? wrap.querySelector('.crane-img') : null;
+      if (!crane) return;
+
       var roles = document.querySelectorAll('.role-item');
       var isAway = false;
 
