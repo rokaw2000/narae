@@ -3,25 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Founder | naræ International Foundation</title>
-  <meta
-    name="description"
-    content="A personal message from Jihwan M. Baek — founder of naræ International Foundation — about cancer, healing, cultural identity, and the question that started it all."
-  />
+  <title>Founder | narae International Foundation</title>
+  <meta name="description" content="A personal message from Jihwan M. Baek — founder of naræ International Foundation — about cancer, healing, cultural identity, and the question that started it all." />
+
   <style>
+    @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
+    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap");
+
     :root {
-      --bg: #fcfbf8;
-      --surface: rgba(255,255,255,0.90);
+      --bg: #ffffff;
       --text: #111111;
-      --muted: #5f5a55;
+      --muted: #6b6762;
       --line: #e8e1d7;
-      --primary: #c62828;
-      --primary-deep: #8e1b1b;
-      --pink: #df8aa3;
-      --teal: #4fa4a1;
-      --shadow: 0 18px 50px rgba(0,0,0,0.06);
-      --radius: 24px;
-      --max: 1120px;
+      --soft: #faf8f5;
+      --warm: #fcfbf8;
+      --gold-deep: #b98d43;
+      --gold-pale: #fdf6e8;
+      --pink: #d98aa0;
+      --teal: #5f9f9f;
+      --red: #8e1b1b;
+      --shadow: 0 8px 24px rgba(0,0,0,0.05);
+      --max: 1100px;
     }
 
     * { box-sizing: border-box; }
@@ -29,267 +31,98 @@
 
     body {
       margin: 0;
-      font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--text);
-      line-height: 1.7;
+      font-family: Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       background-image:
-        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.92), transparent 34%),
-        radial-gradient(circle at 80% 0%, rgba(255,255,255,0.72), transparent 28%),
-        linear-gradient(rgba(255,255,255,0.88), rgba(252,251,248,0.96)),
-        repeating-linear-gradient(
-          0deg,
-          rgba(196,182,160,0.035) 0px,
-          rgba(196,182,160,0.035) 1px,
-          transparent 1px,
-          transparent 6px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(196,182,160,0.025) 0px,
-          rgba(196,182,160,0.025) 1px,
-          transparent 1px,
-          transparent 8px
-        );
-      background-attachment: fixed;
+        repeating-linear-gradient(0deg, rgba(160,145,130,0.018) 0px, rgba(160,145,130,0.018) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 9px),
+        repeating-linear-gradient(90deg, rgba(160,145,130,0.012) 0px, rgba(160,145,130,0.012) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 11px),
+        linear-gradient(to bottom, #ffffff, #fefdfb);
     }
 
     a { color: inherit; text-decoration: none; }
+    strong { color: var(--text); font-weight: 700; }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
 
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
+    /* ── Typography ── */
+    h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    h1 { font-size: clamp(2.55rem, 5vw, 4rem); line-height: 1.04; }
+    h2 { font-size: clamp(1.86rem, 3vw, 2.45rem); line-height: 1.12; }
+    h3 { font-size: 1.2rem; line-height: 1.24; font-weight: 700; }
+    p { margin: 0; font-size: 1.03rem; line-height: 1.82; color: var(--muted); }
+    .lead { font-size: 1.1rem; line-height: 1.8; }
+    .kicker, .eyebrow { display: block; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
 
-    .mark {
-      display: inline-block;
-      font-size: 0.72em;
-      vertical-align: super;
-      margin-left: 1px;
-      line-height: 1;
-    }
+    /* ── Brand ── */
+    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
+    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; color: inherit; }
+    .nav .logo-word, .footer-links .logo-word, .kicker .logo-word, .eyebrow .logo-word { color: var(--gold-deep); }
+    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.40em); flex: 0 0 auto; }
+    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
+    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
+    .brand-plus .arm-top { top: 0; }
+    .brand-plus .arm-bottom { bottom: 0; }
+    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
+    .brand-plus .arm-left { left: 0; }
+    .brand-plus .arm-right { right: 0; }
+    .brand-plus::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0.09em; height: 0.09em; transform: translate(-50%,-50%); background: var(--pink); border-radius: 999px; z-index: 2; }
+    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
+    .nav .brand-plus, .btn-primary .brand-plus, .btn-secondary .brand-plus { transform: translateY(-0.31em); }
 
-    /* ── Nav ── */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(14px);
-      background: rgba(255,255,255,0.80);
-      border-bottom: 1px solid rgba(232,225,215,0.95);
-    }
+    /* ── Header ── */
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
+    .logo .brandmark { font-size: 1.95rem; }
+    .logo .logo-word { color: var(--text); }
+    .logo small { display: block; margin-top: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; }
+    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); transition: opacity 0.2s ease; }
+    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
+    .nav a:hover::after, .nav a.active::after { width: 100%; }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 16px 0;
-    }
+    /* ── Buttons ── */
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 6px; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
+    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
+    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    .btn-primary .logo-word { color: #fff; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
+    /* ── Page hero ── */
+    .page-hero { padding: 56px 0 42px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%), linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86)); }
+    .page-hero h1 { margin-top: 8px; margin-bottom: 16px; }
 
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      border: 1px solid rgba(198,40,40,0.16);
-      background: #fff;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-      flex-shrink: 0;
-    }
+    /* ── Content wrap ── */
+    .content-wrap { padding: 48px 0 60px; }
 
-    .crown-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      box-shadow: 0 0 0 6px rgba(198,40,40,0.08);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.08;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-
-    .brand-text .sub {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 18px;
-      font-size: 15px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary-deep);
-    }
-
-    /* ── Hero ── */
-    .page-hero {
-      padding: 88px 0 34px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.84);
-      color: var(--primary-deep);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2.8rem, 5vw, 4.4rem);
-      line-height: 1.04;
-      letter-spacing: -0.045em;
-      max-width: 900px;
-    }
-
-    .intro {
-      max-width: 680px;
-      color: var(--muted);
-      font-size: 19px;
-      margin: 0;
-    }
-
-    /* ── Two-column layout ── */
+    /* ── Founder layout — letter + sticky aside ── */
     .founder-layout {
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 40px;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
       align-items: start;
     }
 
-    .founder-aside {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      position: sticky;
-      top: 100px;
-    }
-
-    /* ── Journey timeline ── */
-    .journey-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin-bottom: 16px;
-    }
-
-    .journey-title {
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    .journey-step {
-      display: flex;
-      gap: 16px;
-      position: relative;
-    }
-
-    .journey-step:not(.last) { padding-bottom: 24px; }
-
-    .journey-dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-top: 4px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .journey-dot.red  { background: var(--primary); box-shadow: 0 0 0 4px rgba(198,40,40,0.12); }
-    .journey-dot.pink { background: var(--pink);    box-shadow: 0 0 0 4px rgba(223,138,163,0.15); }
-    .journey-dot.teal { background: var(--teal);    box-shadow: 0 0 0 4px rgba(79,164,161,0.15); }
-
-    .journey-line {
-      position: absolute;
-      left: 6px;
-      top: 18px;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--line), transparent);
-    }
-
-    .journey-content { flex: 1; min-width: 0; }
-
-    .journey-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .journey-content p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── Letter body ── */
-    .section {
-      padding: 24px 0 40px;
-    }
-
-    .letter {
-      max-width: 680px;
-    }
-
+    /* ── Letter ── */
     .letter p {
-      font-size: 17px;
+      font-size: 1.08rem;
+      line-height: 1.88;
       color: var(--muted);
       margin: 0 0 22px;
-      line-height: 1.8;
     }
+    .letter p:last-child { margin-bottom: 0; }
 
-    .letter p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ── Section divider — three dots ── */
+    /* ── Story break — three dots ── */
     .story-break {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin: 32px 0;
+      margin: 30px 0;
     }
-
     .story-break span {
       width: 6px;
       height: 6px;
@@ -297,247 +130,259 @@
       background: var(--line);
       display: block;
     }
-
+    .story-break span.red  { background: var(--red); }
     .story-break span.pink { background: var(--pink); }
     .story-break span.teal { background: var(--teal); }
-    .story-break span.red  { background: var(--primary); }
+
+    /* ── Signature block ── */
+    .signature-block {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 36px;
+      padding: 24px 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(252,251,248,0.88);
+      box-shadow: var(--shadow);
+    }
+    .sig-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-deep), var(--gold-pale));
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.02em;
+    }
+    .sig-name { display: block; font-size: 1.05rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; line-height: 1.2; }
+    .sig-title { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
+
+    /* ── Aside ── */
+    .founder-aside {
+      position: sticky;
+      top: 88px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
 
     /* ── Pull quote ── */
     .pull-quote {
-      background: var(--surface);
       border: 1px solid var(--line);
-      border-left: 4px solid var(--pink);
-      border-radius: var(--radius);
+      border-left: 2px solid rgba(217,138,160,0.45);
+      background: rgba(252,251,248,0.88);
+      border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 28px 32px;
-      margin: 36px 0;
-      max-width: 680px;
+      padding: 28px;
     }
-
     .pull-quote blockquote {
       margin: 0;
-      font-size: clamp(1.15rem, 2vw, 1.35rem);
-      line-height: 1.55;
-      letter-spacing: -0.02em;
+      font-size: clamp(1.1rem, 1.8vw, 1.28rem);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
       color: var(--text);
       font-style: italic;
     }
 
-    /* ── Signature block ── */
-    .signature-block {
-      background: var(--surface);
+    /* ── Journey card in aside ── */
+    .journey-card {
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      background: rgba(252,251,248,0.88);
+      border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 30px 32px;
-      max-width: 680px;
-      margin-top: 40px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      padding: 24px;
     }
-
-    .sig-avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--pink), var(--primary));
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      font-size: 15px;
-      color: white;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .sig-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .sig-name {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .sig-title {
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    /* ── Bottom nav ── */
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 40px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 20px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      text-align: center;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-deep));
-      color: white;
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.92);
-      border-color: var(--line);
-      color: var(--text);
-    }
+    .journey-title { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 20px; display: block; }
+    .journey-step { display: flex; gap: 14px; position: relative; }
+    .journey-step:not(:last-child) { padding-bottom: 20px; }
+    .journey-connector { display: flex; flex-direction: column; align-items: center; position: relative; }
+    .journey-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; position: relative; z-index: 1; }
+    .journey-dot.red  { background: var(--red);  box-shadow: 0 0 0 4px rgba(142,27,27,0.1); }
+    .journey-dot.pink { background: var(--pink); box-shadow: 0 0 0 4px rgba(217,138,160,0.15); }
+    .journey-dot.teal { background: var(--teal); box-shadow: 0 0 0 4px rgba(95,159,159,0.15); }
+    .journey-step:not(:last-child) .journey-connector::after { content: ''; position: absolute; top: 16px; bottom: -4px; left: 5px; width: 1px; background: var(--line); }
+    .journey-label { display: block; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 3px; line-height: 1.2; }
+    .journey-content p { font-size: 0.86rem; line-height: 1.6; color: var(--muted); margin: 0; }
 
     /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0 50px;
-      color: var(--muted);
-      margin-top: 40px;
-    }
+    .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
+    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
+    .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { color: var(--gold-deep); }
 
-    .small { font-size: 14px; }
-
-    @media (max-width: 820px) {
-      .nav { flex-wrap: wrap; }
-      .nav-links { width: 100%; gap: 12px; }
-      .btn-row { flex-direction: column; align-items: stretch; }
-      .signature-block { flex-direction: column; align-items: flex-start; }
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
       .founder-layout { grid-template-columns: 1fr; }
       .founder-aside { position: static; }
+    }
+    @media (max-width: 760px) {
+      .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .nav { width: 100%; justify-content: flex-start; gap: 12px 16px; }
+      .page-hero { padding: 38px 0 30px; }
+      .content-wrap { padding: 36px 0 48px; }
+      .signature-block { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
+      h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container nav">
-      <a class="brand" href="index.html">
-        <div class="brand-mark"><span class="crown-dot"></span></div>
-        <div class="brand-text">
-          naræ International Foundation
-          <span class="sub">naræ<span class="mark">+</span></span>
-        </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="narae International Foundation home">
+        <span class="brandmark">
+          <span class="logo-word">naræ</span>
+          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
+        </span>
+        <small>narae International Foundation</small>
       </a>
-      <div class="nav-links">
+      <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="founder.html" class="active">Founder</a>
-        <a href="about.html">About naræ<span class="mark">+</span></a>
-        <a href="program.html">Program Approach</a>
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
+        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
         <a href="community.html">Ways to Be Part</a>
-        <a href="crane-project.html">1000 Crane Project</a>
+        <a href="founder.html" class="active">Founder</a>
         <a href="leadership.html">Leadership</a>
-      </div>
+      </nav>
     </div>
-  </div>
+  </header>
 
   <main>
+
+    <!-- Page hero -->
     <section class="page-hero">
       <div class="container">
-        <div class="eyebrow">From the Founder</div>
-        <h1>Why I created naræ<span class="mark">+</span></h1>
-        <p class="intro">A personal message about cancer, healing, cultural identity, and the question that started it all.</p>
+        <p class="kicker">From the Founder</p>
+        <h1>Why I created <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h1>
+        <p class="lead" style="margin-top:16px; max-width:620px;">A personal message about cancer, healing, cultural identity, and the question that started it all.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="founder-layout">
+    <div class="container content-wrap">
+      <div class="founder-layout">
 
-          <!-- Left: letter -->
-          <div class="letter">
+        <!-- Left: the letter -->
+        <div class="letter">
 
-            <!-- Act 1: Cancer -->
-            <p>
-              Cancer. I grew up knowing what that word meant. I watched people I loved face it and not come back.
-            </p>
-            <p>
-              I never imagined it would come for me. There was no genetic warning, no reason to expect it. And then it did — not once, but twice. My very first mammogram was a diagnosis.
-            </p>
+          <p>Cancer. I grew up knowing what that word meant. I watched people I loved face it, and some of them did not come back.</p>
+          <p>I never imagined it would come for me. There was no genetic warning. No reason to expect it.</p>
+          <p>And then it did — not once, but twice. My very first mammogram was a diagnosis.</p>
 
-            <div class="story-break">
-              <span class="red"></span><span></span><span></span>
+          <div class="story-break"><span class="red"></span><span></span><span></span></div>
+
+          <p>During chemotherapy, someone reached out asking for my help. I almost said no — I was very sick, I was tired, and it didn't seem like the right time. But something inside told me to try.</p>
+          <p>I'm glad I did. It gave me a good distraction. It gave me renewed purpose. And somewhere in that giving, I discovered strength I didn't know I still had.</p>
+          <p>That was the moment I understood that giving — volunteerism — was part of healing for me. Not a side effect of recovery. The thing itself.</p>
+          <p>That moment stayed with me. It made me start asking a deeper question about healing — and about who is able to access support in the first place.</p>
+
+          <div class="story-break"><span></span><span class="pink"></span><span></span></div>
+
+          <p>As a Korean immigrant, I know what it feels like to navigate a world that wasn't built for you. I know the quiet habit of not asking for help — of figuring things out alone, of not wanting to be a burden to anyone. I still remember when speaking to a store cashier required great courage. That feeling stays with you longer than you expect.</p>
+          <p>And then I wondered — where were the women like me? In the waiting rooms, in the support groups, I didn't see them. Not because they didn't exist — but because many immigrant and culturally diverse women never enter those spaces. The language barriers, the cultural differences, the deeply ingrained habit of staying quiet — it all keeps them away.</p>
+          <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> was born from that question — and from connecting the dots of everything I had lived. It exists so that those women can feel understood, supported, and less alone. And when they are ready, they too may choose to pass that forward — discovering strength in the act of giving.</p>
+          <p style="margin-top:22px; font-style:italic; color:var(--text);">That question became <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
+
+          <div class="story-break"><span></span><span></span><span class="teal"></span></div>
+
+          <!-- Signature -->
+          <div class="signature-block">
+            <div class="sig-avatar">JB</div>
+            <div>
+              <span class="sig-name">Jihwan M. Baek</span>
+              <span class="sig-title">Founder, naræ International Foundation</span>
+            </div>
+          </div>
+
+          <!-- Bottom buttons -->
+
+        </div>
+
+        <!-- Right: sticky aside -->
+        <div class="founder-aside">
+
+          <!-- Pull quote -->
+          <div class="pull-quote">
+            <blockquote>"That was the moment I understood that giving was part of healing for me. Not a side effect of recovery. The thing itself."</blockquote>
+          </div>
+
+          <!-- Journey timeline -->
+          <div class="journey-card">
+            <span class="journey-title">The journey</span>
+
+            <div class="journey-step">
+              <div class="journey-connector">
+                <div class="journey-dot red"></div>
+              </div>
+              <div class="journey-content">
+                <span class="journey-label">Witness</span>
+                <p>Cancer in family. Then her own diagnosis — twice. First mammogram, first answer.</p>
+              </div>
             </div>
 
-            <!-- Act 2: Volunteer turning point -->
-            <p>
-              During chemotherapy, someone reached out asking for my help. I almost said no — I was very sick, I was tired, and it didn't seem like the right time. But something inside told me to try.
-            </p>
-            <p>
-              I'm glad I did. It gave me a good distraction. It gave me renewed purpose. And somewhere in the giving, I found strength I didn't know I still had.
-            </p>
-
-            <div class="story-break">
-              <span></span><span class="pink"></span><span></span>
+            <div class="journey-step">
+              <div class="journey-connector">
+                <div class="journey-dot pink"></div>
+              </div>
+              <div class="journey-content">
+                <span class="journey-label">Belong &amp; Renew</span>
+                <p>Chose to help someone else during chemotherapy. Found that giving was not separate from healing — it was the healing.</p>
+              </div>
             </div>
 
-            <!-- Act 3: Immigrant identity + the question -->
-            <p>
-              That realization opened my eyes to something else. As a Korean immigrant, I know what it feels like to navigate a world that wasn't built for you. I know the quiet habit of not asking for help — of figuring things out alone, of not wanting to be a burden to anyone. I still remember when speaking to a store cashier required great courage. That feeling stays with you, nearly forever.
-            </p>
-            <p>
-              And then I wondered — where were the women like me? In the waiting rooms, in the support groups, I didn't see them. Not because they didn't exist. But because immigrant women, culturally diverse women, often don't show up to these spaces. The language barriers, the cultural differences, the deeply ingrained habit of staying quiet — it all keeps them away.
-            </p>
-            <p>
-              naræ<span class="mark">+</span> was born from that question — and from connecting the dots of everything I had lived. It exists so that those women can feel understood, supported, and less alone. And when they are ready, so they too can pass that care forward — and find healing in the giving.
-            </p>
-
-            <div class="story-break">
-              <span></span><span></span><span class="teal"></span>
+            <div class="journey-step">
+              <div class="journey-connector">
+                <div class="journey-dot teal"></div>
+              </div>
+              <div class="journey-content">
+                <span class="journey-label">The insight</span>
+                <p>Immigrant and culturally diverse women were absent from support spaces — not by choice, but by barrier.</p>
+              </div>
             </div>
 
-            <!-- Signature -->
-            <div class="signature-block">
-              <div class="sig-avatar">JB</div>
-              <div class="sig-text">
-                <span class="sig-name">Jihwan M. Baek</span>
-                <span class="sig-title">Founder, naræ International Foundation</span>
+            <div class="journey-step last">
+              <div class="journey-connector">
+                <div class="journey-dot" style="background:var(--gold-deep);box-shadow:0 0 0 4px rgba(185,141,67,0.15);"></div>
+              </div>
+              <div class="journey-content">
+                <span class="journey-label">Walk Beside — Give Forward</span>
+                <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — a foundation built from lived experience, so others can be held, renewed, and in time, give forward.</p>
               </div>
             </div>
 
           </div>
 
-          <!-- Right: pull quote only -->
-          <div class="founder-aside">
-
-            <div class="pull-quote">
-              <blockquote>
-                "That was the moment I understood that giving — volunteerism — was part of healing for me. Not a side effect of recovery. The thing itself."
-              </blockquote>
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- Bottom nav -->
-        <div class="btn-row">
-          <a class="btn btn-secondary" href="about.html">About naræ<span class="mark">+</span></a>
-          <a class="btn btn-secondary" href="program.html">Program Approach</a>
-          <a class="btn btn-primary" href="community.html">Ways to Be Part</a>
         </div>
 
       </div>
-    </section>
+
+      <div class="btn-row" style="margin-top:40px;">
+        <a href="community.html" class="btn-primary">Ways to Be Part</a>
+      </div>
+
+    </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="small">
-        © 2026 naræ International Foundation. All rights reserved.<br />
-        Maryland nonprofit · 501(c)(3) pending<br />
-        Giving opportunities coming soon — stay connected.<br />
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 narae International Foundation. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
+        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
+        <a href="community.html">Ways to Be Part</a>
+        <a href="founder.html">Founder</a>
+        <a href="leadership.html">Leadership</a>
+      </div>
+    </div>
+  </footer>
 
-        <a href="/cdn-cgi/l/email-protection#1f777a7373705f717e6d7e7a79706a717b7e6b76707131706d78" style="color:var(--primary-deep);"><span class="__cf_email__" data-cfe
+</body>
+</html>
