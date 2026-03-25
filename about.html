@@ -107,7 +107,6 @@
     /* ── Cards ── */
     .card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); padding: 28px; border-radius: 18px; box-shadow: var(--shadow); }
     .card h2 { margin-top: 6px; margin-bottom: 14px; }
-    .card h3 { margin-top: 6px; margin-bottom: 12px; }
     .card p + p { margin-top: 10px; }
     .card-accent-gold { border-left: 2px solid rgba(185,141,67,0.45); }
     .card-accent-pink  { border-left: 2px solid rgba(217,138,160,0.45); }
@@ -125,21 +124,33 @@
     .plus-arm.teal { background: var(--teal); }
 
     /* ── Symbol list — collapsible ── */
-    .symbol-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 28px; }
-    .symbol-item { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.9); transition: background 0.18s ease; }
-    .symbol-item:last-child { border-bottom: none; }
+    .symbol-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 12px; }
+
+    .symbol-item { background: rgba(255,255,255,0.9); transition: background 0.18s ease; }
+    .symbol-item + .symbol-item { border-top: 1px solid var(--line); }
     .symbol-item[open] { background: var(--warm); }
     .symbol-item:hover { background: var(--warm); }
-    .symbol-item summary { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; list-style: none; gap: 16px; user-select: none; }
+
+    .symbol-item summary {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 26px; cursor: pointer; list-style: none;
+      gap: 16px; user-select: none;
+    }
     .symbol-item summary::-webkit-details-marker { display: none; }
-    .symbol-summary-left { display: flex; flex-direction: column; gap: 2px; }
+
+    .symbol-summary-left { display: flex; flex-direction: column; gap: 3px; }
     .symbol-subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
-    .symbol-title { font-size: 1.06rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .symbol-title { font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+
     .symbol-arrow { font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold-deep); transition: transform 0.2s ease; flex-shrink: 0; }
     .symbol-item[open] .symbol-arrow { transform: rotate(90deg); }
-    .symbol-body { padding: 0 24px 22px; }
-    .symbol-body p { font-size: 0.97rem; line-height: 1.78; color: var(--muted); }
+
+    .symbol-body { padding: 0 26px 24px; }
+    .symbol-body p { font-size: 0.97rem; line-height: 1.8; color: var(--muted); }
     .symbol-body p + p { margin-top: 10px; }
+
+    /* ── Breathing divider ── */
+    .breath { display: flex; align-items: center; justify-content: center; padding: 18px 0; color: var(--gold-deep); font-size: 0.7rem; letter-spacing: 0.3em; opacity: 0.55; user-select: none; }
 
     /* ── Footer ── */
     .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
@@ -222,6 +233,9 @@
         </div>
       </div>
 
+      <!-- Breathing divider -->
+      <div class="breath">✦</div>
+
       <!-- Three symbols — collapsible -->
       <div class="symbol-list">
 
@@ -234,8 +248,8 @@
             <span class="symbol-arrow">→</span>
           </summary>
           <div class="symbol-body">
-            <p>Across East Asian traditions, the red-crowned crane symbolizes grace, endurance, and longevity.</p>
-            <p>In <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, the crane represents quiet strength — the ability to remain dignified even through hardship. It reminds us that healing is not always loud or dramatic. Sometimes it is simply the steady presence of one life continuing forward.</p>
+            <p>Across East Asian traditions, the red-crowned crane symbolizes longevity, resilience, and quiet strength.</p>
+            <p>In <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, the crane represents dignity through hardship — the ability to continue forward even in uncertain seasons. Healing is not always dramatic. Often it is the quiet persistence of life continuing, one step at a time.</p>
           </div>
         </details>
 
@@ -248,8 +262,8 @@
             <span class="symbol-arrow">→</span>
           </summary>
           <div class="symbol-body">
-            <p>The crane in <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is folded in origami. Origami teaches that transformation happens slowly, fold by fold. Each fold changes the shape just a little, until something new begins to appear.</p>
-            <p>In the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community, healing often unfolds in the same way — through small moments of connection, rest, and belonging.</p>
+            <p>In <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, the crane is folded in origami. Origami teaches that transformation happens gradually, fold by fold. Each movement changes the shape just slightly, until something new begins to emerge.</p>
+            <p>Healing within the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community often unfolds the same way — through small moments of connection, rest, and belonging.</p>
           </div>
         </details>
 
@@ -262,12 +276,16 @@
             <span class="symbol-arrow">→</span>
           </summary>
           <div class="symbol-body">
-            <p>Embroidery is created thread by thread. It requires patience, intention, and care. What appears delicate is often the result of many careful stitches working together.</p>
-            <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grows in the same spirit. Community is not built quickly. It is shaped over time through presence, generosity, and women quietly walking beside one another.</p>
+            <p>Embroidery is created slowly, thread by thread. Each stitch may seem small on its own, yet together they form a pattern of care and meaning.</p>
+            <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grows in this same spirit. Community is not built quickly. It is formed through presence, generosity, and women quietly walking beside one another.</p>
+            <p style="margin-top:10px; font-style:italic; color:var(--text);">In time, wings remember how to open.</p>
           </div>
         </details>
 
       </div>
+
+      <!-- Breathing divider -->
+      <div class="breath">✦</div>
 
       <!-- The plus mark -->
       <div class="full-card">
@@ -291,7 +309,7 @@
         <div class="card card-accent-teal">
           <p class="kicker">What it stands for</p>
           <h2>A foundation shaped by care and rebuilding</h2>
-          <p>From these symbols grows the spirit of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>: a community where support is received with dignity and, in time, may be shared with purpose.</p>
+          <p>From these symbols grows the spirit of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>: a community where support is received with dignity and, in time, may also become support shared with purpose.</p>
           <p style="margin-top:10px;">It honors the whole person: story, identity, hardship, resilience, and the possibility of beginning again.</p>
           <p style="margin-top:10px;">At its heart is a quiet but steady belief: we are shaped by what we survive, but we also help shape what comes next.</p>
         </div>
