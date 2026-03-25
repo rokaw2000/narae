@@ -114,9 +114,9 @@
     .card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); padding: 28px; border-radius: 18px; box-shadow: var(--shadow); }
     .card h2 { margin-top: 6px; margin-bottom: 14px; }
     .card h3 { margin-top: 0; margin-bottom: 12px; }
-    .card-accent-pink { border-left: 3px solid var(--pink); }
-    .card-accent-teal { border-left: 3px solid var(--teal); }
-    .card-accent-gold { border-left: 3px solid var(--gold-deep); }
+    .card-accent-pink { border-left: 2px solid rgba(217,138,160,0.45); }
+    .card-accent-teal { border-left: 2px solid rgba(95,159,159,0.45); }
+    .card-accent-gold { border-left: 2px solid rgba(185,141,67,0.45); }
 
     /* ── Role items — expandable ── */
     .role-list { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
@@ -129,6 +129,55 @@
     .role-arrow { font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold-deep); transition: transform 0.2s ease; flex-shrink: 0; }
     .role-item[open] .role-arrow { transform: rotate(90deg); }
     .role-detail { font-size: 0.94rem; line-height: 1.74; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+
+    /* ── Crane fill image ── */
+    .crane-fill-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: opacity 0.35s ease, max-height 0.45s ease;
+      max-height: 320px;
+      opacity: 1;
+      margin-top: 18px;
+    }
+    .crane-fill-wrap.hidden {
+      opacity: 0;
+      max-height: 0;
+      margin-top: 0;
+      pointer-events: none;
+    }
+    .crane-fill-wrap img {
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      display: block;
+      filter: grayscale(18%) sepia(12%);
+      opacity: 0.72;
+    }
+    /* ── Support block ── */
+    .support-block { margin-bottom: 20px; }
+    .support-row { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .support-row:first-child { padding-top: 0; }
+    .support-dot { flex-shrink: 0; width: 9px; height: 9px; border-radius: 50%; margin-top: 6px; }
+    .support-dot-gold { background: var(--gold-deep); box-shadow: 0 0 0 4px rgba(185,141,67,0.12); }
+    .support-dot-pink { background: var(--pink); box-shadow: 0 0 0 4px rgba(217,138,160,0.14); }
+    .support-dot-teal { background: var(--teal); box-shadow: 0 0 0 4px rgba(95,159,159,0.14); }
+    .support-label { font-size: 0.97rem; font-weight: 700; color: var(--text); line-height: 1.3; }
+    .support-sub { font-size: 0.88rem; color: var(--muted); margin-top: 2px; line-height: 1.5; font-family: Georgia, serif; }
+    .support-note { margin-top: 14px; font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.6; }
+
+    /* ── Giving card ── */
+    .giving-card { background: var(--gold-pale); border: 1px solid rgba(185,141,67,0.22); border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+    .giving-label-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .giving-circles { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+    .giving-circle { width: 11px; height: 11px; border-radius: 50%; }
+    .giving-circle-1 { background: var(--gold-deep); opacity: 1; }
+    .giving-circle-2 { background: var(--gold-deep); opacity: 0.55; }
+    .giving-circle-3 { background: var(--gold-deep); opacity: 0.25; }
+    .giving-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); margin: 0; }
+    .giving-body { font-size: 0.93rem; line-height: 1.72; color: var(--muted); margin: 0; }
 
     /* ── Quote card ── */
     .card-quote { display: flex; flex-direction: column; justify-content: center; text-align: center; margin-top: auto; }
@@ -259,7 +308,12 @@
 
             </div>
 
-            <a href="mailto:hello@naraefoundation.org" class="section-link">Get in touch →</a>
+            <!-- Crane fills the whitespace when roles are collapsed -->
+            <div class="crane-fill-wrap" id="craneFill">
+              <img src="crane-1000.png" alt="" aria-hidden="true" />
+            </div>
+
+            <a href="/cdn-cgi/l/email-protection#650d0009090a250b04170400030a100b0104110c0a0b4b0a1702" class="section-link">Get in touch →</a>
           </section>
         </div>
 
@@ -268,19 +322,61 @@
             <p class="kicker">Support &amp; Giving</p>
             <h2>How support can take shape.</h2>
 
-            <div class="card card-accent-gold" style="margin-bottom:16px;">
-              <h3>What support looks like</h3>
-              <p>Support may include time, language access, creative work, transportation, wellness offerings, or professional expertise.</p>
-              <p style="margin-top:10px;">Not all support is financial, but all of it matters.</p>
+            <!-- Support types — icon list -->
+            <div class="support-block">
+              <div class="support-row">
+                <span class="support-dot support-dot-gold"></span>
+                <div>
+                  <div class="support-label">Time &amp; Presence</div>
+                  <div class="support-sub">Showing up, listening, walking beside.</div>
+                </div>
+              </div>
+              <div class="support-row">
+                <span class="support-dot support-dot-pink"></span>
+                <div>
+                  <div class="support-label">Language &amp; Cultural Access</div>
+                  <div class="support-sub">Translation, interpretation, cultural bridging.</div>
+                </div>
+              </div>
+              <div class="support-row">
+                <span class="support-dot support-dot-teal"></span>
+                <div>
+                  <div class="support-label">Skills &amp; Expertise</div>
+                  <div class="support-sub">Legal, medical, creative, organizational knowledge.</div>
+                </div>
+              </div>
+              <div class="support-row">
+                <span class="support-dot support-dot-gold"></span>
+                <div>
+                  <div class="support-label">Practical Help</div>
+                  <div class="support-sub">Transportation, meals, coordination, logistics.</div>
+                </div>
+              </div>
+              <div class="support-row">
+                <span class="support-dot support-dot-pink"></span>
+                <div>
+                  <div class="support-label">Financial Generosity</div>
+                  <div class="support-sub">Sustaining the work so support can continue.</div>
+                </div>
+              </div>
+              <p class="support-note">Not all support is financial, but all of it matters.</p>
             </div>
 
-            <div class="card card-accent-teal" style="margin-bottom:16px;">
-              <h3>Growing with intention</h3>
-              <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a Maryland nonprofit with 501(c)(3) status pending.</p>
-              <p style="margin-top:10px;">Giving opportunities will be introduced as the foundation grows in a way that can steward support responsibly.</p>
+            <!-- Giving status -->
+            <div class="giving-card">
+              <div class="giving-label-wrap">
+                <div class="giving-circles">
+                  <span class="giving-circle giving-circle-1"></span>
+                  <span class="giving-circle giving-circle-2"></span>
+                  <span class="giving-circle giving-circle-3"></span>
+                </div>
+                <p class="giving-label">501(c)(3) Status Pending</p>
+              </div>
+              <p class="giving-body"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a Maryland nonprofit. Giving opportunities will be introduced as the foundation grows — in a way that can steward support responsibly.</p>
             </div>
 
-            <div class="card card-quote">
+            <!-- Quote -->
+            <div class="card card-quote" style="margin-top:auto;">
               <blockquote>"Care can begin with one person, but it does not have to end there."</blockquote>
               <cite><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></cite>
             </div>
@@ -294,7 +390,7 @@
       <div class="contact-card">
         <h2>Start the conversation</h2>
         <p>Whether you are seeking connection, offering support, or exploring collaboration — you are welcome to reach out.</p>
-        <a class="contact-email" href="mailto:hello@naraefoundation.org">hello@naraefoundation.org</a>
+        <a class="contact-email" href="/cdn-cgi/l/email-protection#2f474a4343406f414e5d4e4a49405a414b4e5b46404101405d48"><span class="__cf_email__" data-cfemail="127a777e7e7d527c73607377747d677c7673667b7d7c3c7d6075">[email&#160;protected]</span></a>
       </div>
 
       <!-- Bottom buttons -->
@@ -320,5 +416,7 @@
     </div>
   </footer>
 
-</body>
-</html>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    (function() {
+      var roles = document.querySelectorAll('.role-item');
+      var crane = document.getElementById('craneF
