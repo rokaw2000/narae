@@ -242,6 +242,7 @@
       .main-grid { grid-template-columns: 1fr; }
       .main-left { padding-right: 0; border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 30px; }
       .main-right { padding-top: 26px; padding-bottom: 30px; }
+      .hero-grid { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 760px) {
       .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
@@ -279,22 +280,37 @@
 
   <main>
 
-    <!-- Page hero -->
+    <!-- Page hero: text left, crane card right -->
     <section class="page-hero">
       <div class="container">
-        <p class="kicker">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</p>
-        <h1>A calm, culturally grounded <span style="color:var(--red);font-weight:700;">program experience.</span></h1>
-        <p class="lead" style="margin-top:16px; max-width:680px;">
-          <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is created for women navigating breast and gynecologic cancers — especially <strong>immigrant and culturally diverse women</strong> whose experiences may be shaped by language, migration, identity, and the feeling of being unseen.
-        </p>
-        <div class="hero-actions">
-          <a href="community.html" class="btn-primary">Ways to Be Part</a>
-          <a href="about.html" class="btn-secondary">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</a>
+        <div style="display:grid; grid-template-columns:1.08fr 0.92fr; gap:30px; align-items:stretch;">
+
+          <!-- Left: hero text -->
+          <div>
+            <p class="kicker">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</p>
+            <h1>A calm, culturally grounded <span style="color:var(--red);font-weight:700;">program experience.</span></h1>
+            <p class="lead" style="margin-top:16px;">
+              <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is created for women navigating breast and gynecologic cancers — especially <strong>immigrant and culturally diverse women</strong> whose experiences may be shaped by language, migration, identity, and the feeling of being unseen.
+            </p>
+            <div class="hero-actions">
+              <a href="community.html" class="btn-primary">Ways to Be Part</a>
+              <a href="about.html" class="btn-secondary">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</a>
+            </div>
+          </div>
+
+          <!-- Right: crane card -->
+          <div class="crane-card" style="margin:0; display:flex; flex-direction:column; justify-content:center;">
+            <p class="kicker">The 1000 Crane Project</p>
+            <h3 style="margin:6px 0 10px; font-size:1.32rem;">A living expression of care.</h3>
+            <p>A shared act of hope, remembrance, and solidarity woven through the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> experience. A crane may be folded for oneself, for another, or for the community.</p>
+            <a href="crane-project.html" class="section-link" style="margin-top:14px;">Learn more →</a>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Main grid: stages left, formats + crane right -->
+    <!-- Main grid: stages left, formats + CTA right -->
     <div class="container">
       <div class="main-grid">
 
@@ -351,17 +367,9 @@
           </section>
         </div>
 
-        <!-- Right: what it may include + crane + CTA -->
+        <!-- Right: formats + CTA -->
         <div class="main-right">
           <section class="right-panel">
-            <!-- Crane project — top of right panel -->
-            <div class="crane-card" style="margin-bottom:20px;">
-              <p class="kicker">The 1000 Crane Project</p>
-              <h3>A living expression of care.</h3>
-              <p>A shared act of hope, remembrance, and solidarity woven through the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> experience. A crane may be folded for oneself, for another, or for the community.</p>
-              <a href="crane-project.html" class="section-link" style="margin-top:12px;">Learn more →</a>
-            </div>
-
             <p class="kicker">What <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> May Include</p>
             <h2>What belonging can look like.</h2>
 
