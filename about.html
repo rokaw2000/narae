@@ -4,10 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About naræ+ | narae International Foundation</title>
-  <meta
-    name="description"
-    content="The meaning behind naræ+ — the name, the red-crowned crane, origami, embroidery, and the raised plus mark. An identity built around survival, care, and renewal."
-  />
+  <meta name="description" content="The meaning behind naræ+ — the name, the red-crowned crane, origami, embroidery, and the raised plus mark. An identity built around survival, care, and renewal." />
 
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
@@ -39,536 +36,129 @@
       -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(160,145,130,0.018) 0px,
-          rgba(160,145,130,0.018) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 9px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(160,145,130,0.012) 0px,
-          rgba(160,145,130,0.012) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 11px
-        ),
+        repeating-linear-gradient(0deg, rgba(160,145,130,0.018) 0px, rgba(160,145,130,0.018) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 9px),
+        repeating-linear-gradient(90deg, rgba(160,145,130,0.012) 0px, rgba(160,145,130,0.012) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 11px),
         linear-gradient(to bottom, #ffffff, #fefdfb);
     }
 
     a { color: inherit; text-decoration: none; }
     strong { color: var(--text); font-weight: 700; }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
 
-    .container {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    h1 { font-size: clamp(2.55rem, 5vw, 4rem); line-height: 1.04; }
+    h2 { font-size: clamp(1.86rem, 3vw, 2.45rem); line-height: 1.12; }
+    h3 { font-size: 1.2rem; line-height: 1.24; font-weight: 700; }
+    p { margin: 0; font-size: 1.03rem; line-height: 1.82; color: var(--muted); }
+    .lead { font-size: 1.1rem; line-height: 1.8; }
 
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
+    .kicker, .eyebrow { display: block; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
 
-    h1 {
-      font-size: clamp(2.55rem, 5vw, 4rem);
-      line-height: 1.04;
-    }
-
-    h2 {
-      font-size: clamp(1.86rem, 3vw, 2.45rem);
-      line-height: 1.12;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      line-height: 1.24;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 0;
-      font-size: 1.03rem;
-      line-height: 1.82;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .kicker,
-    .eyebrow {
-      display: block;
-      margin: 0 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
-
-    /* ── Brand / plus mark ── */
-    .brandmark {
-      display: inline-flex;
-      align-items: baseline;
-      white-space: nowrap;
-      font-weight: 700;
-      text-transform: none !important;
-      letter-spacing: -0.03em !important;
-      font-variant: normal;
-    }
-
-    .logo-word {
-      display: inline-block;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      text-transform: none !important;
-      font-variant: normal;
-      color: inherit;
-    }
-
-    .nav .logo-word,
-    .footer-links .logo-word,
-    .kicker .logo-word,
-    .eyebrow .logo-word {
-      color: var(--gold-deep);
-    }
-
-    .brand-plus {
-      position: relative;
-      display: inline-block;
-      width: 0.34em;
-      height: 0.34em;
-      margin-left: 0.015em;
-      transform: translateY(-0.40em);
-      flex: 0 0 auto;
-    }
-
-    .brand-plus .arm {
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom,
-    .brand-plus .arm-left {
-      background: var(--pink);
-    }
-
-    .brand-plus .arm-right {
-      background: var(--teal);
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom {
-      left: 50%;
-      width: 0.085em;
-      height: 0.16em;
-      transform: translateX(-50%);
-    }
-
+    /* ── Brand ── */
+    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
+    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; color: inherit; }
+    .nav .logo-word, .footer-links .logo-word, .kicker .logo-word { color: var(--gold-deep); }
+    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.40em); flex: 0 0 auto; }
+    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
+    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
     .brand-plus .arm-top { top: 0; }
     .brand-plus .arm-bottom { bottom: 0; }
-
-    .brand-plus .arm-left,
-    .brand-plus .arm-right {
-      top: 50%;
-      width: 0.16em;
-      height: 0.085em;
-      transform: translateY(-50%);
-    }
-
+    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
     .brand-plus .arm-left { left: 0; }
     .brand-plus .arm-right { right: 0; }
-
-    .brand-plus::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 0.09em;
-      height: 0.09em;
-      transform: translate(-50%, -50%);
-      background: var(--pink);
-      border-radius: 999px;
-      z-index: 2;
-    }
-
-    .brand-inline {
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-    }
-
-    .section-link .brandmark,
-    .text-link .brandmark,
-    .btn-primary .brandmark,
-    .btn-secondary .brandmark,
-    .nav .brandmark {
-      font-size: 1.07em;
-    }
-
-    .section-link .brand-plus,
-    .text-link .brand-plus,
-    .btn-primary .brand-plus,
-    .btn-secondary .brand-plus,
-    .nav .brand-plus {
-      transform: translateY(-0.31em);
-    }
+    .brand-plus::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0.09em; height: 0.09em; transform: translate(-50%,-50%); background: var(--pink); border-radius: 999px; z-index: 2; }
+    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
+    .nav .brand-plus, .btn-primary .brand-plus, .btn-secondary .brand-plus, .section-link .brand-plus { transform: translateY(-0.31em); }
 
     /* ── Header ── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo .brandmark {
-      font-size: 1.95rem;
-    }
-
-    .logo .logo-word {
-      color: var(--text);
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--text);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 2px;
-      color: var(--gold-deep);
-      transition: opacity 0.2s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--gold-deep);
-      transition: width 0.22s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      width: 100%;
-    }
-
-    /* ── Page hero ── */
-    .page-hero {
-      padding: 56px 0 42px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%),
-        linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86));
-    }
-
-    .page-hero h1 {
-      margin-top: 8px;
-      margin-bottom: 16px;
-    }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
+    .logo .brandmark { font-size: 1.95rem; }
+    .logo .logo-word { color: var(--text); }
+    .logo small { display: block; margin-top: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; }
+    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); transition: opacity 0.2s ease; }
+    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
+    .nav a:hover::after, .nav a.active::after { width: 100%; }
 
     /* ── Buttons ── */
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-    }
-
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 6px; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
+    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
+    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
     .btn-primary .logo-word { color: #fff; }
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
 
-    .btn-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 32px;
-    }
+    .section-link, .text-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; line-height: 1.2; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--gold-deep); }
+    .section-link:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
-    /* ── Section links ── */
-    .section-link,
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      line-height: 1.2;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-    }
-
-    .section-link:hover,
-    .text-link:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    /* ── Page hero ── */
+    .page-hero { padding: 56px 0 42px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%), linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86)); }
+    .page-hero h1 { margin-top: 8px; margin-bottom: 16px; }
 
     /* ── Content layout ── */
-    .content-wrap {
-      padding: 48px 0 60px;
-    }
-
-    /* Two-column panel */
-    .panel-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 28px;
-      margin-bottom: 28px;
-      align-items: stretch;
-    }
-
-    /* Three-column grid */
-    .tri-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 28px;
-      margin-bottom: 28px;
-    }
-
-    /* Full-width card */
-    .full-card {
-      margin-bottom: 28px;
-    }
+    .content-wrap { padding: 48px 0 60px; }
+    .panel-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 28px; margin-bottom: 28px; align-items: stretch; }
+    .full-card { margin-bottom: 28px; }
 
     /* ── Cards ── */
-    .card {
-      border: 1px solid var(--line);
-      background: rgba(252,251,248,0.88);
-      padding: 28px 28px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-    }
+    .card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); padding: 28px; border-radius: 18px; box-shadow: var(--shadow); }
+    .card h2 { margin-top: 6px; margin-bottom: 14px; }
+    .card h3 { margin-top: 6px; margin-bottom: 12px; }
+    .card p + p { margin-top: 10px; }
+    .card-accent-gold { border-left: 2px solid rgba(185,141,67,0.45); }
+    .card-accent-pink  { border-left: 2px solid rgba(217,138,160,0.45); }
+    .card-accent-teal  { border-left: 2px solid rgba(95,159,159,0.45); }
 
-    .card h2 {
-      margin-top: 6px;
-      margin-bottom: 14px;
-    }
-
-    .card h3 {
-      margin-top: 6px;
-      margin-bottom: 12px;
-    }
-
-    .card p + p {
-      margin-top: 10px;
-    }
-
-    /* Left accent borders */
-    .card-accent-gold  { border-left: 3px solid var(--gold-deep); }
-    .card-accent-pink  { border-left: 3px solid var(--pink); }
-    .card-accent-teal  { border-left: 3px solid var(--teal); }
-
-    /* Quote card */
-    .card-quote {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      background: rgba(252,251,248,0.88);
-    }
-
-    blockquote {
-      margin: 0 0 14px;
-      font-size: clamp(1.2rem, 2vw, 1.52rem);
-      line-height: 1.58;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      font-style: italic;
-    }
-
-    cite {
-      display: block;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      font-style: normal;
-    }
+    /* ── Quote card ── */
+    .card-quote { display: flex; flex-direction: column; justify-content: center; text-align: center; background: rgba(252,251,248,0.88); }
+    blockquote { margin: 0 0 14px; font-size: clamp(1.2rem, 2vw, 1.52rem); line-height: 1.58; letter-spacing: -0.01em; color: var(--text); font-style: italic; }
+    cite { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-style: normal; }
 
     /* ── Plus mark visual ── */
-    .plus-visual {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      margin: 14px 0 18px;
-    }
-
-    .plus-arm {
-      height: 3px;
-      width: 26px;
-      border-radius: 2px;
-    }
-
+    .plus-visual { display: flex; align-items: center; gap: 5px; margin: 14px 0 18px; }
+    .plus-arm { height: 3px; width: 26px; border-radius: 2px; }
     .plus-arm.pink { background: var(--pink); }
     .plus-arm.teal { background: var(--teal); }
 
-    /* ── Dot accent ── */
-    .dot-accent {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--gold-deep);
-      box-shadow: 0 0 0 5px rgba(185,141,67,0.12);
-      margin-bottom: 14px;
-    }
+    /* ── Symbol list — collapsible ── */
+    .symbol-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; margin-bottom: 28px; }
+    .symbol-item { border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.9); transition: background 0.18s ease; }
+    .symbol-item:last-child { border-bottom: none; }
+    .symbol-item[open] { background: var(--warm); }
+    .symbol-item:hover { background: var(--warm); }
+    .symbol-item summary { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; list-style: none; gap: 16px; user-select: none; }
+    .symbol-item summary::-webkit-details-marker { display: none; }
+    .symbol-summary-left { display: flex; flex-direction: column; gap: 2px; }
+    .symbol-subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
+    .symbol-title { font-size: 1.06rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .symbol-arrow { font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold-deep); transition: transform 0.2s ease; flex-shrink: 0; }
+    .symbol-item[open] .symbol-arrow { transform: rotate(90deg); }
+    .symbol-body { padding: 0 24px 22px; }
+    .symbol-body p { font-size: 0.97rem; line-height: 1.78; color: var(--muted); }
+    .symbol-body p + p { margin-top: 10px; }
 
     /* ── Footer ── */
-    .site-footer {
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      background: rgba(255,255,255,0.92);
-    }
-
-    .footer-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
+    .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
+    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
+    .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
     .footer-links a { color: var(--gold-deep); }
 
     /* ── Responsive ── */
-    @media (max-width: 980px) {
-      .panel-grid,
-      .tri-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
+    @media (max-width: 980px) { .panel-grid { grid-template-columns: 1fr; } }
     @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 16px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 12px 16px;
-      }
-
-      .page-hero {
-        padding: 38px 0 30px;
-      }
-
-      .content-wrap {
-        padding: 36px 0 48px;
-      }
-
-      .card {
-        padding: 22px 20px;
-      }
+      .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .nav { width: 100%; justify-content: flex-start; gap: 12px 16px; }
+      .page-hero { padding: 38px 0 30px; }
+      .content-wrap { padding: 36px 0 48px; }
+      .card { padding: 22px 20px; }
     }
-
     @media (max-width: 560px) {
-      .container,
-      .header-inner,
-      .footer-inner {
-        width: min(100% - 34px, var(--max));
-      }
-
-      h1 {
-        font-size: clamp(2.2rem, 10vw, 3.1rem);
-      }
+      .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
+      h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
   </style>
 </head>
@@ -579,16 +169,10 @@
       <a href="index.html" class="logo" aria-label="narae International Foundation home">
         <span class="brandmark">
           <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true">
-            <span class="arm arm-top"></span>
-            <span class="arm arm-right"></span>
-            <span class="arm arm-bottom"></span>
-            <span class="arm arm-left"></span>
-          </span>
+          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
         </span>
         <small>narae International Foundation</small>
       </a>
-
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html" class="active">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
@@ -618,51 +202,70 @@
       </div>
     </section>
 
-    <!-- Main content -->
     <div class="container content-wrap">
 
-      <!-- Name + Symbol -->
+      <!-- The name + mission -->
       <div class="panel-grid">
         <div class="card card-accent-gold">
           <p class="kicker">The name</p>
           <h2>The meaning of naræ</h2>
-          <p>In Korean, <strong>naræ (나래)</strong> means <strong>wings</strong>.</p>
-          <p style="margin-top:10px;">Wings suggest lift, protection, movement, and the quiet strength it takes to keep going through difficult seasons.</p>
-          <p style="margin-top:10px;">For this foundation, the name holds the image of someone who has been weighed down, yet still finds a way to gather herself and rise.</p>
+          <p><strong>naræ (나래)</strong> means <strong>wings</strong> in Korean.</p>
+          <p style="margin-top:10px;">The name reflects a quiet hope: that even in the midst of illness and uncertainty, something within a person can still rise, unfold, and move forward.</p>
+          <p style="margin-top:10px;">For this foundation, it holds the image of someone who has been weighed down, yet still finds a way to gather herself and rise.</p>
         </div>
 
         <div class="card">
-          <p class="kicker">The heart of the identity</p>
-          <h2>A symbol shaped with intention</h2>
-          <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is not decorative branding. It is an identity shaped around survival, care, memory, and renewal.</p>
-          <p style="margin-top:10px;">The crane, the folded form, the embroidery texture, and the raised plus mark were chosen to reflect a simple truth: healing and rebuilding do not happen instantly. They take shape with time, intention, and care.</p>
-          <p style="margin-top:10px;">The identity is meant to feel gentle, refined, resilient, and deeply human.</p>
+          <p class="kicker">The mission</p>
+          <h2>Who <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists for</h2>
+          <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists for immigrant and culturally diverse women navigating breast and gynecologic cancers whose experience is shaped not only by treatment, but also by culture, language, migration, and family roles.</p>
+          <p style="margin-top:10px;">Support here is not generic. It is grounded in dignity, understanding, and shared experience.</p>
         </div>
       </div>
 
-      <!-- Three symbols -->
-      <div class="tri-grid">
+      <!-- Three symbols — collapsible -->
+      <div class="symbol-list">
 
-        <div class="card">
-          <span class="dot-accent"></span>
-          <h3>The red-crowned crane</h3>
-          <p>The red-crowned crane is one of the most revered birds in East Asian culture, often associated with longevity, grace, integrity, and noble endurance.</p>
-          <p style="margin-top:10px;">Tall, watchful, and elegant, it carries strength without harshness. That is the kind of strength <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> honors.</p>
-        </div>
+        <details class="symbol-item">
+          <summary>
+            <div class="symbol-summary-left">
+              <span class="symbol-subtitle">Grace and endurance</span>
+              <span class="symbol-title">The Red-Crowned Crane</span>
+            </div>
+            <span class="symbol-arrow">→</span>
+          </summary>
+          <div class="symbol-body">
+            <p>Across East Asian traditions, the red-crowned crane symbolizes grace, endurance, and longevity.</p>
+            <p>In <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, the crane represents quiet strength — the ability to remain dignified even through hardship. It reminds us that healing is not always loud or dramatic. Sometimes it is simply the steady presence of one life continuing forward.</p>
+          </div>
+        </details>
 
-        <div class="card">
-          <span class="dot-accent"></span>
-          <h3>The meaning of origami</h3>
-          <p>Origami cranes are folded across Asian cultures as gestures of hope, prayer, and heartfelt wishing.</p>
-          <p style="margin-top:10px;">A crane is made <strong>fold by fold</strong>. That mirrors the way people rebuild after hardship: not all at once, but patiently, with intention.</p>
-        </div>
+        <details class="symbol-item">
+          <summary>
+            <div class="symbol-summary-left">
+              <span class="symbol-subtitle">Transformation, fold by fold</span>
+              <span class="symbol-title">Origami</span>
+            </div>
+            <span class="symbol-arrow">→</span>
+          </summary>
+          <div class="symbol-body">
+            <p>The crane in <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is folded in origami. Origami teaches that transformation happens slowly, fold by fold. Each fold changes the shape just a little, until something new begins to appear.</p>
+            <p>In the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community, healing often unfolds in the same way — through small moments of connection, rest, and belonging.</p>
+          </div>
+        </details>
 
-        <div class="card">
-          <span class="dot-accent"></span>
-          <h3>The embroidery texture</h3>
-          <p>The <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> mark is presented in an embroidered style, shaped <strong>thread by thread</strong>, not rushed.</p>
-          <p style="margin-top:10px;">That texture reflects how lives are remade after pain: carefully, deliberately, and with resilience that can still hold beauty.</p>
-        </div>
+        <details class="symbol-item">
+          <summary>
+            <div class="symbol-summary-left">
+              <span class="symbol-subtitle">Community, thread by thread</span>
+              <span class="symbol-title">Embroidery</span>
+            </div>
+            <span class="symbol-arrow">→</span>
+          </summary>
+          <div class="symbol-body">
+            <p>Embroidery is created thread by thread. It requires patience, intention, and care. What appears delicate is often the result of many careful stitches working together.</p>
+            <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grows in the same spirit. Community is not built quickly. It is shaped over time through presence, generosity, and women quietly walking beside one another.</p>
+          </div>
+        </details>
 
       </div>
 
@@ -688,7 +291,7 @@
         <div class="card card-accent-teal">
           <p class="kicker">What it stands for</p>
           <h2>A foundation shaped by care and rebuilding</h2>
-          <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> brings together cultural memory, lived experience, and purposeful service.</p>
+          <p>From these symbols grows the spirit of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>: a community where support is received with dignity and, in time, may be shared with purpose.</p>
           <p style="margin-top:10px;">It honors the whole person: story, identity, hardship, resilience, and the possibility of beginning again.</p>
           <p style="margin-top:10px;">At its heart is a quiet but steady belief: we are shaped by what we survive, but we also help shape what comes next.</p>
         </div>
