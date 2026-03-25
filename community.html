@@ -148,36 +148,26 @@
       margin-top: 0;
       pointer-events: none;
     }
-    @keyframes craneWave {
-      0%   { transform: translateY(0px)  translateX(0px)  rotate(0deg)    scale(1);    }
-      20%  { transform: translateY(-9px) translateX(3px)  rotate(1.2deg)  scale(1.02); }
-      40%  { transform: translateY(-5px) translateX(-4px) rotate(-0.8deg) scale(0.99); }
-      60%  { transform: translateY(-13px)translateX(2px)  rotate(1.5deg)  scale(1.03); }
-      80%  { transform: translateY(-6px) translateX(-2px) rotate(-0.5deg) scale(1.01); }
-      100% { transform: translateY(0px)  translateX(0px)  rotate(0deg)    scale(1);    }
+    @keyframes craneFlying {
+      0%   { transform: translateX(0px)   translateY(0px)   rotate(-1.5deg); }
+      15%  { transform: translateX(6px)   translateY(-9px)  rotate(-0.5deg); }
+      30%  { transform: translateX(12px)  translateY(-5px)  rotate(-2deg);   }
+      45%  { transform: translateX(6px)   translateY(-13px) rotate(-0.8deg); }
+      60%  { transform: translateX(14px)  translateY(-7px)  rotate(-2.2deg); }
+      75%  { transform: translateX(8px)   translateY(-11px) rotate(-0.6deg); }
+      90%  { transform: translateX(4px)   translateY(-4px)  rotate(-1.8deg); }
+      100% { transform: translateX(0px)   translateY(0px)   rotate(-1.5deg); }
     }
-    .logo-bg-box {
-      position: relative;
-      width: 280px;
-      max-width: 90%;
-      border-radius: 12px;
-      /* Exact match of body background */
-      background-color: #ffffff;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(160,145,130,0.018) 0px, rgba(160,145,130,0.018) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 9px),
-        repeating-linear-gradient(90deg, rgba(160,145,130,0.012) 0px, rgba(160,145,130,0.012) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 11px),
-        linear-gradient(to bottom, #ffffff, #fefdfb);
-      padding: 16px;
+    .crane-img {
+      display: block;
+      width: 300px;
+      max-width: 95%;
+      height: auto;
+      opacity: 0.22;
       user-select: none;
       pointer-events: none;
-      animation: craneWave 16s ease-in-out infinite;
-    }
-    .logo-bg-box img {
-      display: block;
-      width: 100%;
-      height: auto;
-      opacity: 0.18;
-      filter: grayscale(100%) contrast(0.8);
+      animation: craneFlying 18s ease-in-out infinite;
+      filter: drop-shadow(0 4px 12px rgba(185,141,67,0.08));
     }
     /* ── Support block ── */
     .support-block { margin-bottom: 20px; }
@@ -333,9 +323,7 @@
 
             <!-- Crane fills the whitespace when roles are collapsed -->
             <div class="logo-fill-wrap" id="craneFill">
-              <div class="logo-bg-box" id="craneLogo">
-                <img src="narae-logo.png" alt="" aria-hidden="true" />
-              </div>
+              <img class="crane-img" src="narae-logo-transparent.png" alt="" aria-hidden="true" />
             </div>
 
             <a href="mailto:hello@naraefoundation.org" class="section-link">Get in touch →</a>
