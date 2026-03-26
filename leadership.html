@@ -154,7 +154,37 @@
     .tba-dot { width: 44px; height: 44px; border-radius: 50%; border: 1px dashed var(--line); display: grid; place-items: center; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 1.1rem; flex-shrink: 0; }
     .tba-card p { font-size: 0.91rem; line-height: 1.68; color: var(--muted); font-style: italic; }
 
-    /* ── Footnote ── */
+    /* ── Collapsible bio ── */
+    .bio-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .bio-toggle.teal { color: var(--teal); }
+    .bio-toggle svg { transition: transform 0.25s ease; flex-shrink: 0; }
+    .bio-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+    .bio-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .bio-body.open {
+      max-height: 600px;
+      opacity: 1;
+    }
+    .bio-body p { margin-top: 10px; font-size: 0.91rem; line-height: 1.68; color: var(--muted); }
     .footnote { font-family: Arial, Helvetica, sans-serif; font-size: 0.86rem; line-height: 1.72; color: var(--muted); margin-bottom: 0; }
 
     /* ── Footer ── */
@@ -208,7 +238,7 @@
         <p class="kicker">Leadership &amp; Governance</p>
         <h1>Leadership</h1>
         <p class="lead" style="margin-top:16px; max-width:680px;">
-          <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is guided by a Board of Directors and an Advisory Board who bring their experience, judgment, and care to the mission and governance of the organization.
+          naræ International Foundation is guided by a Board of Directors and an Advisory Board who show up for this mission — with expertise, lived experience, and genuine purpose.
         </p>
       </div>
     </section>
@@ -227,38 +257,59 @@
           <div class="person-avatar avatar-red">JB</div>
           <div class="person-name">Jihwan Baek</div>
           <div class="person-role">Founder · Executive Director · Board Chair</div>
-          <p class="person-desc">Founded <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> from lived experience and provides the vision and leadership guiding its mission.</p>
+          <p class="person-desc">Public servant, survivor, and founder.</p>
+          <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A lifelong public servant, community leader, and two-time breast cancer survivor, Jihwan founded <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> at the intersection of everything she has lived — the immigrant experience, the weight of illness, and decades of showing up for others. Recognized with the Presidential Award through AmeriCorps, she holds an MBA from Frostburg State University and leads <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> with the conviction that no woman should face her hardest moments without a community behind her.</p>
+          </div>
         </div>
 
         <div class="person-card">
           <div class="person-avatar avatar-warm">GT</div>
           <div class="person-name">Genene Tesfaye</div>
           <div class="person-role">Treasurer · Board Member</div>
-          <p class="person-desc">Brings financial stewardship and governance to the foundation's board.</p>
+          <p class="person-desc">Financial expert, global development leader, and institution builder.</p>
+          <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Over 23 years at the intersection of global finance and international development, he has steered complex, donor-funded programs with precision and integrity across multiple countries. His command of budget architecture, compliance, and financial analysis gives <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> the institutional backbone it needs to grow responsibly. He holds an MBA from Cambridge International College, UK and is currently pursuing a second MBA at Johns Hopkins University.</p>
+          </div>
         </div>
 
         <div class="person-card">
           <div class="person-avatar avatar-warm">SD</div>
           <div class="person-name">Susan E. Dreyer</div>
           <div class="person-role">Secretary · Board Member</div>
-          <p class="person-desc">Supports board administration, records, and organizational continuity.</p>
+          <p class="person-desc">Environmental engineer, safety professional, and avid sailor.</p>
+          <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A licensed Professional Engineer and Certified Safety Professional, Susan has built a career spanning higher education, manufacturing, and industry — at the intersection of environmental compliance, remediation, and human wellbeing. An avid sailor, she applies that same discipline and endurance to her role on the board of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>. She holds a Master of Science in Environmental Law from the University of Maryland Francis King Carey School of Law.</p>
+          </div>
         </div>
 
         <div class="person-card">
           <div class="person-avatar avatar-warm">DC</div>
           <div class="person-name">Daphney N. Cornelius</div>
           <div class="person-role">Board Member</div>
-          <p class="person-desc">Contributes strategic perspective to the foundation's direction and growth.</p>
+          <p class="person-desc">Guardian of dignity, public servant, and generous community presence.</p>
+          <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Few people understand human vulnerability as deeply as Daphney. Practiced in walking with others through life's most profound passages, she carries a rare understanding of grief, dignity, and what it truly means to care for a community. Actively engaged in public affairs and known for her generosity of spirit, she grounds <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s work in the deepest form of human care.</p>
+          </div>
         </div>
 
-        <div class="tba-card">
-          <div class="tba-dot">+</div>
-          <p>An additional board position may be filled as the foundation grows.</p>
-        </div>
+
 
       </div>
 
-      <!-- Advisory Board -->
+      <!-- Advisory Council -->
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Board</p>
         <h2>Guidance and perspective</h2>
@@ -267,37 +318,97 @@
       <div class="people-grid">
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">PT</div>
-          <div class="person-name">Philip Tyler</div>
+          <div class="person-avatar avatar-teal">VB</div>
+          <div class="person-name">Vanessa Clark Brooks</div>
           <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Brings experience and outside perspective to the foundation's development.</p>
-        </div>
-
-        <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">DW</div>
-          <div class="person-name">Daniela Werner</div>
-          <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Contributes insight and experience in support of the mission.</p>
-        </div>
-
-        <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">DS</div>
-          <div class="person-name">Dami Soh Schlobohm</div>
-          <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Provides advisory counsel as the organization takes shape.</p>
+          <p class="person-desc">Attorney, survivor, and global advocate.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>With a J.D. from Georgetown Law and a career spanning international NGOs, global health, and public service — including nearly a decade in Bangladesh and work with UNDP and other UN agencies — Vanessa offers formidable legal counsel and compliance expertise to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>. A four-time breast cancer survivor, she currently serves as Chief of Staff for a Maryland State Delegate and on the advisory boards of the Tahirih Justice Center and Johns Hopkins Hospital-Bayview.</p>
+          </div>
         </div>
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">BN</div>
           <div class="person-name">Bernie Nojadera</div>
           <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Provides advisory counsel as the organization takes shape.</p>
+          <p class="person-desc">Faith leader, community servant, and veteran.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A military veteran and faith leader with deep community roots, Bernie has spent his life in service to others — across cultures, institutions, and generations. That lived commitment to showing up, with compassion and without condition, is exactly the spirit <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> was built to carry forward.</p>
+          </div>
         </div>
 
-        <div class="tba-card">
-          <div class="tba-dot">+</div>
-          <p>Additional advisory positions will be filled as the foundation grows.</p>
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">RP</div>
+          <div class="person-name">Robin Priestley</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Gifted photographer, energy expert, and Navy veteran.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A proud U.S. Navy veteran and Certified Energy Manager with over 25 years delivering sustainability and power quality solutions across industries worldwide, Robin is as comfortable solving multimillion-dollar industrial challenges as he is capturing the human story as a gifted portrait photographer. A skilled speaker and global traveler, he has presented to diverse audiences including first responders — lending to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> a rare blend of technical expertise, creative vision, and boundless generosity of spirit.</p>
+          </div>
         </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">DS</div>
+          <div class="person-name">Dami Soh Schlobohm</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Musician, cultural bridge, and community builder.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Born in Seoul and raised in Maryland, Dami holds a B.A. in Cello Performance from the University of Maryland, Baltimore County and a Master's in Korean Musicology from Seoul National University. A music educator and session cellist, she teaches cello and Korean traditional music across the DC Metro area. She has served on the boards of the Howard County Arts Council, The Columbia Orchestra, and the Asian Arts and Culture Center — a living example of what it means to bridge worlds, and exactly what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> stands for.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">PT</div>
+          <div class="person-name">Philip Tyler</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Public servant, community voice, and trust builder.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Shaped by loss and led by heart, Philip is a public servant and active community voice. His rare empathy and genuine warmth ground <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> in its human purpose, while his outside perspective and community connections open doors to people and places the foundation might not otherwise reach. He holds a bachelor's degree from the University of York, UK.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">DW</div>
+          <div class="person-name">Daniela Werner</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Cross-cultural navigator, global voice, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s bridge to Europe.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Having lived between two countries and navigated life's hardest turns, Daniela understands from the inside what immigrant women carry. Now residing in Germany, she is ideally positioned to help <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grow beyond U.S. borders — carrying its mission to women who need it most on the other side of the world.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">EW</div>
+          <div class="person-name">Elizabeth Weglein</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Healthcare CEO, community advocate, and legacy builder.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A healthcare leader and community advocate, Elizabeth has spent her career raising standards in care, workforce development, and licensing — serving on state boards and coalitions dedicated to the wellbeing of vulnerable communities. Recognized with the Health Care Heroes Award and appointed by the Governor to Maryland's first Commission on Disabilities, her lifelong work ensuring vulnerable communities receive the care they deserve makes her a natural and powerful ally for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s mission.</p>
+          </div>
+        </div>
+
+
 
       </div>
 
@@ -325,5 +436,14 @@
     </div>
   </footer>
 
+  <script>
+    function toggleBio(btn) {
+      const bio = btn.nextElementSibling;
+      const isOpen = bio.classList.contains('open');
+      bio.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', !isOpen);
+      btn.childNodes[0].textContent = isOpen ? 'More ' : 'Less ';
+    }
+  </script>
 </body>
 </html>
