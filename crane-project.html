@@ -119,11 +119,20 @@
     .card-accent-gold  { border-left: 2px solid rgba(185,141,67,0.45); }
     .card-accent-red   { border-left: 2px solid rgba(142,27,27,0.35); }
 
-    /* ── Crane numerals ── */
-    .crane-numeral { display: block; font-size: 2.4rem; font-weight: 500; line-height: 1; margin-bottom: 14px; font-family: Georgia, serif; }
-    .crane-numeral.one   { color: var(--pink); }
-    .crane-numeral.two   { color: var(--teal); }
-    .crane-numeral.three { color: var(--gold-deep); }
+    /* ── Mini crane accent ── */
+    .crane-accent {
+      display: block;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 14px;
+      opacity: 0.82;
+      object-fit: contain;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .card:hover .crane-accent {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
 
     /* ── Crane image ── */
     .crane-visual { margin-bottom: 28px; }
@@ -221,19 +230,20 @@
       <!-- Three cranes -->
       <div class="tri-grid">
         <div class="card">
-          <span class="dot-accent" style="display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(142,27,27,0.1);margin-bottom:14px;"></span>
+          <!-- mini origami crane SVG -->
+          <img src="narae-logo.png" alt="" aria-hidden="true" class="crane-accent" />
           <h3>One for herself</h3>
           <p>Folded in acknowledgment of her own journey — her strength, her survival, and the life she continues to shape fold by fold.</p>
         </div>
 
         <div class="card">
-          <span class="dot-accent" style="display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(142,27,27,0.1);margin-bottom:14px;"></span>
+          <img src="narae-logo.png" alt="" aria-hidden="true" class="crane-accent" />
           <h3>One for another</h3>
           <p>Folded in the spirit of another woman — someone she knows, someone she hopes for, or someone she has never met but still holds in her heart.</p>
         </div>
 
         <div class="card">
-          <span class="dot-accent" style="display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px rgba(142,27,27,0.1);margin-bottom:14px;"></span>
+          <img src="narae-logo.png" alt="" aria-hidden="true" class="crane-accent" />
           <h3>One for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h3>
           <p>Folded for the foundation and the community it holds — a small offering that becomes part of something shared and lasting.</p>
         </div>
