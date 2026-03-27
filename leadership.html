@@ -154,6 +154,10 @@
     .tba-dot { width: 44px; height: 44px; border-radius: 50%; border: 1px dashed var(--line); display: grid; place-items: center; color: var(--muted); font-family: Arial, Helvetica, sans-serif; font-size: 1.1rem; flex-shrink: 0; }
     .tba-card p { font-size: 0.91rem; line-height: 1.68; color: var(--muted); font-style: italic; }
 
+    /* ── Language tag ── */
+    .lang-tag { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; color: var(--muted); }
+    .lang-tag svg { flex-shrink: 0; }
+
     /* ── Collapsible bio ── */
     .bio-toggle {
       display: inline-flex;
@@ -245,7 +249,7 @@
 
     <div class="container content-wrap">
 
-      <p style="margin-bottom: 36px; max-width: 720px; font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 700; text-align: center; margin-left: auto; margin-right: auto;">Our <span style="color: var(--text);">Board of Directors</span> provides governance, oversight, and strategic direction, while our <span style="color: var(--text);">Advisory Board</span> offers specialized guidance, lived insight, and community perspective.</p>
+      <p style="margin-bottom: 36px; max-width: 720px; font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 700; text-align: center; margin-left: auto; margin-right: auto;">Our <span style="color: var(--text);">Board of Directors</span> provides governance, oversight, and strategic direction, while our <span style="color: var(--text);">Advisory Board</span> offers specialized guidance, lived insight, and the kind of perspective that only comes from having walked through something yourself.</p>
 
       <!-- Board of Directors -->
       <div class="section-label">
@@ -260,6 +264,7 @@
           <div class="person-name">Jihwan Baek</div>
           <div class="person-role">Founder · Executive Director · Board Chair</div>
           <p class="person-desc">Public service leader, survivor, and founder of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean · English</div>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -273,6 +278,7 @@
           <div class="person-name">Genene Tadesse</div>
           <div class="person-role">Treasurer · Board Member</div>
           <p class="person-desc">Financial expert, global development leader, and institution builder.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Amharic · English</div>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -319,9 +325,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">VB</div>
-          <div class="person-name">Vanessa Clark Brooks</div>
+          <div class="person-name">Vanessa Clark Brooks, J.D.</div>
           <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Attorney, survivor, and global advocate.</p>
+          <p class="person-desc">Attorney, thriver, and global advocate.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -331,10 +337,25 @@
         </div>
 
         <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">NK</div>
+          <div class="person-name">Na-young Kang</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Cultural artist, cancer survivor, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s voice in Korea.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean</div>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>A breast and thyroid cancer survivor living in Korea, Na-young's life is woven through with the healing arts — calligraphy, culinary tradition, and the deep cultural wisdom of her homeland. A gifted artist who understands that beauty and resilience are inseparable, she offers <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> an authentic presence and perspective on the Korean peninsula. A childhood friend of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s founder, she once folded 1,000 cranes and gifted them to Jihwan — long before this foundation existed. That gesture already carried everything <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> stands for.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
           <div class="person-avatar avatar-teal">BN</div>
           <div class="person-name">Bernie Nojadera</div>
           <div class="person-role teal">Advisory Board Member</div>
           <p class="person-desc">Faith leader, community leader, and veteran.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Tagalog · English</div>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -347,12 +368,12 @@
           <div class="person-avatar avatar-teal">RP</div>
           <div class="person-name">Robin Priestley</div>
           <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Gifted photographer, energy expert, and Navy veteran.</p>
+          <p class="person-desc">Portraitist, sustainability pioneer, and cancer survivor.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="bio-body">
-            <p>A proud U.S. Navy veteran and Certified Energy Manager with over 25 years delivering sustainability and power quality solutions worldwide, Robin is as comfortable solving multimillion-dollar industrial challenges as he is capturing the human story through portrait photography. A skilled speaker and global traveler, he has presented to diverse audiences including first responders — lending to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> a rare blend of technical expertise, creative vision, and boundless generosity of spirit.</p>
+            <p>Robin began his career in the U.S. Navy and never lost the discipline or sense of purpose that came with it. One of only 109 certified power quality professionals in the world, his projects have generated significant revenue for clients while removing millions of tons of carbon from the planet. A cancer survivor himself, he turns his lens toward those navigating illness — because he knows what it means to need someone to see you clearly. Fighting and surviving cancer is a bit easier when you see yourself through Robin's eye — and that is exactly what he offers <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
           </div>
         </div>
 
@@ -361,6 +382,7 @@
           <div class="person-name">Dami Soh Schlobohm</div>
           <div class="person-role teal">Advisory Board Member</div>
           <p class="person-desc">Musician, cultural bridge, and community builder.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean · English</div>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -378,23 +400,11 @@
             More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="bio-body">
-            <p>Shaped by loss and led by heart, Philip is a public servant and active community voice. His rare empathy and genuine warmth ground <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> in its human purpose, while his outside perspective and community connections open doors to people and places the foundation might not otherwise reach. He holds a bachelor's degree from the University of York, United Kingdom.</p>
+            <p>Shaped by loss and led by heart, Philip is a public servant and active community voice. Having lost his loving wife to cancer, he carries a profound and personal understanding of what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s women face. His empathy and community connections open doors to people and places the foundation might not otherwise reach. He holds a bachelor's degree from the University of York, United Kingdom.</p>
           </div>
         </div>
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">DW</div>
-          <div class="person-name">Daniela Werner</div>
-          <div class="person-role teal">Advisory Board Member</div>
-          <p class="person-desc">Cross-cultural navigator, global voice, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s bridge to Europe.</p>
-          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
-            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="bio-body">
-            <p>Having lived between two countries and navigated life's hardest turns, Daniela understands from the inside what immigrant women carry. Now residing in Germany, she is ideally positioned to help <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grow beyond U.S. borders — carrying its mission to women who need it most on the other side of the world.</p>
-          </div>
-        </div>
-
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">EW</div>
           <div class="person-name">Elizabeth Weglein</div>
@@ -405,6 +415,20 @@
           </button>
           <div class="bio-body">
             <p>A healthcare leader and community advocate, Elizabeth has spent her career raising standards in care, workforce development, and licensing — serving on state boards and coalitions dedicated to the wellbeing of vulnerable communities. Recognized with the Health Care Heroes Award and appointed by the Governor to Maryland's first Commission on Disabilities, her lifelong dedication to those who need it most makes her an invaluable voice in <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s mission.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">DW</div>
+          <div class="person-name">Daniela Werner</div>
+          <div class="person-role teal">Advisory Board Member</div>
+          <p class="person-desc">Cross-cultural navigator, global voice, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s bridge to Europe.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>German · English</div>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">
+            More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="bio-body">
+            <p>Having lived between two countries and navigated life's hardest turns, Daniela understands from the inside what immigrant women carry. Now residing in Germany, she is ideally positioned to help <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grow beyond U.S. borders — carrying its mission to women who need it most on the other side of the world.</p>
           </div>
         </div>
 
