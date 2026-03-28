@@ -144,7 +144,6 @@
     }
 
     /* ── Animated dot ── */
-    /* Step 0: pulses red → fades. Step 1: appears pink → fades. Step 2: appears teal → fades. Loop. */
     #flowDot {
       position: absolute;
       width: 11px;
@@ -156,44 +155,50 @@
       transition: opacity 0.15s ease;
     }
 
-    /* Per-step color classes set by JS */
+    /* step-0 = pink (Belong), step-1 = teal (Renew), step-2 = red (Walk Beside) */
     #flowDot.step-0 {
-      background: #c0392b;
-      --dot-glow-0: rgba(192,57,43,0.7);
-      --dot-glow-1: rgba(192,57,43,0.4);
-      --dot-glow-2: rgba(192,57,43,0.2);
-      --dot-glow-3: rgba(192,57,43,0.07);
-      --dot-glow-4: rgba(192,57,43,0.02);
+      background: #d98aa0;
+      --g0: rgba(217,138,160,0.72); --g1: rgba(217,138,160,0.35);
+      --g2: rgba(217,138,160,0.14); --g3: rgba(217,138,160,0.04);
     }
     #flowDot.step-1 {
-      background: #d98aa0;
-      --dot-glow-0: rgba(217,138,160,0.7);
-      --dot-glow-1: rgba(217,138,160,0.4);
-      --dot-glow-2: rgba(217,138,160,0.2);
-      --dot-glow-3: rgba(217,138,160,0.07);
-      --dot-glow-4: rgba(217,138,160,0.02);
+      background: #5f9f9f;
+      --g0: rgba(95,159,159,0.72); --g1: rgba(95,159,159,0.35);
+      --g2: rgba(95,159,159,0.14); --g3: rgba(95,159,159,0.04);
     }
     #flowDot.step-2 {
-      background: #5f9f9f;
-      --dot-glow-0: rgba(95,159,159,0.7);
-      --dot-glow-1: rgba(95,159,159,0.4);
-      --dot-glow-2: rgba(95,159,159,0.2);
-      --dot-glow-3: rgba(95,159,159,0.07);
-      --dot-glow-4: rgba(95,159,159,0.02);
+      background: #c0392b;
+      --g0: rgba(192,57,43,0.88); --g1: rgba(192,57,43,0.52);
+      --g2: rgba(192,57,43,0.26); --g3: rgba(192,57,43,0.08);
     }
 
-    /* Blooms out then fades away — next step appears as a fresh new color */
-    #flowDot.pulsing {
-      animation: dotPulse 1.8s ease-out forwards;
-    }
+    #flowDot.pulsing     { animation: dotPulse    1.9s ease-out     forwards; }
+    #flowDot.pulsing-red { animation: dotPulseRed 5.2s ease-in-out  forwards; }
 
     @keyframes dotPulse {
-      0%   { opacity: 1; transform: scale(1);   box-shadow: 0 0 0 0    var(--dot-glow-0); }
-      18%  { opacity: 1; transform: scale(1.7); box-shadow: 0 0 0 8px  var(--dot-glow-1); }
-      42%  { opacity: 1; transform: scale(2.1); box-shadow: 0 0 0 16px var(--dot-glow-2); }
-      68%  { opacity: 1; transform: scale(1.5); box-shadow: 0 0 0 22px var(--dot-glow-3); }
-      88%  { opacity: 0.4; transform: scale(1.1); box-shadow: 0 0 0 26px var(--dot-glow-4); }
-      100% { opacity: 0; transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+      0%   { opacity:1; transform:scale(1);   box-shadow:0 0 0 0    var(--g0); }
+      15%  { opacity:1; transform:scale(1.8); box-shadow:0 0 0 7px  var(--g1); }
+      42%  { opacity:1; transform:scale(2.3); box-shadow:0 0 0 15px var(--g2); }
+      68%  { opacity:1; transform:scale(1.6); box-shadow:0 0 0 22px var(--g3); }
+      86%  { opacity:0.4; transform:scale(1.1); box-shadow:0 0 0 26px transparent; }
+      100% { opacity:0;   transform:scale(0.6); box-shadow:0 0 0 0   transparent; }
+    }
+
+    /* Red: three full pulses, each bigger, then long linger and fade */
+    @keyframes dotPulseRed {
+      0%   { opacity:1; transform:scale(1);   box-shadow:0 0 0 0    var(--g0); }
+      7%   { opacity:1; transform:scale(2.0); box-shadow:0 0 0 10px var(--g1); }
+      16%  { opacity:1; transform:scale(2.7); box-shadow:0 0 0 20px var(--g2); }
+      24%  { opacity:1; transform:scale(1.2); box-shadow:0 0 0 4px  var(--g3); }
+      33%  { opacity:1; transform:scale(2.1); box-shadow:0 0 0 12px var(--g1); }
+      42%  { opacity:1; transform:scale(2.8); box-shadow:0 0 0 22px var(--g2); }
+      50%  { opacity:1; transform:scale(1.2); box-shadow:0 0 0 4px  var(--g3); }
+      59%  { opacity:1; transform:scale(2.2); box-shadow:0 0 0 14px var(--g1); }
+      68%  { opacity:1; transform:scale(2.9); box-shadow:0 0 0 24px var(--g2); }
+      76%  { opacity:1; transform:scale(1.8); box-shadow:0 0 0 18px var(--g3); }
+      88%  { opacity:1;   transform:scale(1.3); box-shadow:0 0 0 8px var(--g3); }
+      96%  { opacity:0.4; transform:scale(1.1); box-shadow:0 0 0 2px transparent; }
+      100% { opacity:0;   transform:scale(0.6); box-shadow:0 0 0 0   transparent; }
     }
 
     /* ── Flow body ── */
@@ -482,72 +487,54 @@
       var stepCount = items.length;
       if (!dot || stepCount === 0) return;
 
-      var currentStep = 0;
+      // step-0=pink(Belong), step-1=teal(Renew), step-2=red(Walk Beside)
+      var colors = ['step-0', 'step-1', 'step-2'];
+      var cls    = ['pulsing', 'pulsing', 'pulsing-red'];
+      var dur    = [1900, 1900, 5200];
+      var dwell  = [800,  800,  1800];
+      var step   = 0;
 
-      // Timing (ms)
-      var PULSE_DURATION = 1800;  // matches @keyframes dotPulse
-      var DWELL_AFTER    = 900;   // extra pause after pulse finishes before jumping
-      var STEP_INTERVAL  = PULSE_DURATION + DWELL_AFTER; // total time per step
+      flowList.style.position = 'relative';
 
-      function getCraneCenter(stepIndex) {
-        var item  = items[stepIndex];
-        var crane = item.querySelector('.flow-crane');
+      function craneBottom(i) {
+        var crane = items[i].querySelector('.flow-crane');
         if (!crane) return null;
-        var craneRect = crane.getBoundingClientRect();
-        var listRect  = flowList.getBoundingClientRect();
-        return {
-          x: craneRect.left + craneRect.width  / 2 - listRect.left,
-          y: craneRect.top  + craneRect.height / 2 - listRect.top
-        };
+        var cr = crane.getBoundingClientRect();
+        var lr = flowList.getBoundingClientRect();
+        return { x: cr.left + cr.width / 2 - lr.left, y: cr.bottom + 5 - lr.top };
       }
 
-      function snapDotToStep(stepIndex) {
-        var pos = getCraneCenter(stepIndex);
+      function show(i, onDone) {
+        var pos = craneBottom(i);
         if (!pos) return;
-        var half = 5.5;
-        // Remove previous step color classes
-        dot.classList.remove('step-0', 'step-1', 'step-2');
-        // Apply this step's color
-        dot.classList.add('step-' + stepIndex);
-        // Jump instantly
-        dot.style.transition = 'none';
-        dot.style.left    = (pos.x - half) + 'px';
-        dot.style.top     = (pos.y - half) + 'px';
-        dot.style.opacity = '1';
-        dot.getBoundingClientRect();
-        dot.style.transition = '';
+        items.forEach(function (el, j) { el.classList.toggle('dot-active', j === i); });
+        dot.className = '';
+        dot.classList.add(colors[i]);
+        dot.style.cssText = [
+          'position:absolute',
+          'width:11px', 'height:11px',
+          'border-radius:50%',
+          'z-index:10',
+          'pointer-events:none',
+          'left:' + (pos.x - 5.5) + 'px',
+          'top:'  + (pos.y - 5.5) + 'px',
+          'opacity:1'
+        ].join(';');
+        dot.classList.add(colors[i]);
+        void dot.offsetWidth;
+        dot.classList.add(cls[i]);
+        setTimeout(function () { dot.classList.remove(cls[i]); }, dur[i]);
+        setTimeout(onDone, dur[i] + dwell[i]);
       }
 
-      function highlightStep(stepIndex) {
-        items.forEach(function (el, i) {
-          el.classList.toggle('dot-active', i === stepIndex);
+      function next() {
+        show(step, function () {
+          step = (step + 1) % items.length;
+          next();
         });
       }
 
-      function triggerPulse() {
-        dot.classList.remove('pulsing');
-        dot.getBoundingClientRect(); // reflow to restart animation
-        dot.classList.add('pulsing');
-        setTimeout(function () { dot.classList.remove('pulsing'); }, PULSE_DURATION);
-      }
-
-      function showStep(stepIndex) {
-        snapDotToStep(stepIndex);
-        highlightStep(stepIndex);
-        triggerPulse();
-      }
-
-      // The flow list needs position:relative so the dot is positioned within it
-      flowList.style.position = 'relative';
-
-      // Show step 0 immediately
-      showStep(0);
-
-      // Advance through steps on a fixed interval, looping forever
-      setInterval(function () {
-        currentStep = (currentStep + 1) % stepCount;
-        showStep(currentStep);
-      }, STEP_INTERVAL);
+      next();
 
     })();
   </script>
