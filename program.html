@@ -338,10 +338,8 @@
             <p class="kicker">A Living Ecosystem</p>
             <h2>Belong. Renew. Walk Beside.</h2>
 
-            <!-- The dot lives here; JS will move it between steps -->
-            <div id="flowDot"></div>
-
             <div class="flow-list" id="flowList">
+              <div id="flowDot"></div>
 
               <div class="flow-item" data-step="0">
                 <div class="flow-connector">
@@ -508,19 +506,18 @@
         var pos = craneBottom(i);
         if (!pos) return;
         items.forEach(function (el, j) { el.classList.toggle('dot-active', j === i); });
-        dot.className = '';
-        dot.classList.add(colors[i]);
-        dot.style.cssText = [
-          'position:absolute',
-          'width:11px', 'height:11px',
-          'border-radius:50%',
-          'z-index:10',
-          'pointer-events:none',
-          'left:' + (pos.x - 5.5) + 'px',
-          'top:'  + (pos.y - 5.5) + 'px',
-          'opacity:1'
-        ].join(';');
-        dot.classList.add(colors[i]);
+        // Reset classes then apply color
+        dot.className = colors[i];
+        // Set position via individual style properties so classes are preserved
+        dot.style.position     = 'absolute';
+        dot.style.width        = '11px';
+        dot.style.height       = '11px';
+        dot.style.borderRadius = '50%';
+        dot.style.zIndex       = '10';
+        dot.style.pointerEvents = 'none';
+        dot.style.left         = (pos.x - 5.5) + 'px';
+        dot.style.top          = (pos.y - 5.5) + 'px';
+        dot.style.opacity      = '1';
         void dot.offsetWidth;
         dot.classList.add(cls[i]);
         setTimeout(function () { dot.classList.remove(cls[i]); }, dur[i]);
