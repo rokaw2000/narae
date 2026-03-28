@@ -106,16 +106,35 @@
     .flow-list { display: flex; flex-direction: column; margin-top: 18px; }
     .flow-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; position: relative; border-top: 1px solid var(--line); }
     .flow-item:last-child { border-bottom: 1px solid var(--line); }
-    .flow-connector { display: flex; flex-direction: column; align-items: center; padding-top: 18px; position: relative; }
 
-    /* ── Left: tiny crane replaces the gold dot ── */
+    /* ── Connector column: holds crane + vertical line + animated dot ── */
+    .flow-connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 18px;
+      position: relative;
+    }
+
+    /* Vertical connector line (not on last item) */
+    .flow-item:not(:last-child) .flow-connector::after {
+      content: '';
+      position: absolute;
+      left: 11px;
+      top: 40px;       /* below the crane */
+      bottom: -1px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    /* ── Tiny crane ── */
     .flow-crane {
       width: 22px;
       height: 22px;
       object-fit: contain;
       flex-shrink: 0;
       position: relative;
-      z-index: 1;
+      z-index: 2;
       opacity: 0.72;
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
@@ -124,11 +143,68 @@
       transform: translateY(-1px);
     }
 
-    .flow-item:not(:last-child) .flow-connector::after { content: ''; position: absolute; left: 11px; top: 28px; bottom: -22px; width: 1px; background: var(--line); }
+    /* ── Animated dot ── */
+    /* Step 0: pulses red → fades. Step 1: appears pink → fades. Step 2: appears teal → fades. Loop. */
+    #flowDot {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    /* Per-step color classes set by JS */
+    #flowDot.step-0 {
+      background: #c0392b;
+      --dot-glow-0: rgba(192,57,43,0.7);
+      --dot-glow-1: rgba(192,57,43,0.4);
+      --dot-glow-2: rgba(192,57,43,0.2);
+      --dot-glow-3: rgba(192,57,43,0.07);
+      --dot-glow-4: rgba(192,57,43,0.02);
+    }
+    #flowDot.step-1 {
+      background: #d98aa0;
+      --dot-glow-0: rgba(217,138,160,0.7);
+      --dot-glow-1: rgba(217,138,160,0.4);
+      --dot-glow-2: rgba(217,138,160,0.2);
+      --dot-glow-3: rgba(217,138,160,0.07);
+      --dot-glow-4: rgba(217,138,160,0.02);
+    }
+    #flowDot.step-2 {
+      background: #5f9f9f;
+      --dot-glow-0: rgba(95,159,159,0.7);
+      --dot-glow-1: rgba(95,159,159,0.4);
+      --dot-glow-2: rgba(95,159,159,0.2);
+      --dot-glow-3: rgba(95,159,159,0.07);
+      --dot-glow-4: rgba(95,159,159,0.02);
+    }
+
+    /* Blooms out then fades away — next step appears as a fresh new color */
+    #flowDot.pulsing {
+      animation: dotPulse 1.8s ease-out forwards;
+    }
+
+    @keyframes dotPulse {
+      0%   { opacity: 1; transform: scale(1);   box-shadow: 0 0 0 0    var(--dot-glow-0); }
+      18%  { opacity: 1; transform: scale(1.7); box-shadow: 0 0 0 8px  var(--dot-glow-1); }
+      42%  { opacity: 1; transform: scale(2.1); box-shadow: 0 0 0 16px var(--dot-glow-2); }
+      68%  { opacity: 1; transform: scale(1.5); box-shadow: 0 0 0 22px var(--dot-glow-3); }
+      88%  { opacity: 0.4; transform: scale(1.1); box-shadow: 0 0 0 26px var(--dot-glow-4); }
+      100% { opacity: 0; transform: scale(0.7); box-shadow: 0 0 0 0 transparent; }
+    }
+
+    /* ── Flow body ── */
     .flow-body { padding: 18px 0 20px; }
     .flow-label { display: block; margin-bottom: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
     .flow-title { font-size: 1.32rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 4px 0 8px; line-height: 1.15; }
     .flow-text { font-size: 1rem; line-height: 1.72; color: var(--muted); margin: 0; }
+
+    /* Step highlight: when the dot is at this step */
+    .flow-item.dot-active .flow-label { color: var(--gold-deep); }
+    .flow-item.dot-active .flow-crane { opacity: 1; transform: translateY(-2px); }
 
     details.flow-more { margin-top: 8px; }
     details.flow-more summary { list-style: none; cursor: pointer; font-family: Arial, Helvetica, sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 5px; user-select: none; }
@@ -144,7 +220,6 @@
     .format-item:hover { background: var(--warm); }
     .format-row { display: flex; align-items: center; gap: 10px; }
 
-    /* ── Right: circle kept, crane sits inside ── */
     .format-icon {
       width: 28px;
       height: 28px;
@@ -252,15 +327,18 @@
     <div class="container">
       <div class="main-grid">
 
-        <!-- Left: three stages with crane markers -->
+        <!-- Left: three stages with crane markers + animated dot -->
         <div class="main-left">
           <section class="section">
             <p class="kicker">A Living Ecosystem</p>
             <h2>Belong. Renew. Walk Beside.</h2>
 
-            <div class="flow-list">
+            <!-- The dot lives here; JS will move it between steps -->
+            <div id="flowDot"></div>
 
-              <div class="flow-item">
+            <div class="flow-list" id="flowList">
+
+              <div class="flow-item" data-step="0">
                 <div class="flow-connector">
                   <img src="narae-logo.png" alt="" aria-hidden="true" class="flow-crane" />
                 </div>
@@ -275,7 +353,7 @@
                 </div>
               </div>
 
-              <div class="flow-item">
+              <div class="flow-item" data-step="1">
                 <div class="flow-connector">
                   <img src="narae-logo.png" alt="" aria-hidden="true" class="flow-crane" />
                 </div>
@@ -290,7 +368,7 @@
                 </div>
               </div>
 
-              <div class="flow-item">
+              <div class="flow-item" data-step="2">
                 <div class="flow-connector">
                   <img src="narae-logo.png" alt="" aria-hidden="true" class="flow-crane" />
                 </div>
@@ -395,6 +473,84 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var dot       = document.getElementById('flowDot');
+      var flowList  = document.getElementById('flowList');
+      var items     = flowList ? flowList.querySelectorAll('.flow-item') : [];
+      var stepCount = items.length;
+      if (!dot || stepCount === 0) return;
+
+      var currentStep = 0;
+
+      // Timing (ms)
+      var PULSE_DURATION = 1800;  // matches @keyframes dotPulse
+      var DWELL_AFTER    = 900;   // extra pause after pulse finishes before jumping
+      var STEP_INTERVAL  = PULSE_DURATION + DWELL_AFTER; // total time per step
+
+      function getCraneCenter(stepIndex) {
+        var item  = items[stepIndex];
+        var crane = item.querySelector('.flow-crane');
+        if (!crane) return null;
+        var craneRect = crane.getBoundingClientRect();
+        var listRect  = flowList.getBoundingClientRect();
+        return {
+          x: craneRect.left + craneRect.width  / 2 - listRect.left,
+          y: craneRect.top  + craneRect.height / 2 - listRect.top
+        };
+      }
+
+      function snapDotToStep(stepIndex) {
+        var pos = getCraneCenter(stepIndex);
+        if (!pos) return;
+        var half = 5.5;
+        // Remove previous step color classes
+        dot.classList.remove('step-0', 'step-1', 'step-2');
+        // Apply this step's color
+        dot.classList.add('step-' + stepIndex);
+        // Jump instantly
+        dot.style.transition = 'none';
+        dot.style.left    = (pos.x - half) + 'px';
+        dot.style.top     = (pos.y - half) + 'px';
+        dot.style.opacity = '1';
+        dot.getBoundingClientRect();
+        dot.style.transition = '';
+      }
+
+      function highlightStep(stepIndex) {
+        items.forEach(function (el, i) {
+          el.classList.toggle('dot-active', i === stepIndex);
+        });
+      }
+
+      function triggerPulse() {
+        dot.classList.remove('pulsing');
+        dot.getBoundingClientRect(); // reflow to restart animation
+        dot.classList.add('pulsing');
+        setTimeout(function () { dot.classList.remove('pulsing'); }, PULSE_DURATION);
+      }
+
+      function showStep(stepIndex) {
+        snapDotToStep(stepIndex);
+        highlightStep(stepIndex);
+        triggerPulse();
+      }
+
+      // The flow list needs position:relative so the dot is positioned within it
+      flowList.style.position = 'relative';
+
+      // Show step 0 immediately
+      showStep(0);
+
+      // Advance through steps on a fixed interval, looping forever
+      setInterval(function () {
+        currentStep = (currentStep + 1) % stepCount;
+        showStep(currentStep);
+      }, STEP_INTERVAL);
+
+    })();
+  </script>
 
 </body>
 </html>
