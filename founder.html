@@ -5,225 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Founder | narae International Foundation</title>
   <meta name="description" content="A personal message from Jihwan M. Baek — founder of naræ International Foundation — about cancer, healing, cultural identity, and the question that started it all." />
-
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
     @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap");
-
     :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #6b6762;
-      --line: #e8e1d7;
-      --soft: #faf8f5;
-      --warm: #fcfbf8;
-      --gold-deep: #b98d43;
-      --gold-pale: #fdf6e8;
-      --pink: #d98aa0;
-      --teal: #5f9f9f;
-      --red: #8e1b1b;
-      --shadow: 0 8px 24px rgba(0,0,0,0.05);
-      --max: 1100px;
+      --bg:#ffffff;--text:#111111;--muted:#6b6762;--line:#e8e1d7;
+      --soft:#faf8f5;--warm:#fcfbf8;--gold-deep:#b98d43;--gold-pale:#fdf6e8;
+      --pink:#d98aa0;--teal:#5f9f9f;--red:#8e1b1b;
+      --shadow:0 8px 24px rgba(0,0,0,0.05);--max:1100px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      -webkit-font-smoothing: antialiased;
-      background-color: var(--bg);
-      background-image:
-        repeating-linear-gradient(0deg, rgba(160,145,130,0.018) 0px, rgba(160,145,130,0.018) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 9px),
-        repeating-linear-gradient(90deg, rgba(160,145,130,0.012) 0px, rgba(160,145,130,0.012) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 11px),
-        linear-gradient(to bottom, #ffffff, #fefdfb);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    strong { color: var(--text); font-weight: 700; }
-    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
-
-    h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
-    h1 { font-size: clamp(2.55rem, 5vw, 4rem); line-height: 1.04; }
-    h2 { font-size: clamp(1.86rem, 3vw, 2.45rem); line-height: 1.12; }
-    h3 { font-size: 1.2rem; line-height: 1.24; font-weight: 700; }
-    p { margin: 0; font-size: 1.03rem; line-height: 1.9; color: var(--muted); }
-    .lead { font-size: 1.2rem; line-height: 1.8; }
-
-    /* ── Kicker — small caps, museum-style ── */
-    .kicker, .eyebrow {
-      display: block;
-      margin: 0 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      font-variant-caps: small-caps;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
-
-    /* ── Brand ── */
-    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
-    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; color: inherit; }
-    .nav .logo-word, .footer-links .logo-word, .kicker .logo-word, .eyebrow .logo-word { color: var(--gold-deep); }
-    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.40em); flex: 0 0 auto; }
-    .brand-plus .arm { position: absolute; border-radius: 999px; }
-    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
-    .brand-plus .arm-right { background: var(--teal); }
-    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
-    .brand-plus .arm-top { top: 0; }
-    .brand-plus .arm-bottom { bottom: 0; }
-    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
-    .brand-plus .arm-left { left: 0; }
-    .brand-plus .arm-right { right: 0; }
-    .brand-plus::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0.09em; height: 0.09em; transform: translate(-50%,-50%); background: var(--pink); border-radius: 999px; z-index: 2; }
-    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
-    .nav .brand-plus, .btn-primary .brand-plus, .btn-secondary .brand-plus { transform: translateY(-0.31em); }
-
-    /* ── Header ── */
-    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
-    .logo .brandmark { font-size: 1.95rem; }
-    .logo .logo-word { color: var(--text); }
-    .logo small { display: block; margin-top: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
-    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; }
-    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); transition: opacity 0.2s ease; }
-    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
-    .nav a:hover::after, .nav a.active::after { width: 100%; }
-
-    /* ── Buttons ── */
-    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 6px; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
-    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
-    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
-    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
-    .btn-primary .logo-word { color: #fff; }
-    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 40px; }
-
-    /* ── Page hero ── */
-    .page-hero { padding: 56px 0 42px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%), linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86)); }
-    .page-hero h1 { margin-top: 8px; margin-bottom: 16px; }
-
-    /* ── Content wrap ── */
-    .content-wrap { padding: 48px 0 60px; }
-
-    /* ── Founder layout ── */
-    .founder-layout {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 48px;
-      align-items: start;
-    }
-
-    /* ── Letter — museum typography ── */
-    .letter { max-width: 680px; }
-
-    .letter p {
-      font-size: 1.08rem;
-      line-height: 1.88;
-      color: var(--muted);
-      margin: 0 0 22px;
-    }
-    .letter p:last-child { margin-bottom: 0; }
-
-    /* ── Movement sections ── */
-    .movement { margin-bottom: 44px; }
-    .movement:last-of-type { margin-bottom: 0; }
-
-    .movement-kicker {
-      display: block;
-      margin: 0 0 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      font-variant-caps: small-caps;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    /* ── The Question — emotional hinge ── */
-    .the-question {
-      margin: 40px 0;
-      font-size: 1.32rem;
-      font-weight: 700;
-      font-style: italic;
-      color: var(--text);
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
-
-    /* ── Closing line ── */
-    .closing-line {
-      margin-top: 36px;
-      font-style: italic;
-      color: var(--text);
-      font-size: 1.08rem;
-      line-height: 1.6;
-    }
-
-    /* ── Story break ── */
-    .story-break { display: flex; align-items: center; gap: 8px; margin: 36px 0; }
-    .story-break span { width: 6px; height: 6px; border-radius: 50%; background: var(--line); display: block; }
-    .story-break span.red  { background: var(--red); }
-    .story-break span.pink { background: var(--pink); }
-    .story-break span.teal { background: var(--teal); }
-
-    /* ── Signature ── */
-    .signature-block { display: flex; align-items: center; gap: 18px; margin-top: 40px; padding: 24px 28px; border: 1px solid var(--line); border-radius: 18px; background: rgba(252,251,248,0.88); box-shadow: var(--shadow); }
-    .sig-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-deep), var(--gold-pale)); display: grid; place-items: center; flex-shrink: 0; font-family: Arial, Helvetica, sans-serif; font-size: 0.88rem; font-weight: 700; color: var(--red); letter-spacing: 0.02em; }
-    .sig-name { display: block; font-size: 1.05rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; line-height: 1.2; }
-    .sig-title { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 0.8rem; color: var(--muted); margin-top: 3px; }
-
-    /* ── Aside ── */
-    .founder-aside { position: sticky; top: 88px; display: flex; flex-direction: column; gap: 16px; }
-
-    /* ── Pull quote ── */
-    .pull-quote { border: 1px solid var(--line); border-left: 2px solid rgba(217,138,160,0.45); background: rgba(252,251,248,0.88); border-radius: 18px; box-shadow: var(--shadow); padding: 28px; }
-    .pull-quote blockquote { margin: 0; font-size: clamp(1.1rem, 1.6vw, 1.2rem); line-height: 1.68; letter-spacing: -0.01em; color: var(--text); font-style: italic; }
-
-    /* ── Journey card ── */
-    .journey-card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); border-radius: 18px; box-shadow: var(--shadow); padding: 24px; }
-    .journey-title { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em; font-variant-caps: small-caps; text-transform: uppercase; color: var(--gold-deep); margin-bottom: 20px; display: block; }
-    .journey-step { display: flex; gap: 14px; position: relative; }
-    .journey-step:not(:last-child) { padding-bottom: 20px; }
-    .journey-connector { display: flex; flex-direction: column; align-items: center; position: relative; }
-    .journey-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; position: relative; z-index: 1; }
-    .journey-dot.red  { background: var(--red);  box-shadow: 0 0 0 4px rgba(142,27,27,0.1); }
-    .journey-dot.pink { background: var(--pink); box-shadow: 0 0 0 4px rgba(217,138,160,0.15); }
-    .journey-dot.teal { background: var(--teal); box-shadow: 0 0 0 4px rgba(95,159,159,0.15); }
-    .journey-step:not(:last-child) .journey-connector::after { content: ''; position: absolute; top: 16px; bottom: -4px; left: 5px; width: 1px; background: var(--line); }
-    .journey-label { display: block; font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 3px; line-height: 1.2; }
-    .journey-content p { font-size: 0.86rem; line-height: 1.6; color: var(--muted); margin: 0; }
-
-    /* ── Footer ── */
-    .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
-    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
-    .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
-    .footer-links a { color: var(--gold-deep); }
-
-    /* ── Responsive ── */
-    @media (max-width: 860px) {
-      .founder-layout { grid-template-columns: 1fr; }
-      .founder-aside { position: static; }
-      .letter { max-width: 100%; }
-    }
-    @media (max-width: 760px) {
-      .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
-      .nav { width: 100%; justify-content: flex-start; gap: 12px 16px; }
-      .page-hero { padding: 38px 0 30px; }
-      .content-wrap { padding: 36px 0 48px; }
-      .signature-block { flex-direction: column; align-items: flex-start; }
-    }
-    @media (max-width: 560px) {
-      .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
-      h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
-    }
+    *{box-sizing:border-box;}html{scroll-behavior:smooth;}
+    body{margin:0;color:var(--text);font-family:Georgia,"Times New Roman",serif;-webkit-font-smoothing:antialiased;background-color:var(--bg);background-image:repeating-linear-gradient(0deg,rgba(160,145,130,0.018) 0px,rgba(160,145,130,0.018) 1px,rgba(255,255,255,0) 2px,rgba(255,255,255,0) 9px),repeating-linear-gradient(90deg,rgba(160,145,130,0.012) 0px,rgba(160,145,130,0.012) 1px,rgba(255,255,255,0) 2px,rgba(255,255,255,0) 11px),linear-gradient(to bottom,#ffffff,#fefdfb);}
+    a{color:inherit;text-decoration:none;}strong{color:var(--text);font-weight:700;}
+    .container{width:min(100% - 48px,var(--max));margin:0 auto;}
+    h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-0.02em;color:var(--text);}
+    h1{font-size:clamp(2.55rem,5vw,4rem);line-height:1.04;}
+    h2{font-size:clamp(1.86rem,3vw,2.45rem);line-height:1.12;}
+    p{margin:0;font-size:1.03rem;line-height:1.9;color:var(--muted);}
+    .lead{font-size:1.2rem;line-height:1.8;}
+    .kicker,.eyebrow{display:block;margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.08em;font-variant-caps:small-caps;text-transform:uppercase;color:var(--gold-deep);}
+    .brandmark{display:inline-flex;align-items:baseline;white-space:nowrap;font-weight:700;text-transform:none !important;letter-spacing:-0.03em !important;font-variant:normal;}
+    .logo-word{display:inline-block;line-height:1;letter-spacing:-0.03em;font-weight:700;text-transform:none !important;font-variant:normal;color:inherit;}
+    .nav .logo-word,.footer-links .logo-word,.kicker .logo-word,.eyebrow .logo-word{color:var(--gold-deep);}
+    .brand-plus{position:relative;display:inline-block;width:0.34em;height:0.34em;margin-left:0.015em;transform:translateY(-0.40em);flex:0 0 auto;}
+    .brand-plus .arm{position:absolute;border-radius:999px;}
+    .brand-plus .arm-top,.brand-plus .arm-bottom,.brand-plus .arm-left{background:var(--pink);}
+    .brand-plus .arm-right{background:var(--teal);}
+    .brand-plus .arm-top,.brand-plus .arm-bottom{left:50%;width:0.085em;height:0.16em;transform:translateX(-50%);}
+    .brand-plus .arm-top{top:0;}.brand-plus .arm-bottom{bottom:0;}
+    .brand-plus .arm-left,.brand-plus .arm-right{top:50%;width:0.16em;height:0.085em;transform:translateY(-50%);}
+    .brand-plus .arm-left{left:0;}.brand-plus .arm-right{right:0;}
+    .brand-plus::before{content:"";position:absolute;left:50%;top:50%;width:0.09em;height:0.09em;transform:translate(-50%,-50%);background:var(--pink);border-radius:999px;z-index:2;}
+    .brand-inline{text-transform:none !important;letter-spacing:0 !important;}
+    .nav .brand-plus,.btn-primary .brand-plus,.btn-secondary .brand-plus{transform:translateY(-0.31em);}
+    .site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+    .header-inner{width:min(100% - 48px,var(--max));margin:0 auto;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+    .logo{display:inline-flex;flex-direction:column;justify-content:center;flex-shrink:0;}
+    .logo .brandmark{font-size:1.95rem;}.logo .logo-word{color:var(--text);}
+    .logo small{display:block;margin-top:4px;font-family:Arial,Helvetica,sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.04em;color:var(--text);}
+    .nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:22px;font-family:Arial,Helvetica,sans-serif;font-size:0.91rem;font-weight:700;letter-spacing:0.03em;}
+    .nav a{position:relative;padding-bottom:2px;color:var(--gold-deep);transition:opacity 0.2s ease;}
+    .nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:var(--gold-deep);transition:width 0.22s ease;}
+    .nav a:hover::after,.nav a.active::after{width:100%;}
+    .btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:6px;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;font-family:Arial,Helvetica,sans-serif;font-size:0.92rem;font-weight:700;transition:transform 0.2s ease,box-shadow 0.2s ease;white-space:nowrap;}
+    .btn-primary{background:var(--text);color:#fff;box-shadow:var(--shadow);}
+    .btn-secondary{background:#fff;color:var(--text);border:1px solid var(--line);}
+    .btn-primary:hover,.btn-secondary:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(0,0,0,0.08);}
+    .btn-primary .logo-word{color:#fff;}
+    .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px;}
+    .page-hero{padding:56px 0 42px;border-bottom:1px solid var(--line);background:radial-gradient(circle at top right,rgba(215,176,106,0.07),transparent 45%),linear-gradient(to bottom,rgba(255,255,255,0.88),rgba(255,255,255,0.86));}
+    .page-hero h1{margin-top:8px;margin-bottom:16px;}
+    .content-wrap{padding:48px 0 60px;}
+    .founder-layout{display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;}
+    .letter{max-width:680px;}
+    .letter p{font-size:1.08rem;line-height:1.82;color:var(--muted);margin:0 0 22px;}
+    .letter p:last-child{margin-bottom:0;}
+    .movement-kicker{display:block;font-family:Arial,Helvetica,sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;font-variant-caps:small-caps;text-transform:uppercase;color:var(--gold-deep);margin-bottom:20px;}
+    .movement-divider{display:flex;align-items:center;gap:12px;margin:38px 0;}
+    .movement-divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(185,141,67,0.3),transparent);}
+    .movement-divider-dot{width:7px;height:7px;border-radius:50%;background:var(--gold-deep);opacity:0.45;flex-shrink:0;}
+    .founder-question{display:block;font-size:1.38rem;font-weight:700;color:var(--text);font-style:italic;letter-spacing:-0.01em;line-height:1.3;margin:40px 0 !important;}
+    .closing-line{margin-top:44px !important;font-style:italic;color:var(--text) !important;}
+    .signature-block{display:flex;align-items:center;gap:18px;margin-top:40px;padding:24px 28px;border:1px solid var(--line);border-radius:18px;background:rgba(252,251,248,0.88);box-shadow:var(--shadow);}
+    .sig-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold-deep),var(--gold-pale));display:grid;place-items:center;flex-shrink:0;font-family:Arial,Helvetica,sans-serif;font-size:0.88rem;font-weight:700;color:var(--red);letter-spacing:0.02em;}
+    .sig-name{display:block;font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:-0.01em;line-height:1.2;}
+    .sig-title{display:block;font-family:Arial,Helvetica,sans-serif;font-size:0.8rem;color:var(--muted);margin-top:3px;}
+    .founder-aside{position:sticky;top:88px;display:flex;flex-direction:column;gap:16px;}
+    .pull-quote{border:1px solid var(--line);border-left:2px solid rgba(217,138,160,0.45);background:rgba(252,251,248,0.88);border-radius:18px;box-shadow:var(--shadow);padding:28px;}
+    .pull-quote blockquote{margin:0;font-size:clamp(1.05rem,1.8vw,1.18rem);line-height:1.68;letter-spacing:-0.01em;color:var(--text);font-style:italic;}
+    .journey-card{border:1px solid var(--line);background:rgba(252,251,248,0.88);border-radius:18px;box-shadow:var(--shadow);padding:24px;}
+    .journey-title{font-family:Arial,Helvetica,sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;font-variant-caps:small-caps;text-transform:uppercase;color:var(--gold-deep);margin-bottom:20px;display:block;}
+    .journey-step{display:flex;gap:14px;position:relative;}
+    .journey-step:not(:last-child){padding-bottom:20px;}
+    .journey-connector{display:flex;flex-direction:column;align-items:center;position:relative;}
+    .journey-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:4px;position:relative;z-index:1;}
+    .journey-dot.gold{background:var(--gold-deep);box-shadow:0 0 0 4px rgba(185,141,67,0.15);}
+    .journey-dot.pink{background:var(--pink);box-shadow:0 0 0 4px rgba(217,138,160,0.15);}
+    .journey-dot.teal{background:var(--teal);box-shadow:0 0 0 4px rgba(95,159,159,0.15);}
+    .journey-dot.red{background:var(--red);box-shadow:0 0 0 4px rgba(142,27,27,0.1);}
+    .journey-step:not(:last-child) .journey-connector::after{content:'';position:absolute;top:16px;bottom:-4px;left:5px;width:1px;background:var(--line);}
+    .journey-label{display:block;font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:3px;line-height:1.2;}
+    .journey-content p{font-size:0.86rem;line-height:1.6;color:var(--muted);margin:0;}
+    .site-footer{padding:20px 0;border-top:1px solid var(--line);background:rgba(255,255,255,0.92);}
+    .footer-inner{width:min(100% - 48px,var(--max));margin:0 auto;min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:Arial,Helvetica,sans-serif;font-size:0.84rem;font-weight:700;color:var(--muted);line-height:1.7;}
+    .footer-links{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:22px;}
+    .footer-links a{color:var(--gold-deep);}
+    @media(max-width:860px){.founder-layout{grid-template-columns:1fr;}.founder-aside{position:static;}.letter{max-width:100%;}}
+    @media(max-width:760px){.header-inner{min-height:auto;padding:16px 0;flex-direction:column;align-items:flex-start;gap:12px;}.nav{width:100%;justify-content:flex-start;gap:12px 16px;}.page-hero{padding:38px 0 30px;}.content-wrap{padding:36px 0 48px;}.signature-block{flex-direction:column;align-items:flex-start;}}
+    @media(max-width:560px){.container,.header-inner,.footer-inner{width:min(100% - 34px,var(--max));}h1{font-size:clamp(2.2rem,10vw,3.1rem);}}
   </style>
 </head>
 <body>
@@ -231,10 +100,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="naræ International Foundation home">
-        <span class="brandmark">
-          <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
-        </span>
+        <span class="brandmark"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
         <small>naræ International Foundation</small>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -254,67 +120,49 @@
       <div class="container">
         <p class="kicker">From the Founder</p>
         <h1>Why I created <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></h1>
-        <p class="lead" style="margin-top:16px; max-width:620px;">A personal message about cancer, healing, cultural identity, and the question that started it all.</p>
+        <p class="lead" style="margin-top:16px;max-width:620px;">A personal message about cancer, healing, cultural identity, and the question that started it all.</p>
       </div>
     </section>
 
     <div class="container content-wrap">
       <div class="founder-layout">
 
-        <!-- Left: the letter -->
         <div class="letter">
 
           <!-- Movement 1: The Journey -->
-          <div class="movement">
-            <span class="movement-kicker">The Journey</span>
+          <span class="movement-kicker">The Journey</span>
+          <p>The idea for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> did not begin as a plan for an organization. It emerged during my own cancer journey and from a growing realization that something important was missing.</p>
+          <p>Cancer was not unfamiliar in my life. I had sat beside people I loved as they faced it, and some of them did not come back. Even so, I never imagined it would one day become part of my own story. There was no genetic warning. My very first mammogram was a diagnosis, and when cancer returned not long after, I had to endure it all over again.</p>
+          <p>As I moved through treatment, I searched for understanding through support groups and retreats. Many of these spaces offered kindness and care, and I remain deeply grateful for them. Yet I also noticed how rarely I encountered women who shared a similar immigrant background.</p>
 
-            <p>The idea for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> did not begin as a plan for an organization. It emerged during my own cancer journey and from a growing realization that something important was missing.</p>
-
-            <p>Cancer was not unfamiliar in my life. I had sat beside people I loved as they faced it, and some of them did not come back. Even so, I never imagined it would one day become part of my own story. There was no genetic warning. My very first mammogram was a diagnosis, and when cancer returned not long after, I had to endure it all over again.</p>
-
-            <p>As I moved through treatment, I searched for understanding through support groups and retreats. Many of these spaces offered kindness and care, and I remain deeply grateful for them. Yet I also noticed how rarely I encountered women who shared a similar immigrant background.</p>
-          </div>
+          <div class="movement-divider"><div class="movement-divider-line"></div><div class="movement-divider-dot"></div><div class="movement-divider-line"></div></div>
 
           <!-- Movement 2: The Question -->
-          <div class="movement">
-            <span class="movement-kicker">The Question</span>
+          <span class="movement-kicker">The Question</span>
+          <p>As a Korean immigrant, I understand what it feels like to navigate systems that were not built with you in mind. There is often a quiet habit of managing things alone, of not asking for help, and of not wanting to burden others. I still remember when speaking to a store cashier required real courage. Experiences like that stay with you longer than you expect.</p>
+          <p>Gradually, a question began to form.</p>
+          <span class="founder-question">Where were the women like me?</span>
+          <p>In waiting rooms, support groups, and healing spaces, I did not see many of them. Not because they did not exist, but because immigrant and culturally diverse women often remain absent from those environments. Language barriers, cultural expectations, and deeply learned habits of silence can keep them away.</p>
 
-            <p>As a Korean immigrant, I understand what it feels like to navigate systems that were not built with you in mind. There is often a quiet habit of managing things alone, of not asking for help, and of not wanting to burden others. I still remember when speaking to a store cashier required real courage. Experiences like that stay with you longer than you expect.</p>
+          <div class="movement-divider"><div class="movement-divider-line"></div><div class="movement-divider-dot"></div><div class="movement-divider-line"></div></div>
 
-            <p>Gradually, a question began to form.</p>
+          <!-- Movement 3: The Reflection -->
+          <span class="movement-kicker">The Reflection</span>
+          <p>Another realization arrived during chemotherapy. Someone reached out and asked whether I could help with an important volunteer responsibility. I was sick, exhausted, and unsure if I had the strength to say yes. Yet something inside me said: try.</p>
+          <p>I am grateful that I did. It provided a needed distraction and a renewed sense of purpose. Through that experience, I discovered a strength I had not realized remained.</p>
+          <p>In that moment, my understanding of healing shifted. Healing is not only about receiving care. It can also grow through connection, contribution, and the knowledge that one's own experience may help someone else feel less alone.</p>
+          <p>I also came to recognize that support carries a different depth when it comes from someone who has lived through similar moments of fear, uncertainty, and recovery. Physicians and nurses provide essential care, and families offer love, but shared experience creates a kind of understanding that cannot easily be replaced.</p>
 
-            <p class="the-question">Where were the women like me?</p>
+          <div class="movement-divider"><div class="movement-divider-line"></div><div class="movement-divider-dot"></div><div class="movement-divider-line"></div></div>
 
-            <p>In waiting rooms, support groups, and healing spaces, I did not see many of them. Not because they did not exist, but because immigrant and culturally diverse women often remain absent from those environments. Language barriers, cultural expectations, and deeply learned habits of silence can keep them away.</p>
-          </div>
-
-          <!-- Movement 3: The Beginning -->
-          <div class="movement">
-            <span class="movement-kicker">The Beginning</span>
-
-            <p>Another realization arrived during chemotherapy. Someone reached out and asked whether I could help with an important volunteer responsibility. I was sick, exhausted, and unsure if I had the strength to say yes. Yet something inside me said: try.</p>
-
-            <p>I am grateful that I did. It provided a needed distraction and a renewed sense of purpose. Through that experience, I discovered a strength I had not realized remained.</p>
-
-            <p>In that moment, my understanding of healing shifted. Healing is not only about receiving care. It can also grow through connection, contribution, and the knowledge that one's own experience may help someone else feel less alone.</p>
-
-            <p>I also came to recognize that support carries a different depth when it comes from someone who has lived through similar moments of fear, uncertainty, and recovery. Physicians and nurses provide essential care, and families offer love, but shared experience creates a kind of understanding that cannot easily be replaced.</p>
-
-            <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grew from these realizations. It was created as a culturally grounded community for immigrant and culturally diverse women navigating breast and gynecologic cancers. The intention is simple: to foster belonging, understanding, and renewal among women whose experiences may otherwise remain unseen within traditional support spaces.</p>
-
-            <p>And there is something else I believe. When women who have long stayed quiet begin to feel supported and seen, their voices carry further than they know. Their experiences — shared, witnessed, counted — can change what healthcare understands about communities like ours. Not all at once. But in ways that matter deeply for the women who come after us.</p>
-
-            <p>My hope for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is this: that through connection, confidence begins to return. That as strength grows, some women may choose to walk beside another woman facing a similar journey — and discover that walking beside others becomes part of their own healing.</p>
-          </div>
-
-          <!-- Closing line — intentional whitespace -->
-          <div style="height:14px;"></div>
+          <!-- Movement 4: The Beginning -->
+          <span class="movement-kicker">The Beginning</span>
+          <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grew from these realizations.</p>
+          <p>It was created as a culturally grounded community for immigrant and culturally diverse women navigating breast and gynecologic cancers. The intention is simple: to foster belonging, understanding, and renewal among women whose experiences may otherwise remain unseen within traditional support spaces.</p>
+          <p>And there is something else I believe. When women who have long stayed quiet begin to feel supported and seen, their voices carry further than they know. Their experiences — shared, witnessed, counted — can change what healthcare understands about communities like ours. Not all at once. But in ways that matter deeply for the women who come after us.</p>
+          <p>My hope for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is this: that through connection, confidence begins to return. That as strength grows, some women may choose to walk beside another woman facing a similar journey — and discover that walking beside others becomes part of their own healing.</p>
           <p class="closing-line">That question. Those realizations. Together, they became <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
-          <div style="height:44px;"></div>
 
-          <div class="story-break"><span></span><span></span><span class="teal"></span></div>
-
-          <!-- Signature -->
           <div class="signature-block">
             <div class="sig-avatar">JB</div>
             <div>
@@ -328,62 +176,51 @@
         <!-- Right: sticky aside -->
         <div class="founder-aside">
 
-          <!-- Pull quote -->
           <div class="pull-quote">
             <blockquote>"In that moment, my understanding of healing shifted. Healing is not only about receiving care. It can also grow through connection, contribution, and the knowledge that one's own experience may help someone else feel less alone."</blockquote>
           </div>
 
-          <!-- Journey timeline -->
           <div class="journey-card">
             <span class="journey-title">The Journey</span>
 
             <div class="journey-step">
-              <div class="journey-connector">
-                <div class="journey-dot red"></div>
-              </div>
+              <div class="journey-connector"><div class="journey-dot gold"></div></div>
               <div class="journey-content">
                 <span class="journey-label">Witness</span>
-                <p>No warning. No family history. First mammogram, first diagnosis. Then cancer returned. She survived it twice.</p>
+                <p>No genetic warning. First mammogram, a diagnosis. Cancer returned. She endured it twice. Through treatment, she searched for community — and noticed who was missing.</p>
               </div>
             </div>
 
             <div class="journey-step">
-              <div class="journey-connector">
-                <div class="journey-dot pink"></div>
-              </div>
+              <div class="journey-connector"><div class="journey-dot pink"></div></div>
               <div class="journey-content">
-                <span class="journey-label">Belong &amp; Renew</span>
-                <p>At the worst of treatment, she reached outward. Discovered that walking beside someone else was not separate from healing — it was part of it.</p>
+                <span class="journey-label">The Question</span>
+                <p>In waiting rooms and healing spaces, she looked for women like her. They existed. But they were not there. Language, culture, the habit of silence kept them away.</p>
               </div>
             </div>
 
             <div class="journey-step">
-              <div class="journey-connector">
-                <div class="journey-dot teal"></div>
-              </div>
+              <div class="journey-connector"><div class="journey-dot teal"></div></div>
               <div class="journey-content">
-                <span class="journey-label">The Insight</span>
-                <p>Immigrant and culturally diverse women were not absent from cancer. They were absent from the spaces meant to hold them. There is a difference.</p>
+                <span class="journey-label">The Reflection</span>
+                <p>During chemotherapy, she said yes when every part of her wanted to say no. In that reaching outward, she found a strength she did not know remained — and her understanding of healing changed.</p>
               </div>
             </div>
 
             <div class="journey-step">
-              <div class="journey-connector">
-                <div class="journey-dot" style="background:var(--gold-deep);box-shadow:0 0 0 4px rgba(185,141,67,0.15);"></div>
-              </div>
+              <div class="journey-connector"><div class="journey-dot red"></div></div>
               <div class="journey-content">
                 <span class="journey-label">Walk Beside</span>
-                <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — built from everything she lived, so no woman carries it alone.</p>
+                <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — built from one question and many realizations, so no woman carries it alone.</p>
               </div>
             </div>
 
           </div>
-
         </div>
 
       </div>
 
-      <div class="btn-row" style="margin-top:40px;">
+      <div class="btn-row">
         <a href="community.html" class="btn-primary">Ways to Be Part</a>
       </div>
 
