@@ -625,6 +625,63 @@
       align-self: flex-start;
     }
 
+    .role-item.role-emphasis {
+      border-color: rgba(185,141,67,0.38);
+      background: rgba(252,251,248,0.98);
+      box-shadow: 0 10px 24px rgba(185,141,67,0.06);
+    }
+
+    .role-item.role-emphasis:hover {
+      background: rgba(252,251,248,1);
+      box-shadow: 0 14px 28px rgba(185,141,67,0.09);
+    }
+
+    .role-item.role-emphasis .role-name {
+      color: var(--text);
+    }
+
+    .role-item.role-companion {
+      display: grid;
+      grid-template-columns: 145px 1fr auto;
+      align-items: center;
+      column-gap: 18px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .role-item.role-companion:hover {
+      background: transparent;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .role-item.role-companion::before {
+      content: "";
+      display: block;
+      min-height: 108px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .role-item.role-companion .role-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 108px;
+    }
+
+    .role-item.role-companion .role-name {
+      margin-bottom: 7px;
+    }
+
+    .role-item.role-companion .role-arrow {
+      align-self: center;
+    }
+
     /* ── Luxury Diamond Divider ── */
     .diamond-divider {
       display: flex;
@@ -934,6 +991,16 @@
         padding: 16px 16px 15px;
       }
 
+      .role-item.role-companion {
+        grid-template-columns: 120px 1fr auto;
+        column-gap: 14px;
+      }
+
+      .role-item.role-companion::before,
+      .role-item.role-companion .role-copy {
+        min-height: 96px;
+      }
+
       .signup-bottom {
         padding: 24px 0 36px;
       }
@@ -968,6 +1035,16 @@
       .ml-form-successBody {
         padding-left: 18px;
         padding-right: 18px;
+      }
+
+      .role-item.role-companion {
+        grid-template-columns: 92px 1fr auto;
+        column-gap: 12px;
+      }
+
+      .role-item.role-companion::before,
+      .role-item.role-companion .role-copy {
+        min-height: 88px;
       }
     }
 
@@ -1244,7 +1321,7 @@
             <h2>Women and supporters each have a place within the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community.</h2>
 
             <div class="role-list">
-              <a href="community.html" class="role-item">
+              <a href="community.html" class="role-item role-emphasis">
                 <div>
                   <div class="role-name">
                     <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
@@ -1270,8 +1347,8 @@
                 <div class="diamond-line"></div>
               </div>
 
-              <a href="community.html" class="role-item">
-                <div>
+              <a href="community.html" class="role-item role-companion">
+                <div class="role-copy">
                   <div class="role-name">
                     <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
                     Companion
@@ -1296,7 +1373,7 @@
                 <div class="diamond-line"></div>
               </div>
 
-              <a href="community.html" class="role-item">
+              <a href="community.html" class="role-item role-emphasis">
                 <div>
                   <div class="role-name">
                     <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
@@ -1512,8 +1589,8 @@ async function cycle() {
   // Walk Beside — the core of naræ. Longer pause, blink animation.
   const walkDot = document.getElementById(STOPS[2].dotId);
   activateDot(2);
-  await wait(2800);           // nearly 3× longer than other stops
-  walkDot.classList.remove('active');  // clean reset so blink restarts next cycle
+  await wait(2800);
+  walkDot.classList.remove('active');
   await wait(120);
 
   activateDot(null);
