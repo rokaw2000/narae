@@ -219,20 +219,27 @@
       letter-spacing: 0 !important;
     }
 
+    /* Nav brandmark intentionally omitted here — inherits nav's 0.91rem naturally */
     .section-link .brandmark,
     .text-link .brandmark,
     .btn-primary .brandmark,
-    .btn-secondary .brandmark,
-    .nav .brandmark {
+    .btn-secondary .brandmark {
       font-size: 1.07em;
     }
 
+    /* Nav brand-plus uses the same translateY as the base so it sits
+       consistently at superscript height in the nav's 0.91rem context */
     .section-link .brand-plus,
     .text-link .brand-plus,
     .btn-primary .brand-plus,
-    .btn-secondary .brand-plus,
-    .nav .brand-plus {
+    .btn-secondary .brand-plus {
       transform: translateY(-0.31em);
+    }
+
+    /* Nav brand-plus kept at the standard -0.40em so the + aligns
+       correctly relative to the nav's smaller font size */
+    .nav .brand-plus {
+      transform: translateY(-0.40em);
     }
 
     .ml-form-embedSubmit .primary .brandmark {
@@ -1045,7 +1052,7 @@
             </span>
             is for women carrying more.
           </h1>
-          <p style="font-style:italic;">naræ (<span style="font-weight:500; font-style:normal;">나래</span>), pronounced nah-reh, means “wings” in Korean.</p>
+          <p style="font-style:italic;">naræ (<span style="font-weight:500; font-style:normal;">나래</span>), pronounced nah-reh, means "wings" in Korean.</p>
           <p class="hero-sub lead">
             <strong>naræ International Foundation</strong> is a <strong>nonprofit organization</strong> cultivating a culturally grounded community of belonging and renewal for <strong>immigrant and culturally diverse women</strong> navigating <strong>breast and gynecologic cancers.</strong>
           </p>
@@ -1107,7 +1114,7 @@
             </p>
 
             <p style="font-size:1.05rem; line-height:1.76; color:var(--muted); margin-bottom:10px;">
-              A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one’s own healing.
+              A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one's own healing.
             </p>
 
 <p style="color: var(--muted); margin-top: 10px;">
