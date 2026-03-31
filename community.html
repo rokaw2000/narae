@@ -119,16 +119,53 @@
     .card-accent-gold { border-left: 2px solid rgba(185,141,67,0.45); }
 
     /* ── Role items — expandable ── */
-    .role-list { display: flex; flex-direction: column; gap: 9px; margin-top: 12px; }
-    .role-item { padding: 16px 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,0.9); transition: background 0.18s ease, box-shadow 0.18s ease; cursor: pointer; }
+    .role-list { display: flex; flex-direction: column; gap: 22px; margin-top: 16px; }
+    .role-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.9);
+      transition: background 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      cursor: pointer;
+    }
     .role-item:hover { background: var(--warm); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
     .role-item[open] { background: var(--warm); }
+    .role-item[open].role-emphasis {
+      background: rgba(252,248,241,1);
+      box-shadow: 0 16px 34px rgba(185,141,67,0.12);
+    }
     .role-item summary { display: flex; align-items: center; justify-content: space-between; gap: 10px; list-style: none; }
     .role-item summary::-webkit-details-marker { display: none; }
     .role-name { font-size: 1.06rem; font-weight: 700; color: var(--text); line-height: 1.2; }
     .role-arrow { font-family: Arial, Helvetica, sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--gold-deep); transition: transform 0.2s ease; flex-shrink: 0; }
     .role-item[open] .role-arrow { transform: rotate(90deg); }
-    .role-detail { font-size: 0.94rem; line-height: 1.74; color: var(--muted); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+    .role-detail {
+      font-size: 0.94rem;
+      line-height: 1.74;
+      color: var(--muted);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .role-emphasis {
+      border-color: rgba(185,141,67,0.62);
+      background: rgba(252,248,241,1);
+      box-shadow: 0 16px 34px rgba(185,141,67,0.12);
+    }
+
+    .role-companion summary,
+    .role-companion .role-detail {
+      text-align: right;
+    }
+
+    .role-companion summary {
+      justify-content: space-between;
+    }
+
+    .role-companion .role-arrow {
+      order: 2;
+    }
 
     /* ── Crane fill image ── */
     .logo-fill-wrap {
@@ -140,7 +177,7 @@
       margin-top: 18px;
       margin-bottom: 6px;
     }
-    /* Gliding figure-8 idle — feels like riding air currents */
+
     @keyframes craneDrift {
       0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    }
       12%  { transform: translateX(14px)  translateY(-18px)  rotate(1deg)    scale(1.04); }
@@ -152,20 +189,21 @@
       88%  { transform: translateX(-10px) translateY(-20px)  rotate(0.5deg)  scale(1.03); }
       100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    }
     }
-    /* Fly away — all the way off the page top-right */
+
     @keyframes craneFlyAway {
       0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 1;    }
       40%  { transform: translateX(180px) translateY(-200px) rotate(-5deg)   scale(0.65); opacity: 0.16; }
       70%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
       100% { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
     }
-    /* Return — glides back in from top-right */
+
     @keyframes craneFlyBack {
       0%   { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
       30%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
       65%  { transform: translateX(160px) translateY(-180px) rotate(-4deg)   scale(0.65); opacity: 0.14; }
       100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 1;    }
     }
+
     .crane-img {
       display: block;
       width: 300px;
@@ -183,6 +221,7 @@
     .crane-img.flying-back {
       animation: craneFlyBack 3s cubic-bezier(0.1, 0, 0.3, 1) forwards;
     }
+
     /* ── Support block ── */
     .support-block { margin-bottom: 20px; }
     .support-row { display: flex; align-items: flex-start; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
@@ -309,28 +348,28 @@
 
             <div class="role-list">
 
-              <details class="role-item">
+              <details class="role-item role-emphasis">
                 <summary>
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">An immigrant or culturally diverse woman navigating breast or gynecologic cancer, carrying not only a diagnosis but also the weight of language, migration, family roles, and the experience of feeling unseen. She comes to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to be welcomed fully, as she is. She is at the heart of why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists.</div>
+                <div class="role-detail">An immigrant or culturally diverse woman navigating breast or gynecologic cancer, often carrying not only a diagnosis, but also the weight of language, migration, family roles, and the experience of feeling unseen. She comes to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to be received fully, as she is. She is at the heart of why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists.</div>
               </details>
 
-              <details class="role-item">
+              <details class="role-item role-companion">
                 <summary>
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Companion</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">A Fellow who, in her own time, chooses to walk beside another woman at the beginning. She understands the isolation, the cultural silence, and the exhaustion of moving through systems that were not built with her in mind. Her presence offers recognition, encouragement, and the strength of someone who understands.</div>
+                <div class="role-detail">A <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow who, when she feels ready, may choose to walk beside another woman beginning a similar journey. Companion is not a separate role, but something a <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow may grow into in her own time. In walking beside another, her own healing may deepen.</div>
               </details>
 
-              <details class="role-item">
+              <details class="role-item role-emphasis">
                 <summary>
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Steward</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">A person or organization who believes culturally grounded support and human dignity matter deeply. They offer what they can: time, skill, resources, advocacy, partnership, or steady presence. Whether visible or behind the scenes, their support helps sustain the work.</div>
+                <div class="role-detail">A person or organization who helps sustain <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> through service, generosity, partnership, advocacy, or support behind the scenes. Stewards may include other cancer survivors, including those outside the communities <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is specifically centered on, as well as friends, professionals, volunteers, and partners who believe this work matters and want to help it continue with care.</div>
               </details>
 
             </div>
@@ -443,7 +482,8 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
     (function() {
       var wrap  = document.getElementById('craneFill');
       var crane = wrap ? wrap.querySelector('.crane-img') : null;
@@ -490,7 +530,8 @@
         });
       });
     })();
-  </script><script>
+  </script>
+  <script>
     (function() {
       var wrap  = document.getElementById('craneFill');
       var crane = wrap ? wrap.querySelector('.crane-img') : null;
@@ -509,10 +550,8 @@
         if (isAway) return;
         isAway = true;
         crane.classList.remove('flying-back');
-        // Force reflow so animation restarts cleanly
         void crane.offsetWidth;
         crane.classList.add('flying-away');
-        // After fly-away completes, hide the wrap
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
           wrap.style.visibility = 'hidden';
@@ -526,6 +565,18 @@
         crane.classList.remove('flying-away');
         void crane.offsetWidth;
         crane.classList.add('flying-back');
-        // After fly-back, restore idle drift
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
+          crane.classList.remove('flying-back');
+        });
+      }
+
+      roles.forEach(function(r) {
+        r.addEventListener('toggle', function() {
+          anyOpen() ? flyAway() : flyBack();
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
