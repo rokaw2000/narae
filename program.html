@@ -293,8 +293,6 @@
     /* Flow */
     .flow-list { display: flex; flex-direction: column; margin-top: 18px; }
     .flow-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; position: relative; border-top: 1px solid var(--line); }
-   .flow-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; position: relative; border-top: 1px solid var(--line); }
-
 
     .flow-connector {
       display: flex;
@@ -304,7 +302,8 @@
       position: relative;
     }
 
-    .flow-item:not(:last-child) .flow-connector::after {
+    /* FIX 1: Draw the connector line for ALL items including the last one */
+    .flow-connector::after {
       content: '';
       position: absolute;
       left: 11px;
@@ -541,56 +540,102 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* Crane section */
+    /* FIX 2: Next Step Box styles */
+    .next-step-box {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--warm);
+    }
+
+    .next-step-row {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .next-step-bar {
+      width: 4px;
+      background: var(--gold-deep);
+      flex-shrink: 0;
+    }
+
+    .next-step-content {
+      padding: 14px 16px;
+    }
+
+    .next-step-label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 4px;
+    }
+
+    .next-step-title {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .next-step-content .section-link {
+      margin-top: 8px;
+    }
+
+    /* FIX 3: Enhanced 1000 Crane Project section */
     .ritual-section {
-      padding: 62px 0 66px;
+      padding: 72px 0 78px;
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(to bottom, rgba(253,246,232,0.32), rgba(255,255,255,0.78)),
-        radial-gradient(circle at center, rgba(217,138,160,0.06), transparent 52%);
+        linear-gradient(to bottom, rgba(253,246,232,0.55), rgba(255,255,255,0.92)),
+        radial-gradient(circle at center, rgba(217,138,160,0.10), transparent 55%);
     }
 
     .ritual-shell {
       max-width: 820px;
       margin: 0 auto;
       text-align: center;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid #eadfce;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid #dcc98a;
       border-radius: 26px;
-      padding: 34px 34px 36px;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.05);
+      padding: 44px 40px 46px;
+      box-shadow: 0 20px 48px rgba(185,141,67,0.10), 0 4px 12px rgba(0,0,0,0.04);
     }
 
     .ritual-divider {
       width: 72px;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold-deep), transparent);
-      margin: 0 auto 18px;
+      margin: 0 auto 22px;
     }
 
     .ritual-orb {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 999px;
-      margin: 0 auto 18px;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: rgba(255,255,255,0.96);
-      border: 1px solid #e7dbc5;
-      box-shadow: var(--shadow);
+      border: 1px solid #d4b870;
+      box-shadow: 0 6px 18px rgba(185,141,67,0.18), var(--shadow);
     }
 
     .ritual-orb img {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       object-fit: contain;
       opacity: 0.86;
     }
 
     .ritual-title {
-      margin: 8px 0 12px;
-      font-size: 1.68rem;
+      margin: 10px 0 16px;
+      font-size: 1.88rem;
       line-height: 1.22;
       font-weight: 700;
       color: var(--text);
@@ -675,8 +720,8 @@
 
       .page-hero { padding: 38px 0 30px; }
       .hero-actions { flex-direction: row; }
-      .ritual-section { padding: 46px 0 50px; }
-      .ritual-shell { padding: 28px 22px 30px; }
+      .ritual-section { padding: 52px 0 56px; }
+      .ritual-shell { padding: 32px 22px 34px; }
     }
 
     @media (max-width: 560px) {
@@ -787,7 +832,7 @@
                   <p class="flow-text">Lifting another woman, walking beside another woman is one of the core healing modalities of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>. When a woman is ready, that act of presence can become part of how her own healing deepens.</p>
                   <details class="flow-more">
                     <summary>Read more</summary>
-                    <p class="flow-detail">This is never an obligation. It begins when care received becomes care offered. A woman who has been held may one day become encouragement, companionship, advocacy, or presence for someone else. That cycle of receiving, renewing, and giving forward is what makes <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> a living ecosystem, not simply a program.</p>
+                    <p class="flow-detail">This is never an obligation. It begins when care received becomes care offered. A woman who has been held may one day become encouragement, companionship, advocacy, or presence for someone else. That cycle of belonging, renewing, and walking beside is what makes <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> a living ecosystem, not simply a program.</p>
                   </details>
                 </div>
               </div>
@@ -849,20 +894,22 @@
             <p class="support-note">
               <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is not built for volume. Access may be by invitation or referral. That is part of how the spirit, trust, and dignity of this work are held.
             </p>
-          </section>
-        </div>
+
+            <!-- FIX 2: Next Step Box moved here, directly after support-note -->
             <div class="next-step-box">
               <div class="next-step-row">
                 <div class="next-step-bar" aria-hidden="true"></div>
                 <div class="next-step-content">
                   <span class="next-step-label">Next Step</span>
-                  <p class="next-step-title">See how care continues through the living ecosystem of receiving, renewing, and walking beside.</p>
+                  <p class="next-step-title">See how care continues through the living ecosystem of belonging, renewing, and walking beside.</p>
                   <a href="community.html" class="section-link">Explore Ways to Be Part →</a>
                 </div>
               </div>
             </div>
+
           </section>
         </div>
+
       </div>
     </div>
 
@@ -883,7 +930,7 @@
             When 1,000 cranes are gathered, they are honored together before the next thousand begins.
           </p>
 
-          <a href="crane-project.html" class="section-link" style="justify-content:center; margin-top:18px;">Learn more →</a>
+          <a href="crane-project.html" class="section-link" style="justify-content:center; margin-top:22px;">Learn more →</a>
         </div>
       </div>
     </section>
