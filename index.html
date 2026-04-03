@@ -11,7 +11,7 @@
   ║  copy the full src="data:image/png;base64,..." value, and paste  ║
   ║  it here to replace src="narae-logo.png".                       ║
   ║                                                                  ║
-  ║  Everything else (diamonds, layout, animation JS) is complete.  ║
+  ║  Everything else (dots, layout, animation JS) is complete.      ║
   ╚══════════════════════════════════════════════════════════════════╝
 -->
 <html lang="en">
@@ -19,10 +19,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>naræ+ | naræ International Foundation</title>
-  <meta
-    name="description"
-    content="naræ+ by naræ International Foundation offers a culturally grounded space for immigrant and culturally diverse women navigating breast and gynecologic cancers, especially those carrying more through language, migration, family roles, and life beyond treatment."
-  />
+  <meta name="description" content="naræ+ by naræ International Foundation offers a culturally grounded space for immigrant and culturally diverse women navigating breast and gynecologic cancers, especially those carrying more through language, migration, family roles, and life beyond treatment." />
 
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
@@ -54,891 +51,208 @@
       -webkit-font-smoothing: antialiased;
       background-color: var(--bg);
       background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(160,145,130,0.018) 0px,
-          rgba(160,145,130,0.018) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 9px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(160,145,130,0.012) 0px,
-          rgba(160,145,130,0.012) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 11px
-        ),
+        repeating-linear-gradient(0deg, rgba(160,145,130,0.018) 0px, rgba(160,145,130,0.018) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 9px),
+        repeating-linear-gradient(90deg, rgba(160,145,130,0.012) 0px, rgba(160,145,130,0.012) 1px, rgba(255,255,255,0) 2px, rgba(255,255,255,0) 11px),
         linear-gradient(to bottom, #ffffff, #fefdfb);
     }
 
     a { color: inherit; text-decoration: none; }
     strong { color: var(--text); font-weight: 700; }
 
-    .container {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-    }
+    .container { width: min(100% - 48px, var(--max)); margin: 0 auto; }
 
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
+    h1 { font-size: clamp(2.55rem, 5vw, 4rem); line-height: 1.04; }
+    h2 { font-size: clamp(1.86rem, 3vw, 2.45rem); line-height: 1.12; }
+    h3 { font-size: 1.2rem; line-height: 1.24; font-weight: 700; }
+    p { margin: 0; font-size: 1.03rem; line-height: 1.9; color: var(--muted); }
+    .lead { font-size: 1.2rem; line-height: 1.8; }
 
-    h1 {
-      font-size: clamp(2.55rem, 5vw, 4rem);
-      line-height: 1.04;
-    }
-
-    h2 {
-      font-size: clamp(1.86rem, 3vw, 2.45rem);
-      line-height: 1.12;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      line-height: 1.24;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 0;
-      font-size: 1.03rem;
-      line-height: 1.9;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-
-    .kicker,
-    .eyebrow {
-      display: block;
-      margin: 0 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
+    .kicker, .eyebrow { display: block; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
 
     /* Brand */
-    .brandmark {
-      display: inline-flex;
-      align-items: baseline;
-      white-space: nowrap;
-      font-weight: 700;
-      text-transform: none !important;
-      letter-spacing: -0.03em !important;
-      font-variant: normal;
-    }
-
-    .logo-word {
-      display: inline-block;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      text-transform: none !important;
-      font-variant: normal;
-      color: inherit;
-    }
-
-    .nav .logo-word,
-    .footer-links .logo-word,
-    .kicker .logo-word,
-    .eyebrow .logo-word {
-      color: var(--gold-deep);
-    }
-
-    .brand-plus {
-      position: relative;
-      display: inline-block;
-      width: 0.34em;
-      height: 0.34em;
-      margin-left: 0.015em;
-      transform: translateY(-0.40em);
-      flex: 0 0 auto;
-    }
-
-    .brand-plus .arm {
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom,
-    .brand-plus .arm-left {
-      background: var(--pink);
-    }
-
-    .brand-plus .arm-right {
-      background: var(--teal);
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom {
-      left: 50%;
-      width: 0.085em;
-      height: 0.16em;
-      transform: translateX(-50%);
-    }
-
+    .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
+    .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; color: inherit; }
+    .nav .logo-word, .footer-links .logo-word, .kicker .logo-word, .eyebrow .logo-word { color: var(--gold-deep); }
+    .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.40em); flex: 0 0 auto; }
+    .brand-plus .arm { position: absolute; border-radius: 999px; }
+    .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
+    .brand-plus .arm-right { background: var(--teal); }
+    .brand-plus .arm-top, .brand-plus .arm-bottom { left: 50%; width: 0.085em; height: 0.16em; transform: translateX(-50%); }
     .brand-plus .arm-top { top: 0; }
     .brand-plus .arm-bottom { bottom: 0; }
-
-    .brand-plus .arm-left,
-    .brand-plus .arm-right {
-      top: 50%;
-      width: 0.16em;
-      height: 0.085em;
-      transform: translateY(-50%);
-    }
-
+    .brand-plus .arm-left, .brand-plus .arm-right { top: 50%; width: 0.16em; height: 0.085em; transform: translateY(-50%); }
     .brand-plus .arm-left { left: 0; }
     .brand-plus .arm-right { right: 0; }
-
-    .brand-plus::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 0.09em;
-      height: 0.09em;
-      transform: translate(-50%, -50%);
-      background: var(--pink);
-      border-radius: 999px;
-      z-index: 2;
-    }
-
-    .brand-inline {
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-    }
-
-    /* Nav brandmark intentionally omitted here — inherits nav's 0.91rem naturally */
-    .section-link .brandmark,
-    .text-link .brandmark,
-    .btn-primary .brandmark,
-    .btn-secondary .brandmark {
-      font-size: 1.07em;
-    }
-
-    /* Nav brand-plus uses the same translateY as the base so it sits
-       consistently at superscript height in the nav's 0.91rem context */
-    .section-link .brand-plus,
-    .text-link .brand-plus,
-    .btn-primary .brand-plus,
-    .btn-secondary .brand-plus {
-      transform: translateY(-0.31em);
-    }
-
-    /* Nav brand-plus kept at the standard -0.40em so the + aligns
-       correctly relative to the nav's smaller font size */
-    .nav .brand-plus {
-      transform: translateY(-0.40em);
-    }
-
-    .ml-form-embedSubmit .primary .brandmark {
-      font-size: 1em;
-    }
-
-    .ml-form-embedSubmit .primary .logo-word {
-      color: #fff;
-    }
-
-    .ml-form-embedSubmit .primary .brand-plus {
-      transform: translateY(-0.34em);
-    }
+    .brand-plus::before { content: ""; position: absolute; left: 50%; top: 50%; width: 0.09em; height: 0.09em; transform: translate(-50%, -50%); background: var(--pink); border-radius: 999px; z-index: 2; }
+    .brand-inline { text-transform: none !important; letter-spacing: 0 !important; }
+    .section-link .brandmark, .text-link .brandmark, .btn-primary .brandmark, .btn-secondary .brandmark, .nav .brandmark { font-size: 1.07em; }
+    .section-link .brand-plus, .text-link .brand-plus, .btn-primary .brand-plus, .btn-secondary .brand-plus, .nav .brand-plus { transform: translateY(-0.31em); }
+    .ml-form-embedSubmit .primary .brandmark { font-size: 1em; }
+    .ml-form-embedSubmit .primary .logo-word { color: #fff; }
+    .ml-form-embedSubmit .primary .brand-plus { transform: translateY(-0.34em); }
 
     /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo .brandmark {
-      font-size: 1.95rem;
-    }
-
-    .logo .logo-word {
-      color: var(--text);
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--text);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 2px;
-      color: var(--gold-deep);
-      transition: opacity 0.2s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--gold-deep);
-      transition: width 0.22s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      width: 100%;
-    }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+    .header-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .logo { display: inline-flex; flex-direction: column; justify-content: center; flex-shrink: 0; }
+    .logo .brandmark { font-size: 1.95rem; }
+    .logo .logo-word { color: var(--text); }
+    .logo small { display: block; margin-top: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; font-family: Arial, Helvetica, sans-serif; font-size: 0.91rem; font-weight: 700; letter-spacing: 0.03em; }
+    .nav a { position: relative; padding-bottom: 2px; color: var(--gold-deep); transition: opacity 0.2s ease; }
+    .nav a::after { content: ""; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--gold-deep); transition: width 0.22s ease; }
+    .nav a:hover::after, .nav a.active::after { width: 100%; }
 
     /* Hero */
-    .hero {
-      padding: 84px 0 62px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%),
-        linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86));
-    }
+    .hero { padding: 84px 0 62px; border-bottom: 1px solid var(--line); background: radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%), linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86)); }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 30px; align-items: stretch; }
+    .hero h1 { margin-top: 8px; }
+    .hero-headline .red-strong { color: var(--red); font-weight: 700; }
+    .hero-sub { margin-top: 34px; max-width: 660px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 30px;
-      align-items: stretch;
-    }
+    .btn-primary, .btn-secondary { display: inline-flex; align-items: center; gap: 6px; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; }
+    .btn-primary { background: var(--text); color: #fff; box-shadow: var(--shadow); }
+    .btn-secondary { background: #fff; color: var(--text); border: 1px solid var(--line); }
+    .btn-primary:hover, .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    .btn-primary .logo-word { color: #fff; }
 
-    .hero h1 {
-      margin-top: 8px;
-    }
-
-    .hero-headline .red-strong {
-      color: var(--red);
-      font-weight: 700;
-    }
-
-    .hero-sub {
-      margin-top: 34px;
-      max-width: 660px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-    }
-
-    .btn-primary .logo-word {
-      color: #fff;
-    }
-
-    .hero-card {
-      border: 1px solid var(--line);
-      background: rgba(252,251,248,0.88);
-      padding: 26px 26px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-card .eyebrow {
-      margin-bottom: 6px;
-    }
-
-    .hero-card p {
-      font-size: 1rem;
-      line-height: 1.76;
-    }
-
-    .hero-card-title {
-      font-size: clamp(2.1rem, 2.9vw, 2.55rem);
-      line-height: 1.12;
-      margin: 4px 0 14px;
-      font-weight: 600;
-    }
+    .hero-card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); padding: 26px 26px; border-radius: 18px; box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: center; }
+    .hero-card .eyebrow { margin-bottom: 6px; }
+    .hero-card p { font-size: 1rem; line-height: 1.76; }
+    .hero-card-title { font-size: clamp(2.1rem, 2.9vw, 2.55rem); line-height: 1.12; margin: 4px 0 14px; font-weight: 600; }
 
     /* Main split */
-    .main-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      gap: 28px;
-      align-items: stretch;
-      border-bottom: 1px solid var(--line);
-    }
+    .main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; border-bottom: 1px solid var(--line); }
+    .main-left { padding: 42px 36px 28px 0; border-right: 1px solid var(--line); display: flex; }
+    .main-right { padding: 42px 0 28px 36px; display: flex; }
+    .section, .right-panel { padding: 6px 0 0; display: flex; flex-direction: column; height: 100%; width: 100%; }
+    .section h2, .right-panel h2 { margin-top: 6px; margin-bottom: 16px; }
+    .right-panel h2 { max-width: 18ch; }
 
-    .main-left {
-      padding: 34px 30px 18px 0;
-      border-right: 1px solid var(--line);
-      display: flex;
-    }
+    /* Flow */
+    .flow-list { display: flex; flex-direction: column; margin-top: 18px; }
+    .flow-item { display: grid; grid-template-columns: 28px 1fr; gap: 0 18px; position: relative; border-top: 1px solid var(--line); }
+    .flow-item:last-child { border-bottom: 1px solid var(--line); }
+    .flow-connector { display: flex; flex-direction: column; align-items: center; padding-top: 20px; position: relative; }
+    .flow-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gold-pale); border: 2px solid var(--gold-deep); flex-shrink: 0; position: relative; z-index: 1; }
+    .flow-item:not(:last-child) .flow-connector::after { content: ''; position: absolute; left: 13px; top: 24px; bottom: -24px; width: 1px; background: var(--line); }
+    .flow-body { padding: 18px 0; }
+    .flow-label { display: block; margin-bottom: 4px; font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
+    .flow-title { font-size: 1.32rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin: 4px 0 8px; line-height: 1.15; }
+    .flow-text { max-width: 60ch; font-size: 1rem; line-height: 1.72; color: var(--muted); margin: 0; }
 
-    .main-right {
-      padding: 34px 0 18px;
-      display: flex;
-    }
-
-    .section,
-    .right-panel {
-      padding: 6px 0 0;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
-
-    .section h2,
-    .right-panel h2 {
-      margin-top: 6px;
-      margin-bottom: 16px;
-    }
-
-    .right-panel h2 {
-      max-width: 18ch;
-    }
-
-    .section-link,
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      line-height: 1.2;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-    }
-
-    .main-left .section-link,
-    .main-right .section-link {
-      margin-top: auto;
-      padding-top: 10px;
-      align-self: flex-start;
-    }
-
-    .section-link:hover,
-    .text-link:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    .section-link, .text-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; line-height: 1.2; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--gold-deep); }
+    .main-left .section-link, .main-right .section-link { margin-top: auto; padding-top: 10px; align-self: flex-start; }
+    .section-link:hover, .text-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
     /* Roles */
-    .role-list {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      background: transparent;
-    }
+    .role-list { margin-top: 12px; display: grid; grid-template-columns: 1fr; gap: 0; background: transparent; }
+    .role-item { display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-height: 100%; padding: 18px 18px 16px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,0.9); transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease; }
+    .role-item:hover { background: var(--warm); transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,0,0.05); }
+    .role-name { font-size: 1.06rem; font-weight: 700; color: var(--text); margin-bottom: 7px; line-height: 1.2; }
+    .role-text { font-size: 0.94rem; line-height: 1.46; color: var(--muted); flex-grow: 1; }
+    .role-arrow { color: var(--gold-deep); font-weight: 700; margin-top: 0; align-self: flex-start; }
 
-    .role-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 8px;
-      min-height: 128px;
-      padding: 16px 16px 15px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.9);
-      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .role-item:hover {
-      background: var(--warm);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-    }
-
-    .role-name {
-      font-size: 1.06rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 7px;
-      line-height: 1.2;
-    }
-
-    .role-text {
-      font-size: 0.94rem;
-      line-height: 1.46;
-      color: var(--muted);
-      flex-grow: 1;
-    }
-
-    .role-arrow {
-      color: var(--gold-deep);
-      font-weight: 700;
-      margin-top: 0;
-      align-self: flex-start;
-    }
-
-    .role-item.role-emphasis {
-      border-color: rgba(185,141,67,0.62);
-      background: rgba(252,248,241,1);
-      box-shadow: 0 16px 34px rgba(185,141,67,0.12);
-    }
-
-    .role-item.role-emphasis:hover {
-      background: rgba(252,248,241,1);
-      border-color: rgba(185,141,67,0.75);
-      box-shadow: 0 18px 36px rgba(185,141,67,0.16);
-    }
-
-    .role-item.role-companion {
-      justify-content: space-between;
-      text-align: right;
-      align-items: flex-end;
-      background: rgba(255,255,255,0.92);
-    }
-
-    .role-item.role-companion .role-name {
-      margin-bottom: 7px;
-    }
-
-    .role-item.role-companion .role-text {
-      text-align: right;
-    }
-
-    .role-item.role-companion .role-arrow {
-      align-self: flex-end;
-      margin-top: 0;
-    }
-
-    /* Golden dot divider */
+    /* ── Golden Dot Divider ── */
     .dot-divider {
       display: flex;
-      justify-content: center;
       align-items: center;
-      padding: 2px 0;
+      gap: 10px;
+      padding: 6px 0;
     }
 
-    .dot-divider::before {
-      content: "";
-      width: 8px;
-      height: 8px;
+    .dot-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(185,141,67,0.36), transparent);
+    }
+
+    .dot-divider-gem {
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: var(--gold-deep);
+      flex-shrink: 0;
       opacity: 0.72;
-      box-shadow: 0 0 0 5px rgba(185,141,67,0.08);
+      animation: dot-pulse 4.8s ease-in-out infinite;
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% { opacity: 0.55; box-shadow: 0 0 0 0 rgba(185,141,67,0.2); }
+      50%       { opacity: 1;   box-shadow: 0 0 0 5px rgba(185,141,67,0.12); }
     }
 
     /* Bottom MailerLite */
-    .signup-bottom {
-      padding: 30px 0 46px;
-    }
+    .signup-bottom { padding: 30px 0 46px; }
+    .signup-bottom-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .signup-bottom .eyebrow { margin-bottom: 8px; }
+    .signup-bottom-copy { max-width: 680px; margin: 12px auto 0; }
 
-    .signup-bottom-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .signup-bottom .eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .signup-bottom-copy {
-      max-width: 680px;
-      margin: 12px auto 0;
-    }
-
-    .ml-wrap {
-      margin: 18px auto 0;
-      max-width: 760px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(252,251,248,0.9);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .ml-inner {
-      padding: 20px 20px 18px;
-    }
-
-    .ml-title {
-      margin: 0 0 8px;
-      font-size: 1.28rem;
-      line-height: 1.18;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .ml-title-brand {
-      display: inline-flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: 0;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .ml-title-brand svg {
-      width: 0.58em;
-      height: 0.58em;
-      margin-left: 0.02em;
-      transform: translateY(-0.24em);
-      flex: 0 0 auto;
-    }
-
-    .ml-copy {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .ml-copy strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .ml-copy p {
-      text-align: center;
-    }
-
-    .ml-block-form {
-      margin-top: 16px;
-    }
-
-    .ml-form-formContent {
-      margin-bottom: 10px;
-    }
-
-    .ml-field-group input {
-      width: 100%;
-      height: 46px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .ml-field-group input:focus {
-      border-color: var(--gold-deep);
-      box-shadow: 0 0 0 3px rgba(185,141,67,0.12);
-    }
-
-    .ml-form-embedSubmit .primary,
-    .ml-form-embedSubmit .loading {
-      width: 100%;
-      min-height: 46px;
-      border: none;
-      border-radius: 999px;
-      padding: 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.93rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .ml-form-embedSubmit .primary {
-      background: var(--text);
-      color: #fff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .ml-form-embedSubmit .primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07);
-    }
-
-    .ml-form-successBody {
-      padding: 20px 20px;
-    }
-
-    .ml-form-successContent h4 {
-      margin: 0 0 8px;
-      font-size: 1.18rem;
-      line-height: 1.2;
-      color: var(--text);
-    }
-
-    .ml-form-successContent p {
-      margin: 0;
-    }
-
-    .ml-form-embedContainer,
-    .ml-form-align-center,
-    .ml-form-embedWrapper {
-      width: 100%;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .ml-form-embedBody {
-      width: 100%;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
+    .ml-wrap { margin: 18px auto 0; max-width: 760px; border: 1px solid var(--line); border-radius: 18px; background: rgba(252,251,248,0.9); box-shadow: var(--shadow); overflow: hidden; text-align: center; }
+    .ml-inner { padding: 20px 20px 18px; }
+    .ml-title { margin: 0 0 8px; font-size: 1.28rem; line-height: 1.18; color: var(--text); font-weight: 700; }
+    .ml-title-soft { color: var(--muted); font-weight: 500; display: block; }
+    .ml-title-brand { display: inline-flex; align-items: baseline; justify-content: center; gap: 0; color: var(--text); font-weight: 700; }
+    .ml-title-brand svg { width: 0.58em; height: 0.58em; margin-left: 0.02em; transform: translateY(-0.24em); flex: 0 0 auto; }
+    .ml-copy { text-align: center; max-width: 560px; margin: 0 auto; }
+    .ml-copy p + p { margin-top: 2px; }
+    .ml-copy strong { color: var(--text); font-weight: 600; }
+    .ml-copy p { text-align: center; }
+    .ml-block-form { margin-top: 16px; }
+    .ml-form-formContent { margin-bottom: 10px; }
+    .ml-field-group input { width: 100%; height: 46px; border: 1px solid var(--line); border-radius: 999px; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 0.95rem; color: var(--text); background: #fff; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .ml-field-group input:focus { border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(185,141,67,0.12); }
+    .ml-form-embedSubmit .primary, .ml-form-embedSubmit .loading { width: 100%; min-height: 46px; border: none; border-radius: 999px; padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 0.93rem; font-weight: 700; cursor: pointer; }
+    .ml-form-embedSubmit .primary { background: var(--text); color: #fff; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .ml-form-embedSubmit .primary:hover { transform: translateY(-1px); box-shadow: 0 12px 26px rgba(0,0,0,0.07); }
+    .ml-form-successBody { padding: 20px 20px; }
+    .ml-form-successContent h4 { margin: 0 0 8px; font-size: 1.18rem; line-height: 1.2; color: var(--text); }
+    .ml-form-successContent p { margin: 0; }
+    .ml-form-embedContainer, .ml-form-align-center, .ml-form-embedWrapper { width: 100%; margin-left: auto !important; margin-right: auto !important; }
+    .ml-form-embedBody { width: 100%; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
     /* Footer */
-    .site-footer {
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      background: rgba(255,255,255,0.92);
-    }
-
-    .footer-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .footer-links a {
-      color: var(--gold-deep);
-    }
+    .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
+    .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
+    .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
+    .footer-links a { color: var(--gold-deep); }
 
     /* Responsive */
     @media (max-width: 980px) {
-      .hero-grid,
-      .main-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .main-left {
-        padding-right: 0;
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-        padding-top: 28px;
-        padding-bottom: 30px;
-      }
-
-      .main-right {
-        padding-top: 26px;
-        padding-bottom: 30px;
-      }
-
-      .signup-bottom {
-        padding-top: 24px;
-      }
+      .hero-grid, .main-grid { grid-template-columns: 1fr; }
+      .main-left { padding-right: 0; border-right: none; border-bottom: 1px solid var(--line); padding-top: 28px; padding-bottom: 30px; }
+      .main-right { padding-top: 26px; padding-bottom: 30px; padding-left: 0; }
+      .signup-bottom { padding-top: 24px; }
     }
-
     @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 16px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 12px 16px;
-      }
-
-      .hero {
-        padding: 38px 0 30px;
-      }
-
-      .hero-grid {
-        gap: 22px;
-      }
-
-      .hero-actions {
-        flex-direction: row;
-        margin-top: 22px;
-      }
-
-      .hero-card {
-        padding: 22px 20px;
-      }
-
-      .main-left {
-        padding-top: 26px;
-        padding-bottom: 28px;
-      }
-
-      .main-right {
-        padding-top: 26px;
-        padding-bottom: 28px;
-      }
-
-      .role-item {
-        padding: 16px 16px 15px;
-        min-height: 118px;
-      }
-
-      .signup-bottom {
-        padding: 24px 0 36px;
-      }
-
-      .footer-inner {
-        min-height: auto;
-        padding: 6px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .footer-links {
-        justify-content: flex-start;
-        gap: 12px 16px;
-      }
+      .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .nav { width: 100%; justify-content: flex-start; gap: 12px 16px; }
+      .hero { padding: 38px 0 30px; }
+      .hero-grid { gap: 22px; }
+      .hero-actions { flex-direction: row; margin-top: 22px; }
+      .hero-card { padding: 22px 20px; }
+      .main-left { padding-top: 26px; padding-bottom: 28px; }
+      .main-right { padding-top: 26px; padding-bottom: 28px; }
+      .role-item { padding: 16px 16px 15px; }
+      .signup-bottom { padding: 24px 0 36px; }
+      .footer-inner { min-height: auto; padding: 6px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .footer-links { justify-content: flex-start; gap: 12px 16px; }
     }
-
     @media (max-width: 560px) {
-      .container,
-      .header-inner,
-      .footer-inner {
-        width: min(100% - 34px, var(--max));
-      }
-
-      h1 {
-        font-size: clamp(2.2rem, 10vw, 3.1rem);
-      }
-
-      .hero-card,
-      .ml-inner,
-      .ml-form-successBody {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
+      .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
+      h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
+      .hero-card, .ml-inner, .ml-form-successBody { padding-left: 18px; padding-right: 18px; }
     }
 
-    /* Embedded healing cycle in left column */
-    .diagram-embed {
-      margin-top: 0px;
-      padding-top: 2px;
-      padding-bottom: 6px;
-      display:flex;
-      justify-content:center;
-      flex:1;
-    }
-
-    .diagram-scale {
-      width:650px;
-      transform:scale(1.02);
-      transform-origin:top center;
-      margin:18px auto 0;
-    }
-
-    .diagram-shell .diagram {
-      margin-bottom:0;
-    }
-
-    .section .diagram-embed + .section-link {
-      margin-top:12px;
-    }
-
-    .diagram-shell {
-      background:transparent;
-    }
-
+    /* Embedded healing cycle */
+    .diagram-embed { margin-top: 0px; padding-top: 2px; padding-bottom: 6px; display:flex; justify-content:center; flex:1; }
+    .diagram-scale { width:650px; transform:scale(1.02); transform-origin:top center; margin:18px auto 0; }
+    .diagram-shell .diagram { margin-bottom:0; }
+    .section .diagram-embed + .section-link { margin-top:12px; }
+    .diagram-shell { background:transparent; }
     .diagram-shell .bm { display:inline-flex; align-items:baseline; white-space:nowrap; font-weight:700; letter-spacing:-0.03em; }
     .diagram-shell .lw { display:inline-block; line-height:1; letter-spacing:-0.03em; font-weight:700; color:inherit; }
     .diagram-shell .bp { position:relative; display:inline-block; width:0.34em; height:0.34em; margin-left:0.015em; transform:translateY(-0.40em); flex:0 0 auto; }
@@ -952,36 +266,25 @@
     .diagram-shell .bp .al { left:0; }
     .diagram-shell .bp .ar { right:0; }
     .diagram-shell .bp::before { content:""; position:absolute; left:50%; top:50%; width:0.09em; height:0.09em; transform:translate(-50%,-50%); background:var(--pink); border-radius:999px; z-index:2; }
-
     .diagram-shell .cycle-header { display:none; }
     .diagram-shell .brand-row { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:48px; transform:translateY(-10px); }
     .diagram-shell .brand-divider { width:1px; height:36px; background:#ccc; }
     .diagram-shell .ecosystem { font-family:'Cinzel',serif; font-size:13px; font-weight:700; letter-spacing:0.2em; color:#555; line-height:1.75; }
-
     .diagram-shell .diagram { position:relative; width:580px; height:480px; margin:0 auto; }
     .diagram-shell .diagram-svg { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-
     .diagram-shell .heart-circle { position:absolute; left:190px; top:148px; width:200px; height:200px; border:1px solid #e0d8d0; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(255,255,255,0.96); z-index:5; }
     .diagram-shell .heart-of { font-family:'Cinzel',serif; font-size:9px; font-weight:700; letter-spacing:0.22em; color:var(--gold-deep); margin-bottom:6px; }
     .diagram-shell .heart-spark { color:var(--pink); font-size:10px; margin-top:5px; opacity:0.55; }
-
     .diagram-shell .node-belong { position:absolute; top:-22px; left:50%; transform:translateX(-50%); text-align:center; z-index:10; white-space:nowrap; padding-bottom:30px; }
     .diagram-shell .node-renew { position:absolute; left:480px; top:327px; transform:translateY(-50%); text-align:left; z-index:10; width:120px; }
     .diagram-shell .node-walk { position:absolute; right:480px; top:327px; transform:translateY(-50%); text-align:right; z-index:10; width:120px; }
-
     .diagram-shell .nt { font-family:'Cormorant Garamond',serif; font-weight:700; font-size:23px; color:var(--gold-deep); line-height:1.1; }
     .diagram-shell .nl { font-family:'Cormorant Garamond',serif; font-weight:700; font-size:19.5px; color:#111; font-style:italic; margin-top:4px; letter-spacing:0.02em; line-height:1.18; }
     .diagram-shell .ns { font-size:14px; font-weight:500; color:#111; font-style:italic; line-height:1.55; margin-top:3px; }
-
     .diagram-shell .dot { position:absolute; width:9px; height:9px; border-radius:50%; background:#C07070; z-index:8; opacity:0.3; transition:opacity 0.4s, box-shadow 0.4s, transform 0.4s; pointer-events:none; }
     .diagram-shell .dot.active { opacity:1; box-shadow:0 0 0 5px rgba(192,112,112,0.18); }
-
     .diagram-shell #dotWalk { width:9px; height:9px; }
-    .diagram-shell #dotWalk.active {
-      transform: scale(1.55);
-      box-shadow: 0 0 0 6px rgba(192,112,112,0.22);
-      animation: walk-pulse 0.95s ease-in-out 3;
-    }
+    .diagram-shell #dotWalk.active { transform: scale(1.55); box-shadow: 0 0 0 6px rgba(192,112,112,0.22); animation: walk-pulse 0.95s ease-in-out 3; }
     @keyframes walk-pulse {
       0%   { box-shadow: 0 0 0 4px rgba(192,112,112,0.28); }
       50%  { box-shadow: 0 0 0 11px rgba(192,112,112,0.0); }
@@ -990,20 +293,38 @@
     .diagram-shell #dotBelong { left:285px; top:73px; }
     .diagram-shell #dotRenew { left:433px; top:329px; }
     .diagram-shell #dotWalk { left:138px; top:329px; }
-
     .diagram-shell .crane-wrap { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:20; }
     .diagram-shell .crane-img { position:absolute; width:82px; height:auto; transform-origin:center center; opacity:0; top:0; left:0; }
 
-    @media (max-width: 980px) {
-      .diagram-scale { transform:scale(0.9); margin:36px auto -10px; }
+    @media (max-width: 980px) { .diagram-scale { transform:scale(0.9); margin:36px auto -10px; } }
+    @media (max-width: 760px) { .diagram-scale { transform:scale(0.74); margin:24px auto -92px; } }
+    @media (max-width: 560px) { .diagram-scale { transform:scale(0.58); margin:18px auto -150px; } }
+
+    /* ── Mobile improvements — desktop untouched ── */
+    @media (max-width: 480px) {
+      .nav { font-size: 0.82rem; gap: 10px 12px; }
+      .logo small { font-size: 0.76rem; }
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+      .footer-links { gap: 10px 14px; }
     }
     @media (max-width: 760px) {
-      .diagram-scale { transform:scale(0.74); margin:24px auto -92px; }
-    }
-    @media (max-width: 560px) {
-      .diagram-scale { transform:scale(0.58); margin:18px auto -150px; }
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     }
 
+    @media (max-width: 480px) {
+      .diagram-embed { display: none; }
+      .diagram-fallback { display: flex; flex-direction: column; gap: 0; margin: 18px 0 12px; }
+      .diagram-fallback-step { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line); }
+      .diagram-fallback-step:last-child { border-bottom: none; }
+      .diagram-fallback-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+      .diagram-fallback-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); display: block; margin-bottom: 2px; }
+      .diagram-fallback-title { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 4px; }
+      .diagram-fallback-text { font-size: 0.9rem; line-height: 1.7; color: var(--muted); margin: 0; }
+    }
+    @media (min-width: 481px) { .diagram-fallback { display: none; } }
   </style>
 </head>
 <body>
@@ -1013,16 +334,10 @@
       <a href="index.html" class="logo" aria-label="naræ International Foundation home">
         <span class="brandmark">
           <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true">
-            <span class="arm arm-top"></span>
-            <span class="arm arm-right"></span>
-            <span class="arm arm-bottom"></span>
-            <span class="arm arm-left"></span>
-          </span>
+          <span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span>
         </span>
         <small>naræ International Foundation</small>
       </a>
-
       <nav class="nav" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
         <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
@@ -1041,36 +356,15 @@
           <p class="kicker"><span style="text-transform:none;">naræ</span> International Foundation</p>
           <h1 class="hero-headline">
             <span class="red-strong">Cancer is hard enough.</span><br>
-            <span class="brandmark">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
+            <span class="brandmark"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
             is for women carrying more.
           </h1>
-          <p style="font-style:italic;">naræ (<span style="font-weight:500; font-style:normal;">나래</span>), pronounced nah-reh, means "wings" in Korean.</p>
+          <p>naræ (<span style="font-weight:500;">나래</span>), pronounced nah-reh, means "wings" in Korean.</p>
           <p class="hero-sub lead">
             <strong>naræ International Foundation</strong> is a <strong>nonprofit organization</strong> cultivating a culturally grounded community of belonging and renewal for <strong>immigrant and culturally diverse women</strong> navigating <strong>breast and gynecologic cancers.</strong>
           </p>
-
           <div class="hero-actions">
-            <a href="program.html" class="btn-primary">
-              How
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Works
-            </a>
+            <a href="program.html" class="btn-primary">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
             <a href="community.html" class="btn-secondary">Ways to Be Part</a>
           </div>
         </div>
@@ -1078,19 +372,7 @@
         <div class="hero-card">
           <p class="eyebrow">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</p>
           <h2 class="hero-card-title">Support should feel understood, not generic.</h2>
-          <p>
-            Many immigrant and culturally diverse women affected by breast and gynecologic cancers remain unseen in traditional support spaces.
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            was created to change that through culturally grounded community — helping women move from isolation toward belonging, from healing toward renewed confidence and purpose, and over time toward greater participation and visibility in the experiences that shape care and research.
-          </p>
+          <p>Many immigrant and culturally diverse women affected by breast and gynecologic cancers remain unseen in traditional support spaces. <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> was created to change that through culturally grounded community — helping women move from isolation toward belonging, from healing toward renewed confidence and purpose, and over time toward greater participation and visibility in the experiences that shape care and research.</p>
           <a href="founder.html" class="text-link">Read the Founder Story →</a>
         </div>
       </div>
@@ -1100,26 +382,35 @@
       <div class="main-grid">
         <div class="main-left">
           <section class="section">
-            <p class="kicker">
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Healing Cycle
-            </p>
-
-            <p style="font-size:1.05rem; line-height:1.76; color:var(--muted); margin-bottom:10px;">
-              A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one's own healing.
-            </p>
-<p style="color: var(--muted); margin-top: 10px;">
-The community begins through small virtual circles, quiet gatherings, and occasional retreats where women support one another across cultures and experiences.
-</p>
-</p>
+            <p class="kicker"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Healing Cycle</p>
+            <p style="font-size:1.05rem; line-height:1.76; color:var(--muted); margin-bottom:18px;">A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one's own healing.</p>
+            <!-- Mobile fallback shown under 480px via CSS -->
+            <div class="diagram-fallback">
+              <div class="diagram-fallback-step">
+                <div class="diagram-fallback-dot" style="background:var(--pink);box-shadow:0 0 0 4px rgba(217,138,160,0.15);"></div>
+                <div>
+                  <span class="diagram-fallback-label">Belong</span>
+                  <div class="diagram-fallback-title">Be received as you are.</div>
+                  <p class="diagram-fallback-text">Care begins with belonging — through circles, gatherings, and cultural connection.</p>
+                </div>
+              </div>
+              <div class="diagram-fallback-step">
+                <div class="diagram-fallback-dot" style="background:var(--gold-deep);box-shadow:0 0 0 4px rgba(185,141,67,0.15);"></div>
+                <div>
+                  <span class="diagram-fallback-label">Renew</span>
+                  <div class="diagram-fallback-title">Let something return.</div>
+                  <p class="diagram-fallback-text">Dignity, voice, and strength return — one step at a time.</p>
+                </div>
+              </div>
+              <div class="diagram-fallback-step">
+                <div class="diagram-fallback-dot" style="background:var(--teal);box-shadow:0 0 0 4px rgba(95,159,159,0.15);"></div>
+                <div>
+                  <span class="diagram-fallback-label">Walk Beside</span>
+                  <div class="diagram-fallback-title">Healing deepens.</div>
+                  <p class="diagram-fallback-text">Support flows from one woman to another. In walking beside, her own healing continues.</p>
+                </div>
+              </div>
+            </div>
             <div class="diagram-embed">
               <div class="diagram-scale">
                 <div class="diagram-shell">
@@ -1131,12 +422,10 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                     <div class="brand-divider"></div>
                     <div class="ecosystem">A LIVING<br>ECOSYSTEM</div>
                   </div>
-
                   <div class="diagram">
                     <svg class="diagram-svg" viewBox="0 0 580 480" xmlns="http://www.w3.org/2000/svg">
                       <circle cx="290" cy="248" r="170" fill="none" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4 5"/>
                     </svg>
-
                     <div class="heart-circle">
                       <div class="heart-of">HEART OF</div>
                       <span class="bm" style="font-size:28px;font-style:italic;color:var(--gold-deep);">
@@ -1145,29 +434,24 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                       </span>
                       <div class="heart-spark">✦</div>
                     </div>
-
                     <div class="node-belong">
                       <div class="nt">Belong</div>
                       <div class="nl">Connect</div>
                       <div class="ns">Be received as you are</div>
                     </div>
-
                     <div class="node-renew">
                       <div class="nt">Renew</div>
                       <div class="nl">Strength returns</div>
                       <div class="ns">Dignity, voice,<br>and strength return</div>
                     </div>
-
                     <div class="node-walk">
                       <div class="nt">Walk Beside</div>
                       <div class="nl">Healing deepens</div>
                       <div class="ns">Support flows from<br>one woman<br>to another</div>
                     </div>
-
                     <div class="dot" id="dotBelong"></div>
                     <div class="dot" id="dotRenew"></div>
                     <div class="dot" id="dotWalk"></div>
-
                     <div class="crane-wrap">
                       <img class="crane-img" id="crane" src="narae-logo.png" alt="Origami crane" />
                     </div>
@@ -1175,7 +459,6 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                 </div>
               </div>
             </div>
-
             <a href="program.html" class="section-link">Explore How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works →</a>
           </section>
         </div>
@@ -1186,38 +469,39 @@ The community begins through small virtual circles, quiet gatherings, and occasi
             <h2>Women and supporters each have a place within the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community.</h2>
 
             <div class="role-list">
-              <a href="community.html" class="role-item role-emphasis">
+              <a href="community.html" class="role-item">
                 <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Fellow
-                  </div>
+                  <div class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow</div>
                   <div class="role-text">A woman at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, receiving support, rest, and connection.</div>
                 </div>
                 <div class="role-arrow">→</div>
               </a>
 
-              <div class="dot-divider" aria-hidden="true"></div>
+              <!-- ── Golden Dot Divider ── -->
+              <div class="dot-divider" aria-hidden="true">
+                <div class="dot-divider-line"></div>
+                <div class="dot-divider-gem"></div>
+                <div class="dot-divider-line"></div>
+              </div>
 
-              <a href="community.html" class="role-item role-companion">
+              <a href="community.html" class="role-item">
                 <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Companion
-                  </div>
-                  <div class="role-text">A role that may emerge from a <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> when she feels ready to walk beside another woman facing a similar journey.</div>
+                  <div class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Companion</div>
+                  <div class="role-text">A <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow who, in her own time, chooses to walk beside another woman.</div>
                 </div>
                 <div class="role-arrow">→</div>
               </a>
 
-              <div class="dot-divider" aria-hidden="true"></div>
+              <!-- ── Golden Dot Divider ── -->
+              <div class="dot-divider" aria-hidden="true">
+                <div class="dot-divider-line"></div>
+                <div class="dot-divider-gem"></div>
+                <div class="dot-divider-line"></div>
+              </div>
 
-              <a href="community.html" class="role-item role-emphasis">
+              <a href="community.html" class="role-item">
                 <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Steward
-                  </div>
+                  <div class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Steward</div>
                   <div class="role-text">A person or organization who helps sustain <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> through service, generosity, partnership, advocacy, or support behind the scenes.</div>
                 </div>
                 <div class="role-arrow">→</div>
@@ -1232,7 +516,6 @@ The community begins through small virtual circles, quiet gatherings, and occasi
       <section class="signup-bottom" id="The circle is just beginning.">
         <div class="signup-bottom-inner">
           <p class="eyebrow">The circle is just beginning — and every story matters.</p>
-
           <div class="ml-wrap">
             <div class="ml-inner">
               <h4 class="ml-title">
@@ -1246,11 +529,9 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                   </svg>
                 </span>
               </h4>
-
               <div class="ml-copy">
-                <p><strong>If this resonates, connect with us to receive updates on circles, stories, and what begins to unfold.</strong></p>
+                <p><strong>If this resonates, connect with us to receive updates on circles, stories, and what unfolds next.</strong></p>
               </div>
-
               <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
                 <div class="ml-form-align-center">
                   <div class="ml-form-embedWrapper embedForm">
@@ -1259,53 +540,24 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                         <div class="ml-form-formContent">
                           <div class="ml-form-fieldRow ml-last-item">
                             <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                              <input
-                                aria-label="email"
-                                aria-required="true"
-                                type="email"
-                                class="form-control"
-                                data-inputmask=""
-                                name="fields[email]"
-                                placeholder="Your email"
-                                autocomplete="email"
-                              >
+                              <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Your email" autocomplete="email">
                             </div>
                           </div>
                         </div>
-
                         <input type="hidden" name="ml-submit" value="1">
-
                         <div class="ml-form-embedSubmit">
-                          <button type="submit" class="primary">
-                            Join the
-                            <span class="brandmark brand-inline">
-                              <span class="logo-word">naræ</span>
-                              <span class="brand-plus" aria-hidden="true">
-                                <span class="arm arm-top"></span>
-                                <span class="arm arm-right"></span>
-                                <span class="arm arm-bottom"></span>
-                                <span class="arm arm-left"></span>
-                              </span>
-                            </span>
-                            Community
-                          </button>
-                          <button disabled="disabled" style="display:none;" type="button" class="loading">
-                            <div class="ml-form-embedSubmitLoad"></div>
-                            <span class="sr-only">Loading...</span>
-                          </button>
+                          <button type="submit" class="primary">Join the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Community</button>
+                          <button disabled="disabled" style="display:none;" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
                         </div>
-
                         <input type="hidden" name="anticsrf" value="true">
                       </form>
                     </div>
-
                     <div class="ml-form-successBody row-success" style="display:none">
                       <div class="ml-form-successContent">
                         <h4>Thank you!</h4>
                         <p>You have successfully joined our community!</p>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -1318,7 +570,7 @@ The community begins through small virtual circles, quiet gatherings, and occasi
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>© 2026 naræ International Foundation. All rights reserved.<br>A Maryland nonprofit organization. 501(c)(3) status pending.</div>
+      <div>© 2026 naræ International Foundation. All rights reserved.</div>
       <div class="footer-links">
         <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
@@ -1344,29 +596,23 @@ The community begins through small virtual circles, quiet gatherings, and occasi
     }
   </script>
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel");
-  </script>
+  <script>fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel");</script>
 
   <script>
 const CX=290, CY=248, CRANE_R=135;
 const toRad = d => d*Math.PI/180;
-
 const STOPS = [
   { angle:-90,  dotId:'dotBelong' },
   { angle: 30,  dotId:'dotRenew'  },
   { angle:150,  dotId:'dotWalk'   },
 ];
-
 const crane = document.getElementById('crane');
 const wait = ms => new Promise(r=>setTimeout(r,ms));
 const ease = t => t<0.5 ? 2*t*t : -1+(4-2*t)*t;
-
 function activateDot(idx) {
   STOPS.forEach(s=>document.getElementById(s.dotId).classList.remove('active'));
   if(idx!==null) document.getElementById(STOPS[idx].dotId).classList.add('active');
 }
-
 function setCrane(angleDeg, scale, opacity) {
   const x = CX + Math.cos(toRad(angleDeg))*CRANE_R;
   const y = CY + Math.sin(toRad(angleDeg))*CRANE_R;
@@ -1374,74 +620,39 @@ function setCrane(angleDeg, scale, opacity) {
   crane.style.transform = `translate(${x-41}px,${y-41}px) rotate(${face}deg) scale(${scale})`;
   crane.style.opacity = opacity;
 }
-
 async function arc(fromAngle, toAngle, ms) {
   const STEPS=120, dt=ms/STEPS;
   let delta = ((toAngle - fromAngle) % 360 + 360) % 360;
   if(delta===0) delta=360;
-  for(let i=1;i<=STEPS;i++){
-    setCrane(fromAngle + delta*ease(i/STEPS), 0.46, 1);
-    await wait(dt);
-  }
+  for(let i=1;i<=STEPS;i++){ setCrane(fromAngle + delta*ease(i/STEPS), 0.46, 1); await wait(dt); }
 }
-
 async function dissolve(fromAngle, ms) {
   const STEPS=50, dt=ms/STEPS;
   for(let i=0;i<=STEPS;i++){
-    const t=ease(i/STEPS);
-    const r=CRANE_R*(1-t);
-    const x=CX+Math.cos(toRad(fromAngle))*r;
-    const y=CY+Math.sin(toRad(fromAngle))*r;
+    const t=ease(i/STEPS), r=CRANE_R*(1-t);
+    const x=CX+Math.cos(toRad(fromAngle))*r, y=CY+Math.sin(toRad(fromAngle))*r;
     crane.style.transform=`translate(${x-41}px,${y-41}px) rotate(${fromAngle+90}deg) scale(${0.46*(1-t*0.7)})`;
-    crane.style.opacity=1-t;
-    await wait(dt);
+    crane.style.opacity=1-t; await wait(dt);
   }
 }
-
 async function reborn(ms) {
-  const STEPS=45, dt=ms/STEPS;
-  const a=STOPS[0].angle;
+  const STEPS=45, dt=ms/STEPS, a=STOPS[0].angle;
   for(let i=0;i<=STEPS;i++){
-    const t=ease(i/STEPS);
-    const r=CRANE_R*t;
-    const x=CX+Math.cos(toRad(a))*r;
-    const y=CY+Math.sin(toRad(a))*r;
+    const t=ease(i/STEPS), r=CRANE_R*t;
+    const x=CX+Math.cos(toRad(a))*r, y=CY+Math.sin(toRad(a))*r;
     crane.style.transform=`translate(${x-41}px,${y-41}px) rotate(${a+90}deg) scale(${t*0.46})`;
-    crane.style.opacity=t;
-    await wait(dt);
+    crane.style.opacity=t; await wait(dt);
   }
 }
-
 async function cycle() {
-  activateDot(0);
-  await reborn(800);
-  await wait(1000);
-
-  activateDot(null);
-  await arc(STOPS[0].angle, STOPS[1].angle, 4200);
-  activateDot(1);
-  await wait(1000);
-
-  activateDot(null);
-  await arc(STOPS[1].angle, STOPS[2].angle, 4200);
-
+  activateDot(0); await reborn(800); await wait(1000);
+  activateDot(null); await arc(STOPS[0].angle, STOPS[1].angle, 4200); activateDot(1); await wait(1000);
+  activateDot(null); await arc(STOPS[1].angle, STOPS[2].angle, 4200);
   const walkDot = document.getElementById(STOPS[2].dotId);
-  activateDot(2);
-  await wait(2800);
-  walkDot.classList.remove('active');
-  await wait(120);
-
-  activateDot(null);
-  await arc(STOPS[2].angle, STOPS[0].angle+360, 4200);
-  activateDot(0);
-  await wait(800);
-  activateDot(null);
-
-  await dissolve(STOPS[0].angle, 1000);
-  await wait(500);
-  await cycle();
+  activateDot(2); await wait(2800); walkDot.classList.remove('active'); await wait(120);
+  activateDot(null); await arc(STOPS[2].angle, STOPS[0].angle+360, 4200); activateDot(0); await wait(800);
+  activateDot(null); await dissolve(STOPS[0].angle, 1000); await wait(500); await cycle();
 }
-
 window.addEventListener('load', ()=>setTimeout(cycle,300));
   </script>
 
