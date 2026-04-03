@@ -45,14 +45,10 @@
     }
 
     * { box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
+
 
     body {
       margin: 0;
-      overflow-x: hidden;
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
       -webkit-font-smoothing: antialiased;
@@ -438,7 +434,7 @@
     /* Main split */
     .main-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
       gap: 28px;
       align-items: stretch;
       border-bottom: 1px solid var(--line);
@@ -996,55 +992,24 @@
     @media (max-width: 980px) {
       .diagram-scale { transform:scale(0.9); margin:36px auto -10px; }
     }
-    @media (max-width: 760px) {
-      .diagram-embed { overflow: visible; }
-      .diagram-scale {
-        transform: scale(0.74);
-        transform-origin: top center;
-        margin: 24px auto -92px;
-        position: relative;
-        left: 50%;
-        transform: scale(0.74) translateX(-50%);
-        transform-origin: top left;
-      }
-    }
-    @media (max-width: 560px) {
-      .diagram-scale {
-        transform: scale(0.58) translateX(-50%);
-        transform-origin: top left;
-        margin: 18px auto -150px;
-        position: relative;
-        left: 50%;
-      }
-    }
-    @media (max-width: 400px) {
-      .diagram-scale {
-        transform: scale(0.46) translateX(-50%);
-        transform-origin: top left;
-        margin: 10px auto -195px;
-        position: relative;
-        left: 50%;
-      }
-    }
 
-    /* ── Mobile only — desktop completely untouched ── */
+
+
+
+
+    /* ── Mobile — only affects small screens, desktop untouched ── */
+    html, body { overflow-x: hidden; }
+    @media (max-width: 760px) {
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .main-grid { grid-template-columns: minmax(0, 1fr) !important; }
+    }
     @media (max-width: 480px) {
       .nav { font-size: 0.82rem; gap: 10px 12px; }
       .logo small { font-size: 0.76rem; }
     }
     @media (max-width: 400px) {
       h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
-      .footer-links { gap: 10px 14px; }
-    }
-    @media (max-width: 760px) {
-      .btn-row { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-      /* Prevent right panel and role cards from overflowing */
-      .main-right { max-width: 100%; overflow: hidden; }
-      .right-panel { max-width: 100%; }
-      .role-list { max-width: 100%; }
-      .role-item { max-width: 100%; box-sizing: border-box; }
-      .right-panel h2 { max-width: 100%; }
     }
 
   </style>
@@ -1164,6 +1129,7 @@ The community begins through small virtual circles, quiet gatherings, and occasi
 </p>
 </p>
             <div class="diagram-embed">
+              <div class="diagram-scroll-wrap">
               <div class="diagram-scale">
                 <div class="diagram-shell">
                   <div class="brand-row">
@@ -1216,6 +1182,7 @@ The community begins through small virtual circles, quiet gatherings, and occasi
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </div>
 
@@ -1488,5 +1455,30 @@ async function cycle() {
 window.addEventListener('load', ()=>setTimeout(cycle,300));
   </script>
 
+  <script>
+    (function() {
+      function fitDiagram() {
+        var wrap = document.querySelector('.diagram-embed');
+        var scale = document.querySelector('.diagram-scale');
+        if (!wrap || !scale) return;
+        var available = wrap.offsetWidth;
+        var natural = 650;
+        if (available > 0 && available < natural) {
+          var ratio = (available / natural);
+          var negMargin = Math.round(480 * (1 - ratio));
+          scale.style.transform = 'scale(' + ratio + ')';
+          scale.style.transformOrigin = 'top left';
+          scale.style.marginBottom = '-' + negMargin + 'px';
+          scale.style.marginTop = '10px';
+        } else {
+          scale.style.transform = '';
+          scale.style.transformOrigin = '';
+          scale.style.marginBottom = '';
+        }
+      }
+      window.addEventListener('load', fitDiagram);
+      window.addEventListener('resize', fitDiagram);
+    })();
+  </script>
 </body>
 </html>
