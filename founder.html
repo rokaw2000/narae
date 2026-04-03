@@ -93,6 +93,32 @@
     @media(max-width:860px){.founder-layout{grid-template-columns:1fr;}.founder-aside{position:static;}.letter{max-width:100%;}}
     @media(max-width:760px){.header-inner{min-height:auto;padding:16px 0;flex-direction:column;align-items:flex-start;gap:12px;}.nav{width:100%;justify-content:flex-start;gap:12px 16px;}.page-hero{padding:38px 0 30px;}.content-wrap{padding:36px 0 48px;}.signature-block{flex-direction:column;align-items:flex-start;}}
     @media(max-width:560px){.container,.header-inner,.footer-inner{width:min(100% - 34px,var(--max));}h1{font-size:clamp(2.2rem,10vw,3.1rem);}}
+
+    /* ── Mobile improvements — desktop untouched ── */
+    @media (max-width: 480px) {
+      .nav { font-size: 0.82rem; gap: 10px 12px; }
+      .logo small { font-size: 0.76rem; }
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+      .footer-links { gap: 10px 14px; }
+    }
+    @media (max-width: 760px) {
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 860px) {
+      .pull-quote { padding: 20px; }
+      .pull-quote blockquote { font-size: 1rem; }
+      .founder-question { font-size: 1.18rem; }
+    }
+    @media (max-width: 560px) {
+      .journey-card { display: none; }
+      .signature-block { padding: 18px 20px; }
+      .movement-divider { margin: 28px 0; }
+      .letter p { font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
@@ -160,8 +186,8 @@
           <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grew from these realizations.</p>
           <p>It was created as a culturally grounded community for immigrant and culturally diverse women navigating breast and gynecologic cancers. The intention is simple: to foster belonging, understanding, and renewal among women whose experiences may otherwise remain unseen within traditional support spaces.</p>
           <p>And there is something else I believe. When women who have long stayed quiet begin to feel supported and seen, their voices carry further than they know. Their experiences — shared, witnessed, counted — can change what healthcare understands about communities like ours. Not all at once. But in ways that matter deeply for the women who come after us.</p>
-          <p>My hope for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is this: that when a woman first encounters <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, she feels something simple and profound: finally, I found where I belong. A community where she feels respected, loved, truly heard, and no longer alone. And from that belonging, healing can grow strong enough that one day she may walk beside another woman — and discover that walking beside others becomes part of her own healing.</p>
-          <p class="closing-line">That question. Those moments of realization. Together, they became <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
+          <p>My hope for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is this: that through connection, confidence begins to return. That as strength grows, some women may choose to walk beside another woman facing a similar journey — and discover that walking beside others becomes part of their own healing.</p>
+          <p class="closing-line">That question. Those realizations. Together, they became <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
 
           <div class="signature-block">
             <div class="sig-avatar">JB</div>
@@ -181,12 +207,12 @@
           </div>
 
           <div class="journey-card">
-            <span class="journey-title">The Story</span>
+            <span class="journey-title">The Journey</span>
 
             <div class="journey-step">
               <div class="journey-connector"><div class="journey-dot gold"></div></div>
               <div class="journey-content">
-                <span class="journey-label">The Journey</span>
+                <span class="journey-label">Witness</span>
                 <p>No genetic warning. First mammogram, a diagnosis. Cancer returned. She endured it twice. Through treatment, she searched for community — and noticed who was missing.</p>
               </div>
             </div>
@@ -210,8 +236,8 @@
             <div class="journey-step">
               <div class="journey-connector"><div class="journey-dot red"></div></div>
               <div class="journey-content">
-                <span class="journey-label">The Beginning</span>
-                <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — built from one question and many realizations, so healing can continue when one woman walks beside another.</p>
+                <span class="journey-label">Walk Beside</span>
+                <p><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — built from one question and many realizations, so no woman carries it alone.</p>
               </div>
             </div>
 
@@ -229,7 +255,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>© 2026 naræ International Foundation. All rights reserved.<br>A Maryland nonprofit organization. 501(c)(3) status pending.</div>
+      <div>© 2026 naræ International Foundation. All rights reserved.</div>
       <div class="footer-links">
         <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
@@ -242,4 +268,3 @@
 
 </body>
 </html>
-
