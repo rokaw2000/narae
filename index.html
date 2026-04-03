@@ -45,10 +45,14 @@
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
     body {
       margin: 0;
+      overflow-x: hidden;
       color: var(--text);
       font-family: Georgia, "Times New Roman", serif;
       -webkit-font-smoothing: antialiased;
@@ -993,10 +997,34 @@
       .diagram-scale { transform:scale(0.9); margin:36px auto -10px; }
     }
     @media (max-width: 760px) {
-      .diagram-scale { transform:scale(0.74); margin:24px auto -92px; }
+      .diagram-embed { overflow: visible; }
+      .diagram-scale {
+        transform: scale(0.74);
+        transform-origin: top center;
+        margin: 24px auto -92px;
+        position: relative;
+        left: 50%;
+        transform: scale(0.74) translateX(-50%);
+        transform-origin: top left;
+      }
     }
     @media (max-width: 560px) {
-      .diagram-scale { transform:scale(0.58); margin:18px auto -150px; }
+      .diagram-scale {
+        transform: scale(0.58) translateX(-50%);
+        transform-origin: top left;
+        margin: 18px auto -150px;
+        position: relative;
+        left: 50%;
+      }
+    }
+    @media (max-width: 400px) {
+      .diagram-scale {
+        transform: scale(0.46) translateX(-50%);
+        transform-origin: top left;
+        margin: 10px auto -195px;
+        position: relative;
+        left: 50%;
+      }
     }
 
     /* ── Mobile only — desktop completely untouched ── */
@@ -1011,6 +1039,12 @@
     @media (max-width: 760px) {
       .btn-row { flex-direction: column; }
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      /* Prevent right panel and role cards from overflowing */
+      .main-right { max-width: 100%; overflow: hidden; }
+      .right-panel { max-width: 100%; }
+      .role-list { max-width: 100%; }
+      .role-item { max-width: 100%; box-sizing: border-box; }
+      .right-panel h2 { max-width: 100%; }
     }
 
   </style>
