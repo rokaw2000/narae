@@ -165,6 +165,19 @@
       .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
       h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
+/* ── Mobile improvements ── */
+    @media (max-width: 480px) {
+      .nav { font-size: 0.82rem; gap: 10px 12px; }
+      .logo small { font-size: 0.76rem; }
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+      .footer-links { gap: 10px 14px; }
+    }
+    @media (max-width: 760px) {
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
