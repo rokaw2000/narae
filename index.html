@@ -314,17 +314,7 @@
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     }
 
-    @media (max-width: 480px) {
-      .diagram-embed { display: none; }
-      .diagram-fallback { display: flex; flex-direction: column; gap: 0; margin: 18px 0 12px; }
-      .diagram-fallback-step { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--line); }
-      .diagram-fallback-step:last-child { border-bottom: none; }
-      .diagram-fallback-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
-      .diagram-fallback-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); display: block; margin-bottom: 2px; }
-      .diagram-fallback-title { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 4px; }
-      .diagram-fallback-text { font-size: 0.9rem; line-height: 1.7; color: var(--muted); margin: 0; }
-    }
-    @media (min-width: 481px) { .diagram-fallback { display: none; } }
+    /* diagram always visible on all screen sizes */
   </style>
 </head>
 <body>
@@ -384,33 +374,6 @@
           <section class="section">
             <p class="kicker"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Healing Cycle</p>
             <p style="font-size:1.05rem; line-height:1.76; color:var(--muted); margin-bottom:18px;">A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one's own healing.</p>
-            <!-- Mobile fallback shown under 480px via CSS -->
-            <div class="diagram-fallback">
-              <div class="diagram-fallback-step">
-                <div class="diagram-fallback-dot" style="background:var(--pink);box-shadow:0 0 0 4px rgba(217,138,160,0.15);"></div>
-                <div>
-                  <span class="diagram-fallback-label">Belong</span>
-                  <div class="diagram-fallback-title">Be received as you are.</div>
-                  <p class="diagram-fallback-text">Care begins with belonging — through circles, gatherings, and cultural connection.</p>
-                </div>
-              </div>
-              <div class="diagram-fallback-step">
-                <div class="diagram-fallback-dot" style="background:var(--gold-deep);box-shadow:0 0 0 4px rgba(185,141,67,0.15);"></div>
-                <div>
-                  <span class="diagram-fallback-label">Renew</span>
-                  <div class="diagram-fallback-title">Let something return.</div>
-                  <p class="diagram-fallback-text">Dignity, voice, and strength return — one step at a time.</p>
-                </div>
-              </div>
-              <div class="diagram-fallback-step">
-                <div class="diagram-fallback-dot" style="background:var(--teal);box-shadow:0 0 0 4px rgba(95,159,159,0.15);"></div>
-                <div>
-                  <span class="diagram-fallback-label">Walk Beside</span>
-                  <div class="diagram-fallback-title">Healing deepens.</div>
-                  <p class="diagram-fallback-text">Support flows from one woman to another. In walking beside, her own healing continues.</p>
-                </div>
-              </div>
-            </div>
             <div class="diagram-embed">
               <div class="diagram-scale">
                 <div class="diagram-shell">
