@@ -219,7 +219,6 @@
       letter-spacing: 0 !important;
     }
 
-    /* Nav brandmark intentionally omitted here — inherits nav's 0.91rem naturally */
     .section-link .brandmark,
     .text-link .brandmark,
     .btn-primary .brandmark,
@@ -227,8 +226,6 @@
       font-size: 1.07em;
     }
 
-    /* Nav brand-plus uses the same translateY as the base so it sits
-       consistently at superscript height in the nav's 0.91rem context */
     .section-link .brand-plus,
     .text-link .brand-plus,
     .btn-primary .brand-plus,
@@ -236,8 +233,6 @@
       transform: translateY(-0.31em);
     }
 
-    /* Nav brand-plus kept at the standard -0.40em so the + aligns
-       correctly relative to the nav's smaller font size */
     .nav .brand-plus {
       transform: translateY(-0.40em);
     }
@@ -1002,6 +997,20 @@
     }
     @media (max-width: 560px) {
       .diagram-scale { transform:scale(0.58); margin:18px auto -150px; }
+    }
+
+    /* ── Mobile only — desktop completely untouched ── */
+    @media (max-width: 480px) {
+      .nav { font-size: 0.82rem; gap: 10px 12px; }
+      .logo small { font-size: 0.76rem; }
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+      .footer-links { gap: 10px 14px; }
+    }
+    @media (max-width: 760px) {
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
     }
 
   </style>
