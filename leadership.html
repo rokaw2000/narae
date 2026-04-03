@@ -102,6 +102,15 @@
       .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
       h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
+    /* Hide hero crane on mobile — it pushes off screen */
+    @media (max-width: 760px) {
+      .page-hero .container > div:last-child {
+        display: none;
+      }
+      .page-hero .container {
+        flex-direction: column;
+      }
+    }
 
     /* ── Mobile improvements — desktop untouched ── */
     @media (max-width: 480px) {
