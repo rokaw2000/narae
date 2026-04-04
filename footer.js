@@ -5,34 +5,44 @@ document.addEventListener('DOMContentLoaded', function () {
   var footer = document.querySelector('footer.site-footer');
   if (!footer) return;
 
-  footer.innerHTML = `
-    <style>
-      .footer-legal { font-size:0.74rem; font-weight:400; font-family:Arial,Helvetica,sans-serif; color:var(--muted); opacity:0.75; line-height:1.6; margin-top:5px; }
-      .footer-copyright { font-size:0.84rem; font-weight:700; font-family:Arial,Helvetica,sans-serif; color:var(--muted); }
-      @media (min-width: 761px) {
-        .footer-links-wrap { justify-content:flex-end !important; text-align:right; }
-      }
-      @media (max-width: 760px) {
-        .footer-links-wrap { justify-content:flex-start !important; margin-top:14px; }
-        .footer-inner { flex-direction:column !important; align-items:flex-start !important; }
-      }
-    </style>
-    <div class="footer-inner">
-      <div>
-        <div class="footer-copyright">© 2026 naræ International Foundation. All rights reserved.</div>
-        <div class="footer-legal">
-          naræ International Foundation is a Maryland-based nonprofit.<br>
-          Federally recognized 501(c)(3) nonprofit organization.<br>
-          Donations are tax-deductible as allowed by law.
-        </div>
-      </div>
-      <div class="footer-links footer-links-wrap">
-        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
-        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
-        <a href="community.html">Ways to Be Part</a>
-        <a href="founder.html">Founder</a>
-        <a href="leadership.html">Leadership</a>
-      </div>
-    </div>
-  `;
+  // Detect current page
+  var current = window.location.pathname.split('/').pop() || 'index.html';
+  if (current === '') current = 'index.html';
+
+  // All pages with full brandmark HTML
+  var pages = [
+    { href: 'index.html',     html: 'Home' },
+    { href: 'about.html',     html: 'About <span class="brandmark brand-inline"><span class="logo-word">nar\u00e6</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>' },
+    { href: 'program.html',   html: 'How <span class="brandmark brand-inline"><span class="logo-word">nar\u00e6</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works' },
+    { href: 'community.html', html: 'Ways to Be Part' },
+    { href: 'founder.html',   html: 'Founder' },
+    { href: 'leadership.html',html: 'Leadership' }
+  ];
+
+  // Build links — exclude current page
+  var links = pages
+    .filter(function(p) { return p.href !== current; })
+    .map(function(p) { return '<a href="' + p.href + '">' + p.html + '</a>'; })
+    .join('');
+
+  var css =
+    '<style>' +
+      '.footer-copyright{font-size:0.84rem;font-weight:700;font-family:Arial,Helvetica,sans-serif;color:var(--muted);}' +
+      '.footer-legal{font-size:0.72rem;font-weight:400;font-family:Arial,Helvetica,sans-serif;color:var(--muted);opacity:0.65;line-height:1.6;margin-top:4px;}' +
+      '@media(max-width:760px){' +
+        '.footer-inner{flex-direction:column!important;align-items:flex-start!important;}' +
+        '.footer-links{justify-content:flex-start!important;margin-top:14px;gap:12px 16px!important;}' +
+      '}' +
+    '</style>';
+
+  var html =
+    '<div class="footer-inner">' +
+      '<div>' +
+        '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
+        '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
+      '</div>' +
+      '<div class="footer-links" style="justify-content:flex-end;">' + links + '</div>' +
+    '</div>';
+
+  footer.innerHTML = css + html;
 });
