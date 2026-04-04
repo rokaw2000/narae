@@ -1464,15 +1464,21 @@ window.addEventListener('load', ()=>setTimeout(cycle,300));
         var available = wrap.offsetWidth;
         var natural = 650;
         if (available > 0 && available < natural) {
-          var ratio = (available / natural);
+          var ratio = available / natural;
           var negMargin = Math.round(480 * (1 - ratio));
+          // Center: shift right by half the difference between natural and scaled width
+          var offset = Math.round((natural - natural * ratio) / 2);
           scale.style.transform = 'scale(' + ratio + ')';
-          scale.style.transformOrigin = 'top left';
+          scale.style.transformOrigin = 'top center';
+          scale.style.marginLeft = 'auto';
+          scale.style.marginRight = 'auto';
           scale.style.marginBottom = '-' + negMargin + 'px';
           scale.style.marginTop = '10px';
         } else {
           scale.style.transform = '';
           scale.style.transformOrigin = '';
+          scale.style.marginLeft = '';
+          scale.style.marginRight = '';
           scale.style.marginBottom = '';
         }
       }
