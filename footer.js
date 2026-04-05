@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     '</style>';
 
   var html =
-   '<div class="footer-inner" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">' +
-      '<div>' +
-        '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
-        '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
-      '</div>' +
-      '<div class="footer-links" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:22px;margin-left:auto;">' + links + '</div>' +
-    '</div>';
+  '<div class="footer-inner" style="position:relative;padding:20px 0;min-height:68px;">' +
+    '<div>' +
+      '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
+      '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
+    '</div>' +
+    '<div class="footer-links" style="position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:22px;">' + links + '</div>' +
+  '</div>';
 
   footer.innerHTML = css + html;
 });
