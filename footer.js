@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var css =
     '<style>' +
-      '.footer-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap;gap:16px;}' +
+'.footer-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap;gap:16px;min-height:auto!important;}' +
       '.footer-copyright{font-size:0.84rem;font-weight:700;font-family:Arial,Helvetica,sans-serif;color:var(--muted);}' +
       '.footer-legal{font-size:0.72rem;font-weight:400;font-family:Arial,Helvetica,sans-serif;color:var(--muted);opacity:0.65;line-height:1.6;margin-top:4px;}' +
       '@media(max-width:760px){' +
