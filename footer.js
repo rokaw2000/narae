@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   var css =
     '<style>' +
-'.footer-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap;gap:16px;min-height:auto!important;}' +
       '.footer-copyright{font-size:0.84rem;font-weight:700;font-family:Arial,Helvetica,sans-serif;color:var(--muted);}' +
       '.footer-legal{font-size:0.72rem;font-weight:400;font-family:Arial,Helvetica,sans-serif;color:var(--muted);opacity:0.65;line-height:1.6;margin-top:4px;}' +
       '@media(max-width:760px){' +
@@ -37,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
     '</style>';
 
   var html =
-  '<div class="footer-inner" style="position:relative;padding:20px 0;min-height:68px;">' +
-    '<div>' +
-      '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
-      '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
-    '</div>' +
-    '<div class="footer-links" style="position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:22px;">' + links + '</div>' +
-  '</div>';
+    '<div class="footer-inner">' +
+      '<div>' +
+        '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
+        '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
+      '</div>' +
+      '<div class="footer-links" style="justify-content:flex-end;">' + links + '</div>' +
+    '</div>';
 
   footer.innerHTML = css + html;
 });
