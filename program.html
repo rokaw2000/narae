@@ -338,8 +338,8 @@
             </div>
           </div>
 
-          <div class="crane-card" style="margin:0; display:flex; flex-direction:column; justify-content:center;">
-            <p class="kicker">The 1000 Crane Project</p>
+          <div class="crane-card" id="craneCard" style="margin:0; display:flex; flex-direction:column; justify-content:center; position:relative;">
+            <p class="kicker"><strong>The 1000 Crane Project</strong></p>
             <h3 style="margin:8px 0 12px;">A living expression of hope and solidarity.</h3>
             <p>The 1000 Crane Project is woven into the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> experience as a shared act of hope, remembrance, and care. A crane may be folded for oneself, for another woman, or for the community.</p>
             <a href="crane-project.html" class="section-link" style="margin-top:14px;">Learn more →</a>
@@ -556,5 +556,108 @@
     })();
   </script>
 <script src="footer.js"></script> 
+  <script>
+(function () {
+  var card = document.getElementById('craneCard');
+  if (!card) return;
+
+  var canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border-radius:18px;';
+  card.appendChild(canvas);
+
+  var dpr = window.devicePixelRatio || 1;
+  var W, H;
+
+  function resize() {
+    W = card.offsetWidth;
+    H = card.offsetHeight;
+    canvas.width  = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  var ctx = canvas.getContext('2d');
+  resize();
+  window.addEventListener('resize', resize);
+
+  var r      = 18;
+  var pad    = 1.5;
+  var tail   = 0.28;   // fraction of perimeter for the fade trail
+  var speed  = 0.00012; // very slow
+  var prog   = 0;
+  var last   = null;
+
+  function ptAt(t, x0, y0, w, h, r) {
+    var sW = w - 2*r, sH = h - 2*r;
+    var perim = 2*(sW+sH) + 2*Math.PI*r;
+    var d = (((t % 1) + 1) % 1) * perim;
+    var segs = [
+      {l:sW,          ln:true,  x:x0+r,   y:y0,     dx:1,  dy:0},
+      {l:Math.PI*r/2, ln:false, cx:x0+w-r,cy:y0+r,   a0:-Math.PI/2},
+      {l:sH,          ln:true,  x:x0+w,   y:y0+r,   dx:0,  dy:1},
+      {l:Math.PI*r/2, ln:false, cx:x0+w-r,cy:y0+h-r, a0:0},
+      {l:sW,          ln:true,  x:x0+w-r, y:y0+h,   dx:-1, dy:0},
+      {l:Math.PI*r/2, ln:false, cx:x0+r,  cy:y0+h-r, a0:Math.PI/2},
+      {l:sH,          ln:true,  x:x0,     y:y0+h-r, dx:0,  dy:-1},
+      {l:Math.PI*r/2, ln:false, cx:x0+r,  cy:y0+r,   a0:Math.PI},
+    ];
+    for (var i=0; i<segs.length; i++) {
+      var s = segs[i];
+      if (d <= s.l) {
+        var f = d / s.l;
+        if (s.ln) return {x: s.x + s.dx*d, y: s.y + s.dy*d};
+        var a = s.a0 + f*Math.PI/2;
+        return {x: s.cx + Math.cos(a)*r, y: s.cy + Math.sin(a)*r};
+      }
+      d -= s.l;
+    }
+    return ptAt(0, x0, y0, w, h, r);
+  }
+
+  function draw(ts) {
+    if (last !== null) prog = (prog + speed * (ts - last)) % 1;
+    last = ts;
+
+    ctx.clearRect(0, 0, W, H);
+
+    var x0 = pad, y0 = pad, w = W - pad*2, h = H - pad*2;
+    var steps = 180;
+
+    for (var i = 0; i < steps; i++) {
+      var t0 = (prog - tail*(i/steps) + 2) % 1;
+      var t1 = (prog - tail*((i+1)/steps) + 2) % 1;
+      var p0 = ptAt(t0, x0, y0, w, h, r);
+      var p1 = ptAt(t1, x0, y0, w, h, r);
+
+      var frac = 1 - i/steps;
+      // Head: bright lightning white-gold, tail fades to deep gold then transparent
+      var alpha, lw, color;
+      if (i < 6) {
+        // bright lightning tip: white core
+        alpha = 1;
+        lw    = 3.5 + frac * 2;
+        var whiteness = Math.round(255 - i * 12);
+        color = 'rgba('+whiteness+','+Math.round(whiteness*0.95)+','+Math.round(whiteness*0.55)+',1)';
+      } else {
+        alpha = Math.pow(frac, 1.4) * 0.9;
+        lw    = 2 + frac * 2.5;
+        color = 'rgba(212,175,55,'+alpha+')';
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(p0.x, p0.y);
+      ctx.lineTo(p1.x, p1.y);
+      ctx.strokeStyle = color;
+      ctx.lineWidth   = lw;
+      ctx.lineCap     = 'round';
+      ctx.stroke();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+})();
+</script>
 </body>
 </html>
