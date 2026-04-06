@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     '<div class="footer-inner">' +
       '<div>' +
         '<div class="footer-copyright">\u00a9 2026 nar\u00e6 International Foundation. All rights reserved.</div>' +
-        '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; Donations are tax-deductible as allowed by law.</div>' +
+        '<div class="footer-legal">Maryland-based nonprofit &middot; Federally recognized 501(c)(3) &middot; EIN 41-4574118</div>' +
       '</div>' +
       '<div class="footer-links" style="justify-content:flex-end;">' + links + '</div>' +
     '</div>';
