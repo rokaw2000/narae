@@ -1,16 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-<title><span class="brandmark">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-             naræ</span>Companion</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>naræ Companion</title>
+
+  <style>
+    .page-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    .brandmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.1em;
+      line-height: 1;
+    }
+
+    .logo-word {
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-plus {
+      position: relative;
+      width: 0.7em;
+      height: 0.7em;
+      display: inline-block;
+      margin-left: 0.02em;
+      transform: translateY(-0.08em);
+    }
+
+    .brand-plus .arm {
+      position: absolute;
+      background: #d98aa0;
+      border-radius: 999px;
+    }
+
+    .brand-plus .arm-top,
+    .brand-plus .arm-bottom {
+      width: 0.14em;
+      height: 0.28em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .brand-plus .arm-top {
+      top: 0;
+    }
+
+    .brand-plus .arm-bottom {
+      bottom: 0;
+    }
+
+    .brand-plus .arm-left,
+    .brand-plus .arm-right {
+      width: 0.28em;
+      height: 0.14em;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .brand-plus .arm-left {
+      left: 0;
+    }
+
+    .brand-plus .arm-right {
+      right: 0;
+      background: #5f9f9f;
+    }
+
+    .companion-word {
+      font-weight: 400;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">
+    <span class="brandmark" aria-label="naræ">
+      <span class="logo-word">naræ</span>
+      <span class="brand-plus" aria-hidden="true">
+        <span class="arm arm-top"></span>
+        <span class="arm arm-right"></span>
+        <span class="arm arm-bottom"></span>
+        <span class="arm arm-left"></span>
+      </span>
+    </span>
+    <span class="companion-word">Companion</span>
+  </h1>
+</body>
+</html>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
