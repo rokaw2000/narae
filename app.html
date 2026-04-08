@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>naræ+ Wellness App</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+/* ── RESET ── */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;background:#080705}
+
+/* ── CSS VARIABLES ── */
+:root{
+  --bg:#080705;--bg2:#0f0d09;--bg3:#161208;--bg4:#1e1810;
+  --gold:#c9a96e;--gold2:#dfc088;--gold3:#f0d9a8;--gold4:#a8863a;
+  --gold-line:rgba(201,169,110,0.13);--gold-line2:rgba(201,169,110,0.24);
+  /* exact from your stylesheet */
+  --pink:#d98aa0;--teal:#5f9f9f;
+  --rose2:#e09ab4;--teal2:#6aacac;
+  --ink:#f5f0e8;--ink2:rgba(245,240,232,0.65);--ink3:rgba(245,240,232,0.32);--ink4:rgba(245,240,232,0.1);
+}
+
+/* ── APP SHELL ── */
+.app{
+  width:100%;max-width:430px;height:100vh;
+  background:var(--bg);
+  margin:0 auto;
+  display:flex;flex-direction:column;
+  font-family:"Jost",sans-serif;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ══════════════════════════════════════
+   WELCOME SCREEN
+══════════════════════════════════════ */
+#welcomeScreen{
+  position:absolute;inset:0;
+  background:var(--bg);
+  z-index:999;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:48px 36px;
+  transition:opacity 1.4s ease;
+  cursor:pointer;
+}
+#welcomeScreen.out{opacity:0;pointer-events:none}
+
+.crane-anim-wrap{
+  width:220px;height:176px;
+  margin-bottom:44px;
+  opacity:0;
+  animation:craneRise 2.8s cubic-bezier(0.16,1,0.3,1) forwards 0.4s;
+}
+@keyframes craneRise{
+  0%{opacity:0;transform:translateY(18px) scale(0.92)}
+  40%{opacity:0.5}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+.crane-anim-wrap img{
+  width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 0 20px rgba(201,169,110,0.18));
+}
+
+.wlc-text{
+  text-align:center;
+  opacity:0;
+  animation:wlcFade 1.4s ease forwards 2.4s;
+}
+@keyframes wlcFade{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.wlc-greeting{
+  font-family:"Cormorant Garamond",serif;
+  font-size:15px;font-style:italic;
+  color:var(--ink2);
+  letter-spacing:0.04em;
+  min-height:26px;
+  transition:opacity 0.7s ease;
+  margin-bottom:5px;
+}
+.wlc-lang{
+  font-size:8px;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold4);margin-bottom:28px;
+}
+
+/* ornament */
+.wlc-orn{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:18px;
+  opacity:0;
+  animation:wlcFade 1s ease forwards 3s;
+}
+.orn-l{width:44px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,0.3))}
+.orn-l.r{background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent)}
+.orn-d{width:5px;height:5px;background:var(--gold4);transform:rotate(45deg);opacity:0.7}
+
+/* ── EXACT naræ+ WORDMARK from your CSS ── */
+/* applied at welcome size */
+.wlc-brand{
+  display:inline-flex;align-items:baseline;
+  white-space:nowrap;
+  margin-bottom:6px;
+}
+.logo-word{
+  font-family:"Cormorant Garamond",serif;
+  font-size:36px;font-weight:600;
+  color:var(--gold);
+  letter-spacing:-0.03em;
+  line-height:1;
+  display:inline-block;
+}
+.logo-word em{font-style:italic}
+
+/* EXACT brand-plus from your index.html */
+.brand-plus{
+  position:relative;
+  display:inline-block;
+  width:0.34em;height:0.34em;
+  margin-left:0.015em;
+  transform:translateY(-0.40em);
+  flex:0 0 auto;
+}
+.brand-plus .arm{position:absolute;border-radius:999px}
+.brand-plus .arm-top,
+.brand-plus .arm-bottom,
+.brand-plus .arm-left{background:var(--pink)}
+.brand-plus .arm-right{background:var(--teal)}
+.brand-plus .arm-top,
+.brand-plus .arm-bottom{left:50%;width:0.085em;height:0.16em;transform:translateX(-50%)}
+.brand-plus .arm-top{top:0}
+.brand-plus .arm-bottom{bottom:0}
+.brand-plus .arm-left,
+.brand-plus .arm-right{top:50%;width:0.16em;height:0.085em;transform:translateY(-50%)}
+.brand-plus .arm-left{left:0}
+.brand-plus .arm-right{right:0}
+.brand-plus::before{
+  content:"";position:absolute;
+  left:50%;top:50%;
+  width:0.09em;height:0.09em;
+  transform:translate(-50%,-50%);
+  background:var(--pink);
+  border-radius:999px;
+  z-index:2;
+}
+
+.wlc-sub{
+  font-size:9px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--ink3);font-weight:300;margin-bottom:44px;
+}
+.wlc-enter{
+  font-size:8px;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gold4);font-weight:300;
+  opacity:0;
+  animation:wlcBlink 2.2s ease-in-out infinite 4s, wlcFade 0.8s ease forwards 4s;
+}
+@keyframes wlcBlink{0%,100%{opacity:0.25}50%{opacity:0.9}}
+
+/* ══════════════════════════════════════
+   TOPBAR
+══════════════════════════════════════ */
+.topbar{
+  padding:14px 22px 13px;
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:0.5px solid var(--gold-line);
+  flex-shrink:0;position:relative;
+}
+.topbar::after{
+  content:"";position:absolute;
+  bottom:0;left:22px;right:22px;height:0.5px;
+  background:linear-gradient(90deg,transparent,rgba(201,169,110,0.22),transparent);
+}
+.brand-row{display:flex;align-items:center;gap:10px}
+.logo-sm img{width:38px;height:38px;object-fit:contain}
+/* topbar wordmark inherits font-size from .logo-sm-word */
+.logo-sm-word{
+  font-family:"Cormorant Garamond",serif;
+  font-size:26px;font-weight:600;
+  color:var(--gold);letter-spacing:-0.03em;line-height:1;
+}
+.logo-sm-word em{font-style:italic}
+/* brand-plus inherits from above .brand-plus rules — em units auto-scale */
+.topmeta{
+  font-size:8px;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--ink3);font-weight:300;
+}
+
+/* ══════════════════════════════════════
+   SCROLL + PAGES
+══════════════════════════════════════ */
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding-bottom:80px}
+.scroll::-webkit-scrollbar{display:none}
+.pg{display:none}.pg.on{display:block}
+
+/* ── LABELS ── */
+.sec-label{
+  font-size:8px;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--gold4);padding:0 20px;margin-bottom:10px;font-weight:300;
+}
+.sec-rule{
+  height:0.5px;margin:0 20px;
+  background:linear-gradient(90deg,transparent,var(--gold-line2),transparent);
+}
+
+/* ══════════════════════════════════════
+   HOME
+══════════════════════════════════════ */
+.home-hero{
+  margin:18px 14px 0;
+  border:0.5px solid var(--gold-line2);
+  padding:28px 24px;
+  position:relative;overflow:hidden;
+}
+.home-hero::before{
+  content:"";position:absolute;inset:3px;
+  border:0.5px solid var(--gold-line);pointer-events:none;
+}
+.h-eye{
+  font-size:8px;letter-spacing:0.26em;text-transform:uppercase;
+  color:var(--gold4);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.h-eye::after{content:"";flex:1;height:0.5px;background:var(--gold-line)}
+.h-q{
+  font-family:"Cormorant Garamond",serif;
+  font-size:21px;font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.62;margin-bottom:16px;
+}
+.h-tag{
+  font-size:8px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--pink);display:flex;align-items:center;gap:8px;
+}
+.h-tag::before{content:"";width:14px;height:0.5px;background:var(--pink)}
+
+.h-metrics{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  margin:14px 14px 0;
+  border:0.5px solid var(--gold-line2);
+}
+.h-metric{
+  padding:14px 8px;text-align:center;
+  border-right:0.5px solid var(--gold-line);
+}
+.h-metric:last-child{border-right:none}
+.h-mn{
+  font-family:"Cormorant Garamond",serif;
+  font-size:28px;font-weight:300;color:var(--gold2);line-height:1;
+}
+.h-ml{
+  font-size:7px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--ink3);margin-top:4px;font-weight:300;
+}
+
+.h-milestone{
+  margin:12px 14px 0;
+  border:0.5px solid var(--gold-line2);
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  position:relative;overflow:hidden;
+}
+.h-milestone::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(180deg,var(--pink),var(--gold));
+}
+.hm-t{
+  font-family:"Cormorant Garamond",serif;
+  font-size:13px;font-style:italic;color:var(--ink);margin-bottom:3px;
+}
+.hm-s{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.hm-b{font-family:"Cormorant Garamond",serif;font-size:12px;font-style:italic;color:var(--gold);margin-left:auto;white-space:nowrap}
+
+.h-nav{
+  display:grid;grid-template-columns:1fr 1fr;
+  margin:14px 14px 0;
+  border:0.5px solid var(--gold-line2);
+}
+.h-card{
+  padding:18px 14px;
+  border-right:0.5px solid var(--gold-line);
+  border-bottom:0.5px solid var(--gold-line);
+  cursor:pointer;transition:background 0.3s;
+}
+.h-card:nth-child(2n){border-right:none}
+.h-card:nth-child(5),.h-card:nth-child(6){border-bottom:none}
+.h-card:hover{background:rgba(201,169,110,0.04)}
+.hc-ico{margin-bottom:10px;opacity:0.6}
+.hc-name{
+  font-family:"Cormorant Garamond",serif;
+  font-size:14px;color:var(--ink);margin-bottom:3px;
+}
+.hc-sub{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+
+/* ══════════════════════════════════════
+   AFFIRMATIONS
+══════════════════════════════════════ */
+/* LANGUAGE BAR — fixed height so it never collapses */
+.lang-section{padding:18px 14px 0}
+.lang-label{
+  font-size:8px;letter-spacing:0.26em;text-transform:uppercase;
+  color:var(--gold4);margin-bottom:10px;font-weight:300;
+}
+/* Grid layout so pills never disappear */
+.lang-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  border:0.5px solid var(--gold-line2);
+}
+.lpill{
+  border:none;
+  border-right:0.5px solid var(--gold-line);
+  border-bottom:0.5px solid var(--gold-line);
+  background:transparent;
+  color:var(--ink2);
+  font-size:11px;
+  padding:10px 4px;
+  cursor:pointer;
+  text-align:center;
+  transition:all 0.25s;
+  font-family:"Jost",sans-serif;
+  font-weight:300;
+  line-height:1.3;
+}
+.lpill:nth-child(5n){border-right:none}
+.lpill:nth-child(n+6){border-bottom:none}
+.lpill.on{background:var(--gold);color:var(--bg);font-weight:500}
+
+.cat-wrap{padding:12px 14px 0}
+.cat-pills{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.cat-pills::-webkit-scrollbar{display:none}
+.cpill{
+  flex-shrink:0;border:0.5px solid var(--gold-line);
+  background:transparent;color:var(--ink3);
+  font-size:9px;letter-spacing:0.12em;text-transform:uppercase;
+  padding:6px 11px;cursor:pointer;white-space:nowrap;
+  transition:all 0.25s;font-weight:300;
+}
+.cpill.on{color:var(--rose2);border-color:var(--pink)}
+
+.aff-block{
+  margin:14px 14px 0;
+  border:0.5px solid var(--gold-line2);
+  padding:28px 22px 22px;
+  position:relative;overflow:hidden;
+  transition:opacity 0.3s;
+}
+.aff-block::before{content:"";position:absolute;inset:4px;border:0.5px solid var(--gold-line);pointer-events:none}
+.aff-deco{
+  font-family:"Cormorant Garamond",serif;font-size:110px;
+  color:rgba(201,169,110,0.04);
+  position:absolute;top:-12px;left:8px;line-height:1;pointer-events:none;
+}
+.aff-q{
+  font-family:"Cormorant Garamond",serif;
+  font-size:20px;font-weight:300;font-style:italic;
+  color:var(--ink);line-height:1.65;
+  margin-bottom:20px;position:relative;z-index:1;
+}
+.aff-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:0.5px solid var(--gold-line);padding-top:13px;
+}
+.aff-badge{font-size:8px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold4)}
+.aff-acts{display:flex;border:0.5px solid var(--gold-line)}
+.abtn{
+  border:none;border-right:0.5px solid var(--gold-line);
+  background:transparent;color:var(--ink3);
+  font-family:"Jost",sans-serif;font-size:9px;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:7px 13px;cursor:pointer;transition:all 0.2s;font-weight:300;
+}
+.abtn:last-child{border-right:none}
+.abtn:hover{color:var(--gold)}
+
+.chal-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  margin:14px 14px 0;
+  border:0.5px solid var(--gold-line2);
+}
+.chal-box{
+  padding:14px 4px;text-align:center;
+  border-right:0.5px solid var(--gold-line);
+  cursor:pointer;transition:background 0.2s;
+}
+.chal-box:last-child{border-right:none}
+.chal-box:hover{background:rgba(201,169,110,0.04)}
+.chal-n{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:300;color:var(--gold2);line-height:1}
+.chal-l{font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:3px;font-weight:300}
+.chal-prog{height:1px;background:rgba(201,169,110,0.08);margin-top:8px;overflow:hidden}
+.chal-fill{height:100%;background:var(--gold)}
+
+/* ══════════════════════════════════════
+   MUSIC & SOUNDSCAPES
+══════════════════════════════════════ */
+.music-intro{padding:18px 14px 0}
+.music-intro-eye{font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold4);margin-bottom:9px}
+.music-intro-title{font-family:"Cormorant Garamond",serif;font-size:19px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.music-intro-sub{font-size:10px;color:var(--ink3);font-weight:300}
+
+.mcat-list{margin:14px 14px 0;border:0.5px solid var(--gold-line2);display:flex;flex-direction:column}
+.mcat-row{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-bottom:0.5px solid var(--gold-line);
+  cursor:pointer;transition:background 0.2s;
+}
+.mcat-row:last-child{border-bottom:none}
+.mcat-row:hover{background:rgba(201,169,110,0.03)}
+.mcat-num{font-family:"Cormorant Garamond",serif;font-size:11px;font-style:italic;color:var(--gold4);width:18px;text-align:right;flex-shrink:0}
+.mcat-name{font-size:12px;font-weight:400;color:var(--ink);flex:1;letter-spacing:0.03em}
+.mcat-cnt{font-size:9px;letter-spacing:0.09em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.mcat-arr{font-family:"Cormorant Garamond",serif;font-size:14px;color:var(--ink4)}
+
+.sound-intro{
+  padding:0 14px 8px;
+  font-family:"Cormorant Garamond",serif;font-size:13px;font-style:italic;
+  color:var(--ink3);line-height:1.65;
+}
+.sound-list{margin:0 14px;border:0.5px solid var(--gold-line2);display:flex;flex-direction:column}
+.sound-row{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 16px;border-bottom:0.5px solid var(--gold-line);
+  cursor:pointer;transition:background 0.2s;
+}
+.sound-row:last-child{border-bottom:none}
+.sound-row:hover{background:rgba(201,169,110,0.025)}
+.sound-row.playing{background:rgba(77,144,144,0.06)}
+/* animated waveform */
+.wavebars{display:flex;align-items:flex-end;gap:2px;width:24px;height:20px;flex-shrink:0}
+.wavebars span{display:block;width:3px;background:var(--gold4);border-radius:1px;transition:height 0.3s}
+.sound-row.playing .wavebars span{background:var(--teal2)}
+.sound-row.playing .wavebars span:nth-child(1){animation:wb 0.8s ease-in-out infinite}
+.sound-row.playing .wavebars span:nth-child(2){animation:wb 0.65s ease-in-out infinite 0.13s}
+.sound-row.playing .wavebars span:nth-child(3){animation:wb 0.95s ease-in-out infinite 0.07s}
+.sound-row.playing .wavebars span:nth-child(4){animation:wb 0.72s ease-in-out infinite 0.22s}
+@keyframes wb{0%,100%{height:3px}50%{height:16px}}
+.sound-info{flex:1;min-width:0}
+.sound-name{font-family:"Cormorant Garamond",serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sound-desc{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.sound-btn{
+  width:24px;height:24px;
+  border:0.5px solid var(--gold-line2);
+  background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;transition:all 0.2s;
+}
+.sound-row.playing .sound-btn{border-color:rgba(77,144,144,0.4);background:rgba(77,144,144,0.08)}
+
+/* now playing bar */
+.npbar{
+  margin:12px 14px 0;
+  border:0.5px solid rgba(77,144,144,0.28);
+  padding:12px 16px;
+  display:none;align-items:center;gap:12px;
+  background:rgba(77,144,144,0.04);
+}
+.npbar.on{display:flex}
+.npbar-disc{
+  width:30px;height:30px;border-radius:50%;
+  border:0.5px solid rgba(77,144,144,0.3);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.npbar-info{flex:1;min-width:0}
+.npbar-name{font-family:"Cormorant Garamond",serif;font-size:12px;font-style:italic;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.npbar-sub{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.npbar-ctrl{display:flex;border:0.5px solid var(--gold-line)}
+.npc{
+  width:26px;height:26px;border-right:0.5px solid var(--gold-line);
+  background:transparent;color:var(--ink2);font-size:9px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.npc:last-child{border-right:none}
+.npc.act{background:var(--teal);color:white}
+
+/* ══════════════════════════════════════
+   BREATHE
+══════════════════════════════════════ */
+.breathe-intro{margin:18px 14px 0;border:0.5px solid var(--gold-line2);padding:20px 22px}
+.breathe-eye{font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold4);margin-bottom:9px}
+.breathe-title{font-family:"Cormorant Garamond",serif;font-size:19px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.breathe-sub{font-size:10px;color:var(--ink3);font-weight:300}
+
+.breath-chamber{
+  margin:12px 14px 0;border:0.5px solid var(--gold-line);
+  padding:30px 20px;display:flex;flex-direction:column;align-items:center;gap:18px;
+  background:rgba(77,144,144,0.02);
+}
+.btype-row{display:flex;border:0.5px solid var(--gold-line)}
+.btbtn{
+  border:none;border-right:0.5px solid var(--gold-line);
+  background:transparent;color:var(--ink3);
+  font-family:"Jost",sans-serif;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;
+  padding:8px 12px;cursor:pointer;transition:all 0.2s;font-weight:300;
+}
+.btbtn:last-child{border-right:none}
+.btbtn.on{background:rgba(77,144,144,0.14);color:var(--ink)}
+
+.orbwrap{position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.oring{position:absolute;inset:0;border-radius:50%;border:0.5px solid rgba(77,144,144,0.18)}
+.oring2{position:absolute;inset:12px;border-radius:50%;border:0.5px solid rgba(77,144,144,0.1)}
+.orb{
+  width:68px;height:68px;border-radius:50%;
+  background:radial-gradient(circle at 38% 35%,rgba(77,144,144,0.78),rgba(8,28,28,0.95));
+  display:flex;align-items:center;justify-content:center;
+}
+.orb.in{animation:oin 4s ease-in-out forwards}
+.orb.hold{animation:ohold 7s linear forwards}
+.orb.out{animation:oout 8s ease-in-out forwards}
+@keyframes oin{from{transform:scale(1)}to{transform:scale(1.6)}}
+@keyframes ohold{from{transform:scale(1.6)}to{transform:scale(1.6)}}
+@keyframes oout{from{transform:scale(1.6)}to{transform:scale(1)}}
+.binstr{font-family:"Cormorant Garamond",serif;font-size:15px;font-style:italic;color:var(--ink3);min-height:22px;text-align:center}
+.bstart{
+  border:0.5px solid var(--gold-line2);background:transparent;
+  color:var(--ink2);font-family:"Jost",sans-serif;font-size:9px;
+  letter-spacing:0.2em;text-transform:uppercase;padding:10px 28px;
+  cursor:pointer;transition:all 0.2s;font-weight:300;
+}
+.bstart:hover{color:var(--gold)}
+
+.btips{display:grid;grid-template-columns:1fr 1fr;margin:12px 14px 0;border:0.5px solid var(--gold-line)}
+.btip{padding:13px 14px;border-right:0.5px solid var(--gold-line);border-bottom:0.5px solid var(--gold-line)}
+.btip:nth-child(2n){border-right:none}
+.btip:nth-child(3),.btip:nth-child(4){border-bottom:none}
+.btip-name{font-family:"Cormorant Garamond",serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.btip-desc{font-size:10px;color:var(--ink3);line-height:1.5;font-weight:300}
+
+/* ══════════════════════════════════════
+   PASSPORT & CRANE — placeholders pointing to previous prototype
+══════════════════════════════════════ */
+.placeholder{
+  padding:48px 24px;text-align:center;
+}
+.placeholder-eye{font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold4);margin-bottom:14px}
+.placeholder-title{font-family:"Cormorant Garamond",serif;font-size:22px;font-style:italic;color:var(--gold2);margin-bottom:10px}
+.placeholder-sub{font-size:11px;color:var(--ink3);line-height:1.7;font-weight:300}
+
+/* ══════════════════════════════════════
+   BOTTOM NAV
+══════════════════════════════════════ */
+.bnav{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(6,5,3,0.98);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-top:0.5px solid var(--gold-line2);
+  display:flex;justify-content:space-around;
+  padding:10px 0 max(20px, env(safe-area-inset-bottom));
+  z-index:50;
+}
+.ni{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  cursor:pointer;opacity:0.22;transition:opacity 0.25s;
+  padding:2px 4px;min-width:44px;
+}
+.ni.on{opacity:1}
+.ni-ico{width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+.ni-lbl{font-size:7px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.ni.on .ni-lbl{color:var(--gold)}
+.ni.on svg{stroke:var(--gold) !important}
+
+/* spacer */
+.spacer{height:20px}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ══ WELCOME SCREEN ══ -->
+  <div id="welcomeScreen" onclick="dismissWelcome()">
+    <div class="crane-anim-wrap">
+      <img src="https://naraefoundation.org/narae-logo.png" alt="naræ crane"/>
+    </div>
+    <div class="wlc-text">
+      <div class="wlc-greeting" id="wlcGreeting">We are glad you are here.</div>
+      <div class="wlc-lang" id="wlcLang">English</div>
+      <div class="wlc-orn">
+        <div class="orn-l"></div><div class="orn-d"></div><div class="orn-l r"></div>
+      </div>
+      <div class="wlc-brand">
+        <span class="logo-word">nar<em>æ</em></span><!--
+        --><span class="brand-plus" aria-hidden="true">
+          <span class="arm arm-top"></span>
+          <span class="arm arm-right"></span>
+          <span class="arm arm-bottom"></span>
+          <span class="arm arm-left"></span>
+        </span>
+      </div>
+      <div class="wlc-sub">International Foundation</div>
+      <div class="wlc-enter">Tap anywhere to enter</div>
+    </div>
+  </div>
+
+  <!-- ══ STATUS BAR ── -->
+  <div style="display:flex;justify-content:space-between;padding:14px 26px 0;font-size:10px;color:var(--ink3);flex-shrink:0;letter-spacing:0.12em;font-weight:200">
+    <span>9:41</span><span>○○○ &nbsp;87%</span>
+  </div>
+
+  <!-- ══ TOPBAR ── -->
+  <div class="topbar">
+    <div class="brand-row">
+      <div class="logo-sm"><img src="https://naraefoundation.org/narae-logo.png" alt="naræ"/></div>
+      <span class="logo-sm-word">nar<em>æ</em></span><!--
+      --><span class="brand-plus" aria-hidden="true">
+        <span class="arm arm-top"></span>
+        <span class="arm arm-right"></span>
+        <span class="arm arm-bottom"></span>
+        <span class="arm arm-left"></span>
+      </span>
+    </div>
+    <div class="topmeta" id="topMeta">Today</div>
+  </div>
+
+  <!-- ══ SCROLL AREA ── -->
+  <div class="scroll" id="scroller">
+
+    <!-- HOME -->
+    <div class="pg on" id="pg-home">
+      <div class="home-hero">
+        <div class="h-eye">Today&#39;s affirmation</div>
+        <div class="h-q">&#8220;You are not defined by your diagnosis. You are so much more.&#8221;</div>
+        <div class="h-tag">Healing &nbsp;&middot;&nbsp; English</div>
+      </div>
+      <div class="h-metrics">
+        <div class="h-metric"><div class="h-mn">12</div><div class="h-ml">Day streak</div></div>
+        <div class="h-metric"><div class="h-mn">5</div><div class="h-ml">Cultures</div></div>
+        <div class="h-metric"><div class="h-mn">40</div><div class="h-ml">Days affirmed</div></div>
+      </div>
+      <div class="h-milestone">
+        <div style="flex:1">
+          <div class="hm-t">Day 15 milestone approaching</div>
+          <div class="hm-s">3 more days &middot; Renewal awaits</div>
+        </div>
+        <div class="hm-b">Renewal</div>
+      </div>
+      <div style="height:16px"></div>
+      <div class="sec-label">Explore</div>
+      <div class="h-nav">
+        <div class="h-card" onclick="go('affirm')">
+          <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l1.6 5H16l-4.2 3 1.6 5L9 11 4.6 14l1.6-5L2 6h5.4L9 1z" stroke="#a8863a" stroke-width="0.8" stroke-linejoin="round"/></svg>
+          <div class="hc-name">Affirmations</div><div class="hc-sub">10 categories &middot; 10 languages</div>
+        </div>
+        <div class="h-card" onclick="go('music')">
+          <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="5" cy="14" r="2.2" stroke="#a8863a" stroke-width="0.8"/><circle cx="13" cy="12" r="2.2" stroke="#a8863a" stroke-width="0.8"/><path d="M7.2 14V5.5L15.2 4v10" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round"/></svg>
+          <div class="hc-name">Music &amp; Sound</div><div class="hc-sub">Moods &middot; Soundscapes</div>
+        </div>
+        <div class="h-card" onclick="go('breathe')">
+          <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#a8863a" stroke-width="0.8"/><circle cx="9" cy="9" r="3.5" stroke="#a8863a" stroke-width="0.5" stroke-dasharray="1.8 2"/></svg>
+          <div class="hc-name">Breathe</div><div class="hc-sub">3 guided techniques</div>
+        </div>
+        <div class="h-card" onclick="go('passport')">
+          <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="1" stroke="#a8863a" stroke-width="0.8"/><path d="M2 6.5h14M6.5 6.5v9" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round"/></svg>
+          <div class="hc-name">Cultural Passport</div><div class="hc-sub">20 cultures &middot; Rituals &middot; Teas</div>
+        </div>
+        <div class="h-card" onclick="go('crane')" style="border-bottom:none">
+          <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16C5.5 12 3 9.5 3 7a4.5 4.5 0 019 0 4.5 4.5 0 019 0c0 2.5-2.5 5-6 9" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="hc-name">The Crane</div><div class="hc-sub">Symbol &middot; Art &middot; Origami &middot; Protect</div>
+        </div>
+        <div class="h-card" style="border-bottom:none">
+          <div style="height:18px;margin-bottom:10px"></div>
+          <div class="hc-name" style="color:var(--ink3)">Activity Circles</div>
+          <div class="hc-sub">Coming soon</div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <!-- AFFIRMATIONS -->
+    <div class="pg" id="pg-affirm">
+      <div class="lang-section">
+        <div class="lang-label">Select your language</div>
+        <div class="lang-grid">
+          <button class="lpill on" onclick="setL(this,'en')">English</button>
+          <button class="lpill" onclick="setL(this,'ko')">&#54620;&#44397;&#50612;</button>
+          <button class="lpill" onclick="setL(this,'de')">Deutsch</button>
+          <button class="lpill" onclick="setL(this,'ro')">Rom&#226;n&#259;</button>
+          <button class="lpill" onclick="setL(this,'es')">Espa&#241;ol</button>
+          <button class="lpill" onclick="setL(this,'fr')">Fran&#231;ais</button>
+          <button class="lpill" style="font-family:serif" onclick="setL(this,'ar')">&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</button>
+          <button class="lpill" onclick="setL(this,'ja')">&#26085;&#26412;&#35486;</button>
+          <button class="lpill" onclick="setL(this,'pt')">Portugu&#234;s</button>
+          <button class="lpill" onclick="setL(this,'zh')">&#20013;&#25991;</button>
+        </div>
+      </div>
+      <div class="cat-wrap">
+        <div class="cat-pills">
+          <button class="cpill on" onclick="setC(this,'healing')">Healing</button>
+          <button class="cpill" onclick="setC(this,'self-love')">Self-Love</button>
+          <button class="cpill" onclick="setC(this,'self-worth')">Self-Worth</button>
+          <button class="cpill" onclick="setC(this,'empowerment')">Empowerment</button>
+          <button class="cpill" onclick="setC(this,'anxiety')">Anxiety</button>
+          <button class="cpill" onclick="setC(this,'grief')">Grief</button>
+          <button class="cpill" onclick="setC(this,'belonging')">Belonging</button>
+          <button class="cpill" onclick="setC(this,'confidence')">Confidence</button>
+          <button class="cpill" onclick="setC(this,'fear')">Fear</button>
+          <button class="cpill" onclick="setC(this,'stress')">Stress</button>
+        </div>
+      </div>
+      <div class="aff-block" id="affCard">
+        <div class="aff-deco">&#8220;</div>
+        <div class="aff-q" id="affQ">&#8220;Healing is not linear. Every small step forward is enough.&#8221;</div>
+        <div class="aff-foot">
+          <span class="aff-badge" id="affBadge">English &middot; Healing</span>
+          <div class="aff-acts">
+            <button class="abtn" onclick="nextAff()">&#8635; &nbsp;New</button>
+            <button class="abtn">&#9825; &nbsp;Save</button>
+          </div>
+        </div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="sec-label">Challenges</div>
+      <div class="chal-grid">
+        <div class="chal-box"><div class="chal-n">7</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:85%"></div></div></div>
+        <div class="chal-box"><div class="chal-n">30</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:40%"></div></div></div>
+        <div class="chal-box"><div class="chal-n">100</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:12%"></div></div></div>
+        <div class="chal-box"><div class="chal-n" style="color:var(--teal2)">&#8734;</div><div class="chal-l">Monthly</div><div class="chal-prog"><div class="chal-fill" style="width:70%;background:var(--teal)"></div></div></div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <!-- MUSIC -->
+    <div class="pg" id="pg-music">
+      <div class="music-intro">
+        <div class="music-intro-eye">Music &amp; Sound</div>
+        <div class="music-intro-title">Choose how you wish to feel</div>
+        <div class="music-intro-sub">Curated healing sounds &mdash; royalty free &mdash; always available</div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="sec-label">Healing moods</div>
+      <div class="mcat-list">
+        <div class="mcat-row"><span class="mcat-num">I</span><span class="mcat-name">Anxiety Relief</span><span class="mcat-cnt">8 tracks</span><span class="mcat-arr">&#8250;</span></div>
+        <div class="mcat-row"><span class="mcat-num">II</span><span class="mcat-name">Sleep &amp; Rest</span><span class="mcat-cnt">6 tracks</span><span class="mcat-arr">&#8250;</span></div>
+        <div class="mcat-row"><span class="mcat-num">III</span><span class="mcat-name">Reiki Healing</span><span class="mcat-cnt">5 tracks</span><span class="mcat-arr">&#8250;</span></div>
+        <div class="mcat-row"><span class="mcat-num">IV</span><span class="mcat-name">Sound Bath</span><span class="mcat-cnt">4 tracks</span><span class="mcat-arr">&#8250;</span></div>
+        <div class="mcat-row"><span class="mcat-num">V</span><span class="mcat-name">Focus &amp; Clarity</span><span class="mcat-cnt">7 tracks</span><span class="mcat-arr">&#8250;</span></div>
+        <div class="mcat-row"><span class="mcat-num">VI</span><span class="mcat-name">Grounding</span><span class="mcat-cnt">5 tracks</span><span class="mcat-arr">&#8250;</span></div>
+      </div>
+      <div style="height:14px"></div>
+      <div class="sec-label">Soundscapes</div>
+      <div class="sound-intro">Not generic. Each sound is named like a painting &mdash; chosen for its particular beauty and rarity.</div>
+      <div class="sound-list" id="soundList"></div>
+      <div class="npbar" id="npbar">
+        <div class="npbar-disc">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#6aacac" stroke-width="0.5"/><circle cx="6" cy="6" r="2" stroke="#6aacac" stroke-width="0.5"/></svg>
+        </div>
+        <div class="npbar-info">
+          <div class="npbar-name" id="npbarName">&mdash;</div>
+          <div class="npbar-sub">Soundscape</div>
+        </div>
+        <div class="npbar-ctrl">
+          <div class="npc">&#9664;</div>
+          <div class="npc act" onclick="stopSound()">&#9646;&#9646;</div>
+          <div class="npc">&#9654;</div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <!-- BREATHE -->
+    <div class="pg" id="pg-breathe">
+      <div class="breathe-intro">
+        <div class="breathe-eye">Guided Breathing</div>
+        <div class="breathe-title">Stillness is also medicine</div>
+        <div class="breathe-sub">Tap the orb or Begin to start your session</div>
+      </div>
+      <div class="breath-chamber">
+        <div class="btype-row">
+          <button class="btbtn on" onclick="selB(this,'446')">4&middot;4&middot;6</button>
+          <button class="btbtn" onclick="selB(this,'box')">Box 4&middot;4&middot;4&middot;4</button>
+          <button class="btbtn" onclick="selB(this,'478')">4&middot;7&middot;8</button>
+        </div>
+        <div class="orbwrap" onclick="togB()">
+          <div class="oring"></div><div class="oring2"></div>
+          <div class="orb" id="borb">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <line x1="7" y1="1" x2="7" y2="13" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="1" y1="7" x2="13" y2="7" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="binstr" id="binstr">Tap to begin</div>
+        <button class="bstart" id="bstartBtn" onclick="togB()">Begin session</button>
+      </div>
+      <div style="height:12px"></div>
+      <div class="btips">
+        <div class="btip"><div class="btip-name">4&middot;4&middot;6</div><div class="btip-desc">Gentle daily calm. Good for anxiety relief.</div></div>
+        <div class="btip"><div class="btip-name">Box Breathing</div><div class="btip-desc">Equal counts. Grounding and returning to center.</div></div>
+        <div class="btip"><div class="btip-name">4&middot;7&middot;8</div><div class="btip-desc">Deep release. Supports sleep and letting go.</div></div>
+        <div class="btip"><div class="btip-name">Belly Breath</div><div class="btip-desc">Diaphragm focus. Releases held tension.</div></div>
+      </div>
+      <div class="spacer"></div>
+    </div>
+
+    <!-- PASSPORT placeholder -->
+    <div class="pg" id="pg-passport">
+      <div class="placeholder">
+        <div class="placeholder-eye">naræ Cultural Passport</div>
+        <div class="placeholder-title">Healing lives in every culture.</div>
+        <div class="placeholder-sub">20 cultures &middot; Healing rituals &middot; Sacred teas &middot; Folk music<br><br>Full interactive passport coming in next build.</div>
+      </div>
+    </div>
+
+    <!-- CRANE placeholder -->
+    <div class="pg" id="pg-crane">
+      <div class="placeholder">
+        <div class="placeholder-eye">The Red-Crowned Crane</div>
+        <div class="placeholder-title">Symbol &middot; Art &middot; Origami &middot; Protect</div>
+        <div class="placeholder-sub">Full crane sanctuary &mdash; symbol, famous artworks, origami steps, and conservation organizations &mdash; coming in next build.</div>
+      </div>
+    </div>
+
+  </div><!-- /scroll -->
+
+  <!-- ══ BOTTOM NAV ── -->
+  <div class="bnav">
+    <div class="ni on" id="ni-home" onclick="go('home')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#c9a96e" stroke-width="1" stroke-linecap="round"><path d="M2 7L8 2l6 5v7a1 1 0 01-1 1H3a1 1 0 01-1-1V7z"/><path d="M6 15v-5h4v5"/></svg></div>
+      <div class="ni-lbl">Home</div>
+    </div>
+    <div class="ni" id="ni-affirm" onclick="go('affirm')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><path d="M8 1l1.8 5H15l-4.4 3.2 1.7 5.2L8 11.5l-4.3 2.9 1.7-5.2L1 6h5.2L8 1z" stroke-linejoin="round"/></svg></div>
+      <div class="ni-lbl">Affirm</div>
+    </div>
+    <div class="ni" id="ni-music" onclick="go('music')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><circle cx="5" cy="13" r="2"/><circle cx="13" cy="11" r="2"/><path d="M7 13V5l8-2v8"/></svg></div>
+      <div class="ni-lbl">Sound</div>
+    </div>
+    <div class="ni" id="ni-breathe" onclick="go('breathe')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3" stroke-dasharray="1.5 2"/></svg></div>
+      <div class="ni-lbl">Breathe</div>
+    </div>
+    <div class="ni" id="ni-passport" onclick="go('passport')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M2 6h12M6 6v8"/></svg></div>
+      <div class="ni-lbl">Passport</div>
+    </div>
+    <div class="ni" id="ni-crane" onclick="go('crane')">
+      <div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><path d="M8 14C4.5 10.5 2 8 2 5.5a4 4 0 018 0 4 4 0 018 0C18 8 14 11 10 14" stroke-linejoin="round"/></svg></div>
+      <div class="ni-lbl">Crane</div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<script>
+/* ══ WELCOME ══ */
+const GREETINGS=[
+  {t:"We are glad you are here.",l:"English"},
+  {t:"당신이 여기 있어서 기쁩니다.",l:"한국어"},
+  {t:"Wir sind froh, dass Sie hier sind.",l:"Deutsch"},
+  {t:"Suntem bucuroși că ești aici.",l:"Română"},
+  {t:"Nos alegra que estés aquí.",l:"Español"},
+  {t:"Nous sommes heureux que vous soyez là.",l:"Français"},
+  {t:"يسعدنا أن تكوني هنا.",l:"العربية"},
+  {t:"あなたがここにいてくれて嬉しいです。",l:"日本語"},
+  {t:"Ficamos felizes que você esteja aqui.",l:"Português"},
+  {t:"我们很高兴你在这里。",l:"中文"},
+];
+let gIdx=0,gTimer=null;
+function cycleGreeting(){
+  const g=document.getElementById("wlcGreeting"),l=document.getElementById("wlcLang");
+  g.style.opacity="0";
+  setTimeout(()=>{
+    gIdx=(gIdx+1)%GREETINGS.length;
+    g.textContent=GREETINGS[gIdx].t;
+    l.textContent=GREETINGS[gIdx].l;
+    g.style.opacity="1";
+  },650);
+}
+gTimer=setInterval(cycleGreeting,3000);
+function dismissWelcome(){
+  const ws=document.getElementById("welcomeScreen");
+  ws.classList.add("out");
+  clearInterval(gTimer);
+  setTimeout(()=>ws.style.display="none",1500);
+}
+setTimeout(dismissWelcome,14000);
+
+/* ══ NAVIGATION ══ */
+function go(tab){
+  document.querySelectorAll(".pg").forEach(p=>p.classList.remove("on"));
+  document.querySelectorAll(".ni").forEach(n=>n.classList.remove("on"));
+  document.getElementById("pg-"+tab).classList.add("on");
+  document.getElementById("ni-"+tab).classList.add("on");
+  document.getElementById("scroller").scrollTop=0;
+  const labels={home:"Today",affirm:"Affirmations",music:"Music & Sound",breathe:"Breathing",passport:"Cultural Passport",crane:"The Crane"};
+  document.getElementById("topMeta").textContent=labels[tab]||"";
+}
+
+/* ══ AFFIRMATIONS ══ */
+const AFFS={
+  healing:{en:["“Healing is not linear. Every small step forward is enough.”","“You are not defined by your diagnosis. You are so much more.”","“It is okay to not have answers. Healing asks only for your presence.”"],ko:["“치유는 직선이 아닙니다. 작은 한 걸음 한 걸음이 충분합니다.”","“당신은 진단으로 정의되지 않습니다.”","“답을 몰라도 괴찮습니다.”"],de:["“Heilung verläuft nicht geradlinig. Jeder Schritt vorwärts ist genug.”","“Du bist nicht durch deine Diagnose definiert.”","“Es ist in Ordnung, keine Antworten zu haben.”"],ro:["“Vindecarea nu este liniară. Fiecare pas înainte este suficient.”","“Nu ești definit(ă) de diagnosticul tău.”","“E în regulă să nu ai răspunsuri.”"],es:["“La sanación no es lineal. Cada paso es suficiente.”","“No estás definida por tu diagnóstico.”","“Está bien no tener respuestas.”"],fr:["“La guérison n’est pas linéaire. Chaque pas est suffisant.”","“Tu n’es pas définie par ton diagnostic.”","“Il est normal de ne pas avoir de réponses.”"],ar:["“الشفاء ليس خطاً مستقيماً.”","“أنتِ لستِ محددة بتشخيصك.”","“لا بأس في عدم وجود إجابات.”"],ja:["「癌しは直線ではありません。」","「あなたは診断で定義されません。」","「答えがなくても大丈夫です。」"],pt:["“A cura não é linear. Cada pequeno passo é suficiente.”","“Você não é definida pelo seu diagnóstico.”","“Está bem não ter respostas.”"],zh:["“治愈不是线性的。”","“你不是由诊断来定义的。”","“没有答案也没关系。”"]},
+  "self-love":{en:["“You are allowed to take up space, to rest, and to begin again.”","“Your body has carried you through so much. It deserves your gentleness.”","“You do not need to earn rest.”"],ko:["“당신은 공간을 차지하고 싈을 자격이 있습니다.”","“당신의 몸은 많은 것을 견들어왕습니다.”","“쉬는 것은 당신이 존재하는 것만으로도 충분합니다.”"],de:["“Du darfst Raum einnehmen, ruhen und neu beginnen.”","“Dein Körper verdient deine Sanftheit.”","“Du musst Ruhe nicht verdienen.”"],ro:["“Ai voie să ocupi spațiu și să te odihnești.”","“Corpul tău merită blândețea ta.”","“Nu trebuie să câștigi odihna.”"],es:["“Tienes permiso de ocupar espacio y descansar.”","“Tu cuerpo merece tu gentileza.”","“No necesitas ganarte el descanso.”"],fr:["“Tu as le droit de prendre de l’espace et de te reposer.”","“Ton corps mérite ta douceur.”","“Tu n’as pas besoin de mériter le repos.”"],ar:["“يُسمح لك بأخذ مساحتك والراحة.”","“جسدك يستحق لطفك.”","“لا تحتاجين إلى كسب الراحة.”"],ja:["「あなたは空間を取り、休む権利があります。」","「あなたの体は優しさに値します。」","「休息を得る必要はありません。」"],pt:["“Você tem permissão para ocupar espaço e descansar.”","“Seu corpo merece sua gentileza.”","“Você não precisa merecer o descanso.”"],zh:["“你有权占据空间、休息和重新开始。”","“你的身体値得你的温柔。”","“你不需要赚取休息。”"]},
+  "self-worth":{en:["“Your worth is not measured by how much you produce or endure.”","“You deserve care that sees your whole self.”","“You were worthy before the diagnosis. You remain worthy now.”"],ko:["“당신의 가치는 생산량으로 측정되지 않습니다.”","“당신은 전체 자아를 보는 돌봇을 받을 자격이 있습니다.”","“당신은 진단 전에도 가치 있었습니다.”"],de:["“Dein Wert wird nicht an Leistung gemessen.”","“Du verdienst Fürsorge, die dich ganz sieht.”","“Du warst vor der Diagnose wertvoll.”"],ro:["“Valoarea ta nu se măsoară prin cât produci.”","“Meriți îngrijire care vede întregul tău sine.”","“Erai demn(ă) înainte de diagnostic.”"],es:["“Tu valor no se mide por cuánto produces.”","“Mereces cuidado que vea todo tu ser.”","“Eras valiosa antes del diagnóstico.”"],fr:["“Ta valeur ne se mesure pas à ce que tu produis.”","“Tu mérites des soins qui voient tout ton être.”","“Tu étais précieuse avant le diagnostic.”"],ar:["“قيمتك لا تقاس بمقدار ما تنتجين.”","“تستحقين رعاية ترى ذاتك كاملة.”","“كنتِ ذات قيمة قبل التشخيص.”"],ja:["「あなたの価値は生産量で測られません。」","「あなたは全体として見られるケアに値します。」","「診断前もあなたは価値がありました。」"],pt:["“Seu valor não é medido por quanto você produz.”","“Você merece cuidado que veja seu ser completo.”","“Você era digna antes do diagnóstico.”"],zh:["“你的价値不是由你生产多少来衡量的。”","“你値得得到看见你整个自我的关爱。”","“在诊断之前你就有价値。”"]},
+  empowerment:{en:["“Your voice matters. Your story matters. You matter.”","“You have survived things that required extraordinary strength.”","“The courage it takes to keep going is remarkable.”"],ko:["“당신의 목소리가 중요합니다.”","“당신은 특별한 힘이 필요한 일들을 견떠냈습니다.”","“계속 나아가는 용기는 놀랍습니다.”"],de:["“Deine Stimme zählt. Deine Geschichte zählt.”","“Du hast außergewöhnliche Dinge überlebt.”","“Der Mut, weiterzumachen, ist bemerkenswert.”"],ro:["“Vocea ta contează. Povestea ta contează.”","“Ai supraviețuit unor lucruri extraordinare.”","“Curajul de a continua este remarcabil.”"],es:["“Tu voz importa. Tu historia importa.”","“Has sobrevivido cosas extraordinarias.”","“El coraje de seguir es notable.”"],fr:["“Ta voix compte. Ton histoire compte.”","“Tu as survécu à des choses extraordinaires.”","“Le courage de continuer est remarquable.”"],ar:["“صوتك مهم. قصتك مهمة.”","“لقد نجوتِ من أشياء تطلبت قوة استثنائية.”","“الشجاعة على الاستمرار أمر رائع.”"],ja:["「あなたの声が大切です。」","「あなたは並外れた強さを要することを生き延びました。」","「続ける勇気は素晴らしいです。」"],pt:["“Sua voz importa. Sua história importa.”","“Você sobreviveu a coisas extraordinárias.”","“A coragem de continuar é notável.”"],zh:["“你的声音很重要。你的故事很重要。”","“你经历了需要非凡力量的事情。”","“继续前行的勇气是了不起的。”"]},
+  anxiety:{en:["“Right now, in this moment, you are safe. Breathe.”","“Your feelings are real. You do not have to face them alone.”","“One moment at a time. That is enough.”"],ko:["“지금 이 순간, 당신은 안전합니다. 숨을 쉬세요.”","“당신의 감정은 진실입니다.”","“한 순간씩. 그것으로 충분합니다.”"],de:["“Jetzt bist du sicher. Atme.”","“Deine Gefühle sind real.”","“Einen Moment nach dem anderen.”"],ro:["“Chiar acum ești în siguranță. Respiră.”","“Sentimentele tale sunt reale.”","“Un moment pe rând.”"],es:["“Ahora mismo estás segura. Respira.”","“Tus sentimientos son reales.”","“Un momento a la vez.”"],fr:["“En ce moment tu es en sécurité. Respire.”","“Tes sentiments sont réels.”","“Un moment à la fois.”"],ar:["“الآن أنتِ بأمان. تنفسي.”","“مشاعرك حقيقية.”","“لحظة واحدة في كل مرة.”"],ja:["「今この瞬間、あなたは安全です。呼吸してください。」","「あなたの気持ちは本物です。」","「一度に一瞬間ずつ。」"],pt:["“Agora você está segura. Respire.”","“Seus sentimentos são reais.”","“Um momento de cada vez.”"],zh:["“此刻你是安全的。呼吸。”","“你的感受是真实的。”","“一次一个时刻。”"]},
+  grief:{en:["“Grief is love with nowhere to go.”","“You are allowed to grieve and to heal at the same time.”","“Your tears are not weakness. They are part of your wholeness.”"],ko:["“슬픔은 갈 곳 없는 사랑입니다.”","“슬퍼하고 치유하는 것은 동시에 허용됩니다.”","“당신의 눈물은 약함이 아닙니다.”"],de:["“Trauer ist Liebe ohne Ort.”","“Du darfst gleichzeitig trauern und heilen.”","“Deine Tränen sind keine Schwäche.”"],ro:["“Durerea este dragoste fără un loc.”","“Ai voie să îndolii și să te vindeci.”","“Lacrimile tale nu sunt slăbiciune.”"],es:["“El duelo es amor sin a dónde ir.”","“Puedes estar de duelo y sanar al mismo tiempo.”","“Tus lágrimas no son debilidad.”"],fr:["“Le deuil c’est de l’amour sans destination.”","“Tu peux pleurer et guérir en même temps.”","“Tes larmes ne sont pas une faiblesse.”"],ar:["“الحزن هو الحب الذي لا يجد مكاناً.”","“يُسمح لك بالحداد والشفاء في آنٍ واحد.”","“دموعك ليست ضعفاً.”"],ja:["「悲しみは行き場のない愛です。」","「同時に沘き、癌されることが許されています。」","「涙は弱さではありません。」"],pt:["“O luto é amor sem lugar para ir.”","“Você pode lamentar e curar ao mesmo tempo.”","“Suas lágrimas não são fraqueza.”"],zh:["“悲伤是无处可去的爱。”","“你可以同时悲伤和愈合。”","“你的眼泪不是软弱。”"]},
+  belonging:{en:["“You belong here. Your presence adds something that was missing.”","“You do not need to change who you are.”","“There is a place for you — because of your story.”"],ko:["“당신은 여기에 속해 있습니다.”","“공동체에 속하기 위해 자신을 바꿀 필요가 없습니다.”","“당신을 위한 자리가 있습니다.”"],de:["“Du gehörst hierher.”","“Du musst nicht ändern, wer du bist.”","“Es gibt einen Platz für dich.”"],ro:["“Aparții aici.”","“Nu trebuie să te schimbi.”","“Există un loc pentru tine.”"],es:["“Perteneces aquí.”","“No necesitas cambiar quién eres.”","“Hay un lugar para ti.”"],fr:["“Tu as ta place ici.”","“Tu n’as pas besoin de changer.”","“Il y a une place pour toi.”"],ar:["“أنتِ تنتمين هنا.”","“لا تحتاجين إلى تغيير نفسك.”","“هناك مكان لك.”"],ja:["「あなたはここに属しています。」","「自分を変える必要はありません。」","「あなたのための場所があります。」"],pt:["“Você pertence aqui.”","“Você não precisa mudar quem é.”","“Há um lugar para você.”"],zh:["“你属于这里。”","“你不需要改变自己。”","“有一个属于你的地方。”"]},
+  confidence:{en:["“You have already done hard things. You can do this too.”","“Confidence is not the absence of fear. It is moving forward anyway.”","“Your experience is wisdom.”"],ko:["“당신은 이미 어려운 일들을 해냈습니다.”","“자신감은 두려움의 부재가 아닙니다.”","“당신의 경험은 지혜입니다.”"],de:["“Du hast bereits schwere Dinge getan.”","“Vertrauen ist nicht die Abwesenheit von Angst.”","“Deine Erfahrung ist Weisheit.”"],ro:["“Ai făcut deja lucruri grele.”","“Încrederea nu este absența fricii.”","“Experiența ta este înțelepciune.”"],es:["“Ya has hecho cosas difíciles.”","“La confianza no es la ausencia del miedo.”","“Tu experiencia es sabiduría.”"],fr:["“Tu as déjà fait des choses difficiles.”","“La confiance n’est pas l’absence de peur.”","“Ton expérience est sagesse.”"],ar:["“لقد فعلتِ أشياء صعبة بالفعل.”","“الثقة ليست غياب الخوف.”","“تجربتك هي حكمة.”"],ja:["「あなたはすでに困難なことをやり遥げました。」","「自信は恐れの不在ではありません。」","「あなたの経験は知恵です。」"],pt:["“Você já fez coisas difíceis.”","“Confiança não é ausência de medo.”","“Sua experiência é sabedoria.”"],zh:["“你已经做过艰难的事情了。”","“自信不是没有恐惧。”","“你的经验就是智慧。”"]},
+  fear:{en:["“Fear means you care. It does not mean you cannot move through it.”","“You have faced the unknown before and found your way.”","“Courage lives alongside fear.”"],ko:["“두려움은 당신이 신경 쓴다는 의미입니다.”","“당신은 이전에도 미지의 것을 마주했습니다.”","“용기는 두려움과 함께 삽니다.”"],de:["“Angst bedeutet, dass dir etwas wichtig ist.”","“Du bist dem Unbekannten schon begegnet.”","“Mut lebt neben der Angst.”"],ro:["“Frica înseamnă că îți pasă.”","“Ai mai înfruntat necunoscutul.”","“Curajul trăiește alături de frică.”"],es:["“El miedo significa que te importa.”","“Ya has enfrentado lo desconocido.”","“El coraje vive junto al miedo.”"],fr:["“La peur signifie que tu tiens à quelque chose.”","“Tu as déjà fait face à l’inconnu.”","“Le courage vit aux côtés de la peur.”"],ar:["“الخوف يعني أنك تهتمين.”","“لقد واجهتِ المجهول من قبل.”","“الشجاعة تعيش جنباً إلى جنب مع الخوف.”"],ja:["「恐れはあなたが気にかけているという意味です。」","「あなたは以前にも未知のものに立ち向かいました。」","「勇気は恐れとともに生きています。」"],pt:["“Medo significa que você se importa.”","“Você já enfrentou o desconhecido antes.”","“A coragem vive ao lado do medo.”"],zh:["“恐惧意味着你在乎。”","“你以前面对过未知并找到了自己的路。”","“勇气与恐惧并存。”"]},
+  stress:{en:["“You can set things down for a moment. The world will wait.”","“Rest is not a reward. It is part of how you continue.”","“You are doing your best. That is enough.”"],ko:["“잠시 내려놈아도 됩니다.”","“휴식은 보상이 아닙니다.”","“당신은 최선을 다하고 있습니다.”"],de:["“Du kannst die Dinge einen Moment niederlegen.”","“Ruhe ist keine Belohnung.”","“Du gibst dein Bestes.”"],ro:["“Poți lăsa lucrurile jos un moment.”","“Odihna nu este o recompensă.”","“Faci tot ce poți.”"],es:["“Puedes soltar las cosas por un momento.”","“El descanso no es una recompensa.”","“Estás haciendo lo mejor que puedes.”"],fr:["“Tu peux poser les choses un moment.”","“Le repos n’est pas une récompense.”","“Tu fais de ton mieux.”"],ar:["“يمكنك وضع الأشياء جانباً للحظة.”","“الراحة ليست مكافأة.”","“أنتِ تبذلين قصارى جهدك.”"],ja:["「少しの間、物事を置いてもいいです。」","「休息は報酬ではありません。」","「あなたはベストを尽くしています。」"],pt:["“Você pode pousar as coisas por um momento.”","“Descanso não é recompensa.”","“Você está fazendo o seu melhor.”"],zh:["“你可以暂时放下事情。”","“休息不是奖励。”","“你已经尽力了。”"]}
+};
+const LN={en:"English",ko:"한국어",de:"Deutsch",ro:"Română",es:"Español",fr:"Français",ar:"العربية",ja:"日本語",pt:"Português",zh:"中文"};
+let cL="en",cC="healing",cI=0;
+function setL(b,l){document.querySelectorAll(".lpill").forEach(x=>x.classList.remove("on"));b.classList.add("on");cL=l;cI=0;updAff()}
+function setC(b,c){document.querySelectorAll(".cpill").forEach(x=>x.classList.remove("on"));b.classList.add("on");cC=c;cI=0;updAff()}
+function updAff(){const c=document.getElementById("affCard");c.style.opacity="0";setTimeout(()=>{const p=AFFS[cC]&&AFFS[cC][cL]?AFFS[cC][cL]:AFFS[cC]?AFFS[cC].en:AFFS.healing.en;document.getElementById("affQ").textContent=p[cI%p.length];document.getElementById("affBadge").textContent=LN[cL]+" · "+cC.charAt(0).toUpperCase()+cC.slice(1).replace(/-/g," ");c.style.opacity="1"},220)}
+function nextAff(){const p=AFFS[cC]&&AFFS[cC][cL]?AFFS[cC][cL]:AFFS.healing.en;cI=(cI+1)%p.length;updAff()}
+
+/* ══ SOUNDSCAPES ══ */
+const SOUNDS=[
+  {n:"Rain on a temple roof in Kyoto",d:"Water · Japan · Meditative"},
+  {n:"The red-crowned crane at dawn",d:"Birdsong · Korea DMZ · Sacred"},
+  {n:"Wind through a bamboo grove",d:"Wind · Kyoto · Whispering"},
+  {n:"A mountain waterfall in Jeju",d:"Water · Korea · Cascading"},
+  {n:"Tibetan singing bowl resonance",d:"Resonance · Himalaya · Healing"},
+  {n:"Deep ocean at thirty meters",d:"Water · Pacific · Immersive"},
+  {n:"Cicadas at dusk in rural Romania",d:"Insects · Eastern Europe · Summer"},
+  {n:"Morning fog lifting over a Korean marsh",d:"Ambience · Korea · Stillness"},
+  {n:"A single raindrop on a lotus leaf",d:"Water · Minimalist · Meditative"},
+  {n:"Pines in a winter wind, Hokkaido",d:"Wind · Japan · Sparse"},
+  {n:"Low tide on black volcanic sand",d:"Ocean · Iceland · Elemental"},
+  {n:"A campfire in silence",d:"Fire · Primordial · Warming"},
+  {n:"Whales singing at depth",d:"Ocean · Pacific · Ancient"},
+  {n:"Thunderstorm over a high desert",d:"Storm · Southwest · Powerful"},
+  {n:"A lone thrush at forest edge, dawn",d:"Birdsong · Appalachian · Tender"},
+  {n:"Creek over smooth stones, autumn",d:"Water · Appalachian · Gentle"},
+  {n:"Wind chimes in an empty garden",d:"Wind · Resonance · Still"},
+  {n:"Underground spring in a cave",d:"Water · Underground · Ancient"},
+];
+let playIdx=-1;
+function rendSounds(){
+  const g=document.getElementById("soundList");g.innerHTML="";
+  SOUNDS.forEach((s,i)=>{
+    const row=document.createElement("div");
+    row.className="sound-row"+(playIdx===i?" playing":"");
+    row.innerHTML=`<div class="wavebars">
+      <span style="height:${[5,9,4,7][i%4]}px"></span>
+      <span style="height:${[9,4,8,5][i%4]}px"></span>
+      <span style="height:${[4,7,5,9][i%4]}px"></span>
+      <span style="height:${[7,5,9,4][i%4]}px"></span>
+    </div>
+    <div class="sound-info">
+      <div class="sound-name">${s.n}</div>
+      <div class="sound-desc">${s.d}</div>
+    </div>
+    <div class="sound-btn" onclick="toggleSound(${i})">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        ${playIdx===i
+          ?'<rect x="1.5" y="1.5" width="2.5" height="7" fill="#6aacac"/><rect x="6" y="1.5" width="2.5" height="7" fill="#6aacac"/>'
+          :'<polygon points="2,1.5 9,5 2,8.5" fill="#a8863a"/>'}
+      </svg>
+    </div>`;
+    row.onclick=()=>toggleSound(i);
+    g.appendChild(row);
+  });
+  const bar=document.getElementById("npbar");
+  if(playIdx>=0){
+    bar.classList.add("on");
+    document.getElementById("npbarName").textContent=SOUNDS[playIdx].n;
+  } else {
+    bar.classList.remove("on");
+  }
+}
+function toggleSound(i){playIdx=playIdx===i?-1:i;rendSounds()}
+function stopSound(){playIdx=-1;rendSounds()}
+rendSounds();
+
+/* ══ BREATHE ══ */
+let bRun=false,bTimer=null,bType="446";
+const BP={"446":[{c:"in",l:"Breathe in …",d:4000},{c:"hold",l:"Hold gently …",d:4000},{c:"out",l:"Breathe out slowly …",d:6000}],"box":[{c:"in",l:"Breathe in …",d:4000},{c:"hold",l:"Hold …",d:4000},{c:"out",l:"Breathe out …",d:4000},{c:"hold",l:"Hold …",d:4000}],"478":[{c:"in",l:"Breathe in …",d:4000},{c:"hold",l:"Hold …",d:7000},{c:"out",l:"Breathe out …",d:8000}]};
+function selB(b,t){document.querySelectorAll(".btbtn").forEach(x=>x.classList.remove("on"));b.classList.add("on");bType=t;stopB()}
+function stopB(){bRun=false;if(bTimer)clearTimeout(bTimer);document.getElementById("borb").className="orb";document.getElementById("binstr").textContent="Tap to begin";document.getElementById("bstartBtn").textContent="Begin session"}
+function runB(steps,i){if(!bRun)return;const s=steps[i%steps.length];const o=document.getElementById("borb");o.className="orb";void o.offsetWidth;o.className="orb "+s.c;document.getElementById("binstr").textContent=s.l;bTimer=setTimeout(()=>runB(steps,i+1),s.d)}
+function togB(){if(bRun){stopB();return}bRun=true;document.getElementById("bstartBtn").textContent="Stop session";runB(BP[bType],0)}
+
+updAff();
+</script>
+</body>
+</html>
