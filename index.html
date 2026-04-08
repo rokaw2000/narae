@@ -1,1539 +1,1077 @@
 <!DOCTYPE html>
-<!--
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║  ONE THING TO RESTORE BEFORE PUBLISHING:                        ║
-  ║                                                                  ║
-  ║  The animated crane image (in the healing cycle diagram) uses    ║
-  ║  src="narae-logo.png" in this file.                             ║
-  ║                                                                  ║
-  ║  If you want the original embedded base64 PNG back, open your   ║
-  ║  previous index.html, find the <img class="crane-img" ...> tag, ║
-  ║  copy the full src="data:image/png;base64,..." value, and paste  ║
-  ║  it here to replace src="narae-logo.png".                       ║
-  ║                                                                  ║
-  ║  Everything else (diamonds, layout, animation JS) is complete.  ║
-  ╚══════════════════════════════════════════════════════════════════╝
--->
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>naræ+ | naræ International Foundation</title>
-  <meta
-    name="description"
-    content="naræ+ by naræ International Foundation offers a culturally grounded space for immigrant and culturally diverse women navigating breast and gynecologic cancers, especially those carrying more through language, migration, family roles, and life beyond treatment."
-  />
-
-  <style>
-    @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
-    @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap");
-
-    :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #6b6762;
-      --line: #e8e1d7;
-      --soft: #faf8f5;
-      --warm: #fcfbf8;
-      --gold-deep: #b98d43;
-      --gold-pale: #fdf6e8;
-      --pink: #d98aa0;
-      --teal: #5f9f9f;
-      --red: #8e1b1b;
-      --shadow: 0 8px 24px rgba(0,0,0,0.05);
-      --max: 1100px;
-    }
-
-    * { box-sizing: border-box; }
-
-
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      -webkit-font-smoothing: antialiased;
-      background-color: var(--bg);
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(160,145,130,0.018) 0px,
-          rgba(160,145,130,0.018) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 9px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(160,145,130,0.012) 0px,
-          rgba(160,145,130,0.012) 1px,
-          rgba(255,255,255,0) 2px,
-          rgba(255,255,255,0) 11px
-        ),
-        linear-gradient(to bottom, #ffffff, #fefdfb);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    strong { color: var(--text); font-weight: 700; }
-
-    .container {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-    }
-
-    h1, h2, h3, h4 {
-      margin: 0;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    h1 {
-      font-size: clamp(2.55rem, 5vw, 4rem);
-      line-height: 1.04;
-    }
-
-    h2 {
-      font-size: clamp(1.86rem, 3vw, 2.45rem);
-      line-height: 1.12;
-    }
-
-    h3 {
-      font-size: 1.2rem;
-      line-height: 1.24;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 0;
-      font-size: 1.03rem;
-      line-height: 1.9;
-      color: var(--muted);
-    }
-
-    .lead {
-      font-size: 1.2rem;
-      line-height: 1.8;
-    }
-
-    .kicker,
-    .eyebrow {
-      display: block;
-      margin: 0 0 6px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-    }
-
-    /* Brand */
-    .brandmark {
-      display: inline-flex;
-      align-items: baseline;
-      white-space: nowrap;
-      font-weight: 700;
-      text-transform: none !important;
-      letter-spacing: -0.03em !important;
-      font-variant: normal;
-    }
-
-    .logo-word {
-      display: inline-block;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      font-weight: 700;
-      text-transform: none !important;
-      font-variant: normal;
-      color: inherit;
-    }
-
-    .nav .logo-word,
-    .footer-links .logo-word,
-    .kicker .logo-word,
-    .eyebrow .logo-word {
-      color: var(--gold-deep);
-    }
-
-    .brand-plus {
-      position: relative;
-      display: inline-block;
-      width: 0.34em;
-      height: 0.34em;
-      margin-left: 0.015em;
-      transform: translateY(-0.40em);
-      flex: 0 0 auto;
-    }
-
-    .brand-plus .arm {
-      position: absolute;
-      border-radius: 999px;
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom,
-    .brand-plus .arm-left {
-      background: var(--pink);
-    }
-
-    .brand-plus .arm-right {
-      background: var(--teal);
-    }
-
-    .brand-plus .arm-top,
-    .brand-plus .arm-bottom {
-      left: 50%;
-      width: 0.085em;
-      height: 0.16em;
-      transform: translateX(-50%);
-    }
-
-    .brand-plus .arm-top { top: 0; }
-    .brand-plus .arm-bottom { bottom: 0; }
-
-    .brand-plus .arm-left,
-    .brand-plus .arm-right {
-      top: 50%;
-      width: 0.16em;
-      height: 0.085em;
-      transform: translateY(-50%);
-    }
-
-    .brand-plus .arm-left { left: 0; }
-    .brand-plus .arm-right { right: 0; }
-
-    .brand-plus::before {
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 0.09em;
-      height: 0.09em;
-      transform: translate(-50%, -50%);
-      background: var(--pink);
-      border-radius: 999px;
-      z-index: 2;
-    }
-
-    .brand-inline {
-      text-transform: none !important;
-      letter-spacing: 0 !important;
-    }
-
-    .section-link .brandmark,
-    .text-link .brandmark,
-    .btn-primary .brandmark,
-    .btn-secondary .brandmark {
-      font-size: 1.07em;
-    }
-
-    .section-link .brand-plus,
-    .text-link .brand-plus,
-    .btn-primary .brand-plus,
-    .btn-secondary .brand-plus {
-      transform: translateY(-0.31em);
-    }
-
-    .nav .brand-plus {
-      transform: translateY(-0.40em);
-    }
-
-    .ml-form-embedSubmit .primary .brandmark {
-      font-size: 1em;
-    }
-
-    .ml-form-embedSubmit .primary .logo-word {
-      color: #fff;
-    }
-
-    .ml-form-embedSubmit .primary .brand-plus {
-      transform: translateY(-0.34em);
-    }
-
-    /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .logo {
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .logo .brandmark {
-      font-size: 1.95rem;
-    }
-
-    .logo .logo-word {
-      color: var(--text);
-    }
-
-    .logo small {
-      display: block;
-      margin-top: 4px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: var(--text);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.91rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 2px;
-      color: var(--gold-deep);
-      transition: opacity 0.2s ease;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 1px;
-      background: var(--gold-deep);
-      transition: width 0.22s ease;
-    }
-
-    .nav a:hover::after,
-    .nav a.active::after {
-      width: 100%;
-    }
-
-    /* Hero */
-    .hero {
-      padding: 84px 0 62px;
-      border-bottom: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top right, rgba(215,176,106,0.07), transparent 45%),
-        linear-gradient(to bottom, rgba(255,255,255,0.88), rgba(255,255,255,0.86));
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .hero h1 {
-      margin-top: 8px;
-    }
-
-    .hero-headline .red-strong {
-      color: var(--red);
-      font-weight: 700;
-    }
-
-    .hero-sub {
-      margin-top: 34px;
-      max-width: 660px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 20px;
-      border-radius: 999px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: #fff;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.08);
-    }
-
-    .btn-primary .logo-word {
-      color: #fff;
-    }
-
-    .hero-card {
-      border: 1px solid var(--line);
-      background: rgba(252,251,248,0.88);
-      padding: 26px 26px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .hero-card .eyebrow {
-      margin-bottom: 6px;
-    }
-
-    .hero-card p {
-      font-size: 1rem;
-      line-height: 1.76;
-    }
-
-    .hero-card-title {
-      font-size: clamp(2.1rem, 2.9vw, 2.55rem);
-      line-height: 1.12;
-      margin: 4px 0 14px;
-      font-weight: 600;
-    }
-
-    /* Main split */
-    .main-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-      gap: 28px;
-      align-items: stretch;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .main-left {
-      padding: 34px 30px 18px 0;
-      border-right: 1px solid var(--line);
-      display: flex;
-    }
-
-    .main-right {
-      padding: 34px 0 18px;
-      display: flex;
-    }
-
-    .section,
-    .right-panel {
-      padding: 6px 0 0;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      width: 100%;
-    }
-
-    .section h2,
-    .right-panel h2 {
-      margin-top: 6px;
-      margin-bottom: 16px;
-    }
-
-    .right-panel h2 {
-      max-width: 18ch;
-    }
-
-    .section-link,
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      line-height: 1.2;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--gold-deep);
-    }
-
-    .main-left .section-link,
-    .main-right .section-link {
-      margin-top: auto;
-      padding-top: 10px;
-      align-self: flex-start;
-    }
-
-    .section-link:hover,
-    .text-link:hover {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    /* Roles */
-    .role-list {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      background: transparent;
-    }
-
-    .role-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 8px;
-      min-height: 128px;
-      padding: 16px 16px 15px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.9);
-      transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    }
-
-    .role-item:hover {
-      background: var(--warm);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
-    }
-
-    .role-name {
-      font-size: 1.06rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 7px;
-      line-height: 1.2;
-    }
-
-    .role-text {
-      font-size: 0.94rem;
-      line-height: 1.46;
-      color: var(--muted);
-      flex-grow: 1;
-    }
-
-    .role-arrow {
-      color: var(--gold-deep);
-      font-weight: 700;
-      margin-top: 0;
-      align-self: flex-start;
-    }
-
-    .role-item.role-emphasis {
-      border-color: rgba(185,141,67,0.62);
-      background: rgba(252,248,241,1);
-      box-shadow: 0 16px 34px rgba(185,141,67,0.12);
-    }
-
-    .role-item.role-emphasis:hover {
-      background: rgba(252,248,241,1);
-      border-color: rgba(185,141,67,0.75);
-      box-shadow: 0 18px 36px rgba(185,141,67,0.16);
-    }
-
-    .role-item.role-companion {
-      justify-content: space-between;
-      text-align: right;
-      align-items: flex-end;
-      background: rgba(255,255,255,0.92);
-    }
-
-    .role-item.role-companion .role-name {
-      margin-bottom: 7px;
-    }
-
-    .role-item.role-companion .role-text {
-      text-align: right;
-    }
-
-    .role-item.role-companion .role-arrow {
-      align-self: flex-end;
-      margin-top: 0;
-    }
-
-    /* Golden dot divider */
-    .dot-divider {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2px 0;
-    }
-
-    .dot-divider::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--gold-deep);
-      opacity: 0.72;
-      box-shadow: 0 0 0 5px rgba(185,141,67,0.08);
-    }
-
-    /* Bottom MailerLite */
-    .signup-bottom {
-      padding: 30px 0 46px;
-    }
-
-    .signup-bottom-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .signup-bottom .eyebrow {
-      margin-bottom: 8px;
-    }
-
-    .signup-bottom-copy {
-      max-width: 680px;
-      margin: 12px auto 0;
-    }
-
-    .ml-wrap {
-      margin: 18px auto 0;
-      max-width: 760px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(252,251,248,0.9);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .ml-inner {
-      padding: 20px 20px 18px;
-    }
-
-    .ml-title {
-      margin: 0 0 8px;
-      font-size: 1.28rem;
-      line-height: 1.18;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .ml-title-brand {
-      display: inline-flex;
-      align-items: baseline;
-      justify-content: center;
-      gap: 0;
-      color: var(--text);
-      font-weight: 700;
-    }
-
-    .ml-title-brand svg {
-      width: 0.58em;
-      height: 0.58em;
-      margin-left: 0.02em;
-      transform: translateY(-0.24em);
-      flex: 0 0 auto;
-    }
-
-    .ml-copy {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .ml-copy strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .ml-copy p {
-      text-align: center;
-    }
-
-    .ml-block-form {
-      margin-top: 16px;
-    }
-
-    .ml-form-formContent {
-      margin-bottom: 10px;
-    }
-
-    .ml-field-group input {
-      width: 100%;
-      height: 46px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
-      color: var(--text);
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .ml-field-group input:focus {
-      border-color: var(--gold-deep);
-      box-shadow: 0 0 0 3px rgba(185,141,67,0.12);
-    }
-
-    .ml-form-embedSubmit .primary,
-    .ml-form-embedSubmit .loading {
-      width: 100%;
-      min-height: 46px;
-      border: none;
-      border-radius: 999px;
-      padding: 0 16px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.93rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .ml-form-embedSubmit .primary {
-      background: var(--text);
-      color: #fff;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .ml-form-embedSubmit .primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,0.07);
-    }
-
-    .ml-form-successBody {
-      padding: 20px 20px;
-    }
-
-    .ml-form-successContent h4 {
-      margin: 0 0 8px;
-      font-size: 1.18rem;
-      line-height: 1.2;
-      color: var(--text);
-    }
-
-    .ml-form-successContent p {
-      margin: 0;
-    }
-
-    .ml-form-embedContainer,
-    .ml-form-align-center,
-    .ml-form-embedWrapper {
-      width: 100%;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .ml-form-embedBody {
-      width: 100%;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    /* Footer */
-    .site-footer {
-      padding: 20px 0;
-      border-top: 1px solid var(--line);
-      background: rgba(255,255,255,0.92);
-    }
-
-    .footer-inner {
-      width: min(100% - 48px, var(--max));
-      margin: 0 auto;
-      min-height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 22px;
-    }
-
-    .footer-links a {
-      color: var(--gold-deep);
-    }
-
-    /* Responsive */
-    @media (max-width: 980px) {
-      .hero-grid,
-      .main-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .main-left {
-        padding-right: 0;
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-        padding-top: 28px;
-        padding-bottom: 30px;
-      }
-
-      .main-right {
-        padding-top: 26px;
-        padding-bottom: 30px;
-      }
-
-      .signup-bottom {
-        padding-top: 24px;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 16px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 12px 16px;
-      }
-
-      .hero {
-        padding: 38px 0 30px;
-      }
-
-      .hero-grid {
-        gap: 22px;
-      }
-
-      .hero-actions {
-        flex-direction: row;
-        margin-top: 22px;
-      }
-
-      .hero-card {
-        padding: 22px 20px;
-      }
-
-      .main-left {
-        padding-top: 26px;
-        padding-bottom: 28px;
-      }
-
-      .main-right {
-        padding-top: 26px;
-        padding-bottom: 28px;
-      }
-
-      .role-item {
-        padding: 16px 16px 15px;
-        min-height: 118px;
-      }
-
-      .signup-bottom {
-        padding: 24px 0 36px;
-      }
-
-      .footer-inner {
-        min-height: auto;
-        padding: 6px 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-
-      .footer-links {
-        justify-content: flex-start;
-        gap: 12px 16px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container,
-      .header-inner,
-      .footer-inner {
-        width: min(100% - 34px, var(--max));
-      }
-
-      h1 {
-        font-size: clamp(2.2rem, 10vw, 3.1rem);
-      }
-
-      .hero-card,
-      .ml-inner,
-      .ml-form-successBody {
-        padding-left: 18px;
-        padding-right: 18px;
-      }
-    }
-
-    /* Embedded healing cycle in left column */
-    .diagram-embed {
-      margin-top: 0px;
-      padding-top: 2px;
-      padding-bottom: 6px;
-      display:flex;
-      justify-content:center;
-      flex:1;
-    }
-
-    .diagram-scale {
-      width:650px;
-      transform:scale(1.02);
-      transform-origin:top center;
-      margin:18px auto 0;
-    }
-
-    .diagram-shell .diagram {
-      margin-bottom:0;
-    }
-
-    .section .diagram-embed + .section-link {
-      margin-top:12px;
-    }
-
-    .diagram-shell {
-      background:transparent;
-    }
-
-    .diagram-shell .bm { display:inline-flex; align-items:baseline; white-space:nowrap; font-weight:700; letter-spacing:-0.03em; }
-    .diagram-shell .lw { display:inline-block; line-height:1; letter-spacing:-0.03em; font-weight:700; color:inherit; }
-    .diagram-shell .bp { position:relative; display:inline-block; width:0.34em; height:0.34em; margin-left:0.015em; transform:translateY(-0.40em); flex:0 0 auto; }
-    .diagram-shell .bp span { position:absolute; border-radius:999px; }
-    .diagram-shell .bp .at,.diagram-shell .bp .ab,.diagram-shell .bp .al { background:var(--pink); }
-    .diagram-shell .bp .ar { background:var(--teal); }
-    .diagram-shell .bp .at,.diagram-shell .bp .ab { left:50%; width:0.085em; height:0.16em; transform:translateX(-50%); }
-    .diagram-shell .bp .at { top:0; }
-    .diagram-shell .bp .ab { bottom:0; }
-    .diagram-shell .bp .al,.diagram-shell .bp .ar { top:50%; width:0.16em; height:0.085em; transform:translateY(-50%); }
-    .diagram-shell .bp .al { left:0; }
-    .diagram-shell .bp .ar { right:0; }
-    .diagram-shell .bp::before { content:""; position:absolute; left:50%; top:50%; width:0.09em; height:0.09em; transform:translate(-50%,-50%); background:var(--pink); border-radius:999px; z-index:2; }
-
-    .diagram-shell .cycle-header { display:none; }
-    .diagram-shell .brand-row { display:flex; align-items:center; justify-content:center; gap:18px; margin-bottom:48px; transform:translateY(-10px); }
-    .diagram-shell .brand-divider { width:1px; height:36px; background:#ccc; }
-    .diagram-shell .ecosystem { font-family:'Cinzel',serif; font-size:13px; font-weight:700; letter-spacing:0.2em; color:#555; line-height:1.75; }
-
-    .diagram-shell .diagram { position:relative; width:580px; height:480px; margin:0 auto; }
-    .diagram-shell .diagram-svg { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-
-    .diagram-shell .heart-circle { position:absolute; left:190px; top:148px; width:200px; height:200px; border:1px solid #e0d8d0; border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:rgba(255,255,255,0.96); z-index:5; }
-    .diagram-shell .heart-of { font-family:'Cinzel',serif; font-size:9px; font-weight:700; letter-spacing:0.22em; color:var(--gold-deep); margin-bottom:6px; }
-    .diagram-shell .heart-spark { color:var(--pink); font-size:10px; margin-top:5px; opacity:0.55; }
-
-    .diagram-shell .node-belong { position:absolute; top:-22px; left:50%; transform:translateX(-50%); text-align:center; z-index:10; white-space:nowrap; padding-bottom:30px; }
-    .diagram-shell .node-renew { position:absolute; left:480px; top:327px; transform:translateY(-50%); text-align:left; z-index:10; width:120px; }
-    .diagram-shell .node-walk { position:absolute; right:480px; top:327px; transform:translateY(-50%); text-align:right; z-index:10; width:120px; }
-
-    .diagram-shell .nt { font-family:'Cormorant Garamond',serif; font-weight:700; font-size:23px; color:var(--gold-deep); line-height:1.1; }
-    .diagram-shell .nl { font-family:'Cormorant Garamond',serif; font-weight:700; font-size:19.5px; color:#111; font-style:italic; margin-top:4px; letter-spacing:0.02em; line-height:1.18; }
-    .diagram-shell .ns { font-size:14px; font-weight:500; color:#111; font-style:italic; line-height:1.55; margin-top:3px; }
-
-    .diagram-shell .dot { position:absolute; width:9px; height:9px; border-radius:50%; background:#C07070; z-index:8; opacity:0.3; transition:opacity 0.4s, box-shadow 0.4s, transform 0.4s; pointer-events:none; }
-    .diagram-shell .dot.active { opacity:1; box-shadow:0 0 0 5px rgba(192,112,112,0.18); }
-
-    .diagram-shell #dotWalk { width:9px; height:9px; }
-    .diagram-shell #dotWalk.active {
-      transform: scale(1.55);
-      box-shadow: 0 0 0 6px rgba(192,112,112,0.22);
-      animation: walk-pulse 0.95s ease-in-out 3;
-    }
-    @keyframes walk-pulse {
-      0%   { box-shadow: 0 0 0 4px rgba(192,112,112,0.28); }
-      50%  { box-shadow: 0 0 0 11px rgba(192,112,112,0.0); }
-      100% { box-shadow: 0 0 0 4px rgba(192,112,112,0.28); }
-    }
-    .diagram-shell #dotBelong { left:285px; top:73px; }
-    .diagram-shell #dotRenew { left:433px; top:329px; }
-    .diagram-shell #dotWalk { left:138px; top:329px; }
-
-    .diagram-shell .crane-wrap { position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:20; }
-    .diagram-shell .crane-img { position:absolute; width:82px; height:auto; transform-origin:center center; opacity:0; top:0; left:0; }
-
-    @media (max-width: 980px) {
-      .diagram-scale { transform:scale(0.9); margin:36px auto -10px; }
-    }
-
-
-
-
-
-    /* ── Mobile — only affects small screens, desktop untouched ── */
-    html, body { overflow-x: hidden; }
-    @media (max-width: 760px) {
-      .btn-row { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-      .main-grid { grid-template-columns: minmax(0, 1fr) !important; }
-    }
-    @media (max-width: 480px) {
-      .nav { font-size: 0.82rem; gap: 10px 12px; }
-      .logo small { font-size: 0.76rem; }
-    }
-    @media (max-width: 400px) {
-      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
-    }
-
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+<title>naræ Wellness</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#080705;overflow:hidden}
+:root{
+  --bg:#080705;--bg3:#161208;--bg4:#1e1810;
+  --gold:#c9a96e;--gold2:#dfc088;--gold4:#a8863a;
+  --gold-line:rgba(201,169,110,0.13);--gold-line2:rgba(201,169,110,0.24);
+  --pink:#d98aa0;--teal:#5f9f9f;--teal2:#6aacac;
+  --rose2:#e09ab4;
+  --ink:#f5f0e8;--ink2:rgba(245,240,232,0.65);--ink3:rgba(245,240,232,0.32);--ink4:rgba(245,240,232,0.1);
+}
+.app{width:100%;max-width:430px;height:100vh;background:var(--bg);margin:0 auto;display:flex;flex-direction:column;font-family:'Jost',sans-serif;position:relative;overflow:hidden}
+
+/* ══ WELCOME ══ */
+#ws{position:absolute;inset:0;background:var(--bg);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 36px;cursor:pointer;transition:opacity 1.4s ease}
+#ws.out{opacity:0;pointer-events:none}
+.wc-logo{width:180px;height:140px;margin-bottom:36px;opacity:0;animation:logoRise 2.6s cubic-bezier(0.16,1,0.3,1) forwards 0.3s}
+.wc-logo img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 24px rgba(201,169,110,0.2))}
+@keyframes logoRise{0%{opacity:0;transform:translateY(16px) scale(0.92)}40%{opacity:0.5}100%{opacity:1;transform:translateY(0) scale(1)}}
+.wc-txt{text-align:center;opacity:0;animation:fadeUp 1.2s ease forwards 2s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.wc-greeting{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--ink2);letter-spacing:0.04em;min-height:28px;transition:opacity 0.65s ease;margin-bottom:5px}
+.wc-lang{font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold4);margin-bottom:24px}
+.wc-orn{display:flex;align-items:center;gap:12px;margin-bottom:18px;opacity:0;animation:fadeUp 1s ease forwards 2.8s}
+.wc-orn-l{width:40px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,0.3))}
+.wc-orn-l.r{background:linear-gradient(90deg,rgba(201,169,110,0.3),transparent)}
+.wc-orn-d{width:4px;height:4px;background:var(--gold4);transform:rotate(45deg);opacity:0.7}
+.wc-logo-sm{width:160px;height:auto;opacity:0;animation:fadeUp 1s ease forwards 2.8s}
+.wc-sub{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink3);font-weight:300;margin-top:6px;margin-bottom:40px}
+.wc-enter{font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold4);font-weight:300;opacity:0;animation:blinkIn 0.8s ease forwards 4s,blink 2.2s ease-in-out infinite 4s}
+@keyframes blinkIn{from{opacity:0}to{opacity:0.6}}
+@keyframes blink{0%,100%{opacity:0.2}50%{opacity:0.9}}
+
+/* ══ TOPBAR ══ */
+.topbar{padding:12px 20px 11px;display:flex;justify-content:space-between;align-items:center;border-bottom:0.5px solid var(--gold-line);flex-shrink:0;position:relative}
+.topbar::after{content:'';position:absolute;bottom:0;left:20px;right:20px;height:0.5px;background:linear-gradient(90deg,transparent,rgba(201,169,110,0.2),transparent)}
+.topbar-logo{height:36px;object-fit:contain}
+.topmeta{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+
+/* ══ SHARED ══ */
+.scroll{flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding-bottom:80px}
+.scroll::-webkit-scrollbar{display:none}
+.pg{display:none}.pg.on{display:block}
+.sec-label{font-size:8px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold4);padding:0 18px;margin-bottom:10px;font-weight:300}
+.gap{height:16px}
+.gap-sm{height:10px}
+
+/* ══ HOME ══ */
+.h-hero{margin:16px 13px 0;border:0.5px solid var(--gold-line2);padding:26px 22px;position:relative;overflow:hidden}
+.h-hero::before{content:'';position:absolute;inset:3px;border:0.5px solid var(--gold-line);pointer-events:none}
+.h-eye{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold4);margin-bottom:11px;display:flex;align-items:center;gap:10px}
+.h-eye::after{content:'';flex:1;height:0.5px;background:var(--gold-line)}
+.h-q{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.62;margin-bottom:14px;letter-spacing:0.01em}
+.h-tag{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--pink);display:flex;align-items:center;gap:8px}
+.h-tag::before{content:'';width:14px;height:0.5px;background:var(--pink)}
+.h-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;margin:12px 13px 0;border:0.5px solid var(--gold-line2)}
+.h-metric{padding:14px 8px;text-align:center;border-right:0.5px solid var(--gold-line)}
+.h-metric:last-child{border-right:none}
+.h-mn{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold2);line-height:1}
+.h-ml{font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink3);margin-top:4px;font-weight:300}
+.h-milestone{margin:10px 13px 0;border:0.5px solid var(--gold-line2);padding:13px 16px;display:flex;align-items:center;gap:12px;position:relative;overflow:hidden}
+.h-milestone::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--pink),var(--gold))}
+.hm-t{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:3px}
+.hm-s{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.hm-b{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--gold);margin-left:auto;white-space:nowrap}
+.h-nav{display:grid;grid-template-columns:1fr 1fr;margin:13px 13px 0;border:0.5px solid var(--gold-line2)}
+.h-card{padding:17px 14px;border-right:0.5px solid var(--gold-line);border-bottom:0.5px solid var(--gold-line);cursor:pointer;transition:background 0.3s}
+.h-card:nth-child(2n){border-right:none}
+.h-card:nth-child(5),.h-card:nth-child(6){border-bottom:none}
+.h-card:hover{background:rgba(201,169,110,0.04)}
+.hc-ico{margin-bottom:10px;opacity:0.6}
+.hc-name{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ink);margin-bottom:3px}
+.hc-sub{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+
+/* ══ AFFIRMATIONS ══ */
+.lang-section{padding:16px 13px 0}
+.lang-label{font-size:8px;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold4);margin-bottom:9px;font-weight:300}
+.lang-grid{display:grid;grid-template-columns:repeat(5,1fr);border:0.5px solid var(--gold-line2)}
+.lpill{border:none;border-right:0.5px solid var(--gold-line);border-bottom:0.5px solid var(--gold-line);background:transparent;color:var(--ink2);font-size:11px;padding:9px 2px;cursor:pointer;text-align:center;transition:all 0.25s;font-family:'Jost',sans-serif;font-weight:300;line-height:1.3}
+.lpill:nth-child(5n){border-right:none}
+.lpill:nth-child(n+6){border-bottom:none}
+.lpill.on{background:var(--gold);color:var(--bg);font-weight:500}
+.cat-wrap{padding:10px 13px 0}
+.cat-pills{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.cat-pills::-webkit-scrollbar{display:none}
+.cpill{flex-shrink:0;border:0.5px solid var(--gold-line);background:transparent;color:var(--ink3);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 10px;cursor:pointer;white-space:nowrap;transition:all 0.25s;font-weight:300}
+.cpill.on{color:var(--rose2);border-color:var(--pink)}
+.aff-block{margin:12px 13px 0;border:0.5px solid var(--gold-line2);padding:26px 20px 20px;position:relative;overflow:hidden;transition:opacity 0.3s}
+.aff-block::before{content:'';position:absolute;inset:4px;border:0.5px solid var(--gold-line);pointer-events:none}
+.aff-deco{font-family:'Cormorant Garamond',serif;font-size:100px;color:rgba(201,169,110,0.04);position:absolute;top:-10px;left:8px;line-height:1;pointer-events:none}
+.aff-q{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:20px;position:relative;z-index:1}
+.aff-foot{display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--gold-line);padding-top:13px}
+.aff-badge{font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold4)}
+.aff-acts{display:flex;border:0.5px solid var(--gold-line)}
+.abtn{border:none;border-right:0.5px solid var(--gold-line);background:transparent;color:var(--ink3);font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:7px 13px;cursor:pointer;transition:all 0.2s;font-weight:300}
+.abtn:last-child{border-right:none}
+.abtn:hover{color:var(--gold)}
+.chal-grid{display:grid;grid-template-columns:repeat(4,1fr);margin:12px 13px 0;border:0.5px solid var(--gold-line2)}
+.chal-box{padding:13px 4px;text-align:center;border-right:0.5px solid var(--gold-line);cursor:pointer;transition:background 0.2s}
+.chal-box:last-child{border-right:none}
+.chal-box:hover{background:rgba(201,169,110,0.04)}
+.chal-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold2);line-height:1}
+.chal-l{font-size:7px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink3);margin-top:3px;font-weight:300}
+.chal-prog{height:1px;background:rgba(201,169,110,0.08);margin-top:8px;overflow:hidden}
+.chal-fill{height:100%;background:var(--gold)}
+
+/* ══ MUSIC ══ */
+.music-intro{padding:16px 13px 0}
+.mi-eye{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold4);margin-bottom:8px}
+.mi-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.mi-sub{font-size:10px;color:var(--ink3);font-weight:300}
+.mcat-list{margin:12px 13px 0;border:0.5px solid var(--gold-line2);display:flex;flex-direction:column}
+.mcat-row{display:flex;align-items:center;gap:12px;padding:11px 15px;border-bottom:0.5px solid var(--gold-line);cursor:pointer;transition:background 0.2s}
+.mcat-row:last-child{border-bottom:none}
+.mcat-row:hover{background:rgba(201,169,110,0.03)}
+.mcat-num{font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;color:var(--gold4);width:16px;text-align:right;flex-shrink:0}
+.mcat-name{font-size:12px;font-weight:400;color:var(--ink);flex:1;letter-spacing:0.03em}
+.mcat-cnt{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.mcat-arr{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ink4)}
+
+/* soundscapes */
+.sound-intro-txt{padding:0 13px 8px;font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink3);line-height:1.6}
+.sound-list{margin:0 13px;border:0.5px solid var(--gold-line2);display:flex;flex-direction:column}
+.srow{display:flex;align-items:center;gap:11px;padding:12px 14px;border-bottom:0.5px solid var(--gold-line);cursor:pointer;transition:background 0.2s}
+.srow:last-child{border-bottom:none}
+.srow:hover{background:rgba(201,169,110,0.02)}
+.srow.playing{background:rgba(77,144,144,0.05)}
+.wavebars{display:flex;align-items:flex-end;gap:2px;width:22px;height:18px;flex-shrink:0}
+.wavebars span{display:block;width:3px;background:var(--gold4);border-radius:1px;transition:height 0.3s}
+.srow.playing .wavebars span{background:var(--teal2)}
+.srow.playing .wavebars span:nth-child(1){animation:wb 0.8s ease-in-out infinite}
+.srow.playing .wavebars span:nth-child(2){animation:wb 0.65s ease-in-out infinite 0.13s}
+.srow.playing .wavebars span:nth-child(3){animation:wb 0.95s ease-in-out infinite 0.07s}
+.srow.playing .wavebars span:nth-child(4){animation:wb 0.72s ease-in-out infinite 0.22s}
+@keyframes wb{0%,100%{height:3px}50%{height:15px}}
+.sinfo{flex:1;min-width:0}
+.sname{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sdesc{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.sbtn{width:22px;height:22px;border:0.5px solid var(--gold-line2);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all 0.2s}
+.srow.playing .sbtn{border-color:rgba(77,144,144,0.4);background:rgba(77,144,144,0.08)}
+/* youtube iframe player */
+#ytPlayer{position:fixed;left:-9999px;top:-9999px;width:1px;height:1px}
+.npbar{margin:10px 13px 0;border:0.5px solid rgba(77,144,144,0.25);padding:11px 14px;display:none;align-items:center;gap:11px;background:rgba(77,144,144,0.04)}
+.npbar.on{display:flex}
+.npbar-disc{width:28px;height:28px;border-radius:50%;border:0.5px solid rgba(77,144,144,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.npbar-info{flex:1;min-width:0}
+.npbar-name{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.npbar-sub{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.npbar-ctrl{display:flex;border:0.5px solid var(--gold-line)}
+.npc{width:26px;height:26px;border-right:0.5px solid var(--gold-line);background:transparent;color:var(--ink2);font-size:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s}
+.npc:last-child{border-right:none}
+.npc.act{background:var(--teal);color:white}
+/* cultural music */
+.cult-music-list{margin:0 13px;border:0.5px solid var(--gold-line2);display:flex;flex-direction:column}
+.cmrow{display:flex;align-items:center;gap:11px;padding:12px 14px;border-bottom:0.5px solid var(--gold-line);cursor:pointer;transition:background 0.2s}
+.cmrow:last-child{border-bottom:none}
+.cmrow:hover{background:rgba(201,169,110,0.02)}
+.cmrow.playing{background:rgba(77,144,144,0.05)}
+.cmflag{font-size:18px;flex-shrink:0;width:24px;text-align:center}
+.cminfo{flex:1;min-width:0}
+.cmname{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:2px}
+.cmstyle{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:var(--ink3);font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ══ BREATHE ══ */
+.b-intro{margin:16px 13px 0;border:0.5px solid var(--gold-line2);padding:19px 20px}
+.b-eye{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold4);margin-bottom:8px}
+.b-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.b-sub{font-size:10px;color:var(--ink3);font-weight:300}
+.breath-chamber{margin:10px 13px 0;border:0.5px solid var(--gold-line);padding:28px 18px;display:flex;flex-direction:column;align-items:center;gap:16px;background:rgba(77,144,144,0.02)}
+.btype-row{display:flex;border:0.5px solid var(--gold-line)}
+.btbtn{border:none;border-right:0.5px solid var(--gold-line);background:transparent;color:var(--ink3);font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:7px 11px;cursor:pointer;transition:all 0.2s;font-weight:300}
+.btbtn:last-child{border-right:none}
+.btbtn.on{background:rgba(77,144,144,0.14);color:var(--ink)}
+.orbwrap{position:relative;width:116px;height:116px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.oring{position:absolute;inset:0;border-radius:50%;border:0.5px solid rgba(77,144,144,0.18)}
+.oring2{position:absolute;inset:11px;border-radius:50%;border:0.5px solid rgba(77,144,144,0.1)}
+.orb{width:66px;height:66px;border-radius:50%;background:radial-gradient(circle at 38% 35%,rgba(77,144,144,0.78),rgba(8,28,28,0.95));display:flex;align-items:center;justify-content:center}
+.orb.in{animation:oin 4s ease-in-out forwards}
+.orb.hold{animation:ohold 7s linear forwards}
+.orb.out{animation:oout 8s ease-in-out forwards}
+@keyframes oin{from{transform:scale(1)}to{transform:scale(1.58)}}
+@keyframes ohold{from{transform:scale(1.58)}to{transform:scale(1.58)}}
+@keyframes oout{from{transform:scale(1.58)}to{transform:scale(1)}}
+.binstr{font-family:'Cormorant Garamond',serif;font-size:15px;font-style:italic;color:var(--ink3);min-height:22px;text-align:center}
+.bstart{border:0.5px solid var(--gold-line2);background:transparent;color:var(--ink2);font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:9px 26px;cursor:pointer;transition:all 0.2s;font-weight:300}
+.bstart:hover{color:var(--gold)}
+.btips{display:grid;grid-template-columns:1fr 1fr;margin:10px 13px 0;border:0.5px solid var(--gold-line)}
+.btip{padding:12px 14px;border-right:0.5px solid var(--gold-line);border-bottom:0.5px solid var(--gold-line)}
+.btip:nth-child(2n){border-right:none}
+.btip:nth-child(3),.btip:nth-child(4){border-bottom:none}
+.btip-name{font-family:'Cormorant Garamond',serif;font-size:13px;font-style:italic;color:var(--ink);margin-bottom:4px}
+.btip-desc{font-size:10px;color:var(--ink3);line-height:1.5;font-weight:300}
+
+/* ══ CULTURAL PASSPORT ══ */
+.pass-hero{margin:16px 13px 12px;border:0.5px solid var(--gold-line2);padding:24px 22px;position:relative;overflow:hidden}
+.pass-hero::before{content:'';position:absolute;inset:3px;border:0.5px solid var(--gold-line);pointer-events:none}
+.ph-eye{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold4);margin-bottom:9px}
+.ph-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--gold2);line-height:1.3;margin-bottom:7px}
+.ph-sub{font-size:11px;color:var(--ink2);line-height:1.65;margin-bottom:16px;font-weight:300}
+.ph-prog-lbl{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold4);margin-bottom:7px;display:flex;justify-content:space-between}
+.ph-bar{height:1px;background:rgba(201,169,110,0.1);overflow:hidden;margin-bottom:12px}
+.ph-fill{height:100%;background:linear-gradient(90deg,var(--gold4),var(--gold2));transition:width 0.8s ease}
+.stamp-gal{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+.stamp{width:100%;aspect-ratio:1;border:0.5px solid var(--gold-line);display:flex;align-items:center;justify-content:center;font-size:12px;transition:all 0.4s}
+.stamp.on{border-color:rgba(201,169,110,0.4);background:rgba(201,169,110,0.06)}
+.stamp.off{opacity:0.15;filter:grayscale(1)}
+.rrow{display:flex;gap:0;padding:0 13px;overflow-x:auto;scrollbar-width:none;margin-bottom:10px}
+.rrow::-webkit-scrollbar{display:none}
+.rpill{flex-shrink:0;border:0.5px solid var(--gold-line);border-right:none;background:transparent;color:var(--ink3);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;padding:6px 12px;cursor:pointer;white-space:nowrap;transition:all 0.2s;font-weight:300}
+.rpill:last-child{border-right:0.5px solid var(--gold-line)}
+.rpill.on{background:rgba(201,169,110,0.1);color:var(--gold2)}
+.cult-list{display:flex;flex-direction:column;margin:0 13px;border:0.5px solid var(--gold-line2)}
+.cult-card{border-bottom:0.5px solid var(--gold-line);overflow:hidden;transition:background 0.2s}
+.cult-card:last-child{border-bottom:none}
+.cult-card.open{background:rgba(201,169,110,0.025)}
+.cult-card.stamped .c-dot{background:var(--gold);border-color:var(--gold)}
+.cult-head{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer}
+.c-flag{font-size:18px;width:24px;text-align:center;flex-shrink:0}
+.c-info{flex:1}
+.c-region{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--ink);letter-spacing:0.02em}
+.c-genre{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-top:1px;font-weight:300}
+.c-dot{width:6px;height:6px;border-radius:50%;border:0.5px solid var(--gold4);flex-shrink:0;transition:all 0.3s}
+.c-arr{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--ink4);transition:transform 0.3s;flex-shrink:0}
+.cult-card.open .c-arr{transform:rotate(90deg)}
+.cult-body{display:none;border-top:0.5px solid var(--gold-line)}
+.cult-card.open .cult-body{display:block}
+.c-inner{padding:20px 18px 16px}
+.c-word{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:var(--gold2);line-height:1.1;margin-bottom:4px}
+.c-wtr{font-size:11px;color:var(--ink3);margin-bottom:16px;font-style:italic;font-weight:300;line-height:1.4}
+.c-sec{margin-bottom:14px}
+.c-sec-lbl{font-size:8px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold4);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.c-sec-lbl::after{content:'';flex:1;height:0.5px;background:var(--gold-line)}
+.c-txt{font-size:11px;color:var(--ink2);line-height:1.7;font-weight:300}
+.tea-blk{border:0.5px solid var(--gold-line2);padding:13px 14px;background:rgba(201,169,110,0.03)}
+.tea-name{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold2);margin-bottom:5px}
+.tea-desc{font-size:11px;color:var(--ink2);line-height:1.62;font-weight:300}
+.tea-use{font-size:10px;color:var(--gold4);margin-top:6px;font-style:italic;font-weight:300}
+.c-tracks{border:0.5px solid var(--gold-line);display:flex;flex-direction:column}
+.c-track{padding:9px 13px;border-bottom:0.5px solid var(--gold-line);font-size:11px;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;font-weight:300}
+.c-track:last-child{border-bottom:none}
+.c-track-p{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal2);cursor:pointer}
+.stamp-btn{margin-top:14px;width:100%;border:0.5px solid var(--gold4);background:transparent;color:var(--gold);font-family:'Jost',sans-serif;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;padding:10px;cursor:pointer;transition:all 0.3s;font-weight:300}
+.stamp-btn:hover{background:rgba(201,169,110,0.06);letter-spacing:0.26em}
+.stamp-btn.got{border-color:var(--gold);color:var(--gold2);background:rgba(201,169,110,0.05)}
+
+/* ══ CRANE SANCTUARY ══ */
+.crane-hero{margin:16px 13px 12px;border:0.5px solid var(--gold-line2);padding:26px 22px;position:relative;overflow:hidden}
+.crane-hero::before{content:'';position:absolute;inset:3px;border:0.5px solid var(--gold-line);pointer-events:none}
+.crane-hero::after{content:'鶴';font-family:'Cormorant Garamond',serif;font-size:140px;color:rgba(201,169,110,0.03);position:absolute;right:-8px;bottom:-18px;line-height:1;pointer-events:none}
+.cr-eye{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold4);margin-bottom:10px}
+.cr-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold2);line-height:1.3;margin-bottom:8px;letter-spacing:0.02em}
+.cr-title em{font-style:italic}
+.cr-sub{font-size:11px;color:var(--ink2);line-height:1.7;font-weight:300}
+.crane-tabs{display:flex;gap:0;margin:0 13px 0;border:0.5px solid var(--gold-line2)}
+.ctab{flex:1;border:none;border-right:0.5px solid var(--gold-line);background:transparent;color:var(--ink3);font-family:'Jost',sans-serif;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:9px 4px;cursor:pointer;transition:all 0.25s;font-weight:300}
+.ctab:last-child{border-right:none}
+.ctab.on{background:rgba(201,169,110,0.08);color:var(--gold2)}
+.crane-panel{display:none;padding:0}.crane-panel.on{display:block}
+
+/* symbol */
+.sym-grid{display:grid;grid-template-columns:1fr 1fr;margin:10px 13px 0;border:0.5px solid var(--gold-line2)}
+.sym-card{padding:17px 15px;border-right:0.5px solid var(--gold-line);border-bottom:0.5px solid var(--gold-line)}
+.sym-card:nth-child(2n){border-right:none}
+.sym-card:nth-child(3),.sym-card:nth-child(4){border-bottom:none}
+.sym-country{font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold4);margin-bottom:7px}
+.sym-word{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--gold2);margin-bottom:5px;font-style:italic}
+.sym-desc{font-size:10px;color:var(--ink3);line-height:1.6;font-weight:300}
+.fact-list{margin:12px 13px 0;border:0.5px solid var(--gold-line2)}
+.fact-item{padding:14px 16px;border-bottom:0.5px solid var(--gold-line);display:flex;gap:12px;align-items:flex-start}
+.fact-item:last-child{border-bottom:none}
+.fact-num{font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--gold4);flex-shrink:0;padding-top:1px;font-style:italic}
+.fact-txt{font-size:11px;color:var(--ink2);line-height:1.65;font-weight:300}
+.fact-txt strong{color:var(--gold2);font-weight:400}
+
+/* art */
+.art-list{margin:10px 13px 0;border:0.5px solid var(--gold-line2)}
+.art-item{padding:16px;border-bottom:0.5px solid var(--gold-line)}
+.art-item:last-child{border-bottom:none}
+.art-img{width:100%;height:88px;border:0.5px solid var(--gold-line);margin-bottom:11px;overflow:hidden;background:rgba(201,169,110,0.04);display:flex;align-items:center;justify-content:center}
+.art-img img{width:100%;height:100%;object-fit:cover;opacity:0.82}
+.art-img-ph{font-family:'Cormorant Garamond',serif;font-size:12px;font-style:italic;color:rgba(201,169,110,0.35);text-align:center;padding:0 16px;line-height:1.5}
+.art-title{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold2);margin-bottom:3px;font-style:italic}
+.art-meta{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px;font-weight:300}
+.art-desc{font-size:10px;color:var(--ink3);line-height:1.6;font-weight:300}
+
+/* origami */
+.origami-intro{margin:10px 13px 0;border:0.5px solid var(--gold-line2);padding:16px 16px}
+.oi-txt{font-size:11px;color:var(--ink2);line-height:1.72;font-weight:300;margin-bottom:8px}
+.oi-txt:last-child{margin-bottom:0;color:var(--rose2);font-style:italic}
+.osteps{margin:10px 13px 0;border:0.5px solid var(--gold-line2)}
+.ostep{padding:14px 16px;border-bottom:0.5px solid var(--gold-line);display:flex;gap:12px;align-items:flex-start}
+.ostep:last-child{border-bottom:none}
+.ostep-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold4);line-height:1;flex-shrink:0;width:22px;font-style:italic}
+.ostep-info{flex:1}
+.ostep-title{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold2);margin-bottom:4px;font-style:italic}
+.ostep-desc{font-size:10px;color:var(--ink3);line-height:1.6;font-weight:300}
+.video-block{margin:10px 13px 0;border:0.5px solid var(--gold-line);padding:14px 16px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:background 0.2s}
+.video-block:hover{background:rgba(201,169,110,0.04)}
+.vb-play{width:32px;height:32px;border:0.5px solid var(--gold-line2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vb-title{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--ink);margin-bottom:3px;font-style:italic}
+.vb-sub{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+
+/* protect */
+.protect-stat{margin:10px 13px 0;border:0.5px solid rgba(201,169,110,0.3);padding:20px 18px;text-align:center;background:rgba(201,169,110,0.02)}
+.ps-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold2);line-height:1;letter-spacing:-0.02em}
+.ps-lbl{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink3);margin-top:5px;font-weight:300}
+.ps-sub{font-size:11px;color:var(--rose2);margin-top:7px;font-family:'Cormorant Garamond',serif;font-style:italic}
+.prot-list{margin:10px 13px 0;border:0.5px solid var(--gold-line2)}
+.prot-item{padding:16px;border-bottom:0.5px solid var(--gold-line)}
+.prot-item:last-child{border-bottom:none}
+.prot-org{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold2);margin-bottom:4px}
+.prot-loc{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px;font-weight:300}
+.prot-desc{font-size:11px;color:var(--ink2);line-height:1.62;font-weight:300;margin-bottom:9px}
+.prot-link{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal2);border:0.5px solid rgba(77,144,144,0.3);padding:5px 11px;display:inline-block;cursor:pointer;transition:all 0.2s}
+.prot-link:hover{background:rgba(77,144,144,0.06)}
+
+/* ══ BOTTOM NAV ══ */
+.bnav{position:absolute;bottom:0;left:0;right:0;background:rgba(6,5,3,0.98);backdrop-filter:blur(20px);border-top:0.5px solid var(--gold-line2);display:flex;justify-content:space-around;padding:10px 0 max(20px,env(safe-area-inset-bottom));z-index:50}
+.ni{display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;opacity:0.22;transition:opacity 0.25s;padding:2px 4px;min-width:44px}
+.ni.on{opacity:1}
+.ni-ico{width:26px;height:26px;display:flex;align-items:center;justify-content:center}
+.ni-lbl{font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink3);font-weight:300}
+.ni.on .ni-lbl{color:var(--gold)}
+.ni.on svg{stroke:var(--gold) !important}
+</style>
 </head>
 <body>
+<div class="app">
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo" aria-label="naræ International Foundation home">
-        <span class="brandmark">
-          <span class="logo-word">naræ</span>
-          <span class="brand-plus" aria-hidden="true">
-            <span class="arm arm-top"></span>
-            <span class="arm arm-right"></span>
-            <span class="arm arm-bottom"></span>
-            <span class="arm arm-left"></span>
-          </span>
-        </span>
-        <small>naræ International Foundation</small>
-      </a>
+<!-- YOUTUBE HIDDEN PLAYER -->
+<div id="ytPlayer"></div>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
-        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
-        <a href="community.html">Ways to Be Part</a>
-        <a href="founder.html">Founder</a>
-        <a href="leadership.html">Leadership</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="kicker"><span style="text-transform:none;">naræ</span> International Foundation</p>
-          <h1 class="hero-headline">
-            <span class="red-strong">Cancer is hard enough.</span><br>
-            <span class="brandmark">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            is for women carrying more.
-          </h1>
-          <p style="font-style:italic;">naræ (<span style="font-weight:500; font-style:normal;">나래</span>), pronounced nah-reh, means "wings" in Korean.</p>
-          <p class="hero-sub lead">
-            <strong>naræ International Foundation</strong> is a <strong>nonprofit organization</strong> cultivating a culturally grounded community of belonging and renewal for <strong>immigrant and culturally diverse women</strong> navigating <strong>breast and gynecologic cancers.</strong>
-          </p>
-
-          <div class="hero-actions">
-            <a href="program.html" class="btn-primary">
-              How
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Works
-            </a>
-            <a href="community.html" class="btn-secondary">Ways to Be Part</a>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <p class="eyebrow">Why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Exists</p>
-          <h2 class="hero-card-title">Support should feel understood, not generic.</h2>
-          <p>
-            Many immigrant and culturally diverse women affected by breast and gynecologic cancers remain unseen in traditional support spaces.
-            <span class="brandmark brand-inline">
-              <span class="logo-word">naræ</span>
-              <span class="brand-plus" aria-hidden="true">
-                <span class="arm arm-top"></span>
-                <span class="arm arm-right"></span>
-                <span class="arm arm-bottom"></span>
-                <span class="arm arm-left"></span>
-              </span>
-            </span>
-            was created to change that through culturally grounded community — helping women move from isolation toward belonging, from healing toward renewed confidence and purpose, and over time toward greater participation and visibility in the experiences that shape care and research.
-          </p>
-          <a href="founder.html" class="text-link">Read the Founder Story →</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="container">
-      <div class="main-grid">
-        <div class="main-left">
-          <section class="section">
-            <p class="kicker">
-              <span class="brandmark brand-inline">
-                <span class="logo-word">naræ</span>
-                <span class="brand-plus" aria-hidden="true">
-                  <span class="arm arm-top"></span>
-                  <span class="arm arm-right"></span>
-                  <span class="arm arm-bottom"></span>
-                  <span class="arm arm-left"></span>
-                </span>
-              </span>
-              Healing Cycle
-            </p>
-
-            <p style="font-size:1.05rem; line-height:1.76; color:var(--muted); margin-bottom:10px;">
-              A gentle rhythm of belonging, renewal, and walking beside. In time, walking beside another may become part of one's own healing.
-            </p>
-<p style="color: var(--muted); margin-top: 10px;">
-The community begins through small virtual circles, quiet gatherings, and occasional retreats where women support one another across cultures and experiences.
-</p>
-</p>
-            <div class="diagram-embed">
-              <div class="diagram-scroll-wrap">
-              <div class="diagram-scale">
-                <div class="diagram-shell">
-                  <div class="brand-row">
-                    <span class="bm" style="font-size:44px;font-style:italic;color:#111;">
-                      <span class="lw">naræ</span>
-                      <span class="bp"><span class="at"></span><span class="ar"></span><span class="ab"></span><span class="al"></span></span>
-                    </span>
-                    <div class="brand-divider"></div>
-                    <div class="ecosystem">A LIVING<br>ECOSYSTEM</div>
-                  </div>
-
-                  <div class="diagram">
-                    <svg class="diagram-svg" viewBox="0 0 580 480" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="290" cy="248" r="170" fill="none" stroke="#ddd" stroke-width="1.5" stroke-dasharray="4 5"/>
-                    </svg>
-
-                    <div class="heart-circle">
-                      <div class="heart-of">HEART OF</div>
-                      <span class="bm" style="font-size:28px;font-style:italic;color:var(--gold-deep);">
-                        <span class="lw" style="color:var(--gold-deep);">naræ</span>
-                        <span class="bp"><span class="at"></span><span class="ar"></span><span class="ab"></span><span class="al"></span></span>
-                      </span>
-                      <div class="heart-spark">✦</div>
-                    </div>
-
-                    <div class="node-belong">
-                      <div class="nt">Belong</div>
-                      <div class="nl">Connect</div>
-                      <div class="ns">Be received as you are</div>
-                    </div>
-
-                    <div class="node-renew">
-                      <div class="nt">Renew</div>
-                      <div class="nl">Strength returns</div>
-                      <div class="ns">Dignity, voice,<br>and strength return</div>
-                    </div>
-
-                    <div class="node-walk">
-                      <div class="nt">Walk Beside</div>
-                      <div class="nl">Healing deepens</div>
-                      <div class="ns">Support flows from<br>one woman<br>to another</div>
-                    </div>
-
-                    <div class="dot" id="dotBelong"></div>
-                    <div class="dot" id="dotRenew"></div>
-                    <div class="dot" id="dotWalk"></div>
-
-                    <div class="crane-wrap">
-                      <img class="crane-img" id="crane" src="narae-logo.png" alt="Origami crane" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-            </div>
-
-            <a href="program.html" class="section-link">Explore How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works →</a>
-          </section>
-        </div>
-
-        <div class="main-right">
-          <section class="right-panel">
-            <p class="kicker">Ways to Be Part</p>
-            <h2>Women and supporters each have a place within the <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> community.</h2>
-
-            <div class="role-list">
-              <a href="community.html" class="role-item role-emphasis">
-                <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Fellow
-                  </div>
-                  <div class="role-text">A woman at the heart of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, receiving support, rest, and connection.</div>
-                </div>
-                <div class="role-arrow">→</div>
-              </a>
-
-              <div class="dot-divider" aria-hidden="true"></div>
-
-              <a href="community.html" class="role-item role-companion">
-                <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Companion
-                  </div>
-                  <div class="role-text">A role that may emerge from a <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> when she feels ready to walk beside another woman facing a similar journey.</div>
-                </div>
-                <div class="role-arrow">→</div>
-              </a>
-
-              <div class="dot-divider" aria-hidden="true"></div>
-
-              <a href="community.html" class="role-item role-emphasis">
-                <div>
-                  <div class="role-name">
-                    <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>
-                    Steward
-                  </div>
-                  <div class="role-text">A person or organization who helps sustain <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> through service, generosity, partnership, advocacy, or support behind the scenes.</div>
-                </div>
-                <div class="role-arrow">→</div>
-              </a>
-            </div>
-
-            <a href="community.html" class="section-link">Explore Ways to Be Part →</a>
-          </section>
-        </div>
-      </div>
-
-<section class="signup-bottom" id="The circle is just beginning.">
-  <div class="signup-bottom-inner">
-
-    <p class="eyebrow">The circle is just beginning — and every story matters.</p>
-
-    <div class="ml-wrap">
-      <div class="ml-inner">
-
-        <h4 class="ml-title">
-          <span class="ml-title-brand">
-            naræ
-            <svg aria-hidden="true" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
-              <rect x="4.1" y="0" width="1.8" height="5" rx="0.9" fill="#d98aa0"></rect>
-              <rect x="4.1" y="5" width="1.8" height="5" rx="0.9" fill="#d98aa0"></rect>
-              <rect x="0" y="4.1" width="5" height="1.8" rx="0.9" fill="#d98aa0"></rect>
-              <rect x="5" y="4.1" width="5" height="1.8" rx="0.9" fill="#5f9f9f"></rect>
-            </svg>
-          </span>
-        </h4>
-
-        <div class="ml-copy">
-          <p>
-            <strong>If this resonates, connect with us to receive updates on circles, stories, and what begins to unfold.</strong>
-          </p>
-        </div>
-
-        <!-- MailerLite Form -->
-        <div id="mlb2-38624714" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38624714">
-
-          <div class="ml-form-align-center">
-            <div class="ml-form-embedWrapper embedForm">
-
-              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-
-                <form class="ml-block-form"
-                  action="https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/subscribe"
-                  method="post"
-                  target="_blank">
-
-                  <div class="ml-form-formContent">
-
-                    <!-- Name Field -->
-                    <div class="ml-form-fieldRow">
-                      <div class="ml-field-group">
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="fields[name]"
-                          placeholder="Your name"
-                          autocomplete="name"
-                        >
-                      </div>
-                    </div>
-
-                    <!-- Email Field -->
-                    <div class="ml-form-fieldRow ml-last-item">
-                      <div class="ml-field-group ml-validate-email ml-validate-required">
-                        <input
-                          aria-label="email"
-                          aria-required="true"
-                          type="email"
-                          class="form-control"
-                          name="fields[email]"
-                          placeholder="Your email"
-                          autocomplete="email"
-                        >
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <input type="hidden" name="ml-submit" value="1">
-                  <input type="hidden" name="anticsrf" value="true">
-
-                  <div class="ml-form-embedSubmit">
-
-                    <button type="submit" class="primary">
-                      Join the
-                      <span class="brandmark brand-inline">
-                        <span class="logo-word">naræ</span>
-                        <span class="brand-plus" aria-hidden="true">
-                          <span class="arm arm-top"></span>
-                          <span class="arm arm-right"></span>
-                          <span class="arm arm-bottom"></span>
-                          <span class="arm arm-left"></span>
-                        </span>
-                      </span>
-                      Community
-                    </button>
-
-                    <button disabled style="display:none;" type="button" class="loading">
-                      <div class="ml-form-embedSubmitLoad"></div>
-                      <span class="sr-only">Loading...</span>
-                    </button>
-
-                  </div>
-
-                </form>
-
-              </div>
-
-              <div class="ml-form-successBody row-success" style="display:none">
-                <div class="ml-form-successContent">
-                  <h4>Thank you</h4>
-                  <p>You have successfully joined the community! We’re grateful you’re here.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
+<!-- WELCOME SCREEN -->
+<div id="ws" onclick="dismissWelcome()">
+  <div class="wc-logo">
+    <img src="https://naraefoundation.org/narae-logo.png" alt="naræ"/>
   </div>
-</section>
+  <div class="wc-txt">
+    <div class="wc-greeting" id="wg">We are glad you are here.</div>
+    <div class="wc-lang" id="wl">English</div>
+    <div class="wc-orn">
+      <div class="wc-orn-l"></div><div class="wc-orn-d"></div><div class="wc-orn-l r"></div>
+    </div>
+    <img class="wc-logo-sm" src="https://naraefoundation.org/narae-logo.png" alt="naræ International Foundation"/>
+    <div class="wc-sub">International Foundation</div>
+    <div class="wc-enter">Tap anywhere to enter</div>
+  </div>
+</div>
 
-<script>
-function ml_webform_success_38624714() {
-  var $ = window.ml_jQuery || window.jQuery;
-  if ($) {
-    $('.ml-subscribe-form-38624714 .row-success').show();
-    $('.ml-subscribe-form-38624714 .row-form').hide();
-  }
-}
-</script>
+<!-- STATUS BAR -->
+<div style="display:flex;justify-content:space-between;padding:14px 24px 0;font-size:10px;color:var(--ink3);flex-shrink:0;letter-spacing:0.1em;font-weight:200"><span>9:41</span><span>○○○  87%</span></div>
 
-<script src="https://groot.mailerlite.com/js/w/webforms.min.js" type="text/javascript"></script>
-<script>
-fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel");
-</script>         
-  </main>
+<!-- TOPBAR -->
+<div class="topbar">
+  <img class="topbar-logo" src="https://naraefoundation.org/narae-logo.png" alt="naræ"/>
+  <div class="topmeta" id="topMeta">Today</div>
+</div>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div>© 2026 naræ International Foundation. All rights reserved.<br>A Maryland nonprofit organization. 501(c)(3) status pending.</div>
-      <div class="footer-links">
-        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
-        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
-        <a href="community.html">Ways to Be Part</a>
-        <a href="founder.html">Founder</a>
-        <a href="leadership.html">Leadership</a>
+<div class="scroll" id="scroller">
+
+<!-- ══════════ HOME ══════════ -->
+<div class="pg on" id="pg-home">
+  <div class="h-hero">
+    <div class="h-eye">Today's affirmation</div>
+    <div class="h-q">"You are not defined by your diagnosis. You are so much more."</div>
+    <div class="h-tag">Healing · English</div>
+  </div>
+  <div class="h-metrics">
+    <div class="h-metric"><div class="h-mn">12</div><div class="h-ml">Day streak</div></div>
+    <div class="h-metric"><div class="h-mn">5</div><div class="h-ml">Cultures</div></div>
+    <div class="h-metric"><div class="h-mn">40</div><div class="h-ml">Days affirmed</div></div>
+  </div>
+  <div class="h-milestone">
+    <div style="flex:1"><div class="hm-t">Day 15 milestone approaching</div><div class="hm-s">3 more days · Renewal awaits</div></div>
+    <div class="hm-b">Renewal</div>
+  </div>
+  <div class="gap"></div>
+  <div class="sec-label">Explore</div>
+  <div class="h-nav">
+    <div class="h-card" onclick="go('affirm')">
+      <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1l1.6 5H16l-4.2 3 1.6 5L9 11 4.6 14l1.6-5L2 6h5.4L9 1z" stroke="#a8863a" stroke-width="0.8" stroke-linejoin="round"/></svg>
+      <div class="hc-name">Affirmations</div><div class="hc-sub">10 categories · 10 languages</div>
+    </div>
+    <div class="h-card" onclick="go('music')">
+      <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="5" cy="14" r="2.2" stroke="#a8863a" stroke-width="0.8"/><circle cx="13" cy="12" r="2.2" stroke="#a8863a" stroke-width="0.8"/><path d="M7.2 14V5.5L15.2 4v10" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round"/></svg>
+      <div class="hc-name">Music &amp; Sound</div><div class="hc-sub">Moods · Soundscapes · Cultural</div>
+    </div>
+    <div class="h-card" onclick="go('breathe')">
+      <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#a8863a" stroke-width="0.8"/><circle cx="9" cy="9" r="3.5" stroke="#a8863a" stroke-width="0.5" stroke-dasharray="1.8 2"/></svg>
+      <div class="hc-name">Breathe</div><div class="hc-sub">3 guided techniques</div>
+    </div>
+    <div class="h-card" onclick="go('passport')">
+      <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="1" stroke="#a8863a" stroke-width="0.8"/><path d="M2 6.5h14M6.5 6.5v9" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round"/></svg>
+      <div class="hc-name">Cultural Passport</div><div class="hc-sub">20 cultures · Rituals · Teas · Music</div>
+    </div>
+    <div class="h-card" onclick="go('crane')" style="border-bottom:none">
+      <svg class="hc-ico" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 16C5.5 12 3 9.5 3 7a4.5 4.5 0 019 0 4.5 4.5 0 019 0c0 2.5-2.5 5-6 9" stroke="#a8863a" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hc-name">The Crane</div><div class="hc-sub">Symbol · Art · Origami · Protect</div>
+    </div>
+    <div class="h-card" style="border-bottom:none">
+      <div style="height:18px;margin-bottom:10px"></div>
+      <div class="hc-name" style="color:var(--ink3)">Activity Circles</div><div class="hc-sub">Nature · Writing · Wellness · Coming soon</div>
+    </div>
+  </div>
+  <div class="gap"></div>
+</div>
+
+<!-- ══════════ AFFIRMATIONS ══════════ -->
+<div class="pg" id="pg-affirm">
+  <div class="lang-section">
+    <div class="lang-label">Select your language</div>
+    <div class="lang-grid">
+      <button class="lpill on" onclick="setL(this,'en')">English</button>
+      <button class="lpill" onclick="setL(this,'ko')">한국어</button>
+      <button class="lpill" onclick="setL(this,'de')">Deutsch</button>
+      <button class="lpill" onclick="setL(this,'ro')">Română</button>
+      <button class="lpill" onclick="setL(this,'es')">Español</button>
+      <button class="lpill" onclick="setL(this,'fr')">Français</button>
+      <button class="lpill" style="font-family:serif" onclick="setL(this,'ar')">العربية</button>
+      <button class="lpill" onclick="setL(this,'ja')">日本語</button>
+      <button class="lpill" onclick="setL(this,'pt')">Português</button>
+      <button class="lpill" onclick="setL(this,'zh')">中文</button>
+    </div>
+  </div>
+  <div class="cat-wrap">
+    <div class="cat-pills">
+      <button class="cpill on" onclick="setC(this,'healing')">Healing</button>
+      <button class="cpill" onclick="setC(this,'self-love')">Self-Love</button>
+      <button class="cpill" onclick="setC(this,'self-worth')">Self-Worth</button>
+      <button class="cpill" onclick="setC(this,'empowerment')">Empowerment</button>
+      <button class="cpill" onclick="setC(this,'anxiety')">Anxiety</button>
+      <button class="cpill" onclick="setC(this,'grief')">Grief</button>
+      <button class="cpill" onclick="setC(this,'belonging')">Belonging</button>
+      <button class="cpill" onclick="setC(this,'confidence')">Confidence</button>
+      <button class="cpill" onclick="setC(this,'fear')">Fear</button>
+      <button class="cpill" onclick="setC(this,'stress')">Stress</button>
+    </div>
+  </div>
+  <div class="aff-block" id="affCard">
+    <div class="aff-deco">"</div>
+    <div class="aff-q" id="affQ">"Healing is not linear. Every small step forward is enough."</div>
+    <div class="aff-foot">
+      <span class="aff-badge" id="affBadge">English · Healing</span>
+      <div class="aff-acts">
+        <button class="abtn" onclick="nextAff()">↻ New</button>
+        <button class="abtn">♡ Save</button>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="gap"></div>
+  <div class="sec-label">Challenges</div>
+  <div class="chal-grid">
+    <div class="chal-box"><div class="chal-n">7</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:85%"></div></div></div>
+    <div class="chal-box"><div class="chal-n">30</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:40%"></div></div></div>
+    <div class="chal-box"><div class="chal-n">100</div><div class="chal-l">Day</div><div class="chal-prog"><div class="chal-fill" style="width:12%"></div></div></div>
+    <div class="chal-box"><div class="chal-n" style="color:var(--teal2)">∞</div><div class="chal-l">Monthly</div><div class="chal-prog"><div class="chal-fill" style="width:70%;background:var(--teal)"></div></div></div>
+  </div>
+  <div class="gap"></div>
+</div>
 
-  <script>
-    function ml_webform_success_38624714() {
-      var $ = window.ml_jQuery || window.jQuery;
-      if ($) {
-        $('.ml-subscribe-form-38624714 .row-success').show();
-        $('.ml-subscribe-form-38624714 .row-form').hide();
-      } else {
-        var success = document.querySelector('.ml-subscribe-form-38624714 .row-success');
-        var form = document.querySelector('.ml-subscribe-form-38624714 .row-form');
-        if (success) success.style.display = 'block';
-        if (form) form.style.display = 'none';
-      }
-    }
-  </script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/2201681/forms/182241473210615403/takel");
-  </script>
+<!-- ══════════ MUSIC & SOUND ══════════ -->
+<div class="pg" id="pg-music">
+  <div class="music-intro">
+    <div class="mi-eye">Music &amp; Sound</div>
+    <div class="mi-title">Choose how you wish to feel</div>
+    <div class="mi-sub">Each sound plays through YouTube — tap to begin. Sounds open in a small hidden player.</div>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="sec-label">Healing moods</div>
+  <div class="mcat-list">
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_plecYoJxvRFTLHVbIVAOoc','Anxiety Relief — Calm &amp; Grounding')"><span class="mcat-num">I</span><span class="mcat-name">Anxiety Relief</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_qMDEK8RyHv5xvVXBZvfX6n','Sleep &amp; Deep Rest')"><span class="mcat-num">II</span><span class="mcat-name">Sleep &amp; Rest</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_oVSRmEbAKXlZCm5fqpqFqn','Reiki Healing Frequencies')"><span class="mcat-num">III</span><span class="mcat-name">Reiki Healing</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_rgsIT5cHgahbA-znsh1KXYL','Sound Bath — Singing Bowls')"><span class="mcat-num">IV</span><span class="mcat-name">Sound Bath</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_qz5slGh-RoABF5Rl7Ig9p-','Focus &amp; Clarity')"><span class="mcat-num">V</span><span class="mcat-name">Focus &amp; Clarity</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+    <div class="mcat-row" onclick="playYT('PLlaN88a7y2_pMFCLVRX8N_sTMQ_kEJlY0','Grounding &amp; Earth Energy')"><span class="mcat-num">VI</span><span class="mcat-name">Grounding</span><span class="mcat-cnt">Playlist</span><span class="mcat-arr">▶</span></div>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="sec-label">Soundscapes</div>
+  <div class="sound-intro-txt">Named like paintings — chosen for their particular beauty and rarity. Tap any to play via YouTube.</div>
+  <div class="sound-list" id="soundList"></div>
+  <div class="npbar" id="npbar">
+    <div class="npbar-disc"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#6aacac" stroke-width="0.5"/><circle cx="6" cy="6" r="2" stroke="#6aacac" stroke-width="0.5"/></svg></div>
+    <div class="npbar-info"><div class="npbar-name" id="npbarName">—</div><div class="npbar-sub">Now playing via YouTube</div></div>
+    <div class="npbar-ctrl"><div class="npc" onclick="stopSound()">■ Stop</div></div>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="sec-label">Cultural music passport</div>
+  <div class="sound-intro-txt">Folk and healing music from around the world. Explore cultures in the Passport tab. Tap to listen.</div>
+  <div class="cult-music-list" id="cultMusicList"></div>
+  <div class="gap"></div>
+</div>
 
-  <script>
-const CX=290, CY=248, CRANE_R=135;
-const toRad = d => d*Math.PI/180;
+<!-- ══════════ BREATHE ══════════ -->
+<div class="pg" id="pg-breathe">
+  <div class="b-intro">
+    <div class="b-eye">Guided Breathing</div>
+    <div class="b-title">Stillness is also medicine</div>
+    <div class="b-sub">Tap the orb or Begin to start your session</div>
+  </div>
+  <div class="breath-chamber">
+    <div class="btype-row">
+      <button class="btbtn on" onclick="selB(this,'446')">4·4·6</button>
+      <button class="btbtn" onclick="selB(this,'box')">Box 4·4·4·4</button>
+      <button class="btbtn" onclick="selB(this,'478')">4·7·8</button>
+    </div>
+    <div class="orbwrap" onclick="togB()">
+      <div class="oring"></div><div class="oring2"></div>
+      <div class="orb" id="borb">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="rgba(255,255,255,0.28)" stroke-width="1.2" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="binstr" id="binstr">Tap to begin</div>
+    <button class="bstart" id="bstartBtn" onclick="togB()">Begin session</button>
+  </div>
+  <div class="gap-sm"></div>
+  <div class="btips">
+    <div class="btip"><div class="btip-name">4·4·6</div><div class="btip-desc">Gentle daily calm. Good for anxiety and settling after treatment.</div></div>
+    <div class="btip"><div class="btip-name">Box Breathing</div><div class="btip-desc">Equal counts. Grounding and returning to the present moment.</div></div>
+    <div class="btip"><div class="btip-name">4·7·8</div><div class="btip-desc">Deep release. Supports sleep and releasing held grief or fear.</div></div>
+    <div class="btip"><div class="btip-name">Belly Breath</div><div class="btip-desc">Diaphragm focus. Releases tension held in the body gently.</div></div>
+  </div>
+  <div class="gap"></div>
+</div>
 
-const STOPS = [
-  { angle:-90,  dotId:'dotBelong' },
-  { angle: 30,  dotId:'dotRenew'  },
-  { angle:150,  dotId:'dotWalk'   },
+<!-- ══════════ CULTURAL PASSPORT ══════════ -->
+<div class="pg" id="pg-passport">
+  <div class="pass-hero">
+    <div class="ph-eye">naræ Cultural Passport</div>
+    <div class="ph-title">Healing lives in every culture. Explore it.</div>
+    <div class="ph-sub">Discover how cultures around the world approach healing, belonging, and strength. A meaningful word, a healing ritual, a sacred tea, and folk music from each. Explore fully and collect your stamp.</div>
+    <div class="ph-prog-lbl"><span id="cpStat">0 of 20 cultures explored</span><span id="cpBadge"></span></div>
+    <div class="ph-bar"><div class="ph-fill" id="cpFill" style="width:0%"></div></div>
+    <div class="stamp-gal" id="stampGal"></div>
+  </div>
+  <div class="rrow">
+    <button class="rpill on" onclick="setReg(this,'all')">All</button>
+    <button class="rpill" onclick="setReg(this,'East Asia')">East Asia</button>
+    <button class="rpill" onclick="setReg(this,'Europe')">Europe</button>
+    <button class="rpill" onclick="setReg(this,'Americas')">Americas</button>
+    <button class="rpill" onclick="setReg(this,'Africa')">Africa</button>
+    <button class="rpill" onclick="setReg(this,'Middle East')">Middle East</button>
+    <button class="rpill" onclick="setReg(this,'South Asia')">South Asia</button>
+    <button class="rpill" onclick="setReg(this,'Oceania')">Oceania</button>
+  </div>
+  <div class="cult-list" id="cultList"></div>
+  <div class="gap"></div>
+</div>
+
+<!-- ══════════ CRANE SANCTUARY ══════════ -->
+<div class="pg" id="pg-crane">
+  <div class="crane-hero">
+    <div class="cr-eye">The Red-Crowned Crane</div>
+    <div class="cr-title">A symbol of <em>longevity,</em><br>grace, and endurance</div>
+    <div class="cr-sub">Grus japonensis — the red-crowned crane is one of the rarest and most revered birds on Earth. Across Korea, Japan, and China, it has been honored for centuries as a messenger of heaven, a companion of the wise, and a symbol of the quiet strength that endures. Fewer than 3,000 remain in the wild. It is the spirit of naræ.</div>
+  </div>
+  <div class="crane-tabs">
+    <button class="ctab on" onclick="setCTab(this,'symbol')">Symbol</button>
+    <button class="ctab" onclick="setCTab(this,'art')">Art</button>
+    <button class="ctab" onclick="setCTab(this,'origami')">Origami</button>
+    <button class="ctab" onclick="setCTab(this,'protect')">Protect</button>
+  </div>
+
+  <!-- SYMBOL -->
+  <div class="crane-panel on" id="cp-symbol">
+    <div class="sym-grid">
+      <div class="sym-card"><div class="sym-country">Korea 한국</div><div class="sym-word">두루미 Durumi</div><div class="sym-desc">Symbol of longevity, nobility, and faithful love. The crane was said to carry departed souls to heaven and appears on royal robes and celadon pottery for over 1,000 years. On the 500-won coin today.</div></div>
+      <div class="sym-card"><div class="sym-country">Japan 日本</div><div class="sym-word">鶴 Tsuru</div><div class="sym-desc">Lives 1,000 years in legend. Folding 1,000 origami cranes — senbazuru — grants a wish. Symbol of fidelity: cranes mate for life. Given as a wedding blessing and a prayer for healing.</div></div>
+      <div class="sym-card"><div class="sym-country">China 中国</div><div class="sym-word">仙鶴 Xiānhè</div><div class="sym-desc">The "immortal crane" carries Taoist sages to heaven. Represents longevity, wisdom, and purity. Painted alongside pine trees and clouds in classical scroll art for over two millennia.</div></div>
+      <div class="sym-card"><div class="sym-country">naræ</div><div class="sym-word">나래 Wings</div><div class="sym-desc">The quiet strength to rise again — fold by fold, thread by thread. The crane in the naræ mark carries the same spirit: not loud, but steady. Not instant, but enduring.</div></div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="sec-label" style="padding-left:13px">Conservation facts</div>
+    <div class="fact-list">
+      <div class="fact-item"><div class="fact-num">01</div><div class="fact-txt">Fewer than <strong>3,000 red-crowned cranes</strong> remain in the wild — one of the rarest crane species on Earth, listed as Vulnerable on the IUCN Red List and declining.</div></div>
+      <div class="fact-item"><div class="fact-num">02</div><div class="fact-txt">They stand <strong>nearly 5 feet tall</strong> with a wingspan up to <strong>8 feet</strong> — the second tallest crane in the world. The red crown is not feathers but bare red skin that brightens during courtship.</div></div>
+      <div class="fact-item"><div class="fact-num">03</div><div class="fact-txt">The <strong>DMZ between North and South Korea</strong> — one of the world's most restricted zones — has paradoxically become a critical habitat. About 30% of the entire wild population winters in the Cheorwon Basin each year.</div></div>
+      <div class="fact-item"><div class="fact-num">04</div><div class="fact-txt">They mate <strong>for life</strong>, sometimes living over 25 years. Their courtship dance — leaping, bowing, spreading wings — is one of the most beautiful rituals in the natural world.</div></div>
+      <div class="fact-item"><div class="fact-num">05</div><div class="fact-txt">In Korean culture, seeing a crane is still considered a <strong>sign of long life and grace</strong>. The poet Hwang Sunwon's 1953 story "Cranes" uses the bird as a symbol of humanity and reconciliation across the division of war.</div></div>
+    </div>
+    <div class="gap"></div>
+  </div>
+
+  <!-- ART -->
+  <div class="crane-panel" id="cp-art">
+    <div class="art-list">
+      <div class="art-item">
+        <div class="art-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Ogata_Kenzan_-_Cranes_-_Google_Art_Project.jpg/640px-Ogata_Kenzan_-_Cranes_-_Google_Art_Project.jpg" alt="Ogata Kenzan Cranes" onerror="this.parentElement.innerHTML='<div class=art-img-ph>Ogata Kenzan · Cranes · Edo Period</div>'"/></div>
+        <div class="art-title">Cranes</div>
+        <div class="art-meta">Ogata Kenzan · Japan · Edo Period, c. 1700s</div>
+        <div class="art-desc">A masterwork of the Japanese Rimpa school — bold, elegant cranes rendered with extraordinary economy of line. Kenzan's birds feel simultaneously ancient and utterly present.</div>
+      </div>
+      <div class="art-item">
+        <div class="art-img"><div class="art-img-ph">Utagawa Hiroshige<br><span style="font-size:10px;letter-spacing:0.1em">Cranes in Flight · c. 1840</span></div></div>
+        <div class="art-title">Cranes in Flight</div>
+        <div class="art-meta">Utagawa Hiroshige · Japan · c. 1830–1858</div>
+        <div class="art-desc">Hiroshige's woodblock cranes are always in motion — ascending, grouped, purposeful. They express the Japanese ideal of graceful, collective endurance, a quality naræ honors in every woman.</div>
+      </div>
+      <div class="art-item">
+        <div class="art-img"><div class="art-img-ph">Goryeo Celadon Crane Vase<br><span style="font-size:10px;letter-spacing:0.1em">Korea · 12th century</span></div></div>
+        <div class="art-title">Celadon Crane Vase</div>
+        <div class="art-meta">Unknown master · Korea · Goryeo Dynasty, 12th century</div>
+        <div class="art-desc">Goryeo celadon — the pinnacle of Korean ceramic art — frequently features inlaid cranes and clouds. The National Museum of Korea holds works considered among the most exquisite pottery ever made.</div>
+      </div>
+      <div class="art-item">
+        <div class="art-img"><div class="art-img-ph">Emperor Huizong<br><span style="font-size:10px;letter-spacing:0.1em">Auspicious Cranes · Song Dynasty · c. 1112</span></div></div>
+        <div class="art-title">Auspicious Cranes (瑞鶴圖)</div>
+        <div class="art-meta">Emperor Huizong · China · Song Dynasty, c. 1112</div>
+        <div class="art-desc">Twenty cranes circle above the imperial palace gate — believed to signal divine blessing. One of the most celebrated works in all of Chinese art history, painted by an emperor himself.</div>
+      </div>
+    </div>
+    <div class="gap"></div>
+  </div>
+
+  <!-- ORIGAMI -->
+  <div class="crane-panel" id="cp-origami">
+    <div class="origami-intro">
+      <div class="oi-txt">The origami crane is one of the most recognized paper-folding forms in the world. In Japanese tradition, folding 1,000 cranes — senbazuru — is believed to grant a wish or bring healing. It takes patience, repetition, and care: the same qualities that shape recovery from illness.</div>
+      <div class="oi-txt">Begin with a square sheet of paper. The crane emerges from a single sheet — no cuts, no glue. Only folds. Like healing itself: shaped gradually, with intention.</div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="osteps">
+      <div class="ostep"><div class="ostep-n">1</div><div class="ostep-info"><div class="ostep-title">The square base</div><div class="ostep-desc">Fold diagonally both ways, then horizontally both ways. Collapse into a small square with the open end facing you. This is the preliminary base — the foundation of nearly all origami.</div></div></div>
+      <div class="ostep"><div class="ostep-n">2</div><div class="ostep-info"><div class="ostep-title">The petal fold</div><div class="ostep-desc">Fold both right and left edges to the center crease, then unfold. Lift the top layer, opening and flattening into a diamond shape. Repeat on the other side. This is the bird base.</div></div></div>
+      <div class="ostep"><div class="ostep-n">3</div><div class="ostep-info"><div class="ostep-title">The narrow wings</div><div class="ostep-desc">Fold both lower flaps upward along the center crease, pointing upward. These two points will become the neck and the tail.</div></div></div>
+      <div class="ostep"><div class="ostep-n">4</div><div class="ostep-info"><div class="ostep-title">The inside reverse fold</div><div class="ostep-desc">On one of the upward points, make an inside reverse fold to create the head. A small fold at the very tip forms the beak — precise and intentional.</div></div></div>
+      <div class="ostep"><div class="ostep-n">5</div><div class="ostep-info"><div class="ostep-title">Open the wings</div><div class="ostep-desc">Hold the neck and tail and gently pull apart. The body opens and inflates. The crane takes form — patient, deliberate, complete. Every fold was necessary.</div></div></div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="sec-label" style="padding-left:13px">Watch &amp; learn</div>
+    <div class="video-block" onclick="window.open('https://www.youtube.com/results?search_query=how+to+fold+origami+crane+tutorial','_blank')">
+      <div class="vb-play"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polygon points="3,2 10,6 3,10" fill="#c9a96e" opacity="0.8"/></svg></div>
+      <div><div class="vb-title">How to fold an origami crane — step by step</div><div class="vb-sub">Search on YouTube →</div></div>
+    </div>
+    <div class="video-block" onclick="window.open('https://www.youtube.com/results?search_query=senbazuru+1000+paper+cranes+meaning','_blank')">
+      <div class="vb-play"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polygon points="3,2 10,6 3,10" fill="#d98aa0" opacity="0.8"/></svg></div>
+      <div><div class="vb-title">Senbazuru — the tradition of 1,000 cranes</div><div class="vb-sub">Documentary &amp; meaning →</div></div>
+    </div>
+    <div class="video-block" onclick="window.open('https://naraefoundation.org/crane-project.html','_blank')">
+      <div class="vb-play"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polygon points="3,2 10,6 3,10" fill="#5f9f9f" opacity="0.8"/></svg></div>
+      <div><div class="vb-title">The naræ 1,000 Crane Project</div><div class="vb-sub">naraefoundation.org →</div></div>
+    </div>
+    <div class="gap"></div>
+  </div>
+
+  <!-- PROTECT -->
+  <div class="crane-panel" id="cp-protect">
+    <div class="protect-stat">
+      <div class="ps-n">&lt; 3,000</div>
+      <div class="ps-lbl">Red-crowned cranes remaining in the wild</div>
+      <div class="ps-sub">Listed as Vulnerable · IUCN Red List · Population declining</div>
+    </div>
+    <div class="gap-sm"></div>
+    <div class="sec-label" style="padding-left:13px">How to help</div>
+    <div class="prot-list">
+      <div class="prot-item">
+        <div class="prot-org">International Crane Foundation</div>
+        <div class="prot-loc">Baraboo, Wisconsin · Global</div>
+        <div class="prot-desc">The world's leading organization dedicated to cranes and their ecosystems. Works across Korea, Japan, China, and Russia to protect wild populations and critical wetland habitats.</div>
+        <div class="prot-link" onclick="window.open('https://savingcranes.org','_blank')">savingcranes.org →</div>
+      </div>
+      <div class="prot-item">
+        <div class="prot-org">Korean Federation for Environmental Movement</div>
+        <div class="prot-loc">Seoul, South Korea</div>
+        <div class="prot-desc">Advocates for protection of the DMZ crane habitat in the Cheorwon Basin — home to up to 30% of the world's wild red-crowned crane population each winter.</div>
+        <div class="prot-link" onclick="window.open('https://kfem.or.kr','_blank')">kfem.or.kr →</div>
+      </div>
+      <div class="prot-item">
+        <div class="prot-org">WWF Japan — Tancho Conservation</div>
+        <div class="prot-loc">Hokkaido, Japan</div>
+        <div class="prot-desc">Works to protect the Tancho crane population of Hokkaido — a remarkable recovery from near-extinction to over 1,700 birds — through habitat preservation and winter feeding programs.</div>
+        <div class="prot-link" onclick="window.open('https://www.wwf.or.jp','_blank')">wwf.or.jp →</div>
+      </div>
+      <div class="prot-item">
+        <div class="prot-org">The naræ 1,000 Crane Project</div>
+        <div class="prot-loc">naraefoundation.org</div>
+        <div class="prot-desc">Each crane folded within the naræ community is a gesture of hope, healing, and solidarity — connecting the ancient tradition of senbazuru to the lives of women rebuilding, one fold at a time.</div>
+        <div class="prot-link" onclick="window.open('https://naraefoundation.org/crane-project.html','_blank')">Learn more →</div>
+      </div>
+    </div>
+    <div class="gap"></div>
+  </div>
+
+</div><!-- /crane -->
+
+</div><!-- /scroll -->
+
+<!-- BOTTOM NAV -->
+<div class="bnav">
+  <div class="ni on" id="ni-home" onclick="go('home')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#c9a96e" stroke-width="1" stroke-linecap="round"><path d="M2 7L8 2l6 5v7a1 1 0 01-1 1H3a1 1 0 01-1-1V7z"/><path d="M6 15v-5h4v5"/></svg></div><div class="ni-lbl">Home</div></div>
+  <div class="ni" id="ni-affirm" onclick="go('affirm')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><path d="M8 1l1.8 5H15l-4.4 3.2 1.7 5.2L8 11.5l-4.3 2.9 1.7-5.2L1 6h5.2L8 1z" stroke-linejoin="round"/></svg></div><div class="ni-lbl">Affirm</div></div>
+  <div class="ni" id="ni-music" onclick="go('music')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><circle cx="5" cy="13" r="2"/><circle cx="13" cy="11" r="2"/><path d="M7 13V5l8-2v8"/></svg></div><div class="ni-lbl">Sound</div></div>
+  <div class="ni" id="ni-breathe" onclick="go('breathe')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="3" stroke-dasharray="1.5 2"/></svg></div><div class="ni-lbl">Breathe</div></div>
+  <div class="ni" id="ni-passport" onclick="go('passport')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><rect x="2" y="2" width="12" height="12" rx="1"/><path d="M2 6h12M6 6v8"/></svg></div><div class="ni-lbl">Passport</div></div>
+  <div class="ni" id="ni-crane" onclick="go('crane')"><div class="ni-ico"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="rgba(245,240,232,0.32)" stroke-width="1" stroke-linecap="round"><path d="M8 14C4.5 10.5 2 8 2 5.5a4 4 0 018 0 4 4 0 018 0C18 8 14 11 10 14" stroke-linejoin="round"/></svg></div><div class="ni-lbl">Crane</div></div>
+</div>
+
+</div><!-- /app -->
+
+<script>
+/* ══ WELCOME ══ */
+const GR=[
+  {t:"We are glad you are here.",l:"English"},
+  {t:"당신이 여기 있어서 기쁩니다.",l:"한국어"},
+  {t:"Wir sind froh, dass Sie hier sind.",l:"Deutsch"},
+  {t:"Suntem bucuroși că ești aici.",l:"Română"},
+  {t:"Nos alegra que estés aquí.",l:"Español"},
+  {t:"Nous sommes heureux que vous soyez ici.",l:"Français"},
+  {t:"يسعدنا أن تكوني هنا.",l:"العربية"},
+  {t:"あなたがここにいてくれて嬉しいです。",l:"日本語"},
+  {t:"Ficamos felizes que você esteja aqui.",l:"Português"},
+  {t:"我们很高兴你在这里。",l:"中文"},
+];
+let gI=0,gT=null;
+gT=setInterval(()=>{
+  const g=document.getElementById('wg'),l=document.getElementById('wl');
+  g.style.opacity='0';
+  setTimeout(()=>{gI=(gI+1)%GR.length;g.textContent=GR[gI].t;l.textContent=GR[gI].l;g.style.opacity='1'},650);
+},3000);
+function dismissWelcome(){
+  clearInterval(gT);
+  const ws=document.getElementById('ws');
+  ws.classList.add('out');
+  setTimeout(()=>ws.style.display='none',1500);
+}
+setTimeout(dismissWelcome,14000);
+
+/* ══ NAV ══ */
+function go(tab){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.ni').forEach(n=>n.classList.remove('on'));
+  document.getElementById('pg-'+tab).classList.add('on');
+  document.getElementById('ni-'+tab).classList.add('on');
+  document.getElementById('scroller').scrollTop=0;
+  const labels={home:'Today',affirm:'Affirmations',music:'Music & Sound',breathe:'Breathing',passport:'Cultural Passport',crane:'The Crane'};
+  document.getElementById('topMeta').textContent=labels[tab]||'';
+}
+
+/* ══ YOUTUBE AUDIO ══ */
+let ytTag=null,currentPlayName='';
+function playYT(videoIdOrSearch,name){
+  // Open YouTube search/video in new tab — best UX for audio on mobile
+  currentPlayName=name;
+  const isId=videoIdOrSearch.length===11&&!videoIdOrSearch.includes(' ');
+  const url=isId
+    ?'https://www.youtube.com/watch?v='+videoIdOrSearch
+    :'https://www.youtube.com/results?search_query='+encodeURIComponent(videoIdOrSearch);
+  window.open(url,'_blank');
+  // show now playing bar as informational
+  document.getElementById('npbar').classList.add('on');
+  document.getElementById('npbarName').textContent=name;
+}
+function stopSound(){
+  document.getElementById('npbar').classList.remove('on');
+  currentPlayName='';
+  // reset all playing states
+  playIdx=-1;
+  rendSounds();
+  document.querySelectorAll('.srow,.cmrow').forEach(r=>r.classList.remove('playing'));
+}
+
+/* ══ SOUNDSCAPES ══ */
+const SOUNDS=[
+  {n:"Rain on a temple roof in Kyoto",d:"Water · Japan · Meditative",q:"rain sounds temple japan meditation ambient"},
+  {n:"The red-crowned crane at dawn",d:"Birdsong · Korea DMZ · Sacred",q:"red crowned crane bird call sounds nature"},
+  {n:"Wind through a bamboo grove",d:"Wind · Kyoto · Whispering",q:"bamboo forest wind sounds japan relaxing"},
+  {n:"A mountain waterfall in Jeju",d:"Water · Korea · Cascading",q:"waterfall sounds korea nature meditation"},
+  {n:"Tibetan singing bowl resonance",d:"Resonance · Himalaya · Healing",q:"tibetan singing bowls 432hz healing meditation"},
+  {n:"Deep ocean at thirty meters",d:"Water · Pacific · Immersive",q:"deep ocean underwater sounds relaxing ambient"},
+  {n:"Cicadas at dusk in rural Romania",d:"Insects · Eastern Europe · Summer",q:"cicadas evening sounds nature summer ambience"},
+  {n:"Morning fog lifting over a Korean marsh",d:"Ambience · Korea · Stillness",q:"wetland marsh morning nature sounds birds korea"},
+  {n:"A single raindrop on a lotus leaf",d:"Water · Minimalist · Meditative",q:"rain drops water nature sounds zen meditation"},
+  {n:"Pines in a winter wind, Hokkaido",d:"Wind · Japan · Sparse",q:"winter wind pine forest sounds japan hokkaido"},
+  {n:"Low tide on black volcanic sand",d:"Ocean · Iceland · Elemental",q:"ocean waves black sand beach iceland nature sounds"},
+  {n:"A campfire in silence",d:"Fire · Primordial · Warming",q:"campfire crackling sounds relaxing no music"},
+  {n:"Whales singing at depth",d:"Ocean · Pacific · Ancient",q:"whale song underwater humpback whale sounds"},
+  {n:"Thunderstorm over a high desert",d:"Storm · Southwest · Powerful",q:"thunderstorm desert rain sounds relaxing 1 hour"},
+  {n:"A lone thrush at forest edge, dawn",d:"Birdsong · Appalachian · Tender",q:"thrush birdsong dawn forest nature sounds"},
+  {n:"Creek over smooth stones, autumn",d:"Water · Gentle · Healing",q:"stream creek water sounds nature relaxing autumn"},
+  {n:"Wind chimes in an empty garden",d:"Wind · Resonance · Still",q:"wind chimes garden sounds relaxing meditation"},
+  {n:"Underground spring in a cave",d:"Water · Underground · Ancient",q:"cave water dripping underground spring sounds ambient"},
+];
+let playIdx=-1;
+function rendSounds(){
+  const g=document.getElementById('soundList');g.innerHTML='';
+  const h=[5,9,4,7];
+  SOUNDS.forEach((s,i)=>{
+    const row=document.createElement('div');
+    row.className='srow'+(playIdx===i?' playing':'');
+    row.innerHTML=`<div class="wavebars"><span style="height:${h[i%4]}px"></span><span style="height:${h[(i+1)%4]}px"></span><span style="height:${h[(i+2)%4]}px"></span><span style="height:${h[(i+3)%4]}px"></span></div>
+    <div class="sinfo"><div class="sname">${s.n}</div><div class="sdesc">${s.d}</div></div>
+    <div class="sbtn"><svg width="10" height="10" viewBox="0 0 10 10" fill="none">${playIdx===i?'<rect x="1.5" y="1.5" width="2.5" height="7" fill="#6aacac"/><rect x="6" y="1.5" width="2.5" height="7" fill="#6aacac"/>':'<polygon points="2,1.5 9,5 2,8.5" fill="#a8863a"/>'}</svg></div>`;
+    row.onclick=()=>{playIdx=playIdx===i?-1:i;rendSounds();if(playIdx===i||playIdx>-1){playYT(s.q,s.n)}};
+    g.appendChild(row);
+  });
+}
+rendSounds();
+
+/* ══ CULTURAL MUSIC ══ */
+const CULT_MUSIC=[
+  {flag:'🇰🇷',name:'Korean',style:'Pansori · Arirang · Minyo',q:'korean pansori arirang traditional folk music'},
+  {flag:'🇯🇵',name:'Japanese',style:'Shakuhachi · Gagaku · Min\'yō',q:'japanese shakuhachi bamboo flute meditation music'},
+  {flag:'🇨🇳',name:'Chinese',style:'Guqin · Erhu · Shan\'ge',q:'chinese guqin erhu traditional folk healing music'},
+  {flag:'🇷🇴',name:'Romanian',style:'Doina · Hora · Transylvanian',q:'romanian doina folk music traditional lament'},
+  {flag:'🇩🇪',name:'German',style:'Alpine folk · Jodeln · Volksmusik',q:'alpine yodel german folk music traditional'},
+  {flag:'🇲🇽',name:'Mexican',style:'Son Jarocho · Huapango',q:'son jarocho veracruz mexican folk music traditional'},
+  {flag:'🇧🇷',name:'Brazilian',style:'Baião · Candomblé',q:'baiao northeastern brazil traditional folk music'},
+  {flag:'🌍',name:'West African',style:'Kora · Balafon · Griot',q:'kora west african griot music traditional healing'},
+  {flag:'🇮🇷',name:'Persian',style:'Dastgah · Oud · Maqam',q:'persian classical music oud dastgah traditional'},
+  {flag:'🇮🇳',name:'South Asian',style:'Raga Bhairavi · Baul folk',q:'raga bhairavi indian classical healing music'},
+  {flag:'🇦🇺',name:'Aboriginal Australian',style:'Didgeridoo · Songlines',q:'didgeridoo aboriginal australian healing music'},
+  {flag:'🇳🇿',name:'Māori',style:'Waiata · Karakia',q:'maori waiata traditional music new zealand'},
+];
+function rendCultMusic(){
+  const g=document.getElementById('cultMusicList');g.innerHTML='';
+  CULT_MUSIC.forEach((c,i)=>{
+    const row=document.createElement('div');
+    row.className='cmrow';
+    row.innerHTML=`<div class="cmflag">${c.flag}</div><div class="cminfo"><div class="cmname">${c.name}</div><div class="cmstyle">${c.style}</div></div><div class="sbtn"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><polygon points="2,1.5 9,5 2,8.5" fill="#a8863a"/></svg></div>`;
+    row.onclick=()=>{
+      document.querySelectorAll('.cmrow').forEach(r=>r.classList.remove('playing'));
+      row.classList.add('playing');
+      playYT(c.q,c.name+' — '+c.style);
+    };
+    g.appendChild(row);
+  });
+}
+rendCultMusic();
+
+/* ══ AFFIRMATIONS — deep, culturally aware content ══ */
+const AFFS={
+  healing:{
+    en:['"Healing is not linear. Every small step forward is enough, even if you cannot see it yet."','"You are not defined by your diagnosis. You carry a whole life — history, love, culture, strength — that no illness can diminish."','"It is okay to not have answers. Healing asks only for your honest presence, not your performance."','"Some days surviving is the whole accomplishment. That is not failure. That is extraordinary courage."'],
+    ko:['"치유는 직선이 아닙니다. 아직 보이지 않더라도, 작은 한 걸음 한 걸음이 충분합니다."','"당신은 진단으로 정의되지 않습니다. 어떤 병도 빼앗을 수 없는 삶 전체를 당신은 품고 있습니다."','"답을 몰라도 괜찮습니다. 치유는 완벽한 모습이 아닌, 솔직한 현재의 당신만을 요구합니다."','"어떤 날은 살아남는 것 자체가 전부입니다. 그것은 실패가 아니라 놀라운 용기입니다."'],
+    de:['"Heilung verläuft nicht geradlinig. Jeder kleine Schritt vorwärts ist genug, auch wenn du ihn noch nicht siehst."','"Du bist nicht durch deine Diagnose definiert. Du trägst ein ganzes Leben in dir, das keine Krankheit mindern kann."','"Es ist in Ordnung, keine Antworten zu haben. Heilung verlangt nur deine ehrliche Anwesenheit."','"Manche Tage ist das bloße Überleben die ganze Leistung. Das ist keine Niederlage — das ist außerordentlicher Mut."'],
+    ro:['"Vindecarea nu este liniară. Fiecare mic pas înainte este suficient, chiar dacă nu îl poți vedea încă."','"Nu ești definit(ă) de diagnosticul tău. Porți o viață întreagă în tine pe care nicio boală nu o poate diminua."','"E în regulă să nu ai răspunsuri. Vindecarea cere doar prezența ta sinceră."','"Uneori, a supraviețui este tot ce contează. Nu este un eșec — este un curaj extraordinar."'],
+    es:['"La sanación no es lineal. Cada pequeño paso es suficiente, aunque aún no puedas verlo."','"No estás definida por tu diagnóstico. Llevas contigo una vida entera que ninguna enfermedad puede disminuir."','"Está bien no tener respuestas. La sanación solo pide tu presencia honesta."','"Algunos días, simplemente sobrevivir es el logro completo. Eso no es un fracaso — es un valor extraordinario."'],
+    fr:['"La guérison n\'est pas linéaire. Chaque petit pas est suffisant, même si tu ne le vois pas encore."','"Tu n\'es pas définie par ton diagnostic. Tu portes en toi une vie entière qu\'aucune maladie ne peut diminuer."','"Il est normal de ne pas avoir de réponses. La guérison ne demande que ta présence honnête."','"Certains jours, survivre est tout l\'accomplissement. Ce n\'est pas un échec — c\'est un courage extraordinaire."'],
+    ar:['"الشفاء ليس خطاً مستقيماً. كل خطوة صغيرة كافية، حتى لو لم تستطيعي رؤيتها بعد."','"أنتِ لستِ محددة بتشخيصك. تحملين في داخلك حياة كاملة لا تستطيع أي مرض أن ينتقص منها."','"لا بأس في عدم وجود إجابات. الشفاء يطلب فقط حضورك الصادق."','"بعض الأيام، النجاة هي الإنجاز الكامل. هذا ليس فشلاً — بل شجاعة استثنائية."'],
+    ja:['"癒しは直線ではありません。まだ見えなくても、小さな一歩一歩で十分です。"','"あなたは診断で定義されません。どんな病気も奪えない、丸ごとの人生をあなたは持っています。"','"答えがなくても大丈夫です。癒しはあなたの正直な存在だけを求めています。"','"生き延びることだけで十分な日もあります。それは失敗ではなく、並外れた勇気です。"'],
+    pt:['"A cura não é linear. Cada pequeno passo é suficiente, mesmo que você ainda não consiga vê-lo."','"Você não é definida pelo seu diagnóstico. Você carrega uma vida inteira que nenhuma doença pode diminuir."','"Está bem não ter respostas. A cura pede apenas sua presença honesta."','"Alguns dias, simplesmente sobreviver é o grande feito. Isso não é fracasso — é coragem extraordinária."'],
+    zh:['"治愈不是线性的。每一小步都足够了，即使你暂时还看不到。"','"你不是由诊断来定义的。你承载着完整的生命——任何疾病都无法削减。"','"没有答案也没关系。治愈只需要你真实的在场。"','"有些日子，活下来本身就是全部的成就。这不是失败——这是非凡的勇气。"'],
+  },
+  'self-love':{
+    en:['"You are allowed to take up space, to rest, to ask for help, and to begin again. All of these are signs of wisdom, not weakness."','"Your body has carried you through diagnosis, treatment, and uncertainty. It deserves your compassion, not your judgment."','"You do not need to earn rest. You do not need to be productive to deserve care. You deserve it simply by being alive."','"Loving yourself is not a luxury you arrive at after recovery. It is part of how recovery becomes possible."'],
+    ko:['"당신은 공간을 차지하고, 쉬고, 도움을 요청하고, 다시 시작할 자격이 있습니다. 이 모든 것은 약함이 아니라 지혜의 표시입니다."','"당신의 몸은 진단, 치료, 불확실성을 견뎌왔습니다. 판단이 아닌 연민을 받을 자격이 있습니다."','"쉬는 것을 얻어낼 필요가 없습니다. 살아있다는 것만으로 당신은 돌봄을 받을 자격이 있습니다."','"자신을 사랑하는 것은 회복 후에 도달하는 사치가 아닙니다. 그것은 회복을 가능하게 하는 방법의 일부입니다."'],
+    de:['"Du darfst Raum einnehmen, ruhen, um Hilfe bitten und neu beginnen. Das alles sind Zeichen von Weisheit, nicht von Schwäche."','"Dein Körper hat dich durch Diagnose, Behandlung und Ungewissheit getragen. Er verdient dein Mitgefühl, nicht dein Urteil."','"Du musst Ruhe nicht verdienen. Du verdienst Fürsorge einfach weil du lebst."','"Dich selbst zu lieben ist kein Luxus, den du nach der Genesung erreichst — es ist Teil davon, wie Heilung möglich wird."'],
+    ro:['"Ai voie să ocupi spațiu, să te odihnești, să ceri ajutor și să o iei de la capăt. Toate acestea sunt semne de înțelepciune, nu de slăbiciune."','"Corpul tău te-a purtat prin diagnostic, tratament și incertitudine. Merită compasiunea ta, nu judecata ta."','"Nu trebuie să câștigi odihna. Meriți îngrijire pur și simplu pentru că ești în viață."','"Să te iubești pe tine nu este un lux la care ajungi după vindecare — face parte din cum vindecarea devine posibilă."'],
+    es:['"Tienes permiso de ocupar espacio, descansar, pedir ayuda y comenzar de nuevo. Todo esto es sabiduría, no debilidad."','"Tu cuerpo te ha llevado a través del diagnóstico, el tratamiento y la incertidumbre. Merece tu compasión, no tu juicio."','"No necesitas ganarte el descanso. Mereces cuidado simplemente por estar viva."','"Amarte a ti misma no es un lujo que alcanzas después de la recuperación — es parte de cómo la recuperación se vuelve posible."'],
+    fr:['"Tu as le droit de prendre de l\'espace, de te reposer, de demander de l\'aide et de recommencer. Tout cela est sagesse, pas faiblesse."','"Ton corps t\'a portée à travers le diagnostic, le traitement et l\'incertitude. Il mérite ta compassion, pas ton jugement."','"Tu n\'as pas besoin de mériter le repos. Tu mérites des soins simplement parce que tu es en vie."','"S\'aimer n\'est pas un luxe que tu atteins après la guérison — c\'est une partie de ce qui rend la guérison possible."'],
+    ar:['"يُسمح لك بأخذ مساحتك، والراحة، وطلب المساعدة، والبدء من جديد. كل هذا حكمة، وليس ضعفاً."','"جسدك حملك خلال التشخيص والعلاج وعدم اليقين. يستحق رحمتك، لا حكمك."','"لا تحتاجين إلى كسب الراحة. تستحقين الرعاية ببساطة لأنك حية."','"محبة نفسك ليست رفاهية تصلين إليها بعد الشفاء — بل هي جزء مما يجعل الشفاء ممكناً."'],
+    ja:['"あなたは空間を取り、休み、助けを求め、やり直す権利があります。これらはすべて弱さではなく、知恵の証です。"','"あなたの体は診断、治療、不確実性を乗り越えてきました。判断ではなく、思いやりに値します。"','"休息を得る必要はありません。生きているだけで、ケアを受ける価値があります。"','"自分を愛することは、回復後に到達する贅沢ではありません。それが回復を可能にする方法の一部です。"'],
+    pt:['"Você tem permissão para ocupar espaço, descansar, pedir ajuda e começar de novo. Tudo isso é sabedoria, não fraqueza."','"Seu corpo te carregou pelo diagnóstico, tratamento e incerteza. Ele merece sua compaixão, não seu julgamento."','"Você não precisa merecer o descanso. Você merece cuidado simplesmente por estar viva."','"Amar a si mesma não é um luxo que você alcança depois da recuperação — faz parte de como a recuperação se torna possível."'],
+    zh:['"你有权占据空间、休息、寻求帮助和重新开始。这一切都是智慧，而非软弱。"','"你的身体承载着你度过了诊断、治疗和不确定性。它值得你的慈悲，而非批判。"','"你不需要赚取休息。只要活着，你就值得被关爱。"','"爱自己不是康复之后才能享受的奢侈品——它是康复成为可能的一部分。"'],
+  },
+  'self-worth':{
+    en:['"Your worth is not measured by how much you produce, endure, or contribute. It exists independently of all of that."','"You deserve care that sees your whole self — your culture, your language, your fear, your hope — not just your medical file."','"You were worthy before the diagnosis. The diagnosis did not create your worth, and it cannot diminish it."','"Immigrant women who navigate illness alone often believe they must earn the right to be supported. You do not. You already have it."'],
+    ko:['"당신의 가치는 얼마나 생산하고, 견디고, 기여하는지로 측정되지 않습니다. 그것은 그 모든 것과 독립적으로 존재합니다."','"당신은 전체 자아를 보는 돌봄을 받을 자격이 있습니다 — 당신의 문화, 언어, 두려움, 희망 — 단순한 의료 기록이 아닌."','"당신은 진단 전에도 가치 있었습니다. 진단이 당신의 가치를 만들지 않았고, 줄일 수도 없습니다."','"혼자 병을 헤쳐나가는 이민자 여성들은 종종 지원받을 권리를 얻어야 한다고 믿습니다. 그럴 필요 없습니다. 당신은 이미 그 권리를 가지고 있습니다."'],
+    de:['"Dein Wert wird nicht daran gemessen, wie viel du produzierst, erträgst oder beiträgst. Er existiert unabhängig davon."','"Du verdienst Fürsorge, die dein ganzes Selbst sieht — deine Kultur, deine Sprache, deine Angst, deine Hoffnung."','"Du warst vor der Diagnose wertvoll. Die Diagnose hat deinen Wert nicht geschaffen und kann ihn nicht mindern."','"Immigrantinnen, die Krankheit allein durchstehen, glauben oft, sie müssten das Recht auf Unterstützung verdienen. Das musst du nicht. Du hast es bereits."'],
+    ro:['"Valoarea ta nu se măsoară prin cât produci, înduri sau contribui. Există independent de toate acestea."','"Meriți îngrijire care vede întregul tău sine — cultura ta, limba ta, frica ta, speranța ta — nu doar dosarul medical."','"Erai demn(ă) înainte de diagnostic. Diagnosticul nu ți-a creat valoarea și nu o poate diminua."','"Femeile imigrante care trec singure prin boală cred adesea că trebuie să câștige dreptul de a fi sprijinite. Nu trebuie. Îl ai deja."'],
+    es:['"Tu valor no se mide por cuánto produces, soportas o contribuyes. Existe independientemente de todo eso."','"Mereces cuidado que vea todo tu ser — tu cultura, tu idioma, tu miedo, tu esperanza — no solo tu historial médico."','"Eras valiosa antes del diagnóstico. El diagnóstico no creó tu valor y no puede disminuirlo."','"Las mujeres inmigrantes que navegan la enfermedad solas a menudo creen que deben ganarse el derecho a ser apoyadas. No necesitas hacerlo. Ya lo tienes."'],
+    fr:['"Ta valeur ne se mesure pas à ce que tu produis, endures ou contribues. Elle existe indépendamment de tout cela."','"Tu mérites des soins qui voient tout ton être — ta culture, ta langue, ta peur, ton espoir — pas seulement ton dossier médical."','"Tu étais précieuse avant le diagnostic. Le diagnostic n\'a pas créé ta valeur et ne peut pas la diminuer."','"Les femmes immigrantes qui traversent la maladie seules croient souvent qu\'elles doivent mériter le soutien. Tu n\'as pas à le faire. Tu l\'as déjà."'],
+    ar:['"قيمتك لا تقاس بمقدار ما تنتجين أو تتحملين أو تُسهمين. إنها موجودة بشكل مستقل عن كل ذلك."','"تستحقين رعاية ترى ذاتك كاملة — ثقافتك، لغتك، خوفك، أملك — وليس فقط ملفك الطبي."','"كنتِ ذات قيمة قبل التشخيص. التشخيص لم يخلق قيمتك ولا يستطيع أن ينتقص منها."','"المهاجرات اللواتي يمررن بالمرض وحيدات يعتقدن غالباً أن عليهن كسب حق الدعم. لا تحتاجين إلى ذلك. أنتِ تملكينه بالفعل."'],
+    ja:['"あなたの価値は、生産量、忍耐力、貢献量では測れません。それはそれらすべてとは独立して存在します。"','"あなたは、文化、言語、恐れ、希望など、あなたの全体を見てくれるケアに値します—医療記録だけではなく。"','"診断前もあなたは価値がありました。診断はあなたの価値を生み出さず、それを減じることもできません。"','"病気を一人で乗り越える移民女性は、支援を受ける権利を得なければならないと信じがちです。そうする必要はありません。あなたはすでにその権利を持っています。"'],
+    pt:['"Seu valor não é medido por quanto você produz, suporta ou contribui. Ele existe independentemente de tudo isso."','"Você merece cuidado que veja todo o seu ser — sua cultura, seu idioma, seu medo, sua esperança — não apenas seu prontuário."','"Você era digna antes do diagnóstico. O diagnóstico não criou seu valor e não pode diminuí-lo."','"Mulheres imigrantes que navegam a doença sozinhas frequentemente acreditam que devem merecer o direito de ser apoiadas. Você não precisa. Você já o tem."'],
+    zh:['"你的价值不是由你生产多少、忍耐多少或贡献多少来衡量的。它独立于这一切而存在。"','"你值得得到看见你整个自我的关爱——你的文化、你的语言、你的恐惧、你的希望——而不仅仅是你的病历。"','"在诊断之前你就有价值。诊断没有创造你的价值，也无法削减它。"','"独自应对疾病的移民女性往往认为她们必须赢得被支持的权利。你不必这样。你已经拥有了。"'],
+  },
+  empowerment:{
+    en:['"Your voice matters — especially in spaces where women who look like you, speak like you, and carry what you carry have been absent."','"You have survived things that required extraordinary strength. That strength does not disappear during treatment. It is still inside you."','"The courage it takes to seek care in a second language, in an unfamiliar system, while frightened — that courage is remarkable."','"Giving forward when you are ready — sharing your story, walking beside another — is one of the ways healing deepens into purpose."'],
+    ko:['"당신의 목소리가 중요합니다 — 특히 당신처럼 보이고, 당신처럼 말하며, 당신이 짊어진 것을 짊어진 여성들이 부재했던 공간에서."','"당신은 특별한 힘이 필요한 일들을 견뎌냈습니다. 그 힘은 치료 중에 사라지지 않습니다. 여전히 당신 안에 있습니다."','"두려운 상태에서 낯선 시스템 속에서 제2언어로 돌봄을 구하는 데 필요한 용기 — 그 용기는 놀랍습니다."','"준비되었을 때 나누는 것 — 당신의 이야기를 나누고, 다른 사람 곁을 걷는 것 — 은 치유가 목적으로 깊어지는 방법 중 하나입니다."'],
+    de:['"Deine Stimme zählt — besonders in Räumen, wo Frauen, die so aussehen, so sprechen und tragen, was du trägst, abwesend waren."','"Du hast Dinge überlebt, die außergewöhnliche Kraft erforderten. Diese Kraft verschwindet nicht während der Behandlung. Sie ist noch in dir."','"Der Mut, in einer zweiten Sprache, in einem fremden System und unter Angst Fürsorge zu suchen — dieser Mut ist bemerkenswert."','"Wenn du bereit bist, weiterzugeben — deine Geschichte zu teilen, neben jemand anderem zu gehen — vertieft sich Heilung zur Bestimmung."'],
+    ro:['"Vocea ta contează — mai ales în spații unde femeile care arată ca tine, vorbesc ca tine și poartă ce porți tu au lipsit."','"Ai supraviețuit unor lucruri care au necesitat o forță extraordinară. Acea forță nu dispare în timpul tratamentului. Este încă în tine."','"Curajul de a căuta îngrijire într-o a doua limbă, într-un sistem necunoscut, sub teamă — acel curaj este remarcabil."','"Când ești gata să dai mai departe — să-ți împărtășești povestea, să mergi alături de altcineva — vindecarea se adâncește în scop."'],
+    es:['"Tu voz importa — especialmente en espacios donde mujeres que se ven como tú, hablan como tú y cargan lo que cargas tú han estado ausentes."','"Has sobrevivido cosas que requirieron una fuerza extraordinaria. Esa fuerza no desaparece durante el tratamiento. Todavía está dentro de ti."','"El valor que se necesita para buscar atención en un segundo idioma, en un sistema desconocido, con miedo — ese valor es notable."','"Cuando estés lista para dar hacia adelante — compartir tu historia, caminar junto a otra — la sanación se profundiza en propósito."'],
+    fr:['"Ta voix compte — surtout dans les espaces où des femmes qui te ressemblent, parlent comme toi et portent ce que tu portes ont été absentes."','"Tu as survécu à des choses qui demandaient une force extraordinaire. Cette force ne disparaît pas pendant le traitement. Elle est encore en toi."','"Le courage qu\'il faut pour chercher des soins dans une deuxième langue, dans un système inconnu, avec peur — ce courage est remarquable."','"Quand tu es prête à transmettre — partager ton histoire, marcher à côté de quelqu\'un — la guérison s\'approfondit en but."'],
+    ar:['"صوتك مهم — خاصة في الفضاءات التي غابت فيها نساء يشبهنك، يتكلمن مثلك، ويحملن ما تحملينه."','"لقد نجوتِ من أشياء تطلبت قوة استثنائية. هذه القوة لا تختفي أثناء العلاج. إنها لا تزال بداخلك."','"الشجاعة المطلوبة للبحث عن رعاية بلغة ثانية، في نظام غير مألوف، تحت الخوف — تلك الشجاعة رائعة."','"عندما تكونين مستعدة للعطاء للأمام — مشاركة قصتك، السير جانب شخص آخر — يتعمق الشفاء ليصبح هدفاً."'],
+    ja:['"あなたの声が大切です — 特に、あなたのような見た目で、あなたのように話し、あなたが抱えるものを抱えた女性たちが不在だったスペースで。"','"あなたは並外れた強さを要することを生き延びました。その強さは治療中に消えません。まだあなたの中にあります。"','"恐怖の中で、第二言語で、なじみのないシステムの中でケアを求めるために必要な勇気 — その勇気は素晴らしいものです。"','"準備ができたら前に渡す — あなたの話を分かち合い、誰かの隣を歩く — それが癒しが目的に深まる方法の一つです。"'],
+    pt:['"Sua voz importa — especialmente em espaços onde mulheres que parecem com você, falam como você e carregam o que você carrega têm estado ausentes."','"Você sobreviveu a coisas que exigiram uma força extraordinária. Essa força não desaparece durante o tratamento. Ainda está dentro de você."','"A coragem necessária para buscar cuidado em um segundo idioma, em um sistema desconhecido, com medo — essa coragem é notável."','"Quando você estiver pronta para dar adiante — compartilhar sua história, caminhar ao lado de outra — a cura se aprofunda em propósito."'],
+    zh:['"你的声音很重要——尤其是在那些像你一样的面孔、像你一样的语言、像你一样承担的女性一直缺席的空间里。"','"你经历了需要非凡力量的事情。这种力量在治疗期间不会消失。它仍然在你内心。"','"在陌生的系统中、用第二语言、带着恐惧寻求关爱所需的勇气——那种勇气是了不起的。"','"当你准备好向前传递——分享你的故事，走在另一个人身旁——治愈就深化为目标。"'],
+  },
+  anxiety:{
+    en:['"Right now, in this moment, you are safe. You do not need to solve everything. You only need to breathe."','"Anxiety after cancer is not weakness — it is the nervous system trying to protect you. You can thank it, and then gently ask it to rest."','"Your feelings are real. You do not have to face them alone. You do not have to translate them perfectly. They are welcome here."','"One moment at a time. Not tomorrow, not the scan results, not the future. Just this breath. That is enough."'],
+    ko:['"지금 이 순간, 당신은 안전합니다. 모든 것을 해결할 필요가 없습니다. 그저 숨을 쉬면 됩니다."','"암 후의 불안은 약함이 아닙니다 — 당신을 보호하려는 신경계입니다. 감사하고, 부드럽게 쉬도록 부탁할 수 있습니다."','"당신의 감정은 진실입니다. 혼자 마주하지 않아도 됩니다. 완벽하게 번역할 필요도 없습니다. 여기서 환영받습니다."','"한 순간씩. 내일이 아니라, 스캔 결과가 아니라, 미래가 아니라. 그저 이 숨. 그것으로 충분합니다."'],
+    de:['"Jetzt, in diesem Moment, bist du sicher. Du musst nicht alles lösen. Du musst nur atmen."','"Angst nach Krebs ist keine Schwäche — es ist das Nervensystem, das dich schützen will. Du kannst ihm danken und es sanft bitten zu ruhen."','"Deine Gefühle sind real. Du musst ihnen nicht allein begegnen. Du musst sie nicht perfekt übersetzen. Sie sind hier willkommen."','"Einen Moment nach dem anderen. Nicht morgen, nicht die Scan-Ergebnisse, nicht die Zukunft. Nur diesen Atemzug. Das ist genug."'],
+    ro:['"Chiar acum, în acest moment, ești în siguranță. Nu trebuie să rezolvi totul. Trebuie doar să respiri."','"Anxietatea după cancer nu este slăbiciune — este sistemul nervos care încearcă să te protejeze. Poți să-l mulțumești și să-i ceri blând să se odihnească."','"Sentimentele tale sunt reale. Nu trebuie să le înfrunți singur(ă). Nu trebuie să le traduci perfect. Sunt binevenite aici."','"Un moment pe rând. Nu mâine, nu rezultatele scanării, nu viitorul. Doar această respirație. Este suficient."'],
+    es:['"Ahora mismo, en este momento, estás segura. No necesitas resolver todo. Solo necesitas respirar."','"La ansiedad después del cáncer no es debilidad — es el sistema nervioso intentando protegerte. Puedes agradecerle y pedirle suavemente que descanse."','"Tus sentimientos son reales. No tienes que enfrentarlos sola. No tienes que traducirlos perfectamente. Son bienvenidos aquí."','"Un momento a la vez. No mañana, no los resultados del escáner, no el futuro. Solo esta respiración. Eso es suficiente."'],
+    fr:['"En ce moment, tu es en sécurité. Tu n\'as pas besoin de tout résoudre. Tu as seulement besoin de respirer."','"L\'anxiété après le cancer n\'est pas une faiblesse — c\'est le système nerveux qui essaie de te protéger. Tu peux le remercier et lui demander doucement de se reposer."','"Tes sentiments sont réels. Tu n\'as pas à les affronter seule. Tu n\'as pas à les traduire parfaitement. Ils sont les bienvenus ici."','"Un moment à la fois. Pas demain, pas les résultats du scan, pas le futur. Juste cette respiration. C\'est suffisant."'],
+    ar:['"الآن، في هذه اللحظة، أنتِ بأمان. لا تحتاجين إلى حل كل شيء. تحتاجين فقط إلى التنفس."','"القلق بعد السرطان ليس ضعفاً — إنه الجهاز العصبي يحاول حمايتك. يمكنك شكره ثم تطلبين منه برفق الراحة."','"مشاعرك حقيقية. لا يجب أن تواجهيها وحيدة. لا يجب أن تترجمينها بشكل مثالي. إنها مرحب بها هنا."','"لحظة واحدة في كل مرة. ليس غداً، وليس نتائج الفحص، وليس المستقبل. فقط هذا النفس. هذا كافٍ."'],
+    ja:['"今この瞬間、あなたは安全です。すべてを解決する必要はありません。ただ呼吸するだけで十分です。"','"がん後の不安は弱さではありません——それはあなたを守ろうとする神経系です。感謝して、そっと休むように頼むことができます。"','"あなたの気持ちは本物です。一人で向き合う必要はありません。完璧に翻訳する必要もありません。ここで歓迎されています。"','"一度に一瞬ずつ。明日でも、スキャン結果でも、将来でもなく。ただこの息だけ。それで十分です。"'],
+    pt:['"Agora, neste momento, você está segura. Não precisa resolver tudo. Você só precisa respirar."','"A ansiedade após o câncer não é fraqueza — é o sistema nervoso tentando te proteger. Você pode agradecê-lo e pedir gentilmente que descanse."','"Seus sentimentos são reais. Você não precisa enfrentá-los sozinha. Não precisa traduzi-los perfeitamente. Eles são bem-vindos aqui."','"Um momento de cada vez. Não amanhã, não os resultados do exame, não o futuro. Só esta respiração. Isso é suficiente."'],
+    zh:['"此刻，你是安全的。你不需要解决所有事情。你只需要呼吸。"','"癌症后的焦虑不是软弱——是神经系统试图保护你。你可以感谢它，然后温和地请它休息。"','"你的感受是真实的。你不必独自面对它们。你不必完美地翻译它们。它们在这里受到欢迎。"','"一次一个时刻。不是明天，不是扫描结果，不是未来。就只是这一口气。这就够了。"'],
+  },
+  grief:{
+    en:['"Grief is love with nowhere to go. It is the measure of how deeply you have cared, and how fully you have lived."','"You are allowed to grieve what the illness has taken — your sense of safety, your plans, your body\'s familiar form — while still moving toward healing."','"Your tears are not weakness. In many cultures, tears are considered sacred — the body\'s way of releasing what words cannot hold."','"Grief does not follow a schedule. You do not heal in stages someone else designed for you. Your grief has its own rhythm and wisdom."'],
+    ko:['"슬픔은 갈 곳 없는 사랑입니다. 그것은 얼마나 깊이 사랑했고, 얼마나 충실하게 살았는지의 척도입니다."','"병이 빼앗아간 것들 — 안전감, 계획, 익숙한 몸의 모습 — 을 슬퍼하면서도 치유를 향해 나아갈 수 있습니다."','"당신의 눈물은 약함이 아닙니다. 많은 문화에서 눈물은 신성하게 여겨집니다 — 말로 담을 수 없는 것을 내보내는 몸의 방식입니다."','"슬픔은 일정을 따르지 않습니다. 다른 사람이 정해 놓은 단계로 치유되지 않습니다. 당신의 슬픔에는 고유한 리듬과 지혜가 있습니다."'],
+    de:['"Trauer ist Liebe ohne Ort. Sie ist das Maß dafür, wie tief du geliebt hast und wie vollständig du gelebt hast."','"Du darfst trauern um das, was die Krankheit genommen hat — dein Sicherheitsgefühl, deine Pläne, dein vertrauter Körper — und dich trotzdem auf Heilung zubewegen."','"Deine Tränen sind keine Schwäche. In vielen Kulturen gelten Tränen als heilig — als Weg des Körpers, das loszulassen, was Worte nicht fassen können."','"Trauer folgt keinem Zeitplan. Du heilst nicht in Phasen, die jemand anderes für dich entworfen hat. Deine Trauer hat ihren eigenen Rhythmus und ihre eigene Weisheit."'],
+    ro:['"Durerea este dragoste fără un loc unde să meargă. Este măsura cât de profund ai iubit și cât de deplin ai trăit."','"Ai voie să îndolii ce a luat boala — sentimentul de siguranță, planurile, forma familiară a corpului tău — în timp ce te îndrepți spre vindecare."','"Lacrimile tale nu sunt slăbiciune. În multe culturi, lacrimile sunt considerate sacre — modul corpului de a elibera ceea ce cuvintele nu pot conține."','"Durerea nu urmează un program. Nu te vindeci în etapele pe care altcineva le-a conceput pentru tine. Durerea ta are propriul ritm și înțelepciune."'],
+    es:['"El duelo es amor sin a dónde ir. Es la medida de cuán profundamente has amado y cuán plenamente has vivido."','"Puedes llorar lo que la enfermedad se llevó — tu sensación de seguridad, tus planes, la forma familiar de tu cuerpo — mientras sigues moviéndote hacia la sanación."','"Tus lágrimas no son debilidad. En muchas culturas, las lágrimas se consideran sagradas — la forma del cuerpo de liberar lo que las palabras no pueden contener."','"El duelo no sigue un horario. No te sanas en etapas que alguien más diseñó para ti. Tu duelo tiene su propio ritmo y sabiduría."'],
+    fr:['"Le deuil, c\'est de l\'amour sans destination. C\'est la mesure de la profondeur de ton amour et de la plénitude de ta vie."','"Tu as le droit de pleurer ce que la maladie a pris — ton sentiment de sécurité, tes projets, la forme familière de ton corps — tout en avançant vers la guérison."','"Tes larmes ne sont pas une faiblesse. Dans de nombreuses cultures, les larmes sont considérées comme sacrées — la façon du corps de libérer ce que les mots ne peuvent pas contenir."','"Le deuil ne suit pas de calendrier. Tu ne guéris pas en étapes que quelqu\'un d\'autre a conçues pour toi. Ton deuil a son propre rythme et sa propre sagesse."'],
+    ar:['"الحزن هو الحب الذي لا يجد مكاناً يذهب إليه. إنه قياس مدى عمق حبك ومدى اكتمال عيشك."','"يُسمح لك بالحداد على ما أخذه المرض — إحساسك بالأمان، خططك، الشكل المألوف لجسدك — بينما تتجهين نحو الشفاء."','"دموعك ليست ضعفاً. في كثير من الثقافات، تُعتبر الدموع مقدسة — طريقة الجسم لإطلاق ما لا تستطيع الكلمات احتواءه."','"الحزن لا يتبع جدولاً زمنياً. لا تتعافين في مراحل صممها شخص آخر. حزنك له إيقاعه الخاص وحكمته."'],
+    ja:['"悲しみは行き場のない愛です。それは、どれほど深く愛し、どれほど充実して生きてきたかの尺度です。"','"病気が奪ったもの——安心感、計画、体の慣れ親しんだ形——を悼みながら、癒しに向かって進み続けることができます。"','"涙は弱さではありません。多くの文化で、涙は神聖と考えられています——言葉では表せないものを解放する体の方法。"','"悲しみはスケジュールに従いません。他の誰かが設計した段階で癒されるわけではありません。あなたの悲しみには独自のリズムと知恵があります。"'],
+    pt:['"O luto é amor sem lugar para ir. É a medida de quão profundamente você amou e quão plenamente viveu."','"Você pode chorar o que a doença levou — sua sensação de segurança, seus planos, a forma familiar do seu corpo — enquanto ainda se move em direção à cura."','"Suas lágrimas não são fraqueza. Em muitas culturas, as lágrimas são consideradas sagradas — a forma do corpo de liberar o que as palavras não conseguem conter."','"O luto não segue uma agenda. Você não se cura nas etapas que outra pessoa projetou para você. Sua dor tem seu próprio ritmo e sabedoria."'],
+    zh:['"悲伤是无处可去的爱。它是你爱得多深、活得多充实的度量。"','"你可以为疾病所夺走的一切而悲伤——你的安全感、你的计划、你身体熟悉的样子——同时仍然向愈合前行。"','"你的眼泪不是软弱。在许多文化中，眼泪被视为神圣的——是身体释放言语无法容纳之物的方式。"','"悲伤不遵循时间表。你不会按照别人为你设计的阶段愈合。你的悲伤有它自己的节奏和智慧。"'],
+  },
+  belonging:{
+    en:['"You belong here — not because you have proven yourself, not because you are fluent, not because you are strong enough. Simply because you are."','"You do not need to change your accent, your customs, your way of mourning, or your way of celebrating to be worthy of community."','"There is a place for you — not despite your story of migration, illness, and survival, but because of it. Your experience is not a barrier. It is a contribution."','"Many immigrant women believe they must be grateful quietly, heal silently, and not ask for too much. naræ was created precisely to say: You can ask. You are welcome. You belong."'],
+    ko:['"당신은 여기에 속합니다 — 스스로를 증명했기 때문이 아니라, 유창하기 때문이 아니라, 충분히 강하기 때문이 아닙니다. 그저 당신이기 때문입니다."','"공동체에 속하기 위해 당신의 억양, 관습, 애도 방식, 축하 방식을 바꿀 필요가 없습니다."','"당신을 위한 자리가 있습니다 — 이주, 질병, 생존의 이야기에도 불구하고가 아니라, 바로 그 때문입니다. 당신의 경험은 장벽이 아닙니다. 그것은 기여입니다."','"많은 이민자 여성들은 조용히 감사해야 하고, 침묵 속에 치유해야 하며, 너무 많이 요청하지 말아야 한다고 믿습니다. naræ는 바로 이것을 말하기 위해 만들어졌습니다: 요청할 수 있습니다. 환영받습니다. 당신은 여기에 속합니다."'],
+    de:['"Du gehörst hierher — nicht weil du dich bewiesen hast, nicht weil du fließend sprichst, nicht weil du stark genug bist. Einfach weil du bist."','"Du musst deinen Akzent, deine Bräuche, deine Art zu trauern oder zu feiern nicht ändern, um einer Gemeinschaft würdig zu sein."','"Es gibt einen Platz für dich — nicht trotz deiner Geschichte von Migration, Krankheit und Überleben, sondern wegen ihr. Deine Erfahrung ist kein Hindernis. Sie ist ein Beitrag."','"Viele Immigrantinnen glauben, sie müssen still dankbar sein, schweigend heilen und nicht zu viel verlangen. naræ wurde genau dafür geschaffen zu sagen: Du kannst fragen. Du bist willkommen. Du gehörst dazu."'],
+    ro:['"Aparții aici — nu pentru că te-ai dovedit, nu pentru că ești fluentă, nu pentru că ești destul de puternică. Pur și simplu pentru că ești."','"Nu trebuie să-ți schimbi accentul, obiceiurile, felul de a îndolia sau de a sărbători pentru a fi demnă de comunitate."','"Există un loc pentru tine — nu în ciuda poveștii tale de migrație, boală și supraviețuire, ci din cauza ei. Experiența ta nu este o barieră. Este o contribuție."','"Multe femei imigrante cred că trebuie să fie recunoscătoare în tăcere, să se vindece în silențiu și să nu ceară prea mult. naræ a fost creat exact pentru a spune: Poți cere. Ești binevenită. Aparții."'],
+    es:['"Perteneces aquí — no porque te hayas probado, no porque seas fluida, no porque seas lo suficientemente fuerte. Simplemente porque eres."','"No necesitas cambiar tu acento, tus costumbres, tu forma de llorar o de celebrar para ser digna de una comunidad."','"Hay un lugar para ti — no a pesar de tu historia de migración, enfermedad y supervivencia, sino a causa de ella. Tu experiencia no es una barrera. Es una contribución."','"Muchas mujeres inmigrantes creen que deben ser agradecidas en silencio, sanar en silencio y no pedir demasiado. naræ fue creado precisamente para decir: Puedes pedir. Eres bienvenida. Perteneces."'],
+    fr:['"Tu as ta place ici — non pas parce que tu t\'es prouvée, non pas parce que tu es courante, non pas parce que tu es assez forte. Simplement parce que tu es."','"Tu n\'as pas besoin de changer ton accent, tes coutumes, ta façon de pleurer ou de célébrer pour être digne d\'une communauté."','"Il y a une place pour toi — non pas malgré ton histoire de migration, de maladie et de survie, mais à cause d\'elle. Ton expérience n\'est pas une barrière. C\'est une contribution."','"Beaucoup de femmes immigrantes croient qu\'elles doivent être reconnaissantes en silence, guérir en silence et ne pas demander trop. naræ a été créé précisément pour dire: Tu peux demander. Tu es la bienvenue. Tu appartiens."'],
+    ar:['"أنتِ تنتمين هنا — ليس لأنك أثبتِ نفسك، وليس لأنك طليقة اللسان، وليس لأنك قوية بما يكفي. ببساطة لأنك موجودة."','"لا تحتاجين إلى تغيير لهجتك، عاداتك، طريقة حزنك أو احتفالك لتكوني جديرة بمجتمع."','"هناك مكان لك — ليس على الرغم من قصة هجرتك ومرضك ونجاتك، بل بسببها. تجربتك ليست عائقاً. إنها مساهمة."','"تعتقد كثير من النساء المهاجرات أنه يجب عليهن أن يكن ممتنات في صمت، وأن يشفين في صمت، وألا يطلبن الكثير. تأسست naræ لتقول بالضبط: يمكنك أن تطلبي. أنتِ مرحب بها. أنتِ تنتمين."'],
+    ja:['"あなたはここに属しています——自分を証明したから、流暢だから、十分強いからではありません。ただ、あなたがいるから。"','"コミュニティに属するために、あなたのアクセント、慣習、悲しみ方や祝い方を変える必要はありません。"','"あなたのための場所があります——移住、病気、生存の物語にもかかわらずではなく、それゆえに。あなたの経験は障壁ではありません。貢献です。"','"多くの移民女性は、静かに感謝し、沈黙の中で癒し、あまり多くを求めてはいけないと信じています。naræは、まさにこう言うために作られました：あなたは求めることができます。歓迎されています。あなたはここに属しています。"'],
+    pt:['"Você pertence aqui — não porque se provou, não porque é fluente, não porque é forte o suficiente. Simplesmente porque você é."','"Você não precisa mudar seu sotaque, seus costumes, sua forma de chorar ou de celebrar para ser digna de uma comunidade."','"Há um lugar para você — não apesar da sua história de migração, doença e sobrevivência, mas por causa dela. Sua experiência não é uma barreira. É uma contribuição."','"Muitas mulheres imigrantes acreditam que devem ser gratas em silêncio, curar-se em silêncio e não pedir demais. naræ foi criado precisamente para dizer: Você pode pedir. Você é bem-vinda. Você pertence."'],
+    zh:['"你属于这里——不是因为你证明了自己，不是因为你流利，不是因为你足够坚强。只是因为你存在。"','"你不需要改变你的口音、你的习俗、你的悲伤方式或庆祝方式来配得上一个社群。"','"有一个属于你的地方——不是尽管你有移民、疾病和生存的故事，而是正因为它。你的经历不是障碍，而是贡献。"','"许多移民女性相信她们必须默默感恩、沉默地愈合、不要要求太多。naræ正是为了说：你可以要求。你受到欢迎。你属于这里。"'],
+  },
+  confidence:{
+    en:['"You have already done incredibly hard things — you found your way through diagnosis, through treatment, through fear in a foreign language. You can do this."','"Confidence is not the absence of fear. It is taking the next small step while fear is still present, and trusting that the step was enough."','"Every experience you have survived has given you something: knowledge, perspective, resilience. Your experience is not baggage — it is wisdom."','"You do not need permission to speak, to disagree, to ask questions of your doctors, to advocate for care in your own language and cultural context."'],
+    ko:['"당신은 이미 믿을 수 없을 만큼 어려운 일들을 해냈습니다 — 진단을, 치료를, 외국어로 된 두려움을 헤쳐나갔습니다. 당신은 이것도 할 수 있습니다."','"자신감은 두려움의 부재가 아닙니다. 두려움이 여전히 있는 상태에서 다음 작은 걸음을 내딛고, 그 걸음으로 충분하다고 믿는 것입니다."','"당신이 살아남은 모든 경험은 당신에게 무언가를 주었습니다: 지식, 관점, 회복력. 당신의 경험은 짐이 아닙니다 — 그것은 지혜입니다."','"말하고, 반대하고, 의사에게 질문하고, 자신의 언어와 문화적 맥락에서 돌봄을 지지할 허락이 필요하지 않습니다."'],
+    de:['"Du hast bereits unglaublich schwere Dinge getan — du hast dich durch die Diagnose, die Behandlung, durch Angst in einer fremden Sprache durchgekämpft. Du kannst das."','"Vertrauen ist nicht die Abwesenheit von Angst. Es ist der nächste kleine Schritt, während Angst noch da ist, und das Vertrauen, dass der Schritt genug war."','"Jede Erfahrung, die du überlebt hast, hat dir etwas gegeben: Wissen, Perspektive, Resilienz. Deine Erfahrung ist kein Gepäck — sie ist Weisheit."','"Du brauchst keine Erlaubnis zu sprechen, zu widersprechen, deinen Ärzten Fragen zu stellen oder für Fürsorge in deiner eigenen Sprache einzutreten."'],
+    ro:['"Ai făcut deja lucruri incredibil de grele — ai trecut prin diagnostic, prin tratament, prin frică într-o limbă străină. Poți face și asta."','"Încrederea nu este absența fricii. Este să faci următorul mic pas în timp ce frica e încă prezentă, și să crezi că pasul a fost suficient."','"Fiecare experiență pe care ai supraviețuit-o ți-a dat ceva: cunoaștere, perspectivă, reziliență. Experiența ta nu este bagaj — este înțelepciune."','"Nu ai nevoie de permisiunea de a vorbi, de a nu fi de acord, de a pune întrebări medicilor tăi, de a susține îngrijire în propria ta limbă și context cultural."'],
+    es:['"Ya has hecho cosas increíblemente difíciles — te abriste camino a través del diagnóstico, el tratamiento, el miedo en un idioma extranjero. Puedes hacer esto."','"La confianza no es la ausencia del miedo. Es dar el siguiente pequeño paso mientras el miedo todavía está presente, y confiar en que ese paso fue suficiente."','"Cada experiencia que has sobrevivido te ha dado algo: conocimiento, perspectiva, resiliencia. Tu experiencia no es equipaje — es sabiduría."','"No necesitas permiso para hablar, para estar en desacuerdo, para hacerle preguntas a tus médicos, para abogar por cuidado en tu propio idioma y contexto cultural."'],
+    fr:['"Tu as déjà fait des choses incroyablement difficiles — tu t\'es frayé un chemin à travers le diagnostic, le traitement, la peur dans une langue étrangère. Tu peux faire cela."','"La confiance n\'est pas l\'absence de peur. C\'est faire le prochain petit pas pendant que la peur est encore là, et faire confiance que ce pas suffisait."','"Chaque expérience que tu as survécue t\'a donné quelque chose: connaissance, perspective, résilience. Ton expérience n\'est pas un fardeau — c\'est de la sagesse."','"Tu n\'as pas besoin de permission pour parler, être en désaccord, poser des questions à tes médecins, ou défendre des soins dans ta propre langue et contexte culturel."'],
+    ar:['"لقد قمتِ بالفعل بأشياء صعبة بشكل لا يصدق — شققتِ طريقك خلال التشخيص والعلاج والخوف بلغة أجنبية. يمكنك فعل هذا."','"الثقة ليست غياب الخوف. إنها اتخاذ الخطوة الصغيرة التالية بينما الخوف لا يزال موجوداً، والثقة بأن الخطوة كانت كافية."','"كل تجربة نجوتِ منها أعطتك شيئاً: معرفة، منظوراً، صموداً. تجربتك ليست عبئاً — إنها حكمة."','"لا تحتاجين إلى إذن للتحدث، وللاختلاف، وطرح الأسئلة على أطبائك، والمناصرة للحصول على رعاية بلغتك الخاصة وسياقك الثقافي."'],
+    ja:['"あなたはすでに信じられないほど困難なことをやり遂げました——診断、治療、外国語での恐怖を乗り越えました。これもできます。"','"自信は恐れの不在ではありません。恐れがまだある中で次の小さな一歩を踏み出し、その一歩で十分だったと信じることです。"','"あなたが生き延びたすべての経験が何かを与えてくれました：知識、視点、回復力。あなたの経験は重荷ではありません——それは知恵です。"','"話すこと、反対すること、医師に質問すること、自分の言語と文化的文脈でケアを主張することに許可は必要ありません。"'],
+    pt:['"Você já fez coisas incrivelmente difíceis — encontrou seu caminho pelo diagnóstico, pelo tratamento, pelo medo em uma língua estrangeira. Você pode fazer isso."','"Confiança não é ausência de medo. É dar o próximo pequeno passo enquanto o medo ainda está presente, e confiar que aquele passo foi suficiente."','"Cada experiência que você sobreviveu te deu algo: conhecimento, perspectiva, resiliência. Sua experiência não é bagagem — é sabedoria."','"Você não precisa de permissão para falar, discordar, fazer perguntas aos seus médicos, ou defender cuidados em seu próprio idioma e contexto cultural."'],
+    zh:['"你已经做过了难以置信的难事——你找到了穿越诊断、治疗、在外语中面对恐惧的方法。你也能做到这件事。"','"自信不是没有恐惧。是在恐惧仍然存在的时候迈出下一小步，并相信这一步已经足够。"','"你所生存的每一段经历都给了你一些东西：知识、视角、韧性。你的经历不是包袱——它是智慧。"','"你不需要许可才能说话、不同意、向你的医生提问，或者用你自己的语言和文化背景倡导护理。"'],
+  },
+  fear:{
+    en:['"Fear means you care — about your life, your health, your people, your future. It is not something to be ashamed of. It is something to be honored."','"You have already faced the unknown — the diagnosis, the first treatment, the waiting. You did not know how you would survive it. And yet here you are."','"Courage is not the absence of fear. Courage is the red-crowned crane taking flight in a frozen field at dawn, not knowing what lies beyond, and rising anyway."','"Fear of recurrence is one of the most common experiences after cancer. You are not alone in this. Many women carry it. It does not mean the worst will happen."'],
+    ko:['"두려움은 당신이 신경 쓴다는 의미입니다 — 당신의 삶, 건강, 사람들, 미래에 대해. 부끄러워해야 할 것이 아닙니다. 존중받아야 할 것입니다."','"당신은 이미 미지의 것을 마주했습니다 — 진단, 첫 번째 치료, 기다림. 어떻게 살아남을지 몰랐습니다. 그럼에도 당신은 여기 있습니다."','"용기는 두려움의 부재가 아닙니다. 용기는 새벽의 얼어붙은 들판에서 앞에 무엇이 있는지 모르면서도 날아오르는 두루미입니다."','"재발에 대한 두려움은 암 후에 가장 흔한 경험 중 하나입니다. 당신만 이런 것이 아닙니다. 많은 여성들이 이것을 안고 삽니다. 최악이 일어날 것을 의미하지 않습니다."'],
+    de:['"Angst bedeutet, dass dir etwas wichtig ist — dein Leben, deine Gesundheit, deine Menschen, deine Zukunft. Es ist keine Schande. Es verdient Respekt."','"Du hast bereits dem Unbekannten gegenübergestanden — der Diagnose, der ersten Behandlung, dem Warten. Du wusstest nicht, wie du es überleben würdest. Und doch bist du hier."','"Mut ist nicht die Abwesenheit von Angst. Mut ist der Rotscheitelkranich, der bei Sonnenaufgang auf einem gefrorenen Feld aufsteigt, ohne zu wissen, was dahinter liegt."','"Die Angst vor Rückfall ist eine der häufigsten Erfahrungen nach Krebs. Du bist damit nicht allein. Viele Frauen tragen sie. Es bedeutet nicht, dass das Schlimmste passieren wird."'],
+    ro:['"Frica înseamnă că îți pasă — de viața ta, sănătatea ta, oamenii tăi, viitorul tău. Nu este ceva de care să-ți fie rușine. Este ceva care merită respect."','"Ai mai înfruntat necunoscutul — diagnosticul, primul tratament, așteptarea. Nu știai cum vei supraviețui. Și totuși ești aici."','"Curajul nu este absența fricii. Curajul este cocorul cu coroana roșie care zboară într-un câmp înghețat la zori, fără să știe ce se află dincolo, și se ridică oricum."','"Frica de recidivă este una dintre cele mai comune experiențe după cancer. Nu ești singur(ă) în asta. Multe femei o poartă. Nu înseamnă că ce-i mai rău se va întâmpla."'],
+    es:['"El miedo significa que te importa — tu vida, tu salud, tu gente, tu futuro. No es algo de lo que avergonzarse. Es algo que honrar."','"Ya has enfrentado lo desconocido — el diagnóstico, el primer tratamiento, la espera. No sabías cómo ibas a sobrevivir. Y sin embargo, aquí estás."','"El coraje no es la ausencia del miedo. El coraje es la grulla de corona roja levantando el vuelo en un campo helado al amanecer, sin saber qué hay más allá, y elevándose de todas formas."','"El miedo a la recurrencia es una de las experiencias más comunes después del cáncer. No estás sola en esto. Muchas mujeres lo llevan. No significa que lo peor vaya a ocurrir."'],
+    fr:['"La peur signifie que tu tiens à quelque chose — ta vie, ta santé, tes proches, ton avenir. Ce n\'est pas une honte. C\'est quelque chose à honorer."','"Tu as déjà fait face à l\'inconnu — le diagnostic, le premier traitement, l\'attente. Tu ne savais pas comment tu allais survivre. Et pourtant te voilà."','"Le courage n\'est pas l\'absence de peur. Le courage, c\'est la grue à couronne rouge qui prend son envol dans un champ gelé à l\'aube, sans savoir ce qui se trouve au-delà, et qui s\'élève quand même."','"La peur de la récidive est l\'une des expériences les plus courantes après le cancer. Tu n\'es pas seule dans ça. Beaucoup de femmes la portent. Cela ne signifie pas que le pire va arriver."'],
+    ar:['"الخوف يعني أنك تهتمين — بحياتك، صحتك، أحبائك، مستقبلك. ليس شيئاً للخجل منه. إنه شيء يستحق التكريم."','"لقد واجهتِ المجهول بالفعل — التشخيص، العلاج الأول، الانتظار. لم تكوني تعلمين كيف ستنجين. ومع ذلك، ها أنتِ هنا."','"الشجاعة ليست غياب الخوف. الشجاعة هي الطائر الكركي ذو التاج الأحمر الذي يحلق في حقل متجمد عند الفجر، لا يعرف ما يكمن في الجانب الآخر، ويرتفع على أي حال."','"الخوف من الانتكاسة هو من أكثر التجارب شيوعاً بعد السرطان. لستِ وحيدة في هذا. كثير من النساء يحملنه. هذا لا يعني أن الأسوأ سيحدث."'],
+    ja:['"恐れは、あなたが気にかけているということを意味します——あなたの命、健康、大切な人たち、未来を。恥ずかしいことではありません。敬われるべきことです。"','"あなたはすでに未知のものに立ち向かいました——診断、最初の治療、待機。どうやって生き延びるか分かりませんでした。それでもあなたはここにいます。"','"勇気は恐れの不在ではありません。勇気は、夜明けの凍った野原で、向こうに何があるか知らずに飛び立つ丹頂鶴です。それでも舞い上がる。"','"再発への恐れは、がん後の最も一般的な経験の一つです。あなただけではありません。多くの女性がそれを抱えています。最悪のことが起こることを意味するわけではありません。"'],
+    pt:['"Medo significa que você se importa — com sua vida, sua saúde, seu povo, seu futuro. Não é algo para se envergonhar. É algo para honrar."','"Você já enfrentou o desconhecido — o diagnóstico, o primeiro tratamento, a espera. Você não sabia como ia sobreviver. E ainda assim, aqui você está."','"Coragem não é ausência de medo. Coragem é a grou de coroa vermelha levantando voo em um campo gelado ao amanhecer, sem saber o que há além, e subindo assim mesmo."','"O medo da recorrência é uma das experiências mais comuns após o câncer. Você não está sozinha nisso. Muitas mulheres o carregam. Não significa que o pior vai acontecer."'],
+    zh:['"恐惧意味着你在乎——你的生命、健康、你爱的人、你的未来。这不是什么值得羞耻的事。它值得被尊重。"','"你已经面对过未知——诊断、第一次治疗、等待。你不知道自己会如何撑过来。然而你在这里。"','"勇气不是没有恐惧。勇气是红冠鹤在黎明的冰冻田野中展翅飞翔——不知道前方有什么，依然升起。"','"对复发的恐惧是癌症后最常见的经历之一。你在这件事上并不孤单。许多女性都承载着它。这并不意味着最坏的事情会发生。"'],
+  },
+  stress:{
+    en:['"You can set things down for a moment. The world will wait. Your body needs rest more urgently than it needs you to be productive."','"Rest is not a reward you earn after completing everything. It is medicine. For the body recovering from treatment, it is essential, not optional."','"You are carrying more than most people see — illness, cultural adjustment, family responsibility, and the quiet work of figuring everything out in a second language. No wonder you are tired."','"You do not need to be strong all the time. Allowing yourself to be held — by community, by rest, by the simple act of receiving care — is also strength."'],
+    ko:['"잠시 내려놓아도 됩니다. 세상은 기다릴 것입니다. 당신의 몸은 생산적이어야 한다는 것보다 더 긴급하게 휴식이 필요합니다."','"휴식은 모든 것을 마친 후에 얻는 보상이 아닙니다. 그것은 약입니다. 치료에서 회복하는 몸에게 그것은 선택이 아닌 필수입니다."','"당신은 대부분의 사람들이 보는 것보다 더 많은 것을 짊어지고 있습니다 — 질병, 문화적 적응, 가족 책임, 그리고 제2언어로 모든 것을 알아가는 조용한 작업. 지치는 것이 당연합니다."','"항상 강해야 할 필요가 없습니다. 공동체에, 휴식에, 돌봄을 받는 단순한 행위에 안길 수 있도록 허용하는 것 — 그것 역시 강함입니다."'],
+    de:['"Du kannst die Dinge einen Moment niederlegen. Die Welt wird warten. Dein Körper braucht Ruhe dringender als er braucht, dass du produktiv bist."','"Ruhe ist keine Belohnung, die du nach Abschluss von allem verdienst. Sie ist Medizin. Für den Körper, der sich von der Behandlung erholt, ist sie wesentlich, nicht optional."','"Du trägst mehr, als die meisten Menschen sehen — Krankheit, kulturelle Anpassung, Familienverantwortung und die stille Arbeit, alles in einer zweiten Sprache herauszufinden. Kein Wunder, dass du müde bist."','"Du musst nicht immer stark sein. Dir zu erlauben, gehalten zu werden — von der Gemeinschaft, durch Ruhe, durch den einfachen Akt des Empfangens von Fürsorge — ist auch Stärke."'],
+    ro:['"Poți lăsa lucrurile jos pentru un moment. Lumea va aștepta. Corpul tău are nevoie de odihnă mai urgent decât are nevoie de productivitatea ta."','"Odihna nu este o recompensă pe care o câștigi după ce termini totul. Este medicament. Pentru corpul care se recuperează din tratament, este esențială, nu opțională."','"Porți mai mult decât văd cei mai mulți oameni — boală, adaptare culturală, responsabilitate familială și munca tăcută de a desluși totul într-o a doua limbă. Nu-i de mirare că ești obosit(ă)."','"Nu trebuie să fii puternic(ă) tot timpul. Să te lași ținut(ă) — de comunitate, de odihnă, de simplul act de a primi îngrijire — este de asemenea forță."'],
+    es:['"Puedes soltar las cosas por un momento. El mundo esperará. Tu cuerpo necesita descanso más urgentemente de lo que necesita que seas productiva."','"El descanso no es una recompensa que ganas después de completar todo. Es medicina. Para el cuerpo que se recupera del tratamiento, es esencial, no opcional."','"Llevas más de lo que la mayoría de la gente ve — enfermedad, adaptación cultural, responsabilidad familiar, y el silencioso trabajo de descifrar todo en un segundo idioma. No es de extrañar que estés cansada."','"No necesitas ser fuerte todo el tiempo. Permitirte ser sostenida — por la comunidad, por el descanso, por el simple acto de recibir cuidado — también es fortaleza."'],
+    fr:['"Tu peux poser les choses un moment. Le monde attendra. Ton corps a besoin de repos plus urgemment qu\'il n\'a besoin que tu sois productive."','"Le repos n\'est pas une récompense que tu mérites après avoir tout terminé. C\'est un médicament. Pour le corps qui se remet d\'un traitement, c\'est essentiel, pas optionnel."','"Tu portes plus que la plupart des gens ne voient — la maladie, l\'adaptation culturelle, la responsabilité familiale, et le travail silencieux de tout comprendre dans une deuxième langue. Pas étonnant que tu sois fatiguée."','"Tu n\'as pas besoin d\'être forte tout le temps. Te permettre d\'être tenue — par la communauté, par le repos, par le simple acte de recevoir des soins — c\'est aussi de la force."'],
+    ar:['"يمكنك وضع الأشياء جانباً للحظة. العالم سينتظر. جسدك يحتاج إلى الراحة بشكل أكثر إلحاحاً مما يحتاج منك أن تكوني منتجة."','"الراحة ليست مكافأة تكسبينها بعد الانتهاء من كل شيء. إنها دواء. للجسم الذي يتعافى من العلاج، هي ضرورية، وليست اختيارية."','"تحملين أكثر مما يراه معظم الناس — المرض، التكيف الثقافي، المسؤولية الأسرية، والعمل الهادئ لاستيعاب كل شيء بلغة ثانية. لا عجب أنك تعبانة."','"لا تحتاجين إلى أن تكوني قوية طوال الوقت. السماح لنفسك بأن تُحتضني — من قِبل المجتمع، بالراحة، بالفعل البسيط لتلقي الرعاية — هو أيضاً قوة."'],
+    ja:['"少しの間、物事を置いてもいいです。世界は待ちます。あなたの体は生産的であることよりも、休息をより緊急に必要としています。"','"休息はすべてを終えた後に得る報酬ではありません。それは薬です。治療から回復している体にとって、それは必須であり、任意ではありません。"','"あなたは多くの人が見ているより多くのものを背負っています——病気、文化的適応、家族の責任、そして第二言語ですべてを理解する静かな作業。疲れるのは当然です。"','"いつも強くある必要はありません。コミュニティに、休息に、ケアを受けるという単純な行為に、自分を委ねることを許す——それも強さです。"'],
+    pt:['"Você pode pousar as coisas por um momento. O mundo vai esperar. Seu corpo precisa de descanso mais urgentemente do que precisa que você seja produtiva."','"Descanso não é uma recompensa que você ganha depois de completar tudo. É medicamento. Para o corpo se recuperando do tratamento, é essencial, não opcional."','"Você carrega mais do que a maioria das pessoas vê — doença, adaptação cultural, responsabilidade familiar e o trabalho silencioso de descobrir tudo em uma segunda língua. Não é de admirar que você esteja cansada."','"Você não precisa ser forte o tempo todo. Permitir-se ser sustentada — pela comunidade, pelo descanso, pelo simples ato de receber cuidado — também é força."'],
+    zh:['"你可以暂时放下事情。世界会等待。你的身体比需要你有生产力更迫切地需要休息。"','"休息不是你完成所有事情后赚取的奖励。它是药物。对于从治疗中康复的身体，它是必不可少的，而非可选的。"','"你所承担的，远比大多数人看到的要多——疾病、文化适应、家庭责任，以及用第二语言默默摸索一切的工作。难怪你疲惫。"','"你不需要时时刻刻都坚强。允许自己被托住——被社群、被休息、被简单接受关爱的行为——这也是力量。"'],
+  },
+};
+
+const LN={en:'English',ko:'한국어',de:'Deutsch',ro:'Română',es:'Español',fr:'Français',ar:'العربية',ja:'日本語',pt:'Português',zh:'中文'};
+let cL='en',cC='healing',cI=0;
+function setL(b,l){document.querySelectorAll('.lpill').forEach(x=>x.classList.remove('on'));b.classList.add('on');cL=l;cI=0;updAff()}
+function setC(b,c){document.querySelectorAll('.cpill').forEach(x=>x.classList.remove('on'));b.classList.add('on');cC=c;cI=0;updAff()}
+function updAff(){
+  const c=document.getElementById('affCard');c.style.opacity='0';
+  setTimeout(()=>{
+    const cat=AFFS[cC]||AFFS.healing;
+    const p=cat[cL]||cat.en;
+    document.getElementById('affQ').textContent=p[cI%p.length];
+    document.getElementById('affBadge').textContent=LN[cL]+' · '+cC.charAt(0).toUpperCase()+cC.slice(1).replace(/-/g,' ');
+    c.style.opacity='1';
+  },220);
+}
+function nextAff(){
+  const cat=AFFS[cC]||AFFS.healing;
+  const p=cat[cL]||cat.en;
+  cI=(cI+1)%p.length;updAff();
+}
+
+/* ══ CULTURAL PASSPORT DATA ══ */
+const CULTURES=[
+  {flag:'🇰🇷',r:'Korean',g:'East Asia',genre:'Pansori · Minyo · Jeongganbo',word:'나래 Naræ',wtr:'"Wings" — the quiet strength to rise again, fold by fold',ritual:'Korean healing tradition understands that grief and community are inseparable. The practice of nunchi — reading the emotional atmosphere around you — means community members instinctively know when someone needs presence without words. Hanbang (Korean herbal medicine) treats the whole person: body, emotion, and spirit are never separated. The concept of han (한) — a deep collective sorrow — is not hidden but honored. Pansori singers give han a voice, transforming grief into art and communal witness.',tea:{n:'Ssanghwa-tang 쌍화탕',d:'A deep, earthy medicinal tea brewed from peony root, rehmannia, cinnamon, jujube, and ginger — traditionally given to those recovering from illness, exhaustion, or prolonged stress.',u:'Drunk warm to restore vitality and ease fatigue during and after treatment. The preparation is unhurried — a ceremony of care in itself.'},tracks:['Arirang — Korea\'s most beloved folk lullaby','Chunhyang-ga — A great Pansori narrative of love and endurance','Jeongganbo — Ancient court music, meditative and timeless']},
+  {flag:'🇯🇵',r:'Japanese',g:'East Asia',genre:'Gagaku · Min\'yō · Shakuhachi',word:'木漏れ日 Komorebi',wtr:'Sunlight filtering through leaves — beauty found in gentle, fleeting impermanence',ritual:'Japanese healing is rooted in ma (間) — the art of meaningful pause and empty space. Shinrin-yoku (forest bathing) is prescribed medicine: research shows it lowers cortisol, blood pressure, and anxiety. The shakuhachi bamboo flute was played by Zen monks as a breathing and meditation practice; the act of playing was itself the path, not the destination. Wabi-sabi — finding beauty in imperfection and impermanence — offers a profound framework for living with illness without needing to be fixed.',tea:{n:'Matcha 抹茶',d:'Ceremonially prepared powdered green tea — the tea ceremony (chado) is itself a complete healing practice of presence, mindfulness, and intentional movement.',u:'Prepared and received in full silence. The ceremony says: this moment deserves your complete attention. You deserve it too.'},tracks:['Shakuhachi — Bamboo flute, breath as meditation','Koto — Classical 13-string zither, pure resonance','Min\'yō — Seasonal folk songs of the Japanese countryside']},
+  {flag:'🇨🇳',r:'Chinese',g:'East Asia',genre:'Guqin · Erhu · Shan\'ge',word:'逆境 Nìjìng',wtr:'"Adversity" — the forge in which genuine strength is quietly shaped',ritual:'The guqin (古琴) — a seven-string zither — has been used in Chinese healing tradition for over 3,000 years. Its tones were believed to balance qi (life energy) and calm the shen (spirit). In Traditional Chinese Medicine, emotions are understood as physical forces: unprocessed grief affects the lungs, held fear affects the kidneys, excessive worry affects the spleen. Music, like acupuncture and herbs, moves what medicine alone cannot reach. Shan\'ge (mountain songs) were sung alone in vast open landscape as emotional release.',tea:{n:'Chrysanthemum & Goji Berry Tea',d:'Golden chrysanthemum blooms with ruby goji berries — one of the most beautiful and beloved teas in Chinese medicine, prepared simply and drunk daily.',u:'Drunk to calm internal heat, support the eyes and liver, and nourish the body during periods of depletion or treatment.'},tracks:['Guqin — Seven-string ancient zither, deepest resonance','Erhu — Two-string bowed instrument, voice of longing','Shan\'ge — Open-sky mountain folk song, emotional release']},
+  {flag:'🇷🇴',r:'Romanian',g:'Europe',genre:'Doina · Hora · Transylvanian folk',word:'Dor',wtr:'A longing so deep it becomes love — completely untranslatable into any other language',ritual:'Romanian village healers (descântătoare) combined medicinal plants, song, and spoken word into healing ceremonies passed through generations of women. The doina is not composed — it is felt and sung alone, in fields or forests, as a form of emotional release so intimate it cannot be performed. The hora is a healing circle dance in which no one leads and no one is left out. Healing in Romanian tradition is fundamentally communal: isolation is understood as illness in itself.',tea:{n:'Tei cu miere (Linden & Wild Honey)',d:'Fragrant dried linden blossoms steeped with raw Romanian forest honey — one of the oldest folk remedies in Eastern Europe, still given by grandmothers to the ill and the sad.',u:'Drunk before sleep to calm the nervous system and ease grief, anxiety, or sorrow. The honey dissolves slowly — take your time.'},tracks:['Doina — Intimate vocal lament, unaccompanied','Hora — Community circle dance, ancient and joyful','Transylvanian string melody — Mountain folk tradition']},
+  {flag:'🇩🇪',r:'German',g:'Europe',genre:'Alpine folk · Jodeln · Volksmusik',word:'Waldeinsamkeit',wtr:'"Forest solitude" — the particular healing peace of being alone among ancient trees',ritual:'German Romantic tradition held that forests held restorative, almost spiritual power — a belief now confirmed by science. Sebastian Kneipp\'s 19th-century healing system — still practiced in Bavarian spa towns — combined cold water therapy, movement, medicinal herbs, and deliberate stillness. The concept of Gemütlichkeit (warmth, belonging, unhurried ease, belonging) is itself considered healing. Jodeling began as communication across mountain distances but became a form of emotional release — a wordless cry that became melody.',tea:{n:'Kräutertee (Healing Herb Blend)',d:'Chamomile, lemon balm, and valerian — the classic German apothecary combination, brewed slowly and drunk in silence. Three herbs that together do what none can do alone.',u:'Sipped in the evening as a ritual of deliberate stillness. Not rushed. An act of self-care that does not require explanation.'},tracks:['Alpine yodel — Mountain echo, emotional release','Volksmusik — Village strings, warmth of community','Forest ambient — Birdsong and wind through German pine']},
+  {flag:'🇬🇷',r:'Greek',g:'Europe',genre:'Rebetiko · Byzantine · Laïká',word:'Meraki',wtr:'Doing something with your whole soul — leaving a piece of yourself in everything you create',ritual:'Rebetiko music emerged from communities in suffering — exile, poverty, the margins of society. It transformed pain into beauty through collective song in small, intimate spaces. Greek healing has always understood that sorrow shared openly in community loses its power to isolate. Byzantine chant — one of the world\'s oldest unbroken musical traditions — was designed to create a state of stillness that transcends the ordinary. It is not decoration; it is medicine for the soul.',tea:{n:'Mountain Tea (Sideritis)',d:'Greek shepherd\'s tea — dried ironwort flowers from the mountain highlands, brewed simply with no additions. A pale golden infusion used for centuries.',u:'Drunk for warmth, immunity, and the simple elemental comfort of something warm held between two hands after a difficult day.'},tracks:['Rebetiko — The soul music of suffering and resilience','Byzantine chant — Thousand-year-old sacred harmony','Laïká — The beloved popular folk tradition of Greece']},
+  {flag:'🇺🇦',r:'Eastern European',g:'Europe',genre:'Ukrainian · Polish · Balkan polyphony',word:'Pieśń',wtr:'"Song" — in these traditions, the thing that outlives everything else, including war',ritual:'Eastern European polyphonic singing — particularly from Ukraine, Georgia, and the Balkans — is among the world\'s most emotionally powerful vocal traditions. The dissonance is not accidental: it holds tension and resolution simultaneously, the way grief and hope must coexist in a living person. Communities sang together at births, deaths, harvests, illnesses, and healings. These songs were sung precisely when words alone were not enough. Singing together was how communities survived what should not have been survived.',tea:{n:'Lipový Čaj (Linden Blossom Tea)',d:'Pale gold, delicate, fragrant dried linden flowers — treasured across Eastern Europe for centuries as the first tea offered to the sick and the grieving.',u:'Neighbors bring linden tea the way other cultures bring flowers to the bereaved. The act of bringing it is care. The act of receiving it is belonging.'},tracks:['Ukrainian polyphony — Women\'s voices, close harmony','Balkan throat harmony — Dissonance held and resolved','Polish żal — The folk music of longing and endurance']},
+  {flag:'🇲🇽',r:'Mexican',g:'Americas',genre:'Son Jarocho · Huapango · Curanderismo',word:'Nepantla',wtr:'"The in-between place" — from Nahuatl, the threshold where transformation quietly begins',ritual:'Curanderismo — traditional Latin American healing — integrates song, prayer, medicinal plants, touch, and community as one inseparable practice. The limpia (spiritual cleansing) uses copal smoke, prayer, and intention to clear emotional weight. Son Jarocho music from Veracruz is created communally at a fandango — everyone plays, everyone dances, no one is audience. Nepantla, the Nahuatl word, names the threshold state of transformation: neither here nor there — the place where many women living with illness actually live.',tea:{n:'Agua de Jamaica (Hibiscus Tea)',d:'Vibrant deep crimson hibiscus flowers steeped into a tart, cooling, antioxidant-rich tea — inseparable from Mexican food culture and deeply beloved.',u:'Drunk warm or cool as a celebration of the body and its resilience. Bright in color, generous in flavor — a small daily beauty.'},tracks:['Son Jarocho — Veracruz community folk, everyone joins','Huapango — String and vocal dialogue, virtuosic','Copal ceremony — Ancient healing ambient, sacred smoke']},
+  {flag:'🇧🇷',r:'Brazilian',g:'Americas',genre:'Forró · Baião · Candomblé',word:'Saudade',wtr:'A bittersweet ache for what is loved and absent — and still somehow beautiful',ritual:'In Candomblé — an Afro-Brazilian spiritual tradition — music, movement, community, and healing are completely inseparable. Rhythm is understood as medicine. The berimbau\'s single-string drone and the atabaque\'s deep heartbeat pulse are not entertainment but ceremony: they call the community into wholeness. Saudade — one of the world\'s most untranslatable words — describes the particular grief-that-is-also-love that many women feel during and after illness. Brazilian culture does not ask you to stop feeling. It asks you to feel together, openly, with music.',tea:{n:'Chá de Erva-Cidreira (Lemon Balm)',d:'A delicate, lemony fresh herbal tea from the Amazon region — widely prepared across Brazil for generations as a remedy for the anxious and the tired heart.',u:'Drunk in the late afternoon as a ritual pause — an invitation to breathe, be present, and remember that gentleness is also available to you.'},tracks:['Berimbau — Single-string meditative drone, ancient','Baião — Northeastern Brazil folk heartbeat, joyful','Candomblé — Ceremonial healing drumming, communal']},
+  {flag:'🇵🇪',r:'Andean',g:'Americas',genre:'Huayno · Siku · Quechua ceremony',word:'Ayni',wtr:'"Sacred reciprocity" — what you give returns. Healing flows in cycles, not in straight lines.',ritual:'Andean healing centers on Pachamama (Earth Mother) and the principle of ayni — sacred reciprocity. Illness is understood as imbalance in relationships: with the land, with community, with ancestors, with oneself. Curanderos and curanderas use music, coca leaf ceremony, plant medicine, and communal ritual to restore balance across all these relationships at once. The siku (pan flute) carries prayers on the breath itself, into open sky. The Andean worldview: you are not separate from what surrounds you.',tea:{n:'Muña & Coca Leaf Tea',d:'Sacred Andean highland herbs — muña (Andean mint) for altitude adaptation and digestion, coca leaf for sustained energy, focus, and as an offering to Pachamama.',u:'Drunk at altitude for restoration and as a ceremonial connection to the land and the ancestors. Ancient, intentional, deeply nourishing.'},tracks:['Siku — Andean pan flute, breath as prayer','Huayno — Mountain folk song, rhythm of the highlands','Quechua ceremony — Healing chant, community offering']},
+  {flag:'🌍',r:'West African',g:'Africa',genre:'Kora · Balafon · Griot tradition',word:'Ubuntu',wtr:'"I am because we are" — personhood is found through connection, not in spite of it',ritual:'In the Griot tradition of West Africa, healers were inseparably also storytellers and musicians. The balafon (wooden xylophone) and kora (21-string harp) were played in healing ceremonies to bridge the visible and invisible worlds. The Griot holds the community\'s living memory — ensuring that no story, and therefore no person, is forgotten. Ubuntu philosophy says: your healing belongs to all of us. Your suffering is ours to witness. Your recovery brings us joy. Community is not support — it is medicine.',tea:{n:'Kinkeliba (Combretum micranthum)',d:'A golden-hued West African herbal tea from Senegal, Mali, and the broader Sahel region, prized for centuries for its cleansing, immune-supporting, and restorative properties.',u:'Drunk daily as a morning ritual of renewal — taken with intention at the beginning of each day as a preparation for whatever the day brings.'},tracks:['Kora — Ancient 21-string West African harp','Balafon — Healing ceremony, wooden xylophone tones','Griot — Living memory in song, call and community response']},
+  {flag:'🇪🇹',r:'Ethiopian',g:'Africa',genre:'Tizita · Azmari · Orthodox chant',word:'Tizita',wtr:'A nostalgic longing for something beloved — a musical mode and an emotion sharing one name',ritual:'Tizita is simultaneously a musical scale and a deeply felt emotion — in Ethiopian culture, music and feeling are so intertwined they require only one word. Azmari musicians improvise healing songs tailored to specific people in specific moments — the most personal form of musical medicine. The Ethiopian coffee ceremony (buna) is itself a three-round healing ritual of community, presence, and shared time that cannot be rushed.',tea:{n:'Ethiopian Herbal Blend & Buna',d:'Teas brewed with gesho (Ethiopian buckthorn), fresh ginger, and honey alongside the three rounds of the sacred coffee ceremony — each cup progressively lighter.',u:'The ceremony itself is the medicine. Three rounds, shared presence, unhurried conversation, the steam of the brazier: healing through simply being together with nowhere else to be.'},tracks:['Tizita — The nostalgic modal scale, sung grief','Azmari — Improvised personal healing song','Ethiopian Orthodox chant — Ancient sacred polyphony']},
+  {flag:'🇲🇦',r:'Moroccan',g:'Africa',genre:'Gnawa · Andalusian · Amazigh (Berber)',word:'Baraka',wtr:'"Divine blessing" — a healing grace that flows through certain people, places, and moments',ritual:'Gnawa music originated as healing ritual — specific rhythms, colors, and incenses were prescribed for specific emotional and physical conditions. Lila healing ceremonies lasted all night, with music guiding participants through trance, emotional release, and return to wholeness. Moroccan healing integrates scent, sound, color, herbal medicine, and community as completely inseparable elements. The concept of baraka — divine blessing — holds that healing grace flows through the world and through people, not earned but received.',tea:{n:'Atay — Moroccan Mint Tea',d:'Strong gunpowder green tea poured from a height into small decorated glasses with fresh spearmint and generous sugar — always served in exactly three glasses.',u:'"The first glass is as gentle as life, the second is as strong as love, the third is as bitter as death." Always three. The ritual of pouring is itself a ceremony of care.'},tracks:['Gnawa — Healing trance ceremony, all-night ritual','Andalusian — Classical Moorish court music','Amazigh (Berber) — Ancient mountain folk chant']},
+  {flag:'🇮🇷',r:'Persian',g:'Middle East',genre:'Dastgah · Oud · Classical Maqam',word:'Sabr',wtr:'"Patient endurance" — not passive waiting, but the grace of continuing without losing hope',ritual:'Persian classical music is built on dastgah — modal frameworks each carrying specific emotional meaning and therapeutic intent. The great philosopher Al-Farabi described the oud in the 10th century as "medicine for the soul." Specific maqam scales were historically prescribed by physicians for anxiety, grief, or fatigue — music as pharmacology. Persian healing tradition treats openly-expressed grief as sacred: grief that is witnessed and expressed does not turn inward to harm the body. Sabr — patient endurance — is considered one of the highest human virtues.',tea:{n:'Chai Nabat (Saffron Crystal Tea)',d:'Fragrant Persian black tea brewed with crystallized saffron sugar (nabat) and cardamom — golden, warming, deeply aromatic, and ceremonial in its preparation.',u:'Shared between people as an act of hospitality, welcome, and care. In Persian culture, the giving of this tea is itself the healing — the gesture of being seen and received.'},tracks:['Oud — The ancient soul of Persian music','Dastgah Shur — The modal scale prescribed for grief','Maqam Rast — The scale prescribed for calm and clarity']},
+  {flag:'🇹🇷',r:'Turkish',g:'Middle East',genre:'Makam · Sufi Sema · Halk müziği',word:'Hüzün',wtr:'A collective melancholy that gives a city and its people their deepest, truest character',ritual:'Sufi Sema ceremony — the whirling meditation — uses breath, rhythmic movement, and sacred music as a path through grief into stillness and communion. Turkish makam music assigns specific emotional and healing properties to each modal scale. Hüzün, as described by Orhan Pamuk, is not simply sadness: it is the sadness that connects a community across time, the shared weight of history that becomes — paradoxically — a form of belonging.',tea:{n:'Çay (Turkish Black Tea)',d:'Deep amber black tea brewed in a two-tiered pot (çaydanlık), served in small tulip-shaped glasses with a single sugar cube on the side — drunk slowly and often.',u:'Çay is never drunk alone by choice. Every glass is an invitation to stay, to slow down, to talk. Refusing is impolite. Accepting is belonging.'},tracks:['Ney flute — The voice of Sufi longing for the divine','Makam Hicaz — The scale of longing and spiritual yearning','Halk müziği — The living folk music of Anatolia']},
+  {flag:'🇸🇦',r:'Arabian Gulf',g:'Middle East',genre:'Fijiri · Sawt · Leiwah ceremony',word:'Wajd',wtr:'"Ecstatic finding" — the sacred moment when music breaks through grief into grace',ritual:'Fijiri music originated among the pearl divers of the Arabian Gulf — work songs that transformed the ache of physical labor, isolation, and longing into communal endurance and beauty. The moment of wajd — when the music finds you entirely — is considered sacred in the Sufi and Gulf traditions. Leiwah healing ceremonies, rooted in East African musical traditions brought to the Gulf, use specific rhythms to guide participants through emotional release. Music in this tradition is understood as a technology of transformation.',tea:{n:'Qahwa (Arabic Cardamom Coffee)',d:'Pale golden Arabic coffee flavored with cardamom and sometimes saffron or rosewater, poured from a tall dallah into small handle-less cups — refilled until you signal you are satisfied.',u:'Always served with dates. Refusing is considered impolite. Accepting is hospitality. The act of offering and receiving is the first gesture of belonging in Gulf culture.'},tracks:['Fijiri — Pearl diver work song, collective endurance','Leiwah — Healing trance ceremony, East African roots','Oud — Desert evening meditation, ancient resonance']},
+  {flag:'🇮🇳',r:'South Asian',g:'South Asia',genre:'Carnatic · Hindustani · Baul folk',word:'Ananda',wtr:'"Pure joy that arises from within" — entirely independent of external circumstance',ritual:'Indian classical ragas are assigned to specific times of day and specific emotional-therapeutic states — Raga Bhairavi at dawn for healing and release, Raga Darbari in deep night for reflection and opening. The Baul singers of Bengal were wandering mystics who sang of the inner divine, refusing to accept any social, caste, or illness-related barrier between a person and their essential worth. Ayurvedic medicine has always prescribed sound, breath (pranayama), and community alongside herbs — understanding that healing is the restoration of harmony, not the elimination of illness.',tea:{n:'Tulsi Kadha (Holy Basil Brew)',d:'Holy basil (tulsi), fresh ginger, green cardamom, black pepper, and raw honey — the foundational healing brew of Ayurvedic tradition, sacred in every Indian household.',u:'Sipped morning and evening to build immunity, settle the mind, deepen the breath, and restore the body\'s natural equilibrium. Adaptogenic — it gives the body what it needs.'},tracks:['Raga Bhairavi — The dawn raga, prescribed for healing','Baul folk — Mystic wandering songs of Bengal','Sitar — Classical meditative solo, pure resonance']},
+  {flag:'🇱🇰',r:'Sri Lankan',g:'South Asia',genre:'Baila · Kandyan · Kolam ritual',word:'Shanti',wtr:'"Peace" — not the absence of difficulty, but a stillness that holds difficulty without being destroyed by it',ritual:'Kandyan healing rituals (tovil) use drumming, elaborately masked dance, sacred chant, and communal gathering to restore balance between person, community, and the natural and spiritual orders simultaneously. Illness in Sri Lankan healing tradition is understood as a disruption in relationship — with family, with nature, with the divine — and therefore healing must restore all three relationships, not just the physical. The ritual itself is the medicine.',tea:{n:'Ceylon Cinnamon Tea',d:'True Ceylon cinnamon (Cinnamomum verum) — warm, sweet, delicately complex — steeped simply in water and sometimes with fresh ginger and honey. Sri Lanka gives the world its finest cinnamon.',u:'Drunk for warmth, to balance blood sugar, and for the deep comfort of something ancient and trustworthy. A daily ritual of quiet care.'},tracks:['Kandyan drum — Healing ceremony, powerful and rhythmic','Baila — Joyful, energetic folk rhythm, community dance','Kolam chant — Sacred ritual restoration, masked tradition']},
+  {flag:'🇦🇺',r:'Aboriginal Australian',g:'Oceania',genre:'Songlines · Didgeridoo · Healing ceremony',word:'Country',wtr:'"Country" — the living land that holds memory, healing, and belonging. Not a place but a relationship.',ritual:'Aboriginal healing is completely inseparable from Country — the land itself is understood as alive, relational, and fundamentally healing. Songlines are ancient pathways of story and music that map the landscape and maintain right relationship between people, land, and ancestors. The didgeridoo\'s deep drone vibration was understood to move through the body and restore energetic balance. Healing, in this tradition, means restoring right relationship with Country, community, and one\'s own deep self.',tea:{n:'Lemon Myrtle & Wattleseed',d:'Native Australian botanicals — lemon myrtle for its bright, intensely citrus-floral healing properties; wattleseed for its warming, earthy, nutty depth. Indigenous foods that have nourished for 65,000 years.',u:'Brewed as an acknowledgment of Country, of the ancient knowledge held in the land, and of the original healers who understood these plants long before anyone else arrived.'},tracks:['Didgeridoo — Drone vibration, healing the body','Songline chant — Country mapping, memory in sound','Clapstick rhythm — Community ceremony, ancient pulse']},
+  {flag:'🇳🇿',r:'Māori',g:'Oceania',genre:'Waiata · Karakia · Haka',word:'Wairua',wtr:'"Spirit" — the part of a person that connects to all living things, to ancestors, and to the sacred',ritual:'Māori healing (rongoā Māori) integrates wairua (spiritual wellbeing) and tinana (physical wellbeing) as completely inseparable. Karakia — prayer and chant — opens and closes all significant activities, including healing work, because it is understood that nothing significant should begin or end without acknowledging what lies beyond the visible. Waiata (song) carries emotion that cannot be expressed in ordinary speech. Haka is not aggression — it is the full embodied expression of life force, identity, and the refusal to be diminished.',tea:{n:'Kawakawa Tea',d:'The most sacred native plant of Aotearoa New Zealand — kawakawa leaves with holes chewed by caterpillars are considered the most medicinally potent, chosen by nature herself.',u:'Drunk for healing, digestion, pain relief, and as a conscious connection to the wisdom of the land and the knowledge of the tīpuna (ancestors) who have always known this plant.'},tracks:['Waiata — Healing song, sung for specific people','Karakia — Sacred prayer chant, opening and closing','Pūtōrino — Traditional flute of two voices, dual nature']},
 ];
 
-const crane = document.getElementById('crane');
-const wait = ms => new Promise(r=>setTimeout(r,ms));
-const ease = t => t<0.5 ? 2*t*t : -1+(4-2*t)*t;
+let stamped=new Set(),openIdx=-1,cReg='all';
+try{const s=localStorage.getItem('narae_stamps_v3');if(s)JSON.parse(s).forEach(i=>stamped.add(i))}catch(e){}
+function saveStamps(){try{localStorage.setItem('narae_stamps_v3',JSON.stringify([...stamped]))}catch(e){}}
 
-function activateDot(idx) {
-  STOPS.forEach(s=>document.getElementById(s.dotId).classList.remove('active'));
-  if(idx!==null) document.getElementById(STOPS[idx].dotId).classList.add('active');
+function setReg(b,r){document.querySelectorAll('.rpill').forEach(x=>x.classList.remove('on'));b.classList.add('on');cReg=r;openIdx=-1;rendPass()}
+
+function rendStamps(){
+  const g=document.getElementById('stampGal');g.innerHTML='';
+  CULTURES.forEach((c,i)=>{
+    const d=document.createElement('div');
+    d.className='stamp '+(stamped.has(i)?'on':'off');
+    d.innerHTML=stamped.has(i)?`<span style="font-size:12px">${c.flag}</span>`:'<span style="font-size:7px;color:rgba(201,169,110,0.2)">·</span>';
+    g.appendChild(d);
+  });
 }
 
-function setCrane(angleDeg, scale, opacity) {
-  const x = CX + Math.cos(toRad(angleDeg))*CRANE_R;
-  const y = CY + Math.sin(toRad(angleDeg))*CRANE_R;
-  const face = angleDeg + 90;
-  crane.style.transform = `translate(${x-41}px,${y-41}px) rotate(${face}deg) scale(${scale})`;
-  crane.style.opacity = opacity;
+function rendPass(){
+  rendStamps();
+  const filtered=cReg==='all'?CULTURES:CULTURES.filter(c=>c.g===cReg);
+  const g=document.getElementById('cultList');g.innerHTML='';
+  filtered.forEach(c=>{
+    const i=CULTURES.indexOf(c);
+    const isOpen=openIdx===i,isSt=stamped.has(i);
+    const el=document.createElement('div');
+    el.className='cult-card'+(isOpen?' open':'')+(isSt?' stamped':'');
+    el.innerHTML=`
+      <div class="cult-head" onclick="togC(${i})">
+        <div class="c-flag">${c.flag}</div>
+        <div class="c-info"><div class="c-region">${c.r}</div><div class="c-genre">${c.genre}</div></div>
+        <div class="c-dot"></div><div class="c-arr">›</div>
+      </div>
+      <div class="cult-body"><div class="c-inner">
+        <div class="c-word">${c.word}</div>
+        <div class="c-wtr">${c.wtr}</div>
+        <div class="c-sec"><div class="c-sec-lbl">Healing ritual</div><div class="c-txt">${c.ritual}</div></div>
+        <div class="c-sec"><div class="c-sec-lbl">Sacred tea</div><div class="tea-blk"><div class="tea-name">${c.tea.n}</div><div class="tea-desc">${c.tea.d}</div><div class="tea-use">${c.tea.u}</div></div></div>
+        <div class="c-sec"><div class="c-sec-lbl">Folk music to explore</div><div class="c-tracks">${c.tracks.map(t=>`<div class="c-track"><span>${t}</span><span class="c-track-p" onclick="playYT('${t.split('—')[0].trim()+' folk music traditional'}','${t}')">Play ›</span></div>`).join('')}</div></div>
+        <button class="stamp-btn ${isSt?'got':''}" onclick="togSt(${i},event)">${isSt?'✦ Stamp collected — tap to remove':'Mark as explored · Collect your stamp'}</button>
+      </div></div>`;
+    g.appendChild(el);
+  });
+  const pct=Math.round(stamped.size/CULTURES.length*100);
+  document.getElementById('cpFill').style.width=pct+'%';
+  document.getElementById('cpStat').textContent=stamped.size+' of '+CULTURES.length+' cultures explored';
+  document.getElementById('cpBadge').textContent=stamped.size>0?'✦ '+stamped.size+' stamp'+(stamped.size>1?'s':'')+' collected':'';
+}
+function togC(i){
+  openIdx=openIdx===i?-1:i;rendPass();
+  if(openIdx>=0){setTimeout(()=>{const cards=[...document.querySelectorAll('.cult-card')];const f=cards.find(c=>c.querySelector(`[onclick="togC(${i})"]`));if(f)f.scrollIntoView({behavior:'smooth',block:'nearest'})},120)}
+}
+function togSt(i,e){e.stopPropagation();stamped.has(i)?stamped.delete(i):stamped.add(i);saveStamps();rendPass()}
+
+/* ══ CRANE TABS ══ */
+function setCTab(b,t){
+  document.querySelectorAll('.ctab').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');
+  document.querySelectorAll('.crane-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('cp-'+t).classList.add('on');
 }
 
-async function arc(fromAngle, toAngle, ms) {
-  const STEPS=120, dt=ms/STEPS;
-  let delta = ((toAngle - fromAngle) % 360 + 360) % 360;
-  if(delta===0) delta=360;
-  for(let i=1;i<=STEPS;i++){
-    setCrane(fromAngle + delta*ease(i/STEPS), 0.46, 1);
-    await wait(dt);
-  }
-}
+/* ══ BREATHE ══ */
+let bRun=false,bTimer=null,bType='446';
+const BP={'446':[{c:'in',l:'Breathe in …',d:4000},{c:'hold',l:'Hold gently …',d:4000},{c:'out',l:'Breathe out slowly …',d:6000}],'box':[{c:'in',l:'Breathe in …',d:4000},{c:'hold',l:'Hold …',d:4000},{c:'out',l:'Breathe out …',d:4000},{c:'hold',l:'Hold …',d:4000}],'478':[{c:'in',l:'Breathe in …',d:4000},{c:'hold',l:'Hold …',d:7000},{c:'out',l:'Breathe out …',d:8000}]};
+function selB(b,t){document.querySelectorAll('.btbtn').forEach(x=>x.classList.remove('on'));b.classList.add('on');bType=t;stopB()}
+function stopB(){bRun=false;if(bTimer)clearTimeout(bTimer);document.getElementById('borb').className='orb';document.getElementById('binstr').textContent='Tap to begin';document.getElementById('bstartBtn').textContent='Begin session'}
+function runB(steps,i){if(!bRun)return;const s=steps[i%steps.length];const o=document.getElementById('borb');o.className='orb';void o.offsetWidth;o.className='orb '+s.c;document.getElementById('binstr').textContent=s.l;bTimer=setTimeout(()=>runB(steps,i+1),s.d)}
+function togB(){if(bRun){stopB();return}bRun=true;document.getElementById('bstartBtn').textContent='Stop session';runB(BP[bType],0)}
 
-async function dissolve(fromAngle, ms) {
-  const STEPS=50, dt=ms/STEPS;
-  for(let i=0;i<=STEPS;i++){
-    const t=ease(i/STEPS);
-    const r=CRANE_R*(1-t);
-    const x=CX+Math.cos(toRad(fromAngle))*r;
-    const y=CY+Math.sin(toRad(fromAngle))*r;
-    crane.style.transform=`translate(${x-41}px,${y-41}px) rotate(${fromAngle+90}deg) scale(${0.46*(1-t*0.7)})`;
-    crane.style.opacity=1-t;
-    await wait(dt);
-  }
-}
-
-async function reborn(ms) {
-  const STEPS=45, dt=ms/STEPS;
-  const a=STOPS[0].angle;
-  for(let i=0;i<=STEPS;i++){
-    const t=ease(i/STEPS);
-    const r=CRANE_R*t;
-    const x=CX+Math.cos(toRad(a))*r;
-    const y=CY+Math.sin(toRad(a))*r;
-    crane.style.transform=`translate(${x-41}px,${y-41}px) rotate(${a+90}deg) scale(${t*0.46})`;
-    crane.style.opacity=t;
-    await wait(dt);
-  }
-}
-
-async function cycle() {
-  activateDot(0);
-  await reborn(800);
-  await wait(1000);
-
-  activateDot(null);
-  await arc(STOPS[0].angle, STOPS[1].angle, 4200);
-  activateDot(1);
-  await wait(1000);
-
-  activateDot(null);
-  await arc(STOPS[1].angle, STOPS[2].angle, 4200);
-
-  const walkDot = document.getElementById(STOPS[2].dotId);
-  activateDot(2);
-  await wait(2800);
-  walkDot.classList.remove('active');
-  await wait(120);
-
-  activateDot(null);
-  await arc(STOPS[2].angle, STOPS[0].angle+360, 4200);
-  activateDot(0);
-  await wait(800);
-  activateDot(null);
-
-  await dissolve(STOPS[0].angle, 1000);
-  await wait(500);
-  await cycle();
-}
-
-window.addEventListener('load', ()=>setTimeout(cycle,300));
-  </script>
-
-  <script>
-    (function() {
-      function fitDiagram() {
-        var wrap = document.querySelector('.diagram-embed');
-        var scale = document.querySelector('.diagram-scale');
-        if (!wrap || !scale) return;
-        var available = wrap.offsetWidth;
-        var natural = 650;
-        if (available > 0 && available < natural) {
-          var ratio = available / natural;
-          var negMargin = Math.round(480 * (1 - ratio));
-          // Center: shift right by half the difference between natural and scaled width
-          var offset = Math.round((natural - natural * ratio) / 2);
-          scale.style.transform = 'scale(' + ratio + ')';
-          scale.style.transformOrigin = 'top center';
-          scale.style.marginLeft = 'auto';
-          scale.style.marginRight = 'auto';
-          scale.style.marginBottom = '-' + negMargin + 'px';
-          scale.style.marginTop = '10px';
-        } else {
-          scale.style.transform = '';
-          scale.style.transformOrigin = '';
-          scale.style.marginLeft = '';
-          scale.style.marginRight = '';
-          scale.style.marginBottom = '';
-        }
-      }
-      window.addEventListener('load', fitDiagram);
-      window.addEventListener('resize', fitDiagram);
-    })();
-  </script>
-<script src="footer.js"></script> 
+/* init */
+rendPass();updAff();
+</script>
 </body>
 </html>
