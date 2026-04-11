@@ -195,13 +195,14 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      flex-direction: row-reverse;
-      justify-content: flex-start;
+      flex-direction: row;
+      justify-content: flex-end;
     }
 
     .role-companion .role-name {
-      margin-left: auto;
+      margin-left: 0;
       text-align: right;
+      order: 2;
     }
 
     .role-companion .role-detail {
@@ -209,8 +210,9 @@
     }
 
     .role-companion .role-arrow {
-      margin-left: auto;
-      margin-right: 4px;
+      margin-left: 0;
+      margin-right: 0;
+      order: 1;
     }
 
     .guiding-quote {
@@ -248,9 +250,9 @@
       align-items: center;
       justify-content: center;
       overflow: visible;
-      min-height: 240px;
-      margin-top: 18px;
-      margin-bottom: 6px;
+      min-height: 140px;
+      margin-top: 12px;
+      margin-bottom: 0;
     }
     @keyframes craneDrift {
       0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    }
@@ -277,8 +279,8 @@
     }
     .crane-img {
       display: block;
-      width: 300px;
-      max-width: 95%;
+      width: 200px;
+      max-width: 85%;
       height: auto;
       opacity: 1;
       user-select: none;
@@ -317,23 +319,27 @@
     .giving-body { font-size: 0.93rem; line-height: 1.72; color: var(--muted); margin: 0; }
 
     /* ── Donation button ── */
-    .donate-btn-wrap { margin-top: 18px; display: flex; justify-content: center; }
+    .donate-btn-wrap { margin-top: 20px; display: flex; justify-content: center; }
+    @keyframes donateGlow {
+      0%, 100% { box-shadow: 0 6px 24px rgba(185,141,67,0.45), 0 2px 6px rgba(185,141,67,0.3); }
+      50%       { box-shadow: 0 8px 36px rgba(185,141,67,0.7), 0 4px 14px rgba(185,141,67,0.45); }
+    }
     .donate-btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 32px;
+      padding: 15px 36px;
       background: linear-gradient(135deg, #b98d43 0%, #c9a356 50%, #b98d43 100%);
       color: #fff;
       border-radius: 999px;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 6px 24px rgba(185,141,67,0.45), 0 2px 6px rgba(185,141,67,0.3);
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      animation: donateGlow 2.8s ease-in-out infinite;
+      transition: transform 0.22s ease, background 0.22s ease;
       position: relative;
       overflow: hidden;
     }
@@ -347,8 +353,9 @@
     }
     .donate-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 36px rgba(185,141,67,0.55), 0 4px 10px rgba(185,141,67,0.3);
       background: linear-gradient(135deg, #c9a356 0%, #d9b468 50%, #c9a356 100%);
+      animation: none;
+      box-shadow: 0 14px 40px rgba(185,141,67,0.6), 0 4px 10px rgba(185,141,67,0.35);
     }
     .donate-btn svg { flex-shrink: 0; }
 
@@ -675,9 +682,9 @@
                   <span class="giving-circle giving-circle-2"></span>
                   <span class="giving-circle giving-circle-3"></span>
                 </div>
-                <p class="giving-label">Financial Generosity</p>
+                <p class="giving-label">Give to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></p>
               </div>
-              <p class="giving-body"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a federally recognized 501(c)(3) nonprofit organization. Your gifts are tax-deductible as allowed by law.</p>
+              <p class="giving-body" style="margin-bottom:4px;"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a federally recognized 501(c)(3) nonprofit organization. Your gifts are tax-deductible as allowed by law.</p>
               <!-- Donation button -->
               <div class="donate-btn-wrap">
                 <a href="https://www.zeffy.com/en-US/donation-form/support-narae" target="_blank" rel="noopener noreferrer" class="donate-btn">
