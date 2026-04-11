@@ -191,13 +191,12 @@
       box-shadow: 0 16px 34px rgba(185,141,67,0.12);
     }
 
-.role-companion summary {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-direction: row-reverse;
-    justify-content: flex-start;
-}
+    .role-companion summary {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
     }
 
     .role-companion .role-name {
@@ -210,9 +209,9 @@
     }
 
     .role-companion .role-arrow {
-  margin-left:auto;
-  margin-right:4px;
-}
+      margin-left: auto;
+      margin-right: 4px;
+    }
 
     .guiding-quote {
       margin: 10px 0 18px;
@@ -221,6 +220,27 @@
       line-height: 1.7;
       color: var(--text);
     }
+
+    /* ── Role inquiry button ── */
+    .role-inquiry-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .role-inquiry-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
+    .role-inquiry-btn-gold { background: var(--gold-deep); color: #fff; }
+    .role-inquiry-btn-pink { background: var(--pink); color: #fff; }
+    .role-inquiry-btn-teal { background: var(--teal); color: #fff; }
 
     /* ── Crane fill image ── */
     .logo-fill-wrap {
@@ -232,7 +252,6 @@
       margin-top: 18px;
       margin-bottom: 6px;
     }
-    /* Gliding figure-8 idle — feels like riding air currents */
     @keyframes craneDrift {
       0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    }
       12%  { transform: translateX(14px)  translateY(-18px)  rotate(1deg)    scale(1.04); }
@@ -244,14 +263,12 @@
       88%  { transform: translateX(-10px) translateY(-20px)  rotate(0.5deg)  scale(1.03); }
       100% { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    }
     }
-    /* Fly away — all the way off the page top-right */
     @keyframes craneFlyAway {
       0%   { transform: translateX(0px)   translateY(0px)    rotate(-1.5deg) scale(1);    opacity: 1;    }
       40%  { transform: translateX(180px) translateY(-200px) rotate(-5deg)   scale(0.65); opacity: 0.16; }
       70%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
       100% { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
     }
-    /* Return — glides back in from top-right */
     @keyframes craneFlyBack {
       0%   { transform: translateX(650px) translateY(-700px) rotate(-12deg)  scale(0.05); opacity: 0;    }
       30%  { transform: translateX(420px) translateY(-450px) rotate(-9deg)   scale(0.3);  opacity: 0.06; }
@@ -289,7 +306,7 @@
     .support-note { margin-top: 14px; font-size: 0.88rem; color: var(--muted); font-style: italic; line-height: 1.6; }
 
     /* ── Giving card ── */
-    .giving-card { background: var(--gold-pale); border: 1px solid rgba(185,141,67,0.22); border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+    .giving-card { background: linear-gradient(160deg, #fdf0d5 0%, #fdf9f0 55%, #fdf6e8 100%); border: 1.5px solid rgba(185,141,67,0.45); border-top: 3px solid var(--gold-deep); border-radius: 16px; padding: 22px 24px; margin-bottom: 18px; box-shadow: 0 8px 32px rgba(185,141,67,0.18), 0 2px 6px rgba(185,141,67,0.1); }
     .giving-label-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
     .giving-circles { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
     .giving-circle { width: 11px; height: 11px; border-radius: 50%; }
@@ -298,6 +315,42 @@
     .giving-circle-3 { background: var(--gold-deep); opacity: 0.25; }
     .giving-label { font-family: Arial, Helvetica, sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); margin: 0; }
     .giving-body { font-size: 0.93rem; line-height: 1.72; color: var(--muted); margin: 0; }
+
+    /* ── Donation button ── */
+    .donate-btn-wrap { margin-top: 18px; display: flex; justify-content: center; }
+    .donate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #b98d43 0%, #c9a356 50%, #b98d43 100%);
+      color: #fff;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(185,141,67,0.45), 0 2px 6px rgba(185,141,67,0.3);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .donate-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 60%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+    .donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(185,141,67,0.55), 0 4px 10px rgba(185,141,67,0.3);
+      background: linear-gradient(135deg, #c9a356 0%, #d9b468 50%, #c9a356 100%);
+    }
+    .donate-btn svg { flex-shrink: 0; }
 
     /* ── Quote card ── */
     .card-quote { display: flex; flex-direction: column; justify-content: center; text-align: center; margin-top: auto; }
@@ -320,6 +373,111 @@
     .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
     .footer-links a { color: var(--gold-deep); }
 
+    /* ── Modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(17,17,17,0.55);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+      width: 100%;
+      max-width: 540px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 40px 40px 36px;
+      position: relative;
+      animation: modalIn 0.28s cubic-bezier(0.22,1,0.36,1) both;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(18px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px; right: 20px;
+      background: none; border: none;
+      font-size: 1.4rem; cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .modal-close:hover { background: var(--soft); color: var(--text); }
+    .modal-kicker { display: block; font-family: Arial, Helvetica, sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 6px; }
+    .modal-kicker-gold { color: var(--gold-deep); }
+    .modal-kicker-pink { color: var(--pink); }
+    .modal-kicker-teal { color: var(--teal); }
+    .modal-title { font-size: 1.55rem; font-weight: 500; letter-spacing: -0.02em; color: var(--text); margin: 0 0 8px; line-height: 1.2; }
+    .modal-desc { font-size: 0.92rem; line-height: 1.72; color: var(--muted); margin: 0 0 26px; }
+    .form-field { margin-bottom: 18px; }
+    .form-label {
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 11px 15px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-family: Georgia, serif;
+      font-size: 0.96rem;
+      color: var(--text);
+      background: var(--soft);
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      outline: none;
+      appearance: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold-deep);
+      box-shadow: 0 0 0 3px rgba(185,141,67,0.12);
+      background: #fff;
+    }
+    .form-textarea { resize: vertical; min-height: 90px; }
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 999px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      color: #fff;
+    }
+    .form-submit:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.14); }
+    .form-submit-gold { background: var(--gold-deep); }
+    .form-submit-pink { background: var(--pink); }
+    .form-submit-teal { background: var(--teal); }
+    .form-note { margin-top: 14px; font-size: 0.82rem; color: var(--muted); font-style: italic; text-align: center; line-height: 1.5; }
+    .form-success { display: none; text-align: center; padding: 20px 0 8px; }
+    .form-success-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .form-success-title { font-size: 1.25rem; font-weight: 500; color: var(--text); margin-bottom: 8px; letter-spacing: -0.01em; }
+    .form-success-body { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
     /* ── Responsive ── */
     @media (max-width: 980px) {
       .main-grid, .panel-grid { grid-template-columns: 1fr; }
@@ -336,8 +494,8 @@
     @media (max-width: 560px) {
       .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
       h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
+      .modal-box { padding: 30px 24px 28px; }
     }
-/* ── Mobile improvements ── */
     @media (max-width: 480px) {
       .nav { font-size: 0.82rem; gap: 10px 12px; }
       .logo small { font-size: 0.76rem; }
@@ -420,7 +578,11 @@
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">An immigrant or culturally diverse woman navigating breast or gynecologic cancer, often carrying not only a diagnosis, but also the weight of language, migration, family roles, and the experience of feeling unseen. She comes to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to be received fully, as she is. She is at the heart of why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists.</div>
+                <div class="role-detail">An immigrant or culturally diverse woman navigating breast or gynecologic cancer, often carrying not only a diagnosis, but also the weight of language, migration, family roles, and the experience of feeling unseen. She comes to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to be received fully, as she is. She is at the heart of why <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> exists.
+                  <div style="text-align:right;">
+                    <button class="role-inquiry-btn role-inquiry-btn-gold" data-modal="fellow">Connect as a Fellow →</button>
+                  </div>
+                </div>
               </details>
 
               <details class="role-item role-companion">
@@ -428,7 +590,11 @@
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Companion</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">A <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> who, when she feels ready, may choose to walk beside another woman beginning a similar journey. Companion is not a separate role, but something a <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> may grow into in her own time. In walking beside another, her own healing may deepen.</div>
+                <div class="role-detail">A <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> who, when she feels ready, may choose to walk beside another woman beginning a similar journey. Companion is not a separate role, but something a <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> <strong style="color:inherit;">Fellow</strong> may grow into in her own time. In walking beside another, her own healing may deepen.
+                  <div>
+                    <button class="role-inquiry-btn role-inquiry-btn-pink" data-modal="companion">Express Interest →</button>
+                  </div>
+                </div>
               </details>
 
               <details class="role-item role-emphasis">
@@ -436,7 +602,11 @@
                   <span class="role-name"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Steward</span>
                   <span class="role-arrow">→</span>
                 </summary>
-                <div class="role-detail">A person or organization who helps sustain <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> through service, generosity, partnership, advocacy, or support behind the scenes. Stewards may include other cancer survivors, including those outside the communities <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is specifically centered on, as well as friends, professionals, volunteers, and partners who believe this work matters and want to help it continue with care.</div>
+                <div class="role-detail">A person or organization who helps sustain <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> through service, generosity, partnership, advocacy, or support behind the scenes. Stewards may include other cancer survivors, including those outside the communities <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is specifically centered on, as well as friends, professionals, volunteers, and partners who believe this work matters and want to help it continue with care.
+                  <div style="text-align:right;">
+                    <button class="role-inquiry-btn role-inquiry-btn-teal" data-modal="steward">Become a Steward →</button>
+                  </div>
+                </div>
               </details>
 
             </div>
@@ -455,7 +625,7 @@
             <p class="kicker">Support &amp; Giving</p>
             <h2>How support can take shape.</h2>
 
-            <p class="guiding-quote">Sometimes a woman’s own healing deepens as she walks beside another.</p>
+            <p class="guiding-quote">Sometimes a woman's own healing deepens as she walks beside another.</p>
 
             <!-- Support types — icon list -->
             <div class="support-block">
@@ -507,7 +677,14 @@
                 </div>
                 <p class="giving-label">Financial Generosity</p>
               </div>
-              <p class="giving-body"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a federally recognized 501(c)(3) nonprofit organization. Donations are tax-deductible as allowed by law. Giving opportunities will be introduced as the foundation grows — in a way that can steward support responsibly.</p>
+              <p class="giving-body"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is a federally recognized 501(c)(3) nonprofit organization. Your gifts are tax-deductible as allowed by law.</p>
+              <!-- Donation button -->
+              <div class="donate-btn-wrap">
+                <a href="https://www.zeffy.com/en-US/donation-form/support-narae" target="_blank" rel="noopener noreferrer" class="donate-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  Make a Gift
+                </a>
+              </div>
             </div>
 
           </section>
@@ -534,7 +711,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>© 2026 naræ International Foundation. All rights reserved.<br>A Maryland nonprofit organization. 501(c)(3) status pending.</div>
+      <div>© 2026 naræ International Foundation. All rights reserved.<br>Maryland-based nonprofit · Federally recognized 501(c)(3) · EIN 41-4574118</div>
       <div class="footer-links">
         <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
         <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
@@ -545,55 +722,182 @@
     </div>
   </footer>
 
+  <!-- ── MODALS ── -->
+
+  <!-- Fellow Modal -->
+  <div class="modal-overlay" id="modal-fellow" role="dialog" aria-modal="true" aria-labelledby="fellow-title">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('fellow')" aria-label="Close">×</button>
+      <div id="fellow-form-wrap">
+        <span class="modal-kicker modal-kicker-gold"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellow</span>
+        <h2 class="modal-title" id="fellow-title">You are welcome here.</h2>
+        <p class="modal-desc">This is a space to be received, not evaluated. Share what feels right — we will follow your lead.</p>
+        <div class="form-field">
+          <label class="form-label" for="fellow-name">Your name</label>
+          <input class="form-input" type="text" id="fellow-name" placeholder="How you'd like to be called" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-email">Email address</label>
+          <input class="form-input" type="email" id="fellow-email" placeholder="So we can reach you gently" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-phone">Phone number <span style="font-weight:400; text-transform:none; letter-spacing:0; font-family:Georgia,serif; font-size:0.82rem; color:var(--muted);">(optional)</span></label>
+          <input class="form-input" type="tel" id="fellow-phone" placeholder="In case you'd prefer a call" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-background">Cultural or ethnic background</label>
+          <input class="form-input" type="text" id="fellow-background" placeholder="e.g. Korean, Filipina, Nigerian, Latina…" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-cancer-type">Type of cancer</label>
+          <select class="form-select" id="fellow-cancer-type">
+            <option value="" disabled selected>Please select</option>
+            <optgroup label="Breast Cancer">
+              <option>Breast cancer</option>
+            </optgroup>
+            <optgroup label="Gynecologic Cancers">
+              <option>Ovarian cancer</option>
+              <option>Uterine / Endometrial cancer</option>
+              <option>Cervical cancer</option>
+              <option>Vulvar cancer</option>
+              <option>Vaginal cancer</option>
+              <option>Other gynecologic cancer</option>
+            </optgroup>
+            <option>Both breast and gynecologic cancer</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-stage">Where are you in your journey?</label>
+          <select class="form-select" id="fellow-stage">
+            <option value="" disabled selected>Please select</option>
+            <option>Newly diagnosed</option>
+            <option>Actively in treatment</option>
+            <option>Recently completed treatment</option>
+            <option>In remission / post-treatment</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="fellow-share">Tell us a little about your journey</label>
+          <textarea class="form-textarea" id="fellow-share" placeholder="Whatever you'd like us to know. There is no right way to begin."></textarea>
+        </div>
+        <button class="form-submit form-submit-gold" onclick="submitForm('fellow')">Send my note →</button>
+        <p class="form-note">Your words will be received with care. We will be in touch at a pace that feels right.</p>
+      </div>
+      <div class="form-success" id="fellow-success">
+        <div class="form-success-icon">🕊</div>
+        <div class="form-success-title">Thank you for reaching out.</div>
+        <p class="form-success-body">We received your note and will be in touch with care. You are not alone in this.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Companion Modal -->
+  <div class="modal-overlay" id="modal-companion" role="dialog" aria-modal="true" aria-labelledby="companion-title">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('companion')" aria-label="Close">×</button>
+      <div id="companion-form-wrap">
+        <span class="modal-kicker modal-kicker-pink"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Companion</span>
+        <h2 class="modal-title" id="companion-title">Walk beside another.</h2>
+        <p class="modal-desc">This form is for <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Fellows only. Companion is not a separate role — it is something a Fellow may grow into in her own time, when she feels ready to walk beside another woman beginning a similar journey.</p>
+        <div class="form-field">
+          <label class="form-label" for="companion-name">Your name</label>
+          <input class="form-input" type="text" id="companion-name" placeholder="How you'd like to be called" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-email">Email address</label>
+          <input class="form-input" type="email" id="companion-email" placeholder="We'll reach out thoughtfully" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-phone">Phone number <span style="font-weight:400; text-transform:none; letter-spacing:0; font-family:Georgia,serif; font-size:0.82rem; color:var(--muted);">(optional)</span></label>
+          <input class="form-input" type="tel" id="companion-phone" placeholder="In case you'd prefer a call" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-stage">Where are you in your own journey?</label>
+          <select class="form-select" id="companion-stage">
+            <option value="" disabled selected>Please select</option>
+            <option>Newly diagnosed</option>
+            <option>Actively in treatment</option>
+            <option>Recently completed treatment</option>
+            <option>In remission / post-treatment</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-journey">A little about your journey</label>
+          <textarea class="form-textarea" id="companion-journey" placeholder="Whatever feels right to share…"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-support">How you imagine supporting a Fellow</label>
+          <textarea class="form-textarea" id="companion-support" placeholder="e.g. listening, accompanying to appointments, sharing your experience, being a steady presence…"></textarea>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="companion-languages">Languages you speak</label>
+          <input class="form-input" type="text" id="companion-languages" placeholder="e.g. Korean, English, Tagalog…" />
+        </div>
+        <button class="form-submit form-submit-pink" onclick="submitForm('companion')">Express my interest →</button>
+        <p class="form-note">There is no obligation in reaching out. We will respond with care.</p>
+      </div>
+      <div class="form-success" id="companion-success">
+        <div class="form-success-icon">🤍</div>
+        <div class="form-success-title">Your interest is received.</div>
+        <p class="form-success-body">Thank you for considering this. We will be in touch when the time feels right.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Steward Modal -->
+  <div class="modal-overlay" id="modal-steward" role="dialog" aria-modal="true" aria-labelledby="steward-title">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal('steward')" aria-label="Close">×</button>
+      <div id="steward-form-wrap">
+        <span class="modal-kicker modal-kicker-teal"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Steward</span>
+        <h2 class="modal-title" id="steward-title">Help sustain this work.</h2>
+        <p class="modal-desc">Stewards bring their time, skills, networks, and generosity to carry <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> forward. Tell us a little about yourself and how you'd like to be involved.</p>
+        <div class="form-field">
+          <label class="form-label" for="steward-name">Your name</label>
+          <input class="form-input" type="text" id="steward-name" placeholder="Full name or organization" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="steward-email">Email address</label>
+          <input class="form-input" type="email" id="steward-email" placeholder="Best way to reach you" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="steward-phone">Phone number <span style="font-weight:400; text-transform:none; letter-spacing:0; font-family:Georgia,serif; font-size:0.82rem; color:var(--muted);">(optional)</span></label>
+          <input class="form-input" type="tel" id="steward-phone" placeholder="In case you'd prefer a call" />
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="steward-type">Area of expertise or support</label>
+          <select class="form-select" id="steward-type">
+            <option value="" disabled selected>Choose what resonates most</option>
+            <option>Translation / Interpretation</option>
+            <option>ESL / English language support</option>
+            <option>Music / Arts / Creative facilitation</option>
+            <option>Writing / Storytelling</option>
+            <option>Teaching / Education</option>
+            <option>Counseling / Emotional support</option>
+            <option>Medical / Clinical knowledge</option>
+            <option>Legal / Advocacy</option>
+            <option>Organizational / Administrative</option>
+            <option>Financial / Fundraising</option>
+            <option>Partnership or Collaboration</option>
+            <option>Other — I'll share more below</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="steward-more">Tell us about yourself and your connection to this mission</label>
+          <textarea class="form-textarea" id="steward-more" placeholder="Your background, what draws you to this work, how you'd like to be involved…"></textarea>
+        </div>
+        <button class="form-submit form-submit-teal" onclick="submitForm('steward')">Begin the conversation →</button>
+        <p class="form-note">All forms of stewardship are valued. We look forward to learning how you'd like to be part of this.</p>
+      </div>
+      <div class="form-success" id="steward-success">
+        <div class="form-success-icon">✦</div>
+        <div class="form-success-title">Thank you for your generosity.</div>
+        <p class="form-success-body">We are glad you are here. We will reach out soon to continue the conversation.</p>
+      </div>
+    </div>
+  </div>
+
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script>
-    (function() {
-      var wrap  = document.getElementById('craneFill');
-      var crane = wrap ? wrap.querySelector('.crane-img') : null;
-      if (!crane) return;
-
-      var roles  = document.querySelectorAll('.role-item');
-      var isAway = false;
-      var timer  = null;
-
-      function anyOpen() {
-        var open = false;
-        roles.forEach(function(r) { if (r.open) open = true; });
-        return open;
-      }
-
-      function flyAway() {
-        if (isAway) return;
-        isAway = true;
-        if (timer) clearTimeout(timer);
-        crane.style.animation = 'none';
-        void crane.offsetWidth;
-        crane.style.animation = 'craneFlyAway 2.6s cubic-bezier(0.25, 0, 0.5, 1) forwards';
-        timer = setTimeout(function() {
-          wrap.style.visibility = 'hidden';
-        }, 2500);
-      }
-
-      function flyBack() {
-        if (!isAway) return;
-        isAway = false;
-        if (timer) clearTimeout(timer);
-        wrap.style.visibility = 'visible';
-        crane.style.animation = 'none';
-        void crane.offsetWidth;
-        crane.style.animation = 'craneFlyBack 3s cubic-bezier(0.1, 0, 0.3, 1) forwards';
-        timer = setTimeout(function() {
-          crane.style.animation = 'craneDrift 8s ease-in-out infinite';
-        }, 3000);
-      }
-
-      roles.forEach(function(r) {
-        r.addEventListener('toggle', function() {
-          anyOpen() ? flyAway() : flyBack();
-        });
-      });
-    })();
-  </script>
   <script>
     (function() {
       var wrap  = document.getElementById('craneFill');
@@ -613,10 +917,8 @@
         if (isAway) return;
         isAway = true;
         crane.classList.remove('flying-back');
-        // Force reflow so animation restarts cleanly
         void crane.offsetWidth;
         crane.classList.add('flying-away');
-        // After fly-away completes, hide the wrap
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
           wrap.style.visibility = 'hidden';
@@ -630,7 +932,6 @@
         crane.classList.remove('flying-away');
         void crane.offsetWidth;
         crane.classList.add('flying-back');
-        // After fly-back, restore idle drift
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
           crane.classList.remove('flying-back');
@@ -645,6 +946,133 @@
       });
     })();
   </script>
-<script src="footer.js"></script> 
+
+  <!-- Modal logic -->
+  <script>
+    // Prevent inquiry buttons from toggling the parent <details>
+    document.querySelectorAll('.role-inquiry-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        var type = btn.getAttribute('data-modal');
+        if (type) openModal(type);
+      });
+    });
+
+    function openModal(type) {
+      var overlay = document.getElementById('modal-' + type);
+      if (overlay) {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(type) {
+      var overlay = document.getElementById('modal-' + type);
+      if (overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close on backdrop click
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(function(overlay) {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+
+    function submitForm(type) {
+      // Basic validation
+      var emailField = document.getElementById(type + '-email');
+      var nameField = document.getElementById(type + '-name');
+      if (!nameField.value.trim() || !emailField.value.trim()) {
+        emailField.style.borderColor = 'var(--pink)';
+        nameField.style.borderColor = 'var(--pink)';
+        setTimeout(function() {
+          emailField.style.borderColor = '';
+          nameField.style.borderColor = '';
+        }, 1800);
+        return;
+      }
+
+      // Construct mailto
+      var subjects = {
+        fellow: 'naræ Fellow Inquiry',
+        companion: 'naræ Companion Interest',
+        steward: 'naræ Steward Inquiry'
+      };
+
+      var name = nameField.value.trim();
+      var email = emailField.value.trim();
+      var subject = encodeURIComponent(subjects[type]);
+      var body = '';
+
+      if (type === 'fellow') {
+        var phone = document.getElementById('fellow-phone').value.trim();
+        var background = document.getElementById('fellow-background').value.trim();
+        var cancerType = document.getElementById('fellow-cancer-type').value;
+        var stage = document.getElementById('fellow-stage').value;
+        var share = document.getElementById('fellow-share').value.trim();
+        body = encodeURIComponent(
+          'Name: ' + name +
+          '\nEmail: ' + email +
+          (phone ? '\nPhone: ' + phone : '') +
+          '\nCultural / ethnic background: ' + background +
+          '\nType of cancer: ' + cancerType +
+          '\nWhere in journey: ' + stage +
+          '\n\n' + share
+        );
+      } else if (type === 'companion') {
+        var phone = document.getElementById('companion-phone').value.trim();
+        var stage = document.getElementById('companion-stage').value;
+        var journey = document.getElementById('companion-journey').value.trim();
+        var support = document.getElementById('companion-support').value.trim();
+        var langs = document.getElementById('companion-languages').value.trim();
+        body = encodeURIComponent(
+          'Name: ' + name +
+          '\nEmail: ' + email +
+          (phone ? '\nPhone: ' + phone : '') +
+          '\nWhere in journey: ' + stage +
+          '\nLanguages: ' + langs +
+          '\n\nAbout my journey:\n' + journey +
+          '\n\nHow I imagine supporting a Fellow:\n' + support
+        );
+      } else if (type === 'steward') {
+        var phone = document.getElementById('steward-phone').value.trim();
+        var supportType = document.getElementById('steward-type').value;
+        var more = document.getElementById('steward-more').value.trim();
+        body = encodeURIComponent(
+          'Name: ' + name +
+          '\nEmail: ' + email +
+          (phone ? '\nPhone: ' + phone : '') +
+          '\nArea of expertise / support: ' + supportType +
+          '\n\n' + more
+        );
+      }
+
+      // Open mailto
+      window.location.href = 'mailto:hello@naraefoundation.org?subject=' + subject + '&body=' + body;
+
+      // Show success
+      document.getElementById(type + '-form-wrap').style.display = 'none';
+      document.getElementById(type + '-success').style.display = 'block';
+    }
+  </script>
+
+  <script src="footer.js"></script>
 </body>
 </html>
