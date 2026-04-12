@@ -366,8 +366,6 @@
             <div class="logo-fill-wrap" id="craneFill">
               <img class="crane-img" src="narae-logo.png" alt="" aria-hidden="true" />
             </div>
-
-            <a href="/cdn-cgi/l/email-protection#9bf3fef7f7f4dbf5fae9fafefdf4eef5fffaeff2f4f5b5f4e9fc" class="section-link">Get in touch →</a>
           </section>
         </div>
 
@@ -493,6 +491,7 @@
       function flyAway() {
         if (isAway) return;
         isAway = true;
+        crane.style.animation = '';
         crane.classList.remove('flying-back');
         void crane.offsetWidth;
         crane.classList.add('flying-away');
@@ -512,4 +511,13 @@
         crane.addEventListener('animationend', function onEnd() {
           crane.removeEventListener('animationend', onEnd);
           crane.classList.remove('flying-back');
-          crane.
+          crane.style.animation = 'craneDrift 8s ease-in-out infinite';
+        });
+      }
+
+      roles.forEach(function(r) {
+        r.addEventListener('toggle', function() {
+          if (anyOpen()) { flyAway(); } else { flyBack(); }
+        });
+      });
+    })();
