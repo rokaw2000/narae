@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leadership | naræ International Foundation</title>
-  <meta name="description" content="The Board of Directors and Advisory Board of naræ International Foundation." />
+  <meta name="description" content="The Board of Directors and Advisory Council of naræ International Foundation." />
 
   <style>
     @import url("https://assets.mlcdn.com/fonts.css?version=1773740");
@@ -64,6 +64,7 @@
     .content-wrap { padding: 48px 0 60px; }
     .section-label { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
     .section-label h2 { margin-top: 4px; }
+    .section-desc { font-size: 0.93rem; line-height: 1.7; color: var(--muted); margin-top: 6px; max-width: 680px; font-style: italic; }
     .people-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 20px; margin-bottom: 44px; }
     .person-card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); border-radius: 18px; box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; }
     .person-card.board-founder { border-left: 2px solid rgba(142,27,27,0.35); }
@@ -76,7 +77,7 @@
     .person-role { font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; color: var(--gold-deep); text-transform: uppercase; margin-bottom: 10px; line-height: 1.4; }
     .person-role.teal { color: var(--teal); }
     .person-desc { font-size: 0.91rem; line-height: 1.68; color: var(--muted); }
-    .lang-tag { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; color: var(--muted); }
+    .lang-tag { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
     .lang-tag svg { flex-shrink: 0; }
     .bio-toggle { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); cursor: pointer; background: none; border: none; padding: 0; }
     .bio-toggle.teal { color: var(--teal); }
@@ -85,6 +86,7 @@
     .bio-body { overflow: hidden; max-height: 0; transition: max-height 0.3s ease, opacity 0.3s ease; opacity: 0; }
     .bio-body.open { max-height: 800px; opacity: 1; }
     .bio-body p { margin-top: 10px; font-size: 0.91rem; line-height: 1.68; color: var(--muted); }
+    .pending-badge { display: inline-block; margin-top: 6px; padding: 2px 10px; border-radius: 999px; font-family: Arial, Helvetica, sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(185,141,67,0.1); color: var(--gold-deep); border: 1px solid rgba(185,141,67,0.25); }
     .footnote { font-family: Arial, Helvetica, sans-serif; font-size: 0.86rem; line-height: 1.72; color: var(--muted); margin-bottom: 0; }
     .site-footer { padding: 20px 0; border-top: 1px solid var(--line); background: rgba(255,255,255,0.92); }
     .footer-inner { width: min(100% - 48px, var(--max)); margin: 0 auto; min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; font-family: Arial, Helvetica, sans-serif; font-size: 0.84rem; font-weight: 700; color: var(--muted); line-height: 1.7; }
@@ -102,17 +104,10 @@
       .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
       h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
-    /* Hide hero crane on mobile — it pushes off screen */
     @media (max-width: 760px) {
-      .page-hero .container > div:last-child {
-        display: none;
-      }
-      .page-hero .container {
-        flex-direction: column;
-      }
+      .page-hero .container > div:last-child { display: none; }
+      .page-hero .container { flex-direction: column; }
     }
-
-    /* ── Mobile improvements — desktop untouched ── */
     @media (max-width: 480px) {
       .nav { font-size: 0.82rem; gap: 10px 12px; }
       .logo small { font-size: 0.76rem; }
@@ -124,9 +119,6 @@
     @media (max-width: 760px) {
       .btn-row { flex-direction: column; }
       .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    }
-
-    @media (max-width: 760px) {
       .bio-toggle { min-height: 36px; padding: 4px 0; }
       .person-card { padding: 20px; }
     }
@@ -158,7 +150,7 @@
         <div>
           <p class="kicker">Leadership &amp; Governance</p>
           <h1>Leadership</h1>
-          <p class="lead" style="margin-top:16px; max-width:580px;">The leadership of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation reflects a shared dedication to culturally grounded care, personal understanding, and service — guided by a Board of Directors and an Advisory Board whose expertise, lived experience, and genuine commitment help shape this mission.</p>
+          <p class="lead" style="margin-top:16px; max-width:580px;">The leadership of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> International Foundation is shaped by people who bring more than credentials — they bring conviction. Together, they help carry this mission forward with care, integrity, and purpose.</p>
         </div>
         <div style="flex-shrink:0;">
           <img src="narae-logo.png" alt="naræ International Foundation" style="width:300px; max-width:100%; height:auto; display:block;" />
@@ -168,11 +160,10 @@
 
     <div class="container content-wrap">
 
-      <p style="margin-bottom:36px; max-width:720px; font-size:1rem; line-height:1.8; color:var(--muted); font-weight:700; text-align:center; margin-left:auto; margin-right:auto;">Our <span style="color:var(--text);">Board of Directors</span> provides governance, oversight, and strategic direction, while our <span style="color:var(--text);">Advisory Board</span> offers specialized guidance, lived insight, and community perspective.</p>
-
       <div class="section-label">
         <p class="kicker">Board of Directors</p>
         <h2>Governance and oversight</h2>
+        <p class="section-desc">The Board of Directors provides the governance, oversight, and strategic direction that allows <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to grow with integrity and serve women well.</p>
       </div>
 
       <div class="people-grid">
@@ -189,7 +180,7 @@
           </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card ">
           <div class="person-avatar avatar-warm">GT</div>
           <div class="person-name">Genene Tadesse</div>
           <div class="person-role">Treasurer · Board Member</div>
@@ -201,7 +192,7 @@
           </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card ">
           <div class="person-avatar avatar-warm">SD</div>
           <div class="person-name">Susan E. Dreyer</div>
           <div class="person-role">Secretary · Board Member</div>
@@ -212,7 +203,7 @@
           </div>
         </div>
 
-        <div class="person-card">
+        <div class="person-card ">
           <div class="person-avatar avatar-warm">DC</div>
           <div class="person-name">Daphney N. Cornelius</div>
           <div class="person-role">Board Member</div>
@@ -227,7 +218,8 @@
 
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Council</p>
-        <h2>Strategic guidance and community insight</h2>
+        <h2>Institutional Leadership &amp; Advocacy</h2>
+        <p class="section-desc">Law, governance, institutional expertise, and the networks that help <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> grow with integrity and reach those who need it most.</p>
       </div>
 
       <div class="people-grid">
@@ -244,14 +236,24 @@
         </div>
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">NK</div>
-          <div class="person-name">Na-young Kang</div>
+          <div class="person-avatar avatar-teal">EW</div>
+          <div class="person-name">Elizabeth Weglein</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Cultural artist, multi-cancer survivor, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s voice in Korea.</p>
-          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean</div>
+          <p class="person-desc">Healthcare CEO, industry leader, and legacy builder.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
-            <p>A breast and thyroid cancer survivor living in Korea, Na-young carries the healing arts — calligraphy, culinary tradition, and the deep cultural wisdom of her homeland — as both a practice and a way of being. Her understanding that beauty and resilience are inseparable gives <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> an authentic voice and presence on the Korean peninsula. A childhood friend of the foundation's founder, she once folded 1,000 cranes and gifted them to Jihwan — long before this foundation existed. That gesture already carried the spirit of everything <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> stands for.</p>
+            <p>As the Chief Executive Officer of Elizabeth Cooney Personnel Agency, she has spent decades building one of the region's most respected healthcare staffing and workforce development organizations. Recognized with the Health Care Heroes Award and appointed by the Governor to Maryland's first Commission on Disabilities, she has long championed the wellbeing of vulnerable communities through both industry leadership and civic service. She is one of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s most powerful allies — bringing executive reach, hard-won recognition, and a genuine dedication to people who are often overlooked.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">LB</div>
+          <div class="person-name">Leigh Brocolina</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <p class="person-desc">Hospitality leader, community connector, and Baltimore native.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="bio-body">
+            <p>With decades of experience in hospitality leadership, Leigh has built a career on knowing how to bring people together — across industries, communities, and tables. As General Manager of McCormick &amp; Schmick's at Baltimore's Inner Harbor, she leads with warmth and quiet authority, while supporting local nonprofits and opening doors across the city's civic and business life. A Baltimore native with deep roots and wide reach, she brings to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> something rare and essential — the ability to make people feel genuinely received.</p>
           </div>
         </div>
 
@@ -260,7 +262,7 @@
           <div class="person-name">Bernie Nojadera</div>
           <div class="person-role teal">Advisory Council Member</div>
           <p class="person-desc">Trauma-informed leader, pastoral minister, and institutional safeguarding expert.</p>
-          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Tagalog · English</div>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Tagalog · Spanish · English</div>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>Serving with the Secretariat of Child and Youth Protection at the United States Conference of Catholic Bishops, he previously led child and vulnerable adult protection efforts for the Diocese of San Jose. Across decades of service, his work has been marked by a steadfast commitment to trauma-informed care, survivor accompaniment, and the strengthening of safe and accountable institutions.</p>
@@ -269,15 +271,47 @@
         </div>
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">RP</div>
-          <div class="person-name">Robin Priestley</div>
+          <div class="person-avatar avatar-teal">AH</div>
+          <div class="person-name">Adam Hinds</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Portraitist, sustainability pioneer, and survivor.</p>
+          <p class="person-desc">Nonprofit strategist, veteran, and mission builder.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
-            <p>A cancer & traumatic brain injury survivor, Robin knows what it means for life to change deeply and for truth to be found again. A proud U.S. Navy veteran, he served as an associate photographer for Now I Lay Me Down to Sleep, creating heirloom portraits for families facing the loss of a baby due to serious illness. He later built a career in the energy and environmental sector, contributing to major sustainability and carbon reduction initiatives, and holds a rare power quality certification shared by just over 100 people worldwide. Robin brings his gift for portraiture to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — helping make visible the faces, stories, and resilience of the women this foundation holds.</p>
+            <p>A retired U.S. Navy Chief Operations Specialist with more than 20 years of complex global service, Adam brings a disciplined, mission-focused approach to every organization he leads. An Advanced Certified Nonprofit Professional with a Master's degree in Christian Practice and Conflict Management, he has served in governance and leadership roles across multiple boards — building organizations with both rigor and heart. He comes to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> committed to one thing: helping grow an institution truly worthy of the women it serves.</p>
           </div>
         </div>
+
+      </div>
+
+      <div class="section-label">
+        <p class="kicker kicker-teal">Advisory Council</p>
+        <h2>Research, Knowledge &amp; Voice</h2>
+        <p class="section-desc">Academic depth, clinical insight, and the understanding that language and voice are how people are truly heard — and how communities are truly served.</p>
+      </div>
+
+      <div class="people-grid">
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">LS</div>
+          <div class="person-name">Laura Spinu, Ph.D.</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <p class="person-desc">Language and voice researcher, educator, and cross-cultural advocate.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Romanian · English</div>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="bio-body">
+            <p>A Full Professor of Communication and Speech at the City University of New York Kingsborough Community College and faculty member in the doctoral program in Speech-Language-Hearing Sciences at the City University of New York Graduate Center, Dr. Spinu has spent her career at the intersection of language, voice, and access. As Principal Investigator of a National Science Foundation–funded research initiative, she brings both academic depth and a strong commitment to culturally responsive, dignity-centered practice. Her understanding of what it means to be heard — truly heard — across language and culture is precisely what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is built on.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="section-label">
+        <p class="kicker kicker-teal">Advisory Council</p>
+        <h2>Arts, Culture &amp; Global Presence</h2>
+        <p class="section-desc">Creativity, cultural wisdom, and voices that carry <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> across languages, borders, and the distances that illness and immigration create.</p>
+      </div>
+
+      <div class="people-grid">
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">DS</div>
@@ -292,24 +326,14 @@
         </div>
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">PT</div>
-          <div class="person-name">Philip Tyler</div>
+          <div class="person-avatar avatar-teal">NK</div>
+          <div class="person-name">Na-young Kang</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Public servant, community advocate, and voice for families facing cancer.</p>
+          <p class="person-desc">Cultural artist, multi-cancer survivor, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s voice in Korea.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean</div>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
-            <p>Shaped by loss and led by heart, Philip works in public service with the State of Maryland and brings a grounded understanding of civic responsibility, community impact, and compassionate leadership. After losing his beloved wife Julie to cancer, he carries a profound and personal understanding of what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s women face. His empathy and community connections open doors to people and places the foundation might not otherwise reach. He holds a bachelor's degree from the University of York, United Kingdom.</p>
-          </div>
-        </div>
-
-        <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">EW</div>
-          <div class="person-name">Elizabeth Weglein</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Healthcare CEO, industry leader, and legacy builder.</p>
-          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="bio-body">
-            <p>As the Chief Executive Officer of Elizabeth Cooney Personnel Agency, she has spent decades building one of the region's most respected healthcare staffing and workforce development organizations. Recognized with the Health Care Heroes Award and appointed by the Governor to Maryland's first Commission on Disabilities, she has long championed the wellbeing of vulnerable communities through both industry leadership and civic service. She is one of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s most powerful allies — bringing executive reach, hard-won recognition, and a genuine dedication to people who are often overlooked.</p>
+            <p>A breast and thyroid cancer survivor living in Korea, Na-young carries the healing arts — calligraphy, culinary tradition, and the deep cultural wisdom of her homeland — as both a practice and a way of being. Her understanding that beauty and resilience are inseparable gives <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> an authentic voice and presence on the Korean peninsula. A childhood friend of the foundation's founder, she once folded 1,000 cranes and gifted them to Jihwan — long before this foundation existed. That gesture already carried the spirit of everything <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> stands for.</p>
           </div>
         </div>
 
@@ -322,6 +346,47 @@
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>Having built her life across two countries and cultures, she carries an intimate understanding of what it means to navigate belonging, identity, and everyday life far from home. Based in Germany, she brings an international perspective that few on this team can offer — and a personal grasp of the invisible weight immigrant women often carry. Her presence extends <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s reach beyond the United States and deepens its commitment to women whose lives are shaped by distance, transition, and the courage it takes to begin again.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">WQ</div>
+          <div class="person-name">Wanting Qu</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <p class="person-desc">Songwriter, cultural bridge, and voice across oceans.</p>
+          <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Mandarin · English</div>
+          <span class="pending-badge">Pending confirmation</span>
+        </div>
+
+      </div>
+
+      <div class="section-label">
+        <p class="kicker kicker-teal">Advisory Council</p>
+        <h2>Community &amp; Lived Experience</h2>
+        <p class="section-desc">Personal story, human care, and the presence of those who understand — from the inside — what it means to carry more than a diagnosis.</p>
+      </div>
+
+      <div class="people-grid">
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">RP</div>
+          <div class="person-name">Robin Priestley</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <p class="person-desc">Portraitist, sustainability pioneer, and survivor.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="bio-body">
+            <p>A cancer & traumatic brain injury survivor, Robin knows what it means for life to change deeply and for truth to be found again. A proud U.S. Navy veteran, he served as an associate photographer for Now I Lay Me Down to Sleep, creating heirloom portraits for families facing the loss of a baby due to serious illness. He later built a career in the energy and environmental sector, contributing to major sustainability and carbon reduction initiatives, and holds a rare power quality certification shared by just over 100 people worldwide. Robin brings his gift for portraiture to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — helping make visible the faces, stories, and resilience of the women this foundation holds.</p>
+          </div>
+        </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">PT</div>
+          <div class="person-name">Philip Tyler</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <p class="person-desc">Public servant, community advocate, and voice for families facing cancer.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="bio-body">
+            <p>Shaped by loss and led by heart, Philip works in public service with the State of Maryland and brings a grounded understanding of civic responsibility, community impact, and compassionate leadership. After losing his beloved wife Julie to cancer, he carries a profound and personal understanding of what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s women face. His empathy and community connections open doors to people and places the foundation might not otherwise reach. He holds a bachelor's degree from the University of York, United Kingdom.</p>
           </div>
         </div>
 
@@ -342,16 +407,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-            <div>© 2026 naræ International Foundation. All rights reserved.<br>A Maryland nonprofit organization. 501(c)(3) status pending.</div>
-      <div class="footer-links">
-        <a href="about.html">About <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span></a>
-        <a href="program.html">How <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> Works</a>
-        <a href="community.html">Ways to Be Part</a>
-        <a href="founder.html">Founder</a>
-        <a href="leadership.html">Leadership</a>
-      </div>
-    </div>
+    <div class="footer-inner"></div>
   </footer>
 
   <script>
@@ -363,6 +419,6 @@
       btn.childNodes[0].textContent = isOpen ? 'More ' : 'Less ';
     }
   </script>
-<script src="footer.js"></script> 
+  <script src="footer.js"></script>
 </body>
 </html>
