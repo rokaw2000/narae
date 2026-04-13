@@ -25,14 +25,13 @@
     h1, h2, h3, h4 { margin: 0; font-weight: 500; letter-spacing: -0.02em; color: var(--text); }
     h1 { font-size: clamp(2.55rem, 5vw, 4rem); line-height: 1.04; }
     h2 { font-size: clamp(1.5rem, 2.5vw, 1.9rem); line-height: 1.12; }
-    h3 { font-size: 1.2rem; line-height: 1.24; font-weight: 700; }
     p { margin: 0; font-size: 1.03rem; line-height: 1.9; color: var(--muted); }
     .lead { font-size: 1.1rem; line-height: 1.8; }
-    .kicker, .eyebrow { display: block; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
+    .kicker { display: block; margin: 0 0 6px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold-deep); }
     .kicker-teal { color: var(--teal); }
     .brandmark { display: inline-flex; align-items: baseline; white-space: nowrap; font-weight: 700; text-transform: none !important; letter-spacing: -0.03em !important; font-variant: normal; }
     .logo-word { display: inline-block; line-height: 1; letter-spacing: -0.03em; font-weight: 700; text-transform: none !important; font-variant: normal; color: inherit; }
-    .nav .logo-word, .footer-links .logo-word, .kicker .logo-word, .eyebrow .logo-word { color: var(--gold-deep); }
+    .nav .logo-word, .footer-links .logo-word { color: var(--gold-deep); }
     .brand-plus { position: relative; display: inline-block; width: 0.34em; height: 0.34em; margin-left: 0.015em; transform: translateY(-0.40em); flex: 0 0 auto; }
     .brand-plus .arm { position: absolute; border-radius: 999px; }
     .brand-plus .arm-top, .brand-plus .arm-bottom, .brand-plus .arm-left { background: var(--pink); }
@@ -65,7 +64,10 @@
     .section-label { margin-bottom: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
     .section-label h2 { margin-top: 4px; }
     .section-desc { font-size: 0.93rem; line-height: 1.7; color: var(--muted); margin-top: 6px; max-width: 680px; font-style: italic; }
+    .advisory-divider { border: none; border-top: 2px solid var(--line); margin: 48px 0 40px; position: relative; }
+    .advisory-divider::after { content: "Advisory Council"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--bg); padding: 0 16px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--teal); }
     .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-bottom: 32px; }
+    .people-grid-culture { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 32px; }
     .person-card { border: 1px solid var(--line); background: rgba(252,251,248,0.88); border-radius: 18px; box-shadow: var(--shadow); padding: 24px; display: flex; flex-direction: column; }
     .person-card.board-founder { border-left: 2px solid rgba(142,27,27,0.35); }
     .person-card.advisory { border-left: 2px solid rgba(95,159,159,0.45); }
@@ -73,12 +75,14 @@
     .avatar-red  { background: linear-gradient(135deg, var(--gold-deep), var(--gold-pale)); color: var(--red); }
     .avatar-warm { background: linear-gradient(135deg, rgba(185,141,67,0.18), rgba(185,141,67,0.06)); color: var(--gold-deep); border: 1px solid rgba(185,141,67,0.25); }
     .avatar-teal { background: linear-gradient(135deg, rgba(95,159,159,0.2), rgba(95,159,159,0.06)); color: var(--teal); border: 1px solid rgba(95,159,159,0.25); }
-    .person-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 3px; line-height: 1.2; }
-    .person-role { font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; color: var(--gold-deep); text-transform: uppercase; margin-bottom: 10px; line-height: 1.4; }
+    .person-role { font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em; color: var(--muted); text-transform: uppercase; margin-bottom: 4px; line-height: 1.4; }
     .person-role.teal { color: var(--teal); }
-    .person-desc { font-size: 0.91rem; line-height: 1.68; color: var(--muted); }
-    .lang-tag { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    .person-name { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; margin-bottom: 4px; line-height: 1.2; }
+    .person-desc { font-size: 0.91rem; line-height: 1.68; color: var(--muted); margin-top: 8px; font-family: Georgia, "Times New Roman", serif; }
+    .lang-tag { display: flex; align-items: center; gap: 4px; margin-top: 5px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
     .lang-tag svg { flex-shrink: 0; }
+    .location-tag { display: flex; align-items: center; gap: 4px; margin-top: 3px; font-family: Arial, Helvetica, sans-serif; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.02em; color: var(--muted); }
+    .location-tag svg { flex-shrink: 0; opacity: 0.6; }
     .bio-toggle { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); cursor: pointer; background: none; border: none; padding: 0; }
     .bio-toggle.teal { color: var(--teal); }
     .bio-toggle svg { transition: transform 0.25s ease; flex-shrink: 0; }
@@ -93,6 +97,9 @@
     .footer-links { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 22px; }
     .footer-links a { color: var(--gold-deep); }
     @media (max-width: 760px) {
+      .people-grid-culture { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-bottom: 32px; }
+    }
+    @media (max-width: 760px) {
       .header-inner { min-height: auto; padding: 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
       .nav { width: 100%; justify-content: flex-start; gap: 12px 16px; }
       .page-hero { padding: 38px 0 30px; }
@@ -101,12 +108,17 @@
     }
     @media (max-width: 520px) {
       .people-grid { grid-template-columns: 1fr; }
+      .people-grid-culture { grid-template-columns: 1fr; }
       .container, .header-inner, .footer-inner { width: min(100% - 34px, var(--max)); }
       h1 { font-size: clamp(2.2rem, 10vw, 3.1rem); }
     }
     @media (max-width: 760px) {
       .page-hero .container > div:last-child { display: none; }
       .page-hero .container { flex-direction: column; }
+      .btn-row { flex-direction: column; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .bio-toggle { min-height: 36px; padding: 4px 0; }
+      .person-card { padding: 20px; }
     }
     @media (max-width: 480px) {
       .nav { font-size: 0.82rem; gap: 10px 12px; }
@@ -115,12 +127,6 @@
     @media (max-width: 400px) {
       h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
       .footer-links { gap: 10px 14px; }
-    }
-    @media (max-width: 760px) {
-      .btn-row { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-      .bio-toggle { min-height: 36px; padding: 4px 0; }
-      .person-card { padding: 20px; }
     }
   </style>
 </head>
@@ -164,29 +170,31 @@
       <div class="section-label">
         <p class="kicker">Board of Directors</p>
         <h2>Governance and oversight</h2>
-        <p class="section-desc">The Board of Directors provides the governance, oversight, and strategic direction that allows <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> to grow with integrity and serve women well.</p>
+        <p class="section-desc">Board members serve staggered terms of five years and provide governance, fiduciary oversight, and long-term stewardship of naræ International Foundation. They volunteer their service and are responsible for strategy, financial accountability, and safeguarding the mission.</p>
       </div>
 
       <div class="people-grid">
 
         <div class="person-card board-founder">
           <div class="person-avatar avatar-red">JB</div>
-          <div class="person-name">Jihwan Baek</div>
           <div class="person-role">Founder · Board Chair · Executive Director</div>
-          <p class="person-desc">Public service leader, survivor, and founder of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
+          <div class="person-name">Jihwan Baek</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Baltimore, Maryland</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean · English</div>
+          <p class="person-desc">Public service leader, survivor, and founder of <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
-            <p>A public service leader and two-time breast cancer survivor, her life and work have been shaped by immigration, illness, and decades of service to others. Through years of volunteer service, she received the President's Volunteer Service Award. During chemotherapy, she continued her graduate studies and completed her MBA at Frostburg State University. She remains actively engaged with organizations working at the intersection of community and service. Everything she has lived through is woven into <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> — built on the belief that no woman should have to face the hardest moments of illness alone.</p>
+            <p>A public service leader and two-time breast cancer survivor, her life and work have been shaped by immigration, illness, and decades of service to others. Through years of volunteer service, she received the President's Volunteer Service Award. During chemotherapy, she continued her graduate studies and completed her MBA at Frostburg State University. She remains actively engaged with organizations working at the intersection of community and service. Everything she has lived through is woven into <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>.</p>
           </div>
         </div>
 
         <div class="person-card ">
           <div class="person-avatar avatar-warm">GT</div>
-          <div class="person-name">Genene Tadesse</div>
           <div class="person-role">Treasurer · Board Member</div>
-          <p class="person-desc">Financial expert, global development leader, and institution builder.</p>
+          <div class="person-name">Genene Tadesse</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ellicott City, Maryland</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Amharic · English</div>
+          <p class="person-desc">Financial expert, global development leader, and institution builder.</p>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>With more than 23 years of experience in global finance and international development, he has led complex donor-funded programs across multiple countries with precision and integrity, including through his work with Jhpiego, a global health nonprofit affiliated with Johns Hopkins University. His expertise in budgeting, compliance, and financial analysis gives <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> the institutional backbone it needs to grow responsibly and serve women well. He holds an MBA from Cambridge International College in the United Kingdom and is currently pursuing a second MBA at Johns Hopkins University.</p>
@@ -195,8 +203,9 @@
 
         <div class="person-card ">
           <div class="person-avatar avatar-warm">SD</div>
-          <div class="person-name">Susan E. Dreyer</div>
           <div class="person-role">Secretary · Board Member</div>
+          <div class="person-name">Susan E. Dreyer</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Glen Burnie, Maryland</div>
           <p class="person-desc">Environmental engineer, safety professional, and avid sailor.</p>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -206,8 +215,9 @@
 
         <div class="person-card ">
           <div class="person-avatar avatar-warm">DC</div>
-          <div class="person-name">Daphney N. Cornelius</div>
           <div class="person-role">Board Member</div>
+          <div class="person-name">Daphney N. Cornelius</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Annapolis, Maryland</div>
           <p class="person-desc">Guardian of dignity, cultural advocate, and community voice.</p>
           <button class="bio-toggle" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -217,10 +227,14 @@
 
       </div>
 
-      <!-- STRATEGIC LEADERSHIP & ADVOCACY: VB, EW, BN, LB -->
+      <!-- DIVIDER -->
+      <hr class="advisory-divider" />
+
+      <!-- STRATEGIC LEADERSHIP & ADVOCACY -->
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Council</p>
         <h2>Strategic Leadership &amp; Advocacy</h2>
+        <p class="section-desc">Members of the Advisory Council serve in a voluntary capacity and offer strategic insight, professional expertise, and global perspective to support the mission of naræ International Foundation. Advisory roles are flexible and may evolve as the organization grows.</p>
         <p class="section-desc">Law, executive leadership, and institutional expertise — voices that advocate for justice, equity, and the communities <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> serves.</p>
       </div>
 
@@ -228,8 +242,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">VB</div>
-          <div class="person-name">Vanessa Clark Brooks, J.D.</div>
           <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Vanessa Clark Brooks, J.D.</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Reisterstown, Maryland</div>
           <p class="person-desc">Attorney, thriver, and global advocate.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -239,8 +254,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">EW</div>
-          <div class="person-name">Elizabeth Weglein</div>
           <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Elizabeth Weglein</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sparks, Maryland</div>
           <p class="person-desc">Healthcare CEO, industry leader, and legacy builder.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -249,30 +265,34 @@
         </div>
 
         <div class="person-card advisory">
-          <div class="person-avatar avatar-teal">LB</div>
-          <div class="person-name">Leigh Brocolina</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Hospitality leader, community connector, and Baltimore native.</p>
-          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="bio-body">
-            <p>With decades of experience in hospitality leadership, Leigh has built a career on knowing how to bring people together — across industries, communities, and tables. As General Manager of McCormick &amp; Schmick's at Baltimore's Inner Harbor, she leads with warmth and quiet authority, while supporting local nonprofits and opening doors across the city's civic and business life. A Baltimore native with deep roots and wide reach, she brings to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> something rare and essential — the ability to make people feel genuinely received.</p>
-          </div>
-        </div>
-        <div class="person-card advisory">
           <div class="person-avatar avatar-teal">BN</div>
-          <div class="person-name">Bernie Nojadera</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Trauma-informed leader, pastoral minister, and institutional safeguarding expert.</p>
+          <div class="person-name">Bernie Nojadera</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Hyattsville, Maryland</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Tagalog · Spanish · English</div>
+          <p class="person-desc">Trauma-informed leader, pastoral minister, and institutional safeguarding expert.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>Serving with the Secretariat of Child and Youth Protection at the United States Conference of Catholic Bishops, he previously led child and vulnerable adult protection efforts for the Diocese of San Jose. Across decades of service, his work has been marked by a steadfast commitment to trauma-informed care, survivor accompaniment, and the strengthening of safe and accountable institutions.</p>
             <p>At <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>, he brings seasoned judgment and compassionate guidance grounded in dignity, trust, and care. He holds degrees from Saint Joseph College, San Jose State University, and St. Patrick's Seminary and University, and is also a military veteran — reflecting a lifelong commitment to service.</p>
           </div>
         </div>
+
+        <div class="person-card advisory">
+          <div class="person-avatar avatar-teal">LB</div>
+          <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Leigh Brocolina</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Baltimore, Maryland</div>
+          <p class="person-desc">Hospitality leader, community connector, and Baltimore native.</p>
+          <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="bio-body">
+            <p>With decades of experience in hospitality leadership, Leigh has built a career on knowing how to bring people together — across industries, communities, and tables. As General Manager of McCormick &amp; Schmick's at Baltimore's Inner Harbor, she leads with warmth and quiet authority, while supporting local nonprofits and opening doors across the city's civic and business life. A Baltimore native with deep roots and wide reach, she brings to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> something rare and essential — the ability to make people feel genuinely received.</p>
+          </div>
+        </div>
+
       </div>
 
-      <!-- NONPROFIT GOVERNANCE & MISSION: AH + 3 placeholders -->
+      <!-- NONPROFIT GOVERNANCE & MISSION -->
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Council</p>
         <h2>Nonprofit Governance &amp; Mission</h2>
@@ -283,8 +303,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">AH</div>
-          <div class="person-name">Adam Hinds</div>
           <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Adam Hinds</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Newsoms, Virginia</div>
           <p class="person-desc">Nonprofit strategist, veteran, and mission builder.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -292,30 +313,9 @@
           </div>
         </div>
 
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council is expanding — welcoming leaders whose operational expertise and civic engagement help carry this mission forward.</p>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council is expanding — welcoming leaders whose operational expertise and civic engagement help carry this mission forward.</p>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council is expanding — welcoming leaders whose operational expertise and civic engagement help carry this mission forward.</p>
-        </div>
-
       </div>
 
-      <!-- RESEARCH, CLINICAL & ACADEMIC EXPERTISE: LS + 3 placeholders -->
+      <!-- RESEARCH, CLINICAL & ACADEMIC EXPERTISE -->
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Council</p>
         <h2>Research, Clinical &amp; Academic Expertise</h2>
@@ -326,63 +326,46 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">LS</div>
-          <div class="person-name">Laura Spinu, Ph.D.</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Language and voice researcher, educator, and cross-cultural advocate.</p>
+          <div class="person-name">Laura Spinu, Ph.D.</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Connecticut & New York</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Romanian · English</div>
+          <p class="person-desc">Language and voice researcher, educator, and cross-cultural advocate.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
-            <p>A Professor of Communication and Speech at the City University of New York Kingsborough Community College and faculty member in the doctoral program in Speech-Language-Hearing Sciences at the City University of New York Graduate Center, Dr. Spinu has spent her career at the intersection of language, voice, and access. As Principal Investigator of a National Science Foundation–funded research initiative, she brings both academic depth and a strong commitment to culturally responsive, dignity-centered practice. Her understanding of what it means to be heard — truly heard — across language and culture is precisely what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is built on.</p>
+            <p>A Full Professor of Communication and Speech at the City University of New York Kingsborough Community College and faculty member in the doctoral program in Speech-Language-Hearing Sciences at the City University of New York Graduate Center, Dr. Spinu has spent her career at the intersection of language, voice, and access. As Principal Investigator of a National Science Foundation–funded research initiative, she brings both academic depth and a strong commitment to culturally responsive, dignity-centered practice. Her understanding of what it means to be heard — truly heard — across language and culture is precisely what <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> is built on.</p>
           </div>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> welcomes physicians, researchers, and clinicians whose expertise can deepen the care women receive.</p>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> welcomes physicians, researchers, and clinicians whose expertise can deepen the care women receive.</p>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> welcomes physicians, researchers, and clinicians whose expertise can deepen the care women receive.</p>
         </div>
 
       </div>
 
-      <!-- CULTURE, ARTS & GLOBAL PRESENCE: DS, RP, NK, DW, PT + 2 placeholders -->
+      <!-- CULTURE, ARTS & GLOBAL PRESENCE -->
       <!-- NOTE: When Wanting Qu confirms, add her card FIRST in this section -->
-      <!-- Wanting Qu bio: Songwriter, cultural bridge, and voice across oceans. Mandarin/English -->
-      <!-- A Chinese-Canadian singer-songwriter born in Harbin, China and based in Vancouver, Wanting -->
-      <!-- has built a remarkable career on music that moves between languages, cultures, and the quiet -->
-      <!-- resilience of beginning again. Her debut album went platinum in China within its first week, -->
-      <!-- and she became the first Chinese artist signed to the Nettwerk label — reaching millions -->
-      <!-- across the world with songs that carry longing, strength, and grace. She and the founder -->
-      <!-- found each other in one of those rare, unexpected ways that only shared experience makes -->
-      <!-- possible. Her presence in this community is a gift that continues to unfold. -->
+      <!-- Wanting Qu bio (saved): -->
+      <!-- Name: Wanting Qu | Initials: WQ | Languages: Mandarin · English -->
+      <!-- Tagline: Songwriter, cultural bridge, and voice across oceans. -->
+      <!-- Bio: A Chinese-Canadian singer-songwriter born in Harbin, China and based in Vancouver, -->
+      <!-- Wanting has built a remarkable career on music that moves between languages, cultures, and -->
+      <!-- the quiet resilience of beginning again. Her debut album went platinum in China within its -->
+      <!-- first week, and she became the first Chinese artist signed to the Nettwerk label — reaching -->
+      <!-- millions across the world with songs that carry longing, strength, and grace. She and the -->
+      <!-- founder found each other in one of those rare, unexpected ways that only shared experience -->
+      <!-- makes possible. Her presence in this community is a gift that continues to unfold. -->
       <div class="section-label">
         <p class="kicker kicker-teal">Advisory Council</p>
         <h2>Culture, Arts &amp; Global Presence</h2>
         <p class="section-desc">Creativity, cultural wisdom, and voices that carry <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> across languages, borders, and the distances that illness and immigration create.</p>
       </div>
 
-      <div class="people-grid">
+                  <div class="people-grid-culture">
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">DS</div>
-          <div class="person-name">Dami Soh Schlobohm</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Musician, cultural bridge, and community builder.</p>
+          <div class="person-name">Dami Soh Schlobohm</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Odenton, Maryland</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean · English</div>
+          <p class="person-desc">Musician, cultural bridge, and community builder.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>A musician, educator, and cultural bridge-builder, she was born in Seoul and raised in Maryland. She holds a degree in cello performance from the University of Maryland, Baltimore County and a master's degree in Korean Traditional Music Theory from Seoul National University — one of Korea's most prestigious institutions. As the owner of DS Music Studio, she teaches cello and Korean traditional music — preserving cultural heritage while creating space for expression and belonging. Her work brings artistic depth and cultural resonance to <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s mission and to the women who find their place within it.</p>
@@ -391,8 +374,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">RP</div>
-          <div class="person-name">Robin Priestley</div>
           <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Robin Priestley</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Davenport, Iowa</div>
           <p class="person-desc">Portraitist, sustainability pioneer, and survivor.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -402,10 +386,11 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">NK</div>
-          <div class="person-name">Na-young Kang</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Cultural artist, multi-cancer survivor, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s voice in Korea.</p>
+          <div class="person-name">Na-young Kang</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Jinju, Korea</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Korean</div>
+          <p class="person-desc">Cultural artist, multi-cancer survivor, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s voice in Korea.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>A breast and thyroid cancer survivor living in Korea, Na-young carries the healing arts — calligraphy, culinary tradition, and the deep cultural wisdom of her homeland — as both a practice and a way of being. Her understanding that beauty and resilience are inseparable gives <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> an authentic voice and presence on the Korean peninsula. A childhood friend of the foundation's founder, she once folded 1,000 cranes and gifted them to Jihwan — long before this foundation existed. That gesture already carried the spirit of everything <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span> stands for.</p>
@@ -414,10 +399,11 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">DW</div>
-          <div class="person-name">Daniela Werner</div>
           <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc">Cross-cultural navigator, global voice, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s bridge to Europe.</p>
+          <div class="person-name">Daniela Werner</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Altenstadt, Germany</div>
           <div class="lang-tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>German · English</div>
+          <p class="person-desc">Cross-cultural navigator, global voice, and <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s bridge to Europe.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
             <p>Having built her life across two countries and cultures, she carries an intimate understanding of what it means to navigate belonging, identity, and everyday life far from home. Based in Germany, she brings an international perspective that few on this team can offer — and a personal grasp of the invisible weight immigrant women often carry. Her presence extends <span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s reach beyond the United States and deepens its commitment to women whose lives are shaped by distance, transition, and the courage it takes to begin again.</p>
@@ -426,8 +412,9 @@
 
         <div class="person-card advisory">
           <div class="person-avatar avatar-teal">PT</div>
-          <div class="person-name">Philip Tyler</div>
           <div class="person-role teal">Advisory Council Member</div>
+          <div class="person-name">Philip Tyler</div>
+          <div class="location-tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Towson, Maryland</div>
           <p class="person-desc">Public servant, community advocate, and voice for families facing cancer.</p>
           <button class="bio-toggle teal" aria-expanded="false" onclick="toggleBio(this)">More <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="bio-body">
@@ -435,28 +422,9 @@
           </div>
         </div>
 
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council continues to expand — welcoming voices shaped by lived experience, community care, and human presence.</p>
-        </div>
-
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council continues to expand — welcoming voices shaped by lived experience, community care, and human presence.</p>
-        </div>
-        <div class="person-card advisory" style="border-style:dashed; opacity:0.5;">
-          <div class="person-avatar avatar-teal" style="opacity:0.35;">+</div>
-          <div class="person-name" style="color:var(--muted);">Growing thoughtfully.</div>
-          <div class="person-role teal">Advisory Council Member</div>
-          <p class="person-desc"><span class="brandmark brand-inline"><span class="logo-word">naræ</span><span class="brand-plus" aria-hidden="true"><span class="arm arm-top"></span><span class="arm arm-right"></span><span class="arm arm-bottom"></span><span class="arm arm-left"></span></span></span>'s advisory council continues to expand — welcoming voices shaped by lived experience, community care, and human presence.</p>
-        </div>
       </div>
 
-      <div style="text-align:center; margin-bottom:16px;">
+      <div style="text-align:center; margin-bottom:16px; margin-top:16px;">
         <img src="narae-logo.png" alt="" aria-hidden="true" style="width:72px; height:auto; opacity:0.55; filter:drop-shadow(0 2px 6px rgba(185,141,67,0.15));" />
       </div>
       <p class="footnote">The leadership of naræ International Foundation will continue to grow thoughtfully as the organization evolves.</p>
